@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="EmbSys Registers"
+            icon="icons/IO.gif"
+            category="org.eclipse.debug.ui"
+            class="org.eclipse.cdt.embsysregview.views.EmbSysRegView"
+            id="org.eclipse.cdt.embsysregview.views.EmbSysRegView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.cdt.ui.CPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.TaskList"
+               relationship="right"
+               id="org.eclipse.cdt.embsysregview.views.EmbSysRegView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.cdt.debug.ui.CDebugPreferencePage"
+            class="org.eclipse.cdt.embsysregview.preferences.PreferencePageEmbSys"
+            id="org.eclipse.cdt.embsysregview.preferences.PreferencePageEmbSys"
+            name="EmbSys Register View">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.eclipse.cdt.embsysregview.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+
+</plugin>
