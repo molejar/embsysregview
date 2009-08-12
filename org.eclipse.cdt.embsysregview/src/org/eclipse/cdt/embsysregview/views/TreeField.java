@@ -54,7 +54,6 @@ public class TreeField extends TreeElement {
 	
 	public void updateValue() {
 		long registerValue=-1;
-		byte bitsRegister=32;
 		
 		TreeElement parent = this.getParent();
 		if (parent instanceof TreeRegister)
@@ -62,9 +61,8 @@ public class TreeField extends TreeElement {
 			registerValue=((TreeRegister)parent).getValue();
 			if(registerValue!=-1)
 			{
-				registerValue<<=bitOffset;
-				registerValue&=0xFFFFFFFFL; // cut everything above 32bit
-				registerValue>>=bitsRegister-bitLength;
+				registerValue >>= bitOffset;					// drop the unnecessary bits "below" the field
+				registerValue &= ~(0xFFFFFFFFL << bitLength);	// drop the bits "above" the field
 			}
 		}
 		old_value=value;

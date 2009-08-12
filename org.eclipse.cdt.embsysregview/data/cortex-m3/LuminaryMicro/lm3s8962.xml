@@ -384,19 +384,19 @@ corresponding bits in GPIODATA to be read as 0, regardless of their value.
 A read from GPIODATA returns the last bit value written if the respective pins are configured as
 outputs, or it returns the value on the corresponding input pin when these are configured as inputs.
 All bits are cleared by a reset.</description>
-        <field board_id="LM3S8962_EVAL" name="LED1" description="" bitoffset="31" bitlength="1">
+        <field board_id="LM3S8962_EVAL" name="LED1" description="" bitoffset="0" bitlength="1">
           <interpretation key="0" text="Led 1 off"/>
           <interpretation key="1" text="Led 1 on"/>
         </field>
-		<field name="PIN0" description="" bitoffset="31" bitlength="1"/>
-		<field name="PIN1" description="" bitoffset="30" bitlength="1"/>
-		<field name="PIN2" description="" bitoffset="29" bitlength="1"/>
-		<field name="PIN3" description="" bitoffset="28" bitlength="1"/>
-		<field name="PIN4" description="" bitoffset="27" bitlength="1"/>
-		<field name="PIN5" description="" bitoffset="26" bitlength="1"/>
-		<field name="PIN6" description="" bitoffset="25" bitlength="1"/>
-		<field name="PIN7" description="" bitoffset="24" bitlength="1"/>
-        <field name="DATA" description="GPIO Data" bitoffset="24" bitlength="8">
+		<field name="PIN0" description="" bitoffset="0" bitlength="1"/>
+		<field name="PIN1" description="" bitoffset="1" bitlength="1"/>
+		<field name="PIN2" description="" bitoffset="2" bitlength="1"/>
+		<field name="PIN3" description="" bitoffset="3" bitlength="1"/>
+		<field name="PIN4" description="" bitoffset="4" bitlength="1"/>
+		<field name="PIN5" description="" bitoffset="5" bitlength="1"/>
+		<field name="PIN6" description="" bitoffset="6" bitlength="1"/>
+		<field name="PIN7" description="" bitoffset="7" bitlength="1"/>
+        <field name="DATA" description="GPIO Data" bitoffset="7" bitlength="8">
 		  <description>GPIO Data
 This register is virtually mapped to 256 locations in the address space.
 To facilitate the reading and writing of data to these registers by
@@ -413,7 +413,7 @@ reads and writes.</description>
 The GPIODIR register is the data direction register. Bits set to 1 in the GPIODIR register configure
 the corresponding pin to be an output, while bits set to 0 configure the pins to be inputs. All bits are
 cleared by a reset, meaning all GPIO pins are inputs by default.</description>
-		<field name="DIR" bitoffset="24" bitlength="8">
+		<field name="DIR" bitoffset="7" bitlength="8">
 		  <description>GPIO Data Direction
 The DIR values are defined as follows:
 Value Description
@@ -426,7 +426,7 @@ Value Description
 The GPIOIS register is the interrupt sense register. Bits set to 1 in GPIOIS configure the
 corresponding pins to detect levels, while bits set to 0 configure the pins to detect edges. All bits
 are cleared by a reset.</description>
-		<field name="IS"  bitoffset="24" bitlength="8">
+		<field name="IS"  bitoffset="7" bitlength="8">
 		  <description>GPIO Interrupt Sense
 The IS values are defined as follows:
 Value Description
@@ -441,7 +441,7 @@ Interrupt Sense (GPIOIS) register (see page 188) is set to detect edges, bits se
 configure the corresponding pin to detect both rising and falling edges, regardless of the
 corresponding bit in the GPIO Interrupt Event (GPIOIEV) register (see page 190). Clearing a bit
 configures the pin to be controlled by GPIOIEV. All bits are cleared by a reset.</description>
-		<field name="IBE"  bitoffset="24" bitlength="8">
+		<field name="IBE"  bitoffset="7" bitlength="8">
 		  <description>GPIO Interrupt Both Edges
 The IBE values are defined as follows:
 Value Description
@@ -459,7 +459,7 @@ corresponding pin to detect rising edges or high levels, depending on the corres
 in the GPIO Interrupt Sense (GPIOIS) register (see page 188). Clearing a bit configures the pin to
 detect falling edges or low levels, depending on the corresponding bit value in GPIOIS. All bits are
 cleared by a reset.</description>
-		<field name="IEV"  bitoffset="24" bitlength="8">
+		<field name="IEV"  bitoffset="7" bitlength="8">
 		  <description>GPIO Interrupt Event
 The IEV values are defined as follows:
 Value Description
@@ -474,7 +474,7 @@ interrupts.</description>
 The GPIOIM register is the interrupt mask register. Bits set to High in GPIOIM allow the corresponding
 pins to trigger their individual interrupts and the combined GPIOINTR line. Clearing a bit disables
 interrupt triggering on that pin. All bits are cleared by a reset.</description>
-		<field name="IME"  bitoffset="24" bitlength="8">
+		<field name="IME"  bitoffset="7" bitlength="8">
 		  <description>GPIO Interrupt Mask Enable
 The IME values are defined as follows:
 Value Description
@@ -489,7 +489,7 @@ status of interrupt trigger conditions detected (raw, prior to masking), indicat
 requirements have been met, before they are finally allowed to trigger by the GPIO Interrupt Mask
 (GPIOIM) register (see page 191). Bits read as zero indicate that corresponding input pins have not
 initiated an interrupt. All bits are cleared by a reset.</description>
-		<field name="RIS"  bitoffset="24" bitlength="8">
+		<field name="RIS"  bitoffset="7" bitlength="8">
 		  <description>GPIO Interrupt Raw Status
 Reflects the status of interrupt trigger condition detection on pins (raw,
 prior to masking).
@@ -516,7 +516,7 @@ handler needs to ignore and clear interrupts on B4, and wait for the ADC interru
 interrupt needs to be disabled in the SETNA register and the PortB interrupt handler polls the ADC
 registers until the conversion is completed.
 GPIOMIS is the state of the interrupt after masking.</description>
-		<field name="MIS"  bitoffset="24" bitlength="8">
+		<field name="MIS"  bitoffset="7" bitlength="8">
 		  <description>GPIO Masked Interrupt Status
 Masked value of interrupt due to corresponding pin.
 The MIS values are defined as follows:
@@ -529,7 +529,7 @@ Value Description
 	  <description>GPIO Interrupt Clear
 The GPIOICR register is the interrupt clear register. Writing a 1 to a bit in this register clears the
 corresponding interrupt edge detection logic register. Writing a 0 has no effect.</description>
-		<field name="IC"  bitoffset="24" bitlength="8">
+		<field name="IC"  bitoffset="7" bitlength="8">
 		  <description>GPIO Interrupt Clear
 The IC values are defined as follows:
 Value Description
@@ -561,7 +561,7 @@ pins to their GPIO functionality, the debugger may not have enough time to conne
 controller before the JTAG pin functionality switches. This may lock the debugger out of the part. This
 can be avoided with a software routine that restores JTAG functionality based on an external or software
 trigger.</description>
-		<field name="AFSEL"  bitoffset="24" bitlength="8">
+		<field name="AFSEL"  bitoffset="7" bitlength="8">
 		  <description>GPIO Alternate Function Select
 The AFSEL values are defined as follows:
 Value Description
@@ -576,7 +576,7 @@ The GPIODR2R register is the 2-mA drive control register. It allows for each GPI
 to be individually configured without affecting the other pads. When writing a DRV2 bit for a GPIO
 signal, the corresponding DRV4 bit in the GPIODR4R register and the DRV8 bit in the GPIODR8R
 register are automatically cleared by hardware.</description>
-		<field name="DRV2"  bitoffset="24" bitlength="8">
+		<field name="DRV2"  bitoffset="7" bitlength="8">
 		  <description>Output Pad 2-mA Drive Enable
 A write of 1 to either GPIODR4[n] or GPIODR8[n] clears the
 corresponding 2-mA enable bit. The change is effective on the second
@@ -589,7 +589,7 @@ The GPIODR4R register is the 4-mA drive control register. It allows for each GPI
 to be individually configured without affecting the other pads. When writing the DRV4 bit for a GPIO
 signal, the corresponding DRV2 bit in the GPIODR2R register and the DRV8 bit in the GPIODR8R
 register are automatically cleared by hardware.</description>
-		<field name="DRV4"  bitoffset="24" bitlength="8">
+		<field name="DRV4"  bitoffset="7" bitlength="8">
 		  <description>Output Pad 4-mA Drive Enable
 A write of 1 to either GPIODR2[n] or GPIODR8[n] clears the
 corresponding 4-mA enable bit. The change is effective on the second
@@ -602,7 +602,7 @@ The GPIODR8R register is the 8-mA drive control register. It allows for each GPI
 to be individually configured without affecting the other pads. When writing the DRV8 bit for a GPIO
 signal, the corresponding DRV2 bit in the GPIODR2R register and the DRV4 bit in the GPIODR4R
 register are automatically cleared by hardware.</description>
-		<field name="DRV8"  bitoffset="24" bitlength="8">
+		<field name="DRV8"  bitoffset="7" bitlength="8">
 		  <description>Output Pad 8-mA Drive Enable
 A write of 1 to either GPIODR2[n] or GPIODR4[n] clears the
 corresponding 8-mA enable bit. The change is effective on the second
@@ -621,7 +621,7 @@ when set to 1.
 When using the I2C module, in addition to configuring the pin to open drain, the GPIO Alternate
 Function Select (GPIOAFSEL) register bits for the I2C clock and data pins should be set to 1 (see
 examples in “Initialization and Configuration” on page 182).</description>
-		<field name="ODE"  bitoffset="24" bitlength="8">
+		<field name="ODE"  bitoffset="7" bitlength="8">
 		  <description>Output Pad Open Drain Enable
 The ODE values are defined as follows:
 Value Description
@@ -634,7 +634,7 @@ Value Description
 The GPIOPUR register is the pull-up control register. When a bit is set to 1, it enables a weak pull-up
 resistor on the corresponding GPIO signal. Setting a bit in GPIOPUR automatically clears the
 corresponding bit in the GPIO Pull-Down Select (GPIOPDR) register (see page 202).</description>
-		<field name="PUE"  bitoffset="24" bitlength="8">
+		<field name="PUE"  bitoffset="7" bitlength="8">
 		  <description>Pad Weak Pull-Up Enable
 A write of 1 to GPIOPDR[n] clears the corresponding GPIOPUR[n]
 enables. The change is effective on the second clock cycle after the
@@ -646,7 +646,7 @@ write.</description>
 The GPIOPDR register is the pull-down control register. When a bit is set to 1, it enables a weak
 pull-down resistor on the corresponding GPIO signal. Setting a bit in GPIOPDR automatically clears
 the corresponding bit in the GPIO Pull-Up Select (GPIOPUR) register (see page 201).</description>
-		<field name="PDE"  bitoffset="24" bitlength="8">
+		<field name="PDE"  bitoffset="7" bitlength="8">
 		  <description>Pad Weak Pull-Down Enable
 A write of 1 to GPIOPUR[n] clears the corresponding GPIOPDR[n]
 enables. The change is effective on the second clock cycle after the
@@ -658,7 +658,7 @@ write.</description>
 The GPIOSLR register is the slew rate control register. Slew rate control is only available when
 using the 8-mA drive strength option via the GPIO 8-mA Drive Select (GPIODR8R) register (see
 page 199).</description>
-		<field name="SLR"  bitoffset="24" bitlength="8">
+		<field name="SLR"  bitoffset="7" bitlength="8">
 		  <description>Slew Rate Limit Enable (8-mA drive only)
 The SRL values are defined as follows:
 Value Description
@@ -674,7 +674,7 @@ signals used for JTAG/SWD function, all other GPIO signals are configured out of
 (tristate). Their digital function is disabled; they do not drive a logic value on the pin and they do not
 allow the pin voltage into the GPIO receiver. To use the pin in a digital function (either GPIO or
 alternate function), the corresponding GPIODEN bit must be set.</description>
-		<field name="DEN"  bitoffset="24" bitlength="8">
+		<field name="DEN"  bitoffset="7" bitlength="8">
 		  <description>Digital Enable
 The DEN values are defined as follows:
 Value Description
@@ -722,7 +722,7 @@ Because this protection is currently only implemented on the JTAG/SWD pins on PB
 and PC[3:0], all of the other bits in the GPIOCR registers cannot be written with 0x0.
 These bits are hardwired to 0x1, ensuring that it is always possible to commit new
 values to the GPIOAFSELregister bits of these other pins.</description>
-		<field name="CR"  bitoffset="24" bitlength="8">
+		<field name="CR"  bitoffset="7" bitlength="8">
 		  <description>GPIO Commit
 On a bit-wise basis, any bit set allows the corresponding GPIOAFSEL
 bit to be set to its alternate function.</description>
@@ -730,40 +730,40 @@ bit to be set to its alternate function.</description>
 	  </register>
 	  
 	  <register name="GPIO_PORTF_PeripherID4" description="GPIO Peripheral Identification 4" address="0x40025FD0" access="ro">
-		<field name="PID4"  description="GPIO Peripheral ID4 Register" bitoffset="24" bitlength="8"/>
+		<field name="PID4"  description="GPIO Peripheral ID4 Register" bitoffset="7" bitlength="8"/>
 	  </register>
 	  <register name="GPIO_PORTF_PeripherID5" description="GPIO Peripheral Identification 5" address="0x40025FD4" access="ro">
-	  	<field name="PID5"  description="GPIO Peripheral ID5 Register" bitoffset="24" bitlength="8"/>
+	  	<field name="PID5"  description="GPIO Peripheral ID5 Register" bitoffset="7" bitlength="8"/>
 	  </register>
 	  <register name="GPIO_PORTF_PeripherID6" description="GPIO Peripheral Identification 6" address="0x40025FD8" access="ro">
-	  	<field name="PID6"  description="GPIO Peripheral ID6 Register" bitoffset="24" bitlength="8"/>
+	  	<field name="PID6"  description="GPIO Peripheral ID6 Register" bitoffset="7" bitlength="8"/>
 	  </register>
 	  <register name="GPIO_PORTF_PeripherID7" description="GPIO Peripheral Identification 7" address="0x40025FDC" access="ro">
-	  	<field name="PID7"  description="GPIO Peripheral ID7 Register" bitoffset="24" bitlength="8"/>
+	  	<field name="PID7"  description="GPIO Peripheral ID7 Register" bitoffset="7" bitlength="8"/>
 	  </register>
 	  <register name="GPIO_PORTF_PeripherID0" description="GPIO Peripheral Identification 0" address="0x40025FE0" access="ro" resetvalue="0x00000061">
-	  	<field name="PID0"  description="GPIO Peripheral ID0 Register" bitoffset="24" bitlength="8"/>
+	  	<field name="PID0"  description="GPIO Peripheral ID0 Register" bitoffset="7" bitlength="8"/>
 	  </register>
 	  <register name="GPIO_PORTF_PeripherID1" description="GPIO Peripheral Identification 1" address="0x40025FE4" access="ro">
-	  	<field name="PID1"  description="GPIO Peripheral ID1 Register" bitoffset="24" bitlength="8"/>
+	  	<field name="PID1"  description="GPIO Peripheral ID1 Register" bitoffset="7" bitlength="8"/>
 	  </register>
 	  <register name="GPIO_PORTF_PeripherID2" description="GPIO Peripheral Identification 2" address="0x40025FE8" access="ro" resetvalue="0x00000018">
-	  	<field name="PID2"  description="GPIO Peripheral ID2 Register" bitoffset="24" bitlength="8"/>
+	  	<field name="PID2"  description="GPIO Peripheral ID2 Register" bitoffset="7" bitlength="8"/>
 	  </register>
 	  <register name="GPIO_PORTF_PeripherID3" description="GPIO Peripheral Identification 3" address="0x40025FEC" access="ro" resetvalue="0x00000001">
-	  	<field name="PID3"  description="GPIO Peripheral ID3 Register" bitoffset="24" bitlength="8"/>
+	  	<field name="PID3"  description="GPIO Peripheral ID3 Register" bitoffset="7" bitlength="8"/>
 	  </register>
 	  <register name="GPIO_PORTF_PCellID0" description="GPIO PrimeCell Identification 0" address="0x40025FF0" access="ro" resetvalue="0x0000000D">
-	  	<field name="CID0"  description="GPIO PrimeCell ID0 Register" bitoffset="24" bitlength="8"/>
+	  	<field name="CID0"  description="GPIO PrimeCell ID0 Register" bitoffset="7" bitlength="8"/>
 	  </register>
 	  <register name="GPIO_PORTF_PCellID1" description="GPIO PrimeCell Identification 0" address="0x40025FF4" access="ro" resetvalue="0x000000F0">
-	  	<field name="CID1"  description="GPIO PrimeCell ID1 Register" bitoffset="24" bitlength="8"/>
+	  	<field name="CID1"  description="GPIO PrimeCell ID1 Register" bitoffset="7" bitlength="8"/>
 	  </register>
 	  <register name="GPIO_PORTF_PCellID2" description="GPIO PrimeCell Identification 0" address="0x40025FF8" access="ro" resetvalue="0x00000005">
-	  	<field name="CID2"  description="GPIO PrimeCell ID2 Register" bitoffset="24" bitlength="8"/>
+	  	<field name="CID2"  description="GPIO PrimeCell ID2 Register" bitoffset="7" bitlength="8"/>
 	  </register>
 	  <register name="GPIO_PORTF_PCellID3" description="GPIO PrimeCell Identification 0" address="0x40025FFC" access="ro" resetvalue="0x000000B1">
-	  	<field name="CID3"  description="GPIO PrimeCell ID3 Register" bitoffset="24" bitlength="8"/>
+	  	<field name="CID3"  description="GPIO PrimeCell ID3 Register" bitoffset="7" bitlength="8"/>
 	  </register>
 	  
     </registergroup>
