@@ -536,21 +536,21 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 
 			public String getText(Object element) {
 				if (element instanceof TreeField)
-					if (((TreeField) element).getBitLength() == 1)
+				{
+					int bitOffset = ((TreeField) element).getBitOffset();
+					int bitLength = ((TreeField) element).getBitLength();
+					
+					if (bitLength == 1)
 						return element.toString()
 								+ " (bit "
-								+ String.valueOf(31 - ((TreeField) element)
-										.getBitOffset()) + ")";
-					else
+								+ String.valueOf(bitOffset) + ")";
+					else						
 						return element.toString()
 								+ " (bits "
-								+ String.valueOf(31 - ((TreeField) element)
-										.getBitOffset())
+								+ String.valueOf(bitOffset)
 								+ "-"
-								+ String.valueOf(32 - (((TreeField) element)
-										.getBitOffset() + ((TreeField) element)
-										.getBitLength())) + ")";
-
+								+ String.valueOf(bitOffset + bitLength - 1) + ")";
+				}
 				else
 					return element.toString();
 			}
@@ -716,11 +716,11 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 						long rvalue=treeRegister.getValue();
 						int bitLength = treeField.getBitLength();
 						int bitOffset = treeField.getBitOffset();
+						long mask;
 						
-						long mask = ~(((1L<<bitLength)-1)<<(32-bitOffset-bitLength));
-						rvalue = rvalue & mask ; // clear field bits in register value
-						mask = ~mask;	
-						fvalue = fvalue<<(32-bitOffset-bitLength); // shift field value into its position in the register
+						mask = (0xFFFFFFFFL >> (32 - bitLength)) << bitOffset;
+						rvalue = rvalue & (~mask) ; // clear field bits in register value
+						fvalue = fvalue << bitOffset; // shift field value into its position in the register
 						fvalue = fvalue & mask ; // just to be sure, cut everything but the field
 						rvalue = rvalue | fvalue ; // blend the field value into the register value
 						
