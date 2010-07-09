@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE model SYSTEM "embsysregview.dtd">
+<model chipname="LPC13xx">
+  <chip_description>Works for LPC13xx (Cortex - M3)
+Developed by FH- Technikum Wien, Institut für Embedded Systems.
+http://embsys.technikum-wien.at/</chip_description>
+  <group name="LPC_SYSCON" description="">
+    <registergroup name="LPC_SYSCON" description="">
+      <register name="LPC_SYSCON_SYSMEMREMAP" description="" address="0x40048000" access="rw" />
+      <register name="LPC_SYSCON_PRESETCTRL" description="" address="0x40048004" access="rw" />
+      <register name="LPC_SYSCON_SYSPLLCTRL" description="" address="0x40048008" access="rw" />
+      <register name="LPC_SYSCON_SYSPLLSTAT" description="" address="0x4004800c" access="rw" />
+      <register name="LPC_SYSCON_USBPLLCTRL" description="" address="0x40048010" access="rw" />
+      <register name="LPC_SYSCON_USBPLLSTAT" description="" address="0x40048014" access="rw" />
+      <register name="LPC_SYSCON_SYSOSCCTRL" description="" address="0x40048020" access="rw" />
+      <register name="LPC_SYSCON_WDTOSCCTRL" description="" address="0x40048024" access="rw" />
+      <register name="LPC_SYSCON_IRCCTRL" description="" address="0x40048028" access="rw" />
+      <register name="LPC_SYSCON_SYSRESSTAT" description="" address="0x40048030" access="rw" />
+      <register name="LPC_SYSCON_SYSPLLCLKSEL" description="" address="0x40048040" access="rw" />
+      <register name="LPC_SYSCON_SYSPLLCLKUEN" description="" address="0x40048044" access="rw" />
+      <register name="LPC_SYSCON_USBPLLCLKSEL" description="" address="0x40048048" access="rw" />
+      <register name="LPC_SYSCON_USBPLLCLKUEN" description="" address="0x4004804c" access="rw" />
+      <register name="LPC_SYSCON_MAINCLKSEL" description="" address="0x40048070" access="rw" />
+      <register name="LPC_SYSCON_MAINCLKUEN" description="" address="0x40048074" access="rw" />
+      <register name="LPC_SYSCON_SYSAHBCLKDIV" description="" address="0x40048078" access="rw" />
+      <register name="LPC_SYSCON_SYSAHBCLKCTRL" description="" address="0x40048080" access="rw" />
+      <register name="LPC_SYSCON_SSPCLKDIV" description="" address="0x40048094" access="rw" />
+      <register name="LPC_SYSCON_UARTCLKDIV" description="" address="0x40048098" access="rw" />
+      <register name="LPC_SYSCON_TRACECLKDIV" description="" address="0x400480ac" access="rw" />
+      <register name="LPC_SYSCON_SYSTICKCLKDIV" description="" address="0x400480b0" access="rw" />
+      <register name="LPC_SYSCON_USBCLKSEL" description="" address="0x400480c0" access="rw" />
+      <register name="LPC_SYSCON_USBCLKUEN" description="" address="0x400480c4" access="rw" />
+      <register name="LPC_SYSCON_USBCLKDIV" description="" address="0x400480c8" access="rw" />
+      <register name="LPC_SYSCON_WDTCLKSEL" description="" address="0x400480d0" access="rw" />
+      <register name="LPC_SYSCON_WDTCLKUEN" description="" address="0x400480d4" access="rw" />
+      <register name="LPC_SYSCON_WDTCLKDIV" description="" address="0x400480d8" access="rw" />
+      <register name="LPC_SYSCON_CLKOUTCLKSEL" description="" address="0x400480e0" access="rw" />
+      <register name="LPC_SYSCON_CLKOUTUEN" description="" address="0x400480e4" access="rw" />
+      <register name="LPC_SYSCON_CLKOUTDIV" description="" address="0x400480e8" access="rw" />
+      <register name="LPC_SYSCON_PIOPORCAP0" description="" address="0x40048100" access="rw" />
+      <register name="LPC_SYSCON_PIOPORCAP1" description="" address="0x40048104" access="rw" />
+      <register name="LPC_SYSCON_BODCTRL" description="" address="0x40048150" access="rw" />
+      <register name="LPC_SYSCON_SYSTCKCAL" description="" address="0x40048158" access="rw" />
+      <register name="LPC_SYSCON_STARTAPRP0" description="" address="0x40048200" access="rw" />
+      <register name="LPC_SYSCON_STARTERP0" description="" address="0x40048204" access="rw" />
+      <register name="LPC_SYSCON_STARTRSRP0CLR" description="" address="0x40048208" access="rw" />
+      <register name="LPC_SYSCON_STARTSRP0" description="" address="0x4004820c" access="rw" />
+      <register name="LPC_SYSCON_STARTAPRP1" description="" address="0x40048210" access="rw" />
+      <register name="LPC_SYSCON_STARTERP1" description="" address="0x40048214" access="rw" />
+      <register name="LPC_SYSCON_STARTRSRP1CLR" description="" address="0x40048218" access="rw" />
+      <register name="LPC_SYSCON_STARTSRP1" description="" address="0x4004821c" access="rw" />
+      <register name="LPC_SYSCON_PDSLEEPCFG" description="" address="0x40048230" access="rw" />
+      <register name="LPC_SYSCON_PDAWAKECFG" description="" address="0x40048234" access="rw" />
+      <register name="LPC_SYSCON_PDRUNCFG" description="" address="0x40048238" access="rw" />
+      <register name="LPC_SYSCON_DEVICE_ID" description="" address="0x400483f4" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_IOCON" description="">
+    <registergroup name="LPC_IOCON" description="">
+      <register name="LPC_IOCON_PIO2_6" description="" address="0x40044000" access="rw" />
+      <register name="LPC_IOCON_PIO2_0" description="" address="0x40044008" access="rw" />
+      <register name="LPC_IOCON_RESET_PIO0_0" description="" address="0x4004400c" access="rw" />
+      <register name="LPC_IOCON_PIO0_1" description="" address="0x40044010" access="rw" />
+      <register name="LPC_IOCON_PIO1_8" description="" address="0x40044014" access="rw" />
+      <register name="LPC_IOCON_PIO0_2" description="" address="0x4004401c" access="rw" />
+      <register name="LPC_IOCON_PIO2_7" description="" address="0x40044020" access="rw" />
+      <register name="LPC_IOCON_PIO2_8" description="" address="0x40044024" access="rw" />
+      <register name="LPC_IOCON_PIO2_1" description="" address="0x40044028" access="rw" />
+      <register name="LPC_IOCON_PIO0_3" description="" address="0x4004402c" access="rw" />
+      <register name="LPC_IOCON_PIO0_4" description="" address="0x40044030" access="rw" />
+      <register name="LPC_IOCON_PIO0_5" description="" address="0x40044034" access="rw" />
+      <register name="LPC_IOCON_PIO1_9" description="" address="0x40044038" access="rw" />
+      <register name="LPC_IOCON_PIO3_4" description="" address="0x4004403c" access="rw" />
+      <register name="LPC_IOCON_PIO2_4" description="" address="0x40044040" access="rw" />
+      <register name="LPC_IOCON_PIO2_5" description="" address="0x40044044" access="rw" />
+      <register name="LPC_IOCON_PIO3_5" description="" address="0x40044048" access="rw" />
+      <register name="LPC_IOCON_PIO0_6" description="" address="0x4004404c" access="rw" />
+      <register name="LPC_IOCON_PIO0_7" description="" address="0x40044050" access="rw" />
+      <register name="LPC_IOCON_PIO2_9" description="" address="0x40044054" access="rw" />
+      <register name="LPC_IOCON_PIO2_10" description="" address="0x40044058" access="rw" />
+      <register name="LPC_IOCON_PIO2_2" description="" address="0x4004405c" access="rw" />
+      <register name="LPC_IOCON_PIO0_8" description="" address="0x40044060" access="rw" />
+      <register name="LPC_IOCON_PIO0_9" description="" address="0x40044064" access="rw" />
+      <register name="LPC_IOCON_JTAG_TCK_PIO0_10" description="" address="0x40044068" access="rw" />
+      <register name="LPC_IOCON_PIO1_10" description="" address="0x4004406c" access="rw" />
+      <register name="LPC_IOCON_PIO2_11" description="" address="0x40044070" access="rw" />
+      <register name="LPC_IOCON_JTAG_TDI_PIO0_11" description="" address="0x40044074" access="rw" />
+      <register name="LPC_IOCON_JTAG_TMS_PIO1_0" description="" address="0x40044078" access="rw" />
+      <register name="LPC_IOCON_JTAG_TDO_PIO1_1" description="" address="0x4004407c" access="rw" />
+      <register name="LPC_IOCON_JTAG_nTRST_PIO1_2" description="" address="0x40044080" access="rw" />
+      <register name="LPC_IOCON_PIO3_0" description="" address="0x40044084" access="rw" />
+      <register name="LPC_IOCON_PIO3_1" description="" address="0x40044088" access="rw" />
+      <register name="LPC_IOCON_PIO2_3" description="" address="0x4004408c" access="rw" />
+      <register name="LPC_IOCON_ARM_SWDIO_PIO1_3" description="" address="0x40044090" access="rw" />
+      <register name="LPC_IOCON_PIO1_4" description="" address="0x40044094" access="rw" />
+      <register name="LPC_IOCON_PIO1_11" description="" address="0x40044098" access="rw" />
+      <register name="LPC_IOCON_PIO3_2" description="" address="0x4004409c" access="rw" />
+      <register name="LPC_IOCON_PIO1_5" description="" address="0x400440a0" access="rw" />
+      <register name="LPC_IOCON_PIO1_6" description="" address="0x400440a4" access="rw" />
+      <register name="LPC_IOCON_PIO1_7" description="" address="0x400440a8" access="rw" />
+      <register name="LPC_IOCON_PIO3_3" description="" address="0x400440ac" access="rw" />
+      <register name="LPC_IOCON_SCKLOC" description="" address="0x400440b0" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_PMU" description="">
+    <registergroup name="LPC_PMU" description="">
+      <register name="LPC_PMU_PCON" description="" address="0x40038000" access="rw" />
+      <register name="LPC_PMU_GPREG0" description="" address="0x40038004" access="rw" />
+      <register name="LPC_PMU_GPREG1" description="" address="0x40038008" access="rw" />
+      <register name="LPC_PMU_GPREG2" description="" address="0x4003800c" access="rw" />
+      <register name="LPC_PMU_GPREG3" description="" address="0x40038010" access="rw" />
+      <register name="LPC_PMU_GPREG4" description="" address="0x40038014" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_GPIO" description="">
+    <registergroup name="LPC_GPIO0" description="">
+      <register name="LPC_GPIO0_MASKED_ACCESS" description="" address="0x50000000" access="rw" />
+      <register name="LPC_GPIO0_DATA" description="" address="0x50003ffc" access="rw" />
+      <register name="LPC_GPIO0_DIR" description="" address="0x50008000" access="rw" />
+      <register name="LPC_GPIO0_IS" description="" address="0x50008004" access="rw" />
+      <register name="LPC_GPIO0_IBE" description="" address="0x50008008" access="rw" />
+      <register name="LPC_GPIO0_IEV" description="" address="0x5000800c" access="rw" />
+      <register name="LPC_GPIO0_IE" description="" address="0x50008010" access="rw" />
+      <register name="LPC_GPIO0_RIS" description="" address="0x50008014" access="rw" />
+      <register name="LPC_GPIO0_MIS" description="" address="0x50008018" access="rw" />
+      <register name="LPC_GPIO0_IC" description="" address="0x5000801c" access="rw" />
+    </registergroup>
+    <registergroup name="LPC_GPIO1" description="">
+      <register name="LPC_GPIO1_MASKED_ACCESS" description="" address="0x50010000" access="rw" />
+      <register name="LPC_GPIO1_DATA" description="" address="0x50013ffc" access="rw" />
+      <register name="LPC_GPIO1_DIR" description="" address="0x50018000" access="rw" />
+      <register name="LPC_GPIO1_IS" description="" address="0x50018004" access="rw" />
+      <register name="LPC_GPIO1_IBE" description="" address="0x50018008" access="rw" />
+      <register name="LPC_GPIO1_IEV" description="" address="0x5001800c" access="rw" />
+      <register name="LPC_GPIO1_IE" description="" address="0x50018010" access="rw" />
+      <register name="LPC_GPIO1_RIS" description="" address="0x50018014" access="rw" />
+      <register name="LPC_GPIO1_MIS" description="" address="0x50018018" access="rw" />
+      <register name="LPC_GPIO1_IC" description="" address="0x5001801c" access="rw" />
+    </registergroup>
+    <registergroup name="LPC_GPIO2" description="">
+      <register name="LPC_GPIO2_MASKED_ACCESS" description="" address="0x50020000" access="rw" />
+      <register name="LPC_GPIO2_DATA" description="" address="0x50023ffc" access="rw" />
+      <register name="LPC_GPIO2_DIR" description="" address="0x50028000" access="rw" />
+      <register name="LPC_GPIO2_IS" description="" address="0x50028004" access="rw" />
+      <register name="LPC_GPIO2_IBE" description="" address="0x50028008" access="rw" />
+      <register name="LPC_GPIO2_IEV" description="" address="0x5002800c" access="rw" />
+      <register name="LPC_GPIO2_IE" description="" address="0x50028010" access="rw" />
+      <register name="LPC_GPIO2_RIS" description="" address="0x50028014" access="rw" />
+      <register name="LPC_GPIO2_MIS" description="" address="0x50028018" access="rw" />
+      <register name="LPC_GPIO2_IC" description="" address="0x5002801c" access="rw" />
+    </registergroup>
+    <registergroup name="LPC_GPIO3" description="">
+      <register name="LPC_GPIO3_MASKED_ACCESS" description="" address="0x50030000" access="rw" />
+      <register name="LPC_GPIO3_DATA" description="" address="0x50033ffc" access="rw" />
+      <register name="LPC_GPIO3_DIR" description="" address="0x50038000" access="rw" />
+      <register name="LPC_GPIO3_IS" description="" address="0x50038004" access="rw" />
+      <register name="LPC_GPIO3_IBE" description="" address="0x50038008" access="rw" />
+      <register name="LPC_GPIO3_IEV" description="" address="0x5003800c" access="rw" />
+      <register name="LPC_GPIO3_IE" description="" address="0x50038010" access="rw" />
+      <register name="LPC_GPIO3_RIS" description="" address="0x50038014" access="rw" />
+      <register name="LPC_GPIO3_MIS" description="" address="0x50038018" access="rw" />
+      <register name="LPC_GPIO3_IC" description="" address="0x5003801c" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_TMR" description="">
+    <registergroup name="LPC_TMR16B0" description="">
+      <register name="LPC_TMR16B0_IR" description="" address="0x4000c000" access="rw" />
+      <register name="LPC_TMR16B0_TCR" description="" address="0x4000c004" access="rw" />
+      <register name="LPC_TMR16B0_TC" description="" address="0x4000c008" access="rw" />
+      <register name="LPC_TMR16B0_PR" description="" address="0x4000c00c" access="rw" />
+      <register name="LPC_TMR16B0_PC" description="" address="0x4000c010" access="rw" />
+      <register name="LPC_TMR16B0_MCR" description="" address="0x4000c014" access="rw" />
+      <register name="LPC_TMR16B0_MR0" description="" address="0x4000c018" access="rw" />
+      <register name="LPC_TMR16B0_MR1" description="" address="0x4000c01c" access="rw" />
+      <register name="LPC_TMR16B0_MR2" description="" address="0x4000c020" access="rw" />
+      <register name="LPC_TMR16B0_MR3" description="" address="0x4000c024" access="rw" />
+      <register name="LPC_TMR16B0_CCR" description="" address="0x4000c028" access="rw" />
+      <register name="LPC_TMR16B0_CR0" description="" address="0x4000c02c" access="rw" />
+      <register name="LPC_TMR16B0_EMR" description="" address="0x4000c03c" access="rw" />
+      <register name="LPC_TMR16B0_CTCR" description="" address="0x4000c070" access="rw" />
+      <register name="LPC_TMR16B0_PWMC" description="" address="0x4000c074" access="rw" />
+    </registergroup>
+    <registergroup name="LPC_TMR16B1" description="">
+      <register name="LPC_TMR16B1_IR" description="" address="0x40010000" access="rw" />
+      <register name="LPC_TMR16B1_TCR" description="" address="0x40010004" access="rw" />
+      <register name="LPC_TMR16B1_TC" description="" address="0x40010008" access="rw" />
+      <register name="LPC_TMR16B1_PR" description="" address="0x4001000c" access="rw" />
+      <register name="LPC_TMR16B1_PC" description="" address="0x40010010" access="rw" />
+      <register name="LPC_TMR16B1_MCR" description="" address="0x40010014" access="rw" />
+      <register name="LPC_TMR16B1_MR0" description="" address="0x40010018" access="rw" />
+      <register name="LPC_TMR16B1_MR1" description="" address="0x4001001c" access="rw" />
+      <register name="LPC_TMR16B1_MR2" description="" address="0x40010020" access="rw" />
+      <register name="LPC_TMR16B1_MR3" description="" address="0x40010024" access="rw" />
+      <register name="LPC_TMR16B1_CCR" description="" address="0x40010028" access="rw" />
+      <register name="LPC_TMR16B1_CR0" description="" address="0x4001002c" access="rw" />
+      <register name="LPC_TMR16B1_EMR" description="" address="0x4001003c" access="rw" />
+      <register name="LPC_TMR16B1_CTCR" description="" address="0x40010070" access="rw" />
+      <register name="LPC_TMR16B1_PWMC" description="" address="0x40010074" access="rw" />
+    </registergroup>
+    <registergroup name="LPC_TMR32B0" description="">
+      <register name="LPC_TMR32B0_IR" description="" address="0x40014000" access="rw" />
+      <register name="LPC_TMR32B0_TCR" description="" address="0x40014004" access="rw" />
+      <register name="LPC_TMR32B0_TC" description="" address="0x40014008" access="rw" />
+      <register name="LPC_TMR32B0_PR" description="" address="0x4001400c" access="rw" />
+      <register name="LPC_TMR32B0_PC" description="" address="0x40014010" access="rw" />
+      <register name="LPC_TMR32B0_MCR" description="" address="0x40014014" access="rw" />
+      <register name="LPC_TMR32B0_MR0" description="" address="0x40014018" access="rw" />
+      <register name="LPC_TMR32B0_MR1" description="" address="0x4001401c" access="rw" />
+      <register name="LPC_TMR32B0_MR2" description="" address="0x40014020" access="rw" />
+      <register name="LPC_TMR32B0_MR3" description="" address="0x40014024" access="rw" />
+      <register name="LPC_TMR32B0_CCR" description="" address="0x40014028" access="rw" />
+      <register name="LPC_TMR32B0_CR0" description="" address="0x4001402c" access="rw" />
+      <register name="LPC_TMR32B0_EMR" description="" address="0x4001403c" access="rw" />
+      <register name="LPC_TMR32B0_CTCR" description="" address="0x40014070" access="rw" />
+      <register name="LPC_TMR32B0_PWMC" description="" address="0x40014074" access="rw" />
+    </registergroup>
+    <registergroup name="LPC_TMR32B1" description="">
+      <register name="LPC_TMR32B1_IR" description="" address="0x40018000" access="rw" />
+      <register name="LPC_TMR32B1_TCR" description="" address="0x40018004" access="rw" />
+      <register name="LPC_TMR32B1_TC" description="" address="0x40018008" access="rw" />
+      <register name="LPC_TMR32B1_PR" description="" address="0x4001800c" access="rw" />
+      <register name="LPC_TMR32B1_PC" description="" address="0x40018010" access="rw" />
+      <register name="LPC_TMR32B1_MCR" description="" address="0x40018014" access="rw" />
+      <register name="LPC_TMR32B1_MR0" description="" address="0x40018018" access="rw" />
+      <register name="LPC_TMR32B1_MR1" description="" address="0x4001801c" access="rw" />
+      <register name="LPC_TMR32B1_MR2" description="" address="0x40018020" access="rw" />
+      <register name="LPC_TMR32B1_MR3" description="" address="0x40018024" access="rw" />
+      <register name="LPC_TMR32B1_CCR" description="" address="0x40018028" access="rw" />
+      <register name="LPC_TMR32B1_CR0" description="" address="0x4001802c" access="rw" />
+      <register name="LPC_TMR32B1_EMR" description="" address="0x4001803c" access="rw" />
+      <register name="LPC_TMR32B1_CTCR" description="" address="0x40018070" access="rw" />
+      <register name="LPC_TMR32B1_PWMC" description="" address="0x40018074" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_UART" description="">
+    <registergroup name="LPC_UART" description="">
+      <register name="LPC_UART_RBR" description="" address="0x40008000" access="rw" />
+      <register name="LPC_UART_THR" description="" address="0x40008000" access="rw" />
+      <register name="LPC_UART_DLL" description="" address="0x40008000" access="rw" />
+      <register name="LPC_UART_DLM" description="" address="0x40008004" access="rw" />
+      <register name="LPC_UART_IER" description="" address="0x40008004" access="rw" />
+      <register name="LPC_UART_IIR" description="" address="0x40008008" access="rw" />
+      <register name="LPC_UART_FCR" description="" address="0x40008008" access="rw" />
+      <register name="LPC_UART_LCR" description="" address="0x4000800c" access="rw" />
+      <register name="LPC_UART_MCR" description="" address="0x40008010" access="rw" />
+      <register name="LPC_UART_LSR" description="" address="0x40008014" access="rw" />
+      <register name="LPC_UART_MSR" description="" address="0x40008018" access="rw" />
+      <register name="LPC_UART_SCR" description="" address="0x4000801c" access="rw" />
+      <register name="LPC_UART_ACR" description="" address="0x40008020" access="rw" />
+      <register name="LPC_UART_ICR" description="" address="0x40008024" access="rw" />
+      <register name="LPC_UART_FDR" description="" address="0x40008028" access="rw" />
+      <register name="LPC_UART_TER" description="" address="0x40008030" access="rw" />
+      <register name="LPC_UART_RS485CTRL" description="" address="0x4000804c" access="rw" />
+      <register name="LPC_UART_ADRMATCH" description="" address="0x40008050" access="rw" />
+      <register name="LPC_UART_RS485DLY" description="" address="0x40008054" access="rw" />
+      <register name="LPC_UART_FIFOLVL" description="" address="0x40008058" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_SSP" description="">
+    <registergroup name="LPC_SSP" description="">
+      <register name="LPC_SSP_CR0" description="" address="0x40040000" access="rw" />
+      <register name="LPC_SSP_CR1" description="" address="0x40040004" access="rw" />
+      <register name="LPC_SSP_DR" description="" address="0x40040008" access="rw" />
+      <register name="LPC_SSP_SR" description="" address="0x4004000c" access="rw" />
+      <register name="LPC_SSP_CPSR" description="" address="0x40040010" access="rw" />
+      <register name="LPC_SSP_IMSC" description="" address="0x40040014" access="rw" />
+      <register name="LPC_SSP_RIS" description="" address="0x40040018" access="rw" />
+      <register name="LPC_SSP_MIS" description="" address="0x4004001c" access="rw" />
+      <register name="LPC_SSP_ICR" description="" address="0x40040020" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_I2C" description="">
+    <registergroup name="LPC_I2C" description="">
+      <register name="LPC_I2C_CONSET" description="" address="0x40000000" access="rw" />
+      <register name="LPC_I2C_STAT" description="" address="0x40000004" access="rw" />
+      <register name="LPC_I2C_DAT" description="" address="0x40000008" access="rw" />
+      <register name="LPC_I2C_ADR0" description="" address="0x4000000c" access="rw" />
+      <register name="LPC_I2C_SCLH" description="" address="0x40000010" access="rw" />
+      <register name="LPC_I2C_SCLL" description="" address="0x40000014" access="rw" />
+      <register name="LPC_I2C_CONCLR" description="" address="0x40000018" access="rw" />
+      <register name="LPC_I2C_MMCTRL" description="" address="0x4000001c" access="rw" />
+      <register name="LPC_I2C_ADR1" description="" address="0x40000020" access="rw" />
+      <register name="LPC_I2C_ADR2" description="" address="0x40000024" access="rw" />
+      <register name="LPC_I2C_ADR3" description="" address="0x40000028" access="rw" />
+      <register name="LPC_I2C_DATA_BUFFER" description="" address="0x4000002c" access="rw" />
+      <register name="LPC_I2C_MASK0" description="" address="0x40000030" access="rw" />
+      <register name="LPC_I2C_MASK1" description="" address="0x40000034" access="rw" />
+      <register name="LPC_I2C_MASK2" description="" address="0x40000038" access="rw" />
+      <register name="LPC_I2C_MASK3" description="" address="0x4000003c" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_WDT" description="">
+    <registergroup name="LPC_WDT" description="">
+      <register name="LPC_WDT_MOD" description="" address="0x40004000" access="rw" />
+      <register name="LPC_WDT_TC" description="" address="0x40004004" access="rw" />
+      <register name="LPC_WDT_FEED" description="" address="0x40004008" access="rw" />
+      <register name="LPC_WDT_TV" description="" address="0x4000400c" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_ADC" description="">
+    <registergroup name="LPC_ADC" description="">
+      <register name="LPC_ADC_CR" description="" address="0x4001c000" access="rw" />
+      <register name="LPC_ADC_GDR" description="" address="0x4001c004" access="rw" />
+      <register name="LPC_ADC_INTEN" description="" address="0x4001c00c" access="rw" />
+      <register name="LPC_ADC_DR0" description="" address="0x4001c010" access="rw" />
+      <register name="LPC_ADC_DR1" description="" address="0x4001c014" access="rw" />
+      <register name="LPC_ADC_DR2" description="" address="0x4001c018" access="rw" />
+      <register name="LPC_ADC_DR3" description="" address="0x4001c01c" access="rw" />
+      <register name="LPC_ADC_DR4" description="" address="0x4001c020" access="rw" />
+      <register name="LPC_ADC_DR5" description="" address="0x4001c024" access="rw" />
+      <register name="LPC_ADC_DR6" description="" address="0x4001c028" access="rw" />
+      <register name="LPC_ADC_DR7" description="" address="0x4001c02c" access="rw" />
+      <register name="LPC_ADC_STAT" description="" address="0x4001c030" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_USB" description="">
+    <registergroup name="LPC_USB" description="">
+      <register name="LPC_USB_DevIntSt" description="" address="0x40020000" access="rw" />
+      <register name="LPC_USB_DevIntEn" description="" address="0x40020004" access="rw" />
+      <register name="LPC_USB_DevIntClr" description="" address="0x40020008" access="rw" />
+      <register name="LPC_USB_DevIntSet" description="" address="0x4002000c" access="rw" />
+      <register name="LPC_USB_CmdCode" description="" address="0x40020010" access="rw" />
+      <register name="LPC_USB_CmdData" description="" address="0x40020014" access="rw" />
+      <register name="LPC_USB_RxData" description="" address="0x40020018" access="rw" />
+      <register name="LPC_USB_TxData" description="" address="0x4002001c" access="rw" />
+      <register name="LPC_USB_RxPLen" description="" address="0x40020020" access="rw" />
+      <register name="LPC_USB_TxPLen" description="" address="0x40020024" access="rw" />
+      <register name="LPC_USB_Ctrl" description="" address="0x40020028" access="rw" />
+      <register name="LPC_USB_DevFIQSel" description="" address="0x4002002c" access="rw" />
+    </registergroup>
+  </group>
+</model>
