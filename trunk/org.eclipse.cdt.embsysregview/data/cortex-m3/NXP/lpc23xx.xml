@@ -1,0 +1,894 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE model SYSTEM "embsysregview.dtd">
+<model chipname="LPC23xx">
+  <chip_description>Works for LPC24xx (ARM 7)
+Developed by FH- Technikum Wien, Institut für Embedded Systems.
+http://embsys.technikum-wien.at/
+  </chip_description>
+  <group name="VIC" description="">
+    <registergroup name="VIC_CFG" description="">
+      <register name="VICIRQStatus" description="" address="0xFFFFF000" access="rw" />
+      <register name="VICFIQStatus" description="" address="0xFFFFF004" access="rw" />
+      <register name="VICRawIntr" description="" address="0xFFFFF008" access="rw" />
+      <register name="VICIntSelect" description="" address="0xFFFFF00c" access="rw" />
+      <register name="VICIntEnable" description="" address="0xFFFFF010" access="rw" />
+      <register name="VICIntEnClr" description="" address="0xFFFFF014" access="rw" />
+      <register name="VICSoftInt" description="" address="0xFFFFF018" access="rw" />
+      <register name="VICSoftIntClr" description="" address="0xFFFFF01c" access="rw" />
+      <register name="VICProtection" description="" address="0xFFFFF020" access="rw" />
+      <register name="VICSWPrioMask" description="" address="0xFFFFF024" access="rw" />
+    </registergroup>
+    <registergroup name="VIC_VECT_ADDR" description="">
+      <register name="VICVectAddr" description="" address="0xFFFFFF00" access="rw" />
+      <register name="VICVectAddr0" description="" address="0xFFFFF100" access="rw" />
+      <register name="VICVectAddr1" description="" address="0xFFFFF104" access="rw" />
+      <register name="VICVectAddr2" description="" address="0xFFFFF108" access="rw" />
+      <register name="VICVectAddr3" description="" address="0xFFFFF10c" access="rw" />
+      <register name="VICVectAddr4" description="" address="0xFFFFF110" access="rw" />
+      <register name="VICVectAddr5" description="" address="0xFFFFF114" access="rw" />
+      <register name="VICVectAddr6" description="" address="0xFFFFF118" access="rw" />
+      <register name="VICVectAddr7" description="" address="0xFFFFF11c" access="rw" />
+      <register name="VICVectAddr8" description="" address="0xFFFFF120" access="rw" />
+      <register name="VICVectAddr9" description="" address="0xFFFFF124" access="rw" />
+      <register name="VICVectAddr10" description="" address="0xFFFFF128" access="rw" />
+      <register name="VICVectAddr11" description="" address="0xFFFFF12c" access="rw" />
+      <register name="VICVectAddr12" description="" address="0xFFFFF130" access="rw" />
+      <register name="VICVectAddr13" description="" address="0xFFFFF134" access="rw" />
+      <register name="VICVectAddr14" description="" address="0xFFFFF138" access="rw" />
+      <register name="VICVectAddr15" description="" address="0xFFFFF13c" access="rw" />
+      <register name="VICVectAddr16" description="" address="0xFFFFF140" access="rw" />
+      <register name="VICVectAddr17" description="" address="0xFFFFF144" access="rw" />
+      <register name="VICVectAddr18" description="" address="0xFFFFF148" access="rw" />
+      <register name="VICVectAddr19" description="" address="0xFFFFF14c" access="rw" />
+      <register name="VICVectAddr20" description="" address="0xFFFFF150" access="rw" />
+      <register name="VICVectAddr21" description="" address="0xFFFFF154" access="rw" />
+      <register name="VICVectAddr22" description="" address="0xFFFFF158" access="rw" />
+      <register name="VICVectAddr23" description="" address="0xFFFFF15c" access="rw" />
+      <register name="VICVectAddr24" description="" address="0xFFFFF160" access="rw" />
+      <register name="VICVectAddr25" description="" address="0xFFFFF164" access="rw" />
+      <register name="VICVectAddr26" description="" address="0xFFFFF168" access="rw" />
+      <register name="VICVectAddr27" description="" address="0xFFFFF16c" access="rw" />
+      <register name="VICVectAddr28" description="" address="0xFFFFF170" access="rw" />
+      <register name="VICVectAddr29" description="" address="0xFFFFF174" access="rw" />
+      <register name="VICVectAddr30" description="" address="0xFFFFF178" access="rw" />
+      <register name="VICVectAddr31" description="" address="0xFFFFF17c" access="rw" />
+    </registergroup>
+    <registergroup name="VIC_VECT_CNTL" description="">
+      <register name="VICVectCntl0" description="" address="0xFFFFF200" access="rw" />
+      <register name="VICVectCntl1" description="" address="0xFFFFF204" access="rw" />
+      <register name="VICVectCntl2" description="" address="0xFFFFF208" access="rw" />
+      <register name="VICVectCntl3" description="" address="0xFFFFF20c" access="rw" />
+      <register name="VICVectCntl4" description="" address="0xFFFFF210" access="rw" />
+      <register name="VICVectCntl5" description="" address="0xFFFFF214" access="rw" />
+      <register name="VICVectCntl6" description="" address="0xFFFFF218" access="rw" />
+      <register name="VICVectCntl7" description="" address="0xFFFFF21c" access="rw" />
+      <register name="VICVectCntl8" description="" address="0xFFFFF220" access="rw" />
+      <register name="VICVectCntl9" description="" address="0xFFFFF224" access="rw" />
+      <register name="VICVectCntl10" description="" address="0xFFFFF228" access="rw" />
+      <register name="VICVectCntl11" description="" address="0xFFFFF22c" access="rw" />
+      <register name="VICVectCntl12" description="" address="0xFFFFF230" access="rw" />
+      <register name="VICVectCntl13" description="" address="0xFFFFF234" access="rw" />
+      <register name="VICVectCntl14" description="" address="0xFFFFF238" access="rw" />
+      <register name="VICVectCntl15" description="" address="0xFFFFF23c" access="rw" />
+      <register name="VICVectCntl16" description="" address="0xFFFFF240" access="rw" />
+      <register name="VICVectCntl17" description="" address="0xFFFFF244" access="rw" />
+      <register name="VICVectCntl18" description="" address="0xFFFFF248" access="rw" />
+      <register name="VICVectCntl19" description="" address="0xFFFFF24c" access="rw" />
+      <register name="VICVectCntl20" description="" address="0xFFFFF250" access="rw" />
+      <register name="VICVectCntl21" description="" address="0xFFFFF254" access="rw" />
+      <register name="VICVectCntl22" description="" address="0xFFFFF258" access="rw" />
+      <register name="VICVectCntl23" description="" address="0xFFFFF25c" access="rw" />
+      <register name="VICVectCntl24" description="" address="0xFFFFF260" access="rw" />
+      <register name="VICVectCntl25" description="" address="0xFFFFF264" access="rw" />
+      <register name="VICVectCntl26" description="" address="0xFFFFF268" access="rw" />
+      <register name="VICVectCntl27" description="" address="0xFFFFF26c" access="rw" />
+      <register name="VICVectCntl28" description="" address="0xFFFFF270" access="rw" />
+      <register name="VICVectCntl29" description="" address="0xFFFFF274" access="rw" />
+      <register name="VICVectCntl30" description="" address="0xFFFFF278" access="rw" />
+      <register name="VICVectCntl31" description="" address="0xFFFFF27c" access="rw" />
+    </registergroup>
+  </group>
+  <group name="PIN" description="">
+    <registergroup name="PINSEL" description="">
+      <register name="PINSEL0" description="" address="0xE002C000" access="rw" />
+      <register name="PINSEL1" description="" address="0xE002C004" access="rw" />
+      <register name="PINSEL2" description="" address="0xE002C008" access="rw" />
+      <register name="PINSEL3" description="" address="0xE002C00c" access="rw" />
+      <register name="PINSEL4" description="" address="0xE002C010" access="rw" />
+      <register name="PINSEL5" description="" address="0xE002C014" access="rw" />
+      <register name="PINSEL6" description="" address="0xE002C018" access="rw" />
+      <register name="PINSEL7" description="" address="0xE002C01c" access="rw" />
+      <register name="PINSEL8" description="" address="0xE002C020" access="rw" />
+      <register name="PINSEL9" description="" address="0xE002C024" access="rw" />
+      <register name="PINSEL10" description="" address="0xE002C028" access="rw" />
+      <register name="PINSEL11" description="" address="0xE002C02c" access="rw" />
+    </registergroup>
+    <registergroup name="PINMODE" description="">
+      <register name="PINMODE0" description="" address="0xE002C040" access="rw" />
+      <register name="PINMODE1" description="" address="0xE002C044" access="rw" />
+      <register name="PINMODE2" description="" address="0xE002C048" access="rw" />
+      <register name="PINMODE3" description="" address="0xE002C04c" access="rw" />
+      <register name="PINMODE4" description="" address="0xE002C050" access="rw" />
+      <register name="PINMODE5" description="" address="0xE002C054" access="rw" />
+      <register name="PINMODE6" description="" address="0xE002C058" access="rw" />
+      <register name="PINMODE7" description="" address="0xE002C05c" access="rw" />
+      <register name="PINMODE8" description="" address="0xE002C060" access="rw" />
+      <register name="PINMODE9" description="" address="0xE002C064" access="rw" />
+    </registergroup>
+  </group>
+  <group name="GPIO" description="">
+    <registergroup name="GPIO_CFG" description="">
+      <register name="IOPIN0" description="" address="0xE0028000" access="rw" />
+      <register name="IOSET0" description="" address="0xE0028004" access="rw" />
+      <register name="IODIR0" description="" address="0xE0028008" access="rw" />
+      <register name="IOCLR0" description="" address="0xE002800c" access="rw" />
+      <register name="IOPIN1" description="" address="0xE0028010" access="rw" />
+      <register name="IOSET1" description="" address="0xE0028014" access="rw" />
+      <register name="IODIR1" description="" address="0xE0028018" access="rw" />
+      <register name="IOCLR1" description="" address="0xE002801c" access="rw" />
+    </registergroup>
+    <registergroup name="GPIO_INT" description="">
+      <register name="IO0_INT_STAT" description="" address="0xE0028080" access="rw" />
+      <register name="IO0_INT_EN_R" description="" address="0xE0028090" access="rw" />
+      <register name="IO0_INT_EN_F" description="" address="0xE0028094" access="rw" />
+      <register name="IO0_INT_STAT_R" description="" address="0xE0028084" access="rw" />
+      <register name="IO0_INT_STAT_F" description="" address="0xE0028088" access="rw" />
+      <register name="IO0_INT_CLR" description="" address="0xE002808c" access="rw"/>
+      <register name="IO2_INT_EN_R" description="" address="0xE00280b0" access="rw" />
+      <register name="IO2_INT_EN_F" description="" address="0xE00280b4" access="rw" />
+      <register name="IO2_INT_STAT_R" description="" address="0xE00280a4" access="rw" />
+      <register name="IO2_INT_STAT_F" description="" address="0xE00280a8" access="rw" />
+      <register name="IO2_INT_CLR" description="" address="0xE00280ac" access="rw" />
+    </registergroup>
+    <registergroup name="PART_CFG" description="">
+      <register name="PART_CFG" description="" address="0x3FFF8000" access="rw" />
+    </registergroup>
+  </group>
+  <group name="FIO" description="">
+    <registergroup name="FIO0_CFG" description="">
+      <register name="FIO0DIR" description="" address="0x3FFFc000" access="rw" />
+      <register name="FIO0MASK" description="" address="0x3FFFc010" access="rw" />
+      <register name="FIO0PIN" description="" address="0x3FFFc014" access="rw" />
+      <register name="FIO0SET" description="" address="0x3FFFc018" access="rw" />
+      <register name="FIO0CLR" description="" address="0x3FFFc01c" access="rw" />
+    </registergroup>
+    <registergroup name="FIO1_CFG" description="">
+      <register name="FIO1DIR" description="" address="0x3FFFc020" access="rw" />
+      <register name="FIO1MASK" description="" address="0x3FFFc030" access="rw" />
+      <register name="FIO1PIN" description="" address="0x3FFFc034" access="rw" />
+      <register name="FIO1SET" description="" address="0x3FFFc038" access="rw" />
+      <register name="FIO1CLR" description="" address="0x3FFFc03c" access="rw" />
+    </registergroup>
+    <registergroup name="FIO2_CFG" description="">
+      <register name="FIO2DIR" description="" address="0x3FFFc040" access="rw" />
+      <register name="FIO2MASK" description="" address="0x3FFFc050" access="rw" />
+      <register name="FIO2PIN" description="" address="0x3FFFc054" access="rw" />
+      <register name="FIO2SET" description="" address="0x3FFFc058" access="rw" />
+      <register name="FIO2CLR" description="" address="0x3FFFc05c" access="rw" />
+    </registergroup>
+    <registergroup name="FIO3_CFG" description="">
+      <register name="FIO3DIR" description="" address="0x3FFFc060" access="rw" />
+      <register name="FIO3MASK" description="" address="0x3FFFc070" access="rw" />
+      <register name="FIO3PIN" description="" address="0x3FFFc074" access="rw" />
+      <register name="FIO3SET" description="" address="0x3FFFc078" access="rw" />
+      <register name="FIO3CLR" description="" address="0x3FFFc07c" access="rw" />
+    </registergroup>
+    <registergroup name="FIO4_CFG" description="">
+      <register name="FIO4DIR" description="" address="0x3FFFc080" access="rw" />
+      <register name="FIO4MASK" description="" address="0x3FFFc090" access="rw" />
+      <register name="FIO4PIN" description="" address="0x3FFFc094" access="rw" />
+      <register name="FIO4SET" description="" address="0x3FFFc098" access="rw" />
+      <register name="FIO4CLR" description="" address="0x3FFFc09c" access="rw" />
+    </registergroup>
+  </group>
+  <group name="SCB" description="">
+    <registergroup name="MAM" description="">
+      <register name="MAMCR" description="" address="0xE01FC000" access="rw" />
+      <register name="MAMTIM" description="" address="0xE01FC004" access="rw" />
+      <register name="MEMMAP" description="" address="0xE01FC040" access="rw" />
+    </registergroup>
+    <registergroup name="PLL" description="">
+      <register name="PLLCON" description="" address="0xE01FC080" access="rw" />
+      <register name="PLLCFG" description="" address="0xE01FC084" access="rw" />
+      <register name="PLLSTAT" description="" address="0xE01FC088" access="rw" />
+      <register name="PLLFEED" description="" address="0xE01FC08c" access="rw" />
+    </registergroup>
+    <registergroup name="PC" description="">
+      <register name="PCON" description="" address="0xE01FC0C0" access="rw" />
+      <register name="PCONP" description="" address="0xE01FC0C4" access="rw" />
+    </registergroup>
+    <registergroup name="CLK_DIV" description="">
+      <register name="CCLKCFG" description="" address="0x3FFFc104" access="rw" />
+      <register name="USBCLKCFG" description="" address="0x3FFFc108" access="rw" />
+      <register name="CLKSRCSEL" description="" address="0x3FFFc10c" access="rw" />
+      <register name="PCLKSEL0" description="" address="0x3FFFc1a8" access="rw" />
+      <register name="PCLKSEL1" description="" address="0x3FFFc1ac" access="rw" />
+    </registergroup>
+    <registergroup name="E_INT" description="">
+      <register name="EXTINT" description="" address="0x3FFFc140" access="rw" />
+      <register name="INTWAKE" description="" address="0x3FFFc144" access="rw" />
+      <register name="EXTMODE" description="" address="0x3FFFc148" access="rw" />
+      <register name="EXTPOLAR" description="" address="0x3FFFc14c" access="rw" />
+    </registergroup>
+    <registergroup name="RESET" description="">
+      <register name="RSIR" description="" address="0x3FFFc180" access="rw" />
+    </registergroup>
+    <registergroup name="RSID" description="">
+      <register name="CSPR" description="" address="0x3FFFc184" access="rw" />
+    </registergroup>
+    <registergroup name="AHB" description="">
+      <register name="AHBCFG1" description="" address="0x3FFFc188" access="rw" />
+      <register name="AHBCFG1" description="" address="0x3FFFc18c" access="rw" />
+    </registergroup>
+    <registergroup name="SYS_CNTL" description="">
+      <register name="SCS" description="" address="0x3FFFc1a0" access="rw" />
+    </registergroup>
+  </group>
+  <group name="EMC" description="">
+    <registergroup name="EMC_CNTL" description="">
+      <register name="EMC_CTRL" description="" address="0xFFE08000" access="rw" />
+      <register name="EMC_STAT" description="" address="0xFFE08004" access="rw" />
+      <register name="EMC_CONFIG" description="" address="0xFFE08008" access="rw" />
+    </registergroup>
+    <registergroup name="DRAM" description="">
+      <register name="EMC_DYN_CTRL" description="" address="0xFFE08020" access="rw" />
+      <register name="EMC_DYN_RFSH" description="" address="0xFFE08024" access="rw" />
+      <register name="EMC_DYN_RD_CFG" description="" address="0xFFE08028" access="rw" />
+      <register name="EMC_DYN_RP" description="" address="0xFFE08030" access="rw" />
+      <register name="EMC_DYN_RAS" description="" address="0xFFE08034" access="rw" />
+      <register name="EMC_DYN_SREX" description="" address="0xFFE08038" access="rw" />
+      <register name="EMC_DYN_APR" description="" address="0xFFE0803c" access="rw" />
+      <register name="EMC_DYN_DAL" description="" address="0xFFE08040" access="rw" />
+      <register name="EMC_DYN_WR" description="" address="0xFFE08044" access="rw" />
+      <register name="EMC_DYN_RC" description="" address="0xFFE08048" access="rw" />
+      <register name="EMC_DYN_RFC" description="" address="0xFFE0804c" access="rw" />
+      <register name="EMC_DYN_XSR" description="" address="0xFFE08050" access="rw" />
+      <register name="EMC_DYN_RRD" description="" address="0xFFE08054" access="rw" />
+      <register name="EMC_DYN_MRD" description="" address="0xFFE08058" access="rw" />
+      <register name="EMC_DYN_CFG0" description="" address="0xFFE08100" access="rw" />
+      <register name="EMC_DYN_RASCAS0" description="" address="0xFFE08104" access="rw" />
+      <register name="EMC_DYN_CFG1" description="" address="0xFFE08140" access="rw" />
+      <register name="EMC_DYN_RASCAS1" description="" address="0xFFE08144" access="rw" />
+      <register name="EMC_DYN_CFG2" description="" address="0xFFE08160" access="rw" />
+      <register name="EMC_DYN_RASCAS2" description="" address="0xFFE08164" access="rw" />
+      <register name="EMC_DYN_CFG3" description="" address="0xFFE08180" access="rw" />
+      <register name="EMC_DYN_RASCAS3" description="" address="0xFFE08184" access="rw" />
+    </registergroup>
+    <registergroup name="SRAM" description="">
+      <register name="EMC_STA_EXT_WAIT" description="" address="0xFFE08880" access="rw" />
+      <register name="EMC_STA_CFG0" description="" address="0xFFE08200" access="rw" />
+      <register name="EMC_STA_WAITWEN0" description="" address="0xFFE08204" access="rw" />
+      <register name="EMC_STA_WAITOEN0" description="" address="0xFFE08208" access="rw" />
+      <register name="EMC_STA_WAITRD0" description="" address="0xFFE0820c" access="rw" />
+      <register name="EMC_STA_WAITPAGE0" description="" address="0xFFE08210" access="rw" />
+      <register name="EMC_STA_WAITWR0" description="" address="0xFFE08214" access="rw" />
+      <register name="EMC_STA_WAITTURN0" description="" address="0xFFE08218" access="rw" />
+      <register name="EMC_STA_CFG1" description="" address="0xFFE08220" access="rw" />
+      <register name="EMC_STA_WAITWEN1" description="" address="0xFFE08224" access="rw" />
+      <register name="EMC_STA_WAITOEN1" description="" address="0xFFE08228" access="rw" />
+      <register name="EMC_STA_WAITRD1" description="" address="0xFFE0822c" access="rw" />
+      <register name="EMC_STA_WAITPAGE1" description="" address="0xFFE08230" access="rw" />
+      <register name="EMC_STA_WAITWR1" description="" address="0xFFE08234" access="rw" />
+      <register name="EMC_STA_WAITTURN1" description="" address="0xFFE08238" access="rw" />
+      <register name="EMC_STA_CFG2" description="" address="0xFFE08240" access="rw" />
+      <register name="EMC_STA_WAITWEN2" description="" address="0xFFE08244" access="rw" />
+      <register name="EMC_STA_WAITOEN2" description="" address="0xFFE08248" access="rw" />
+      <register name="EMC_STA_WAITRD2" description="" address="0xFFE0824c" access="rw" />
+      <register name="EMC_STA_WAITPAGE2" description="" address="0xFFE08250" access="rw" />
+      <register name="EMC_STA_WAITWR2" description="" address="0xFFE08254" access="rw" />
+      <register name="EMC_STA_WAITTURN2" description="" address="0xFFE08258" access="rw" />
+      <register name="EMC_STA_CFG3" description="" address="0xFFE08260" access="rw" />
+      <register name="EMC_STA_WAITWEN3" description="" address="0xFFE08264" access="rw" />
+      <register name="EMC_STA_WAITOEN3" description="" address="0xFFE08268" access="rw" />
+      <register name="EMC_STA_WAITRD3" description="" address="0xFFE0826c" access="rw" />
+      <register name="EMC_STA_WAITPAGE3" description="" address="0xFFE08270" access="rw" />
+      <register name="EMC_STA_WAITWR3" description="" address="0xFFE08274" access="rw" />
+      <register name="EMC_STA_WAITTURN3" description="" address="0xFFE08278" access="rw" />
+    </registergroup>
+  </group>
+  <group name="TIM" description="">
+    <registergroup name="TIM0" description="">
+      <register name="T0IR" description="" address="0xE0004000" access="rw" />
+      <register name="T0TCR" description="" address="0xE0004004" access="rw" />
+      <register name="T0TC" description="" address="0xE0004008" access="rw" />
+      <register name="T0PR" description="" address="0xE000400C" access="rw" />
+      <register name="T0PC" description="" address="0xE0004010" access="rw" />
+      <register name="T0MCR" description="" address="0xE0004014" access="rw" />
+      <register name="T0MR0" description="" address="0xE0004018" access="rw" />
+      <register name="T0MR1" description="" address="0xE000401C" access="rw" />
+      <register name="T0MR2" description="" address="0xE0004020" access="rw" />
+      <register name="T0MR3" description="" address="0xE0004024" access="rw" />
+      <register name="T0CCR" description="" address="0xE0004028" access="rw" />
+      <register name="T0CR0" description="" address="0xE000402C" access="rw" />
+      <register name="T0CR1" description="" address="0xE0004030" access="rw" />
+      <register name="T0CR2" description="" address="0xE0004034" access="rw" />
+      <register name="T0CR3" description="" address="0xE0004038" access="rw" />
+      <register name="T0EMR" description="" address="0xE000403C" access="rw" />
+      <register name="T0CTCR" description="" address="0xE0004070" access="rw" />
+    </registergroup>
+    <registergroup name="TIM1" description="">
+      <register name="T1IR" description="" address="0xE0008000" access="rw" />
+      <register name="T1TCR" description="" address="0xE0008004" access="rw" />
+      <register name="T1TC" description="" address="0xE0008008" access="rw" />
+      <register name="T1PR" description="" address="0xE000800C" access="rw" />
+      <register name="T1PC" description="" address="0xE0008010" access="rw" />
+      <register name="T1MCR" description="" address="0xE0008014" access="rw" />
+      <register name="T1MR0" description="" address="0xE0008018" access="rw" />
+      <register name="T1MR1" description="" address="0xE000801C" access="rw" />
+      <register name="T1MR2" description="" address="0xE0008020" access="rw" />
+      <register name="T1MR3" description="" address="0xE0008024" access="rw" />
+      <register name="T1CCR" description="" address="0xE0008028" access="rw" />
+      <register name="T1CR0" description="" address="0xE000802C" access="rw" />
+      <register name="T1CR1" description="" address="0xE0008030" access="rw" />
+      <register name="T1CR2" description="" address="0xE0008034" access="rw" />
+      <register name="T1CR3" description="" address="0xE0008038" access="rw" />
+      <register name="T1EMR" description="" address="0xE000803C" access="rw" />
+      <register name="T1CTCR" description="" address="0xE0008070" access="rw" />
+    </registergroup>
+    <registergroup name="TIM2" description="">
+      <register name="T2IR" description="" address="0xE0070000" access="rw" />
+      <register name="T2TCR" description="" address="0xE0070004" access="rw" />
+      <register name="T2TC" description="" address="0xE0070008" access="rw" />
+      <register name="T2PR" description="" address="0xE007000C" access="rw" />
+      <register name="T2PC" description="" address="0xE0070010" access="rw" />
+      <register name="T2MCR" description="" address="0xE0070014" access="rw" />
+      <register name="T2MR0" description="" address="0xE0070018" access="rw" />
+      <register name="T2MR1" description="" address="0xE007001C" access="rw" />
+      <register name="T2MR2" description="" address="0xE0070020" access="rw" />
+      <register name="T2MR3" description="" address="0xE0070024" access="rw" />
+      <register name="T2CCR" description="" address="0xE0070028" access="rw" />
+      <register name="T2CR0" description="" address="0xE007002C" access="rw" />
+      <register name="T2CR1" description="" address="0xE0070030" access="rw" />
+      <register name="T2CR2" description="" address="0xE0070034" access="rw" />
+      <register name="T2CR3" description="" address="0xE0070038" access="rw" />
+      <register name="T2EMR" description="" address="0xE007003C" access="rw" />
+      <register name="T2CTCR" description="" address="0xE0070070" access="rw" />
+    </registergroup>
+    <registergroup name="TIM3" description="">
+      <register name="T3IR" description="" address="0xE0074000" access="rw" />
+      <register name="T3TCR" description="" address="0xE0074004" access="rw" />
+      <register name="T3TC" description="" address="0xE0074008" access="rw" />
+      <register name="T3PR" description="" address="0xE007400C" access="rw" />
+      <register name="T3PC" description="" address="0xE0074010" access="rw" />
+      <register name="T3MCR" description="" address="0xE0074014" access="rw" />
+      <register name="T3MR0" description="" address="0xE0074018" access="rw" />
+      <register name="T3MR1" description="" address="0xE007401C" access="rw" />
+      <register name="T3MR2" description="" address="0xE0074020" access="rw" />
+      <register name="T3MR3" description="" address="0xE0074024" access="rw" />
+      <register name="T3CCR" description="" address="0xE0074028" access="rw" />
+      <register name="T3CR0" description="" address="0xE007402C" access="rw" />
+      <register name="T3CR1" description="" address="0xE0074030" access="rw" />
+      <register name="T3CR2" description="" address="0xE0074034" access="rw" />
+      <register name="T3CR3" description="" address="0xE0074038" access="rw" />
+      <register name="T3EMR" description="" address="0xE007403C" access="rw" />
+      <register name="T3CTCR" description="" address="0xE0074070" access="rw" />
+    </registergroup>
+  </group>
+  <group name="PWM" description="">
+    <registergroup name="PWM0" description="">
+      <register name="PWM0IR" description="" address="0xE0014000" access="rw" />
+      <register name="PWM0TCR" description="" address="0xE0014004" access="rw" />
+      <register name="PWM0TC" description="" address="0xE0014008" access="rw" />
+      <register name="PWM0PR" description="" address="0xE001400c" access="rw" />
+      <register name="PWM0PC" description="" address="0xE0014010" access="rw" />
+      <register name="PWM0MCR" description="" address="0xE0014014" access="rw" />
+      <register name="PWM0MR0" description="" address="0xE0014018" access="rw" />
+      <register name="PWM0MR1" description="" address="0xE001401c" access="rw" />
+      <register name="PWM0MR2" description="" address="0xE0014020" access="rw" />
+      <register name="PWM0MR3" description="" address="0xE0014024" access="rw" />
+      <register name="PWM0CCR" description="" address="0xE0014028" access="rw" />
+      <register name="PWM0CR0" description="" address="0xE001402c" access="rw" />
+      <register name="PWM0CR1" description="" address="0xE0014030" access="rw" />
+      <register name="PWM0CR2" description="" address="0xE0014034" access="rw" />
+      <register name="PWM0CR3" description="" address="0xE0014038" access="rw" />
+      <register name="PWM0EMR" description="" address="0xE001403c" access="rw" />
+      <register name="PWM0MR4" description="" address="0xE0014040" access="rw" />
+      <register name="PWM0MR5" description="" address="0xE0014044" access="rw" />
+      <register name="PWM0MR6" description="" address="0xE0014048" access="rw" />
+      <register name="PWM0PCR" description="" address="0xE001404c" access="rw" />
+      <register name="PWM0LER" description="" address="0xE0014050" access="rw" />
+      <register name="PWM0CTCR" description="" address="0xE0014070" access="rw" />
+    </registergroup>
+    <registergroup name="PWM1" description="">
+      <register name="PWM1IR" description="" address="0xE0018000" access="rw" />
+      <register name="PWM1TCR" description="" address="0xE0018004" access="rw" />
+      <register name="PWM1TC" description="" address="0xE0018008" access="rw" />
+      <register name="PWM1PR" description="" address="0xE001800c" access="rw" />
+      <register name="PWM1PC" description="" address="0xE0018010" access="rw" />
+      <register name="PWM1MCR" description="" address="0xE0018014" access="rw" />
+      <register name="PWM1MR0" description="" address="0xE0018018" access="rw" />
+      <register name="PWM1MR1" description="" address="0xE001801c" access="rw" />
+      <register name="PWM1MR2" description="" address="0xE0018020" access="rw" />
+      <register name="PWM1MR3" description="" address="0xE0018024" access="rw" />
+      <register name="PWM1CCR" description="" address="0xE0018028" access="rw" />
+      <register name="PWM1CR0" description="" address="0xE001802c" access="rw" />
+      <register name="PWM1CR1" description="" address="0xE0018030" access="rw" />
+      <register name="PWM1CR2" description="" address="0xE0018034" access="rw" />
+      <register name="PWM1CR3" description="" address="0xE0018038" access="rw" />
+      <register name="PWM1EMR" description="" address="0xE001803c" access="rw" />
+      <register name="PWM1MR4" description="" address="0xE0018040" access="rw" />
+      <register name="PWM1MR5" description="" address="0xE0018044" access="rw" />
+      <register name="PWM1MR6" description="" address="0xE0018048" access="rw" />
+      <register name="PWM1PCR" description="" address="0xE001804c" access="rw" />
+      <register name="PWM1LER" description="" address="0xE0018050" access="rw" />
+      <register name="PWM1CTCR" description="" address="0xE0018070" access="rw" />
+    </registergroup>
+  </group>
+  <group name="UART" description="">
+    <registergroup name="UART0" description="">
+      <register name="U0RBR" description="" address="0xE000C000" access="rw" />
+      <register name="U0THR" description="" address="0xE000C000" access="rw" />
+      <register name="U0DLL" description="" address="0xE000C000" access="rw" />
+      <register name="U0DLM" description="" address="0xE000C004" access="rw" />
+      <register name="U0IER" description="" address="0xE000C004" access="rw" />
+      <register name="U0IIR" description="" address="0xE000C008" access="rw" />
+      <register name="U0FCR" description="" address="0xE000C008" access="rw" />
+      <register name="U0LCR" description="" address="0xE000C00c" access="rw" />
+      <register name="U0LSR" description="" address="0xE000C014" access="rw" />
+      <register name="U0SCR" description="" address="0xE000C01c" access="rw" />
+      <register name="U0ACR" description="" address="0xE000C020" access="rw" />
+      <register name="U0ICR" description="" address="0xE000C024" access="rw" />
+      <register name="U0FDR" description="" address="0xE000C028" access="rw" />
+      <register name="U0TER" description="" address="0xE000C030" access="rw" />
+    </registergroup>
+    <registergroup name="UART1" description="">
+      <register name="U1RBR" description="" address="0xE0010000" access="rw" />
+      <register name="U1THR" description="" address="0xE0010000" access="rw" />
+      <register name="U1DLL" description="" address="0xE0010000" access="rw" />
+      <register name="U1DLM" description="" address="0xE0010004" access="rw" />
+      <register name="U1IER" description="" address="0xE0010004" access="rw" />
+      <register name="U1IIR" description="" address="0xE0010008" access="rw" />
+      <register name="U1FCR" description="" address="0xE0010008" access="rw" />
+      <register name="U1LCR" description="" address="0xE001000c" access="rw" />
+      <register name="U1LSR" description="" address="0xE0010014" access="rw" />
+      <register name="U1SCR" description="" address="0xE001001c" access="rw" />
+      <register name="U1ACR" description="" address="0xE0010020" access="rw" />
+      <register name="U1ICR" description="" address="0xE0010024" access="rw" />
+      <register name="U1FDR" description="" address="0xE0010028" access="rw" />
+      <register name="U1TER" description="" address="0xE0010030" access="rw" />
+    </registergroup>
+    <registergroup name="UART2" description="">
+      <register name="U2RBR" description="" address="0xE0078000" access="rw" />
+      <register name="U2THR" description="" address="0xE0078000" access="rw" />
+      <register name="U2DLL" description="" address="0xE0078000" access="rw" />
+      <register name="U2DLM" description="" address="0xE0078004" access="rw" />
+      <register name="U2IER" description="" address="0xE0078004" access="rw" />
+      <register name="U2IIR" description="" address="0xE0078008" access="rw" />
+      <register name="U2FCR" description="" address="0xE0078008" access="rw" />
+      <register name="U2LCR" description="" address="0xE007800c" access="rw" />
+      <register name="U2LSR" description="" address="0xE0078014" access="rw" />
+      <register name="U2SCR" description="" address="0xE007801c" access="rw" />
+      <register name="U2ACR" description="" address="0xE0078020" access="rw" />
+      <register name="U2ICR" description="" address="0xE0078024" access="rw" />
+      <register name="U2FDR" description="" address="0xE0078028" access="rw" />
+      <register name="U2TER" description="" address="0xE0078030" access="rw" />
+    </registergroup>
+    <registergroup name="UART3" description="">
+      <register name="U3RBR" description="" address="0xE007C000" access="rw" />
+      <register name="U3THR" description="" address="0xE007C000" access="rw" />
+      <register name="U3DLL" description="" address="0xE007C000" access="rw" />
+      <register name="U3DLM" description="" address="0xE007C004" access="rw" />
+      <register name="U3IER" description="" address="0xE007C004" access="rw" />
+      <register name="U3IIR" description="" address="0xE007C008" access="rw" />
+      <register name="U3FCR" description="" address="0xE007C008" access="rw" />
+      <register name="U3LCR" description="" address="0xE007C00c" access="rw" />
+      <register name="U3LSR" description="" address="0xE007C014" access="rw" />
+      <register name="U3SCR" description="" address="0xE007C01c" access="rw" />
+      <register name="U3ACR" description="" address="0xE007C020" access="rw" />
+      <register name="U3ICR" description="" address="0xE007C024" access="rw" />
+      <register name="U3FDR" description="" address="0xE007C028" access="rw" />
+      <register name="U3TER" description="" address="0xE007C030" access="rw" />
+    </registergroup>
+  </group>
+  <group name="I2C" description="">
+    <registergroup name="I2C0" description="">
+      <register name="I20CONSET" description="" address="0xE001C000" access="rw" />
+      <register name="I20STAT" description="" address="0xE001C004" access="rw" />
+      <register name="I20DAT" description="" address="0xE001C008" access="rw" />
+      <register name="I20ADR" description="" address="0xE001C00c" access="rw" />
+      <register name="I20SCLH" description="" address="0xE001C010" access="rw" />
+      <register name="I20SCLL" description="" address="0xE001C014" access="rw" />
+      <register name="I20CONCLR" description="" address="0xE001C018" access="rw" />
+    </registergroup>
+    <registergroup name="I2C1" description="">
+      <register name="I21CONSET" description="" address="0xE005C000" access="rw" />
+      <register name="I21STAT" description="" address="0xE005C004" access="rw" />
+      <register name="I21DAT" description="" address="0xE005C008" access="rw" />
+      <register name="I21ADR" description="" address="0xE005C00c" access="rw" />
+      <register name="I21SCLH" description="" address="0xE005C010" access="rw" />
+      <register name="I21SCLL" description="" address="0xE005C014" access="rw" />
+      <register name="I21CONCLR" description="" address="0xE005C018" access="rw" />
+    </registergroup>
+    <registergroup name="I2C2" description="">
+      <register name="I22CONSET" description="" address="0xE0080000" access="rw" />
+      <register name="I22STAT" description="" address="0xE0080004" access="rw" />
+      <register name="I22DAT" description="" address="0xE0080008" access="rw" />
+      <register name="I22ADR" description="" address="0xE008000c" access="rw" />
+      <register name="I22SCLH" description="" address="0xE0080010" access="rw" />
+      <register name="I22SCLL" description="" address="0xE0080014" access="rw" />
+      <register name="I22CONCLR" description="" address="0xE0080018" access="rw" />
+    </registergroup>
+  </group>
+  <group name="SPI" description="">
+    <registergroup name="SPI0" description="">
+      <register name="S0SPCR" description="" address="0xE0020000" access="rw" />
+      <register name="S0SPSR" description="" address="0xE0020004" access="rw" />
+      <register name="S0SPDR" description="" address="0xE0020008" access="rw" />
+      <register name="S0SPCCR" description="" address="0xE002000c" access="rw" />
+      <register name="S0SPINT" description="" address="0xE002001c" access="rw" />
+    </registergroup>
+  </group>
+  <group name="SSP" description="">
+    <registergroup name="SSP0" description="">
+      <register name="SSP0CR0" description="" address="0xE0068000" access="rw" />
+      <register name="SSP0CR1" description="" address="0xE0068004" access="rw" />
+      <register name="SSP0DR" description="" address="0xE0068008" access="rw" />
+      <register name="SSP0SR" description="" address="0xE006800c" access="rw" />
+      <register name="SSP0CPSR" description="" address="0xE0068010" access="rw" />
+      <register name="SSP0IMSC" description="" address="0xE0068014" access="rw" />
+      <register name="SSP0RIS" description="" address="0xE0068018" access="rw" />
+      <register name="SSP0MIS" description="" address="0xE006801c" access="rw" />
+      <register name="SSP0ICR" description="" address="0xE0068020" access="rw" />
+      <register name="SSP0DMACR" description="" address="0xE0068024" access="rw" />
+    </registergroup>
+    <registergroup name="SSP1" description="">
+      <register name="SSP1CR0" description="" address="0xE0030000" access="rw" />
+      <register name="SSP1CR1" description="" address="0xE0030004" access="rw" />
+      <register name="SSP1DR" description="" address="0xE0030008" access="rw" />
+      <register name="SSP1SR" description="" address="0xE003000c" access="rw" />
+      <register name="SSP1CPSR" description="" address="0xE0030010" access="rw" />
+      <register name="SSP1IMSC" description="" address="0xE0030014" access="rw" />
+      <register name="SSP1RIS" description="" address="0xE0030018" access="rw" />
+      <register name="SSP1MIS" description="" address="0xE003001c" access="rw" />
+      <register name="SSP1ICR" description="" address="0xE0030020" access="rw" />
+      <register name="SSP1DMACR" description="" address="0xE0030024" access="rw" />
+    </registergroup>
+  </group>
+  <group name="RTC" description="">
+    <registergroup name="RTC" description="">
+      <register name="RTC_ILR" description="" address="0xE0024000" access="rw" />
+      <register name="RTC_CTC" description="" address="0xE0024004" access="rw" />
+      <register name="RTC_CCR" description="" address="0xE0024080" access="rw" />
+      <register name="RTC_CIIR" description="" address="0xE002400c" access="rw" />
+      <register name="RTC_AMR" description="" address="0xE0024010" access="rw" />
+      <register name="RTC_CTIME0" description="" address="0xE0024014" access="rw" />
+      <register name="RTC_CTIME1" description="" address="0xE0024018" access="rw" />
+      <register name="RTC_CTIME2" description="" address="0xE002401c"  access="rw" />
+      <register name="RTC_SEC" description="" address="0xE0024020" access="rw" />
+      <register name="RTC_MIN" description="" address="0xE0024024" access="rw" />
+      <register name="RTC_HOUR" description="" address="0xE0024028" access="rw" />
+      <register name="RTC_DOM" description="" address="0xE002402c" access="rw" />
+      <register name="RTC_DOW" description="" address="0xE0024030" access="rw" />
+      <register name="RTC_DOY" description="" address="0xE0024034" access="rw" />
+      <register name="RTC_MONTH" description="" address="0xE0024038" access="rw" />
+      <register name="RTC_YEAR" description="" address="0xE002403c" access="rw" />
+      <register name="RTC_CISS" description="" address="0xE0024040" access="rw" />
+      <register name="RTC_ALSEC" description="" address="0xE0024060" access="rw" />
+      <register name="RTC_ALMIN" description="" address="0xE0024064" access="rw" />
+      <register name="RTC_ALHOUR" description="" address="0xE0024068" access="rw" />
+      <register name="RTC_ALDOM" description="" address="0xE002406c" access="rw" />
+      <register name="RTC_ALDOW" description="" address="0xE0024070" access="rw" />
+      <register name="RTC_ALDOY" description="" address="0xE0024074" access="rw" />
+      <register name="RTC_ALMON" description="" address="0xE0024078" access="rw" />
+      <register name="RTC_ALYEAR" description="" address="0xE002407c" access="rw" />
+      <register name="RTC_PREINT" description="" address="0xE0024080" access="rw" />
+      <register name="RTC_PREFRAC" description="" address="0xE0024084" access="rw" />
+    </registergroup>
+  </group>
+  <group name="ADC" description="">
+    <registergroup name="ADC0" description="">
+      <register name="AD0CR" description="" address="0xE0034000" access="rw" />
+      <register name="AD0GDR" description="" address="0xE0034004" access="rw" />
+      <register name="AD0INTEN" description="" address="0xE003400c" access="rw" />
+      <register name="AD0DR0" description="" address="0xE0034010" access="rw" />
+      <register name="AD0DR1" description="" address="0xE0034014" access="rw" />
+      <register name="AD0DR2" description="" address="0xE0034018" access="rw" />
+      <register name="AD0DR3" description="" address="0xE003401c" access="rw" />
+      <register name="AD0DR4" description="" address="0xE0034020" access="rw" />
+      <register name="AD0DR5" description="" address="0xE0034024" access="rw" />
+      <register name="AD0DR6" description="" address="0xE0034028" access="rw" />
+      <register name="AD0DR7" description="" address="0xE003402c" access="rw" />
+      <register name="AD0STAT" description="" address="0xE0034030" access="rw" />
+    </registergroup>
+  </group>
+  <group name="DAC" description="">
+    <registergroup name="DAC" description="">
+      <register name="DACR" description="" address="0xE006C000" access="rw" />
+    </registergroup>
+  </group>
+  <group name="Watchdog" description="">
+    <registergroup name="WDG" description="">
+      <register name="WDMOD" description="" address="0xE0000000" access="rw" />
+      <register name="WDTC" description="" address="0xE0000004" access="rw" />
+      <register name="WDFEED" description="" address="0xE0000008" access="rw" />
+      <register name="WDTV" description="" address="0xE000000c" access="rw" />
+      <register name="WDCLKSEL" description="" address="0xE0000010" access="rw" />
+    </registergroup>
+  </group>
+  <group name="CAN" description="">
+    <registergroup name="CAN_ACCEPT" description="">
+      <register name="CAN_AFMR" description="" address="0xE003C000" access="rw" />
+      <register name="CAN_SFF_SA" description="" address="0xE003C004" access="rw" />
+      <register name="CAN_SFF_GRP_SA" description="" address="0xE003C008" access="rw" />
+      <register name="CAN_EFF_SA" description="" address="0xE003C00c" access="rw" />
+      <register name="CAN_EFF_GRP_SA" description="" address="0xE003C010" access="rw" />
+      <register name="CAN_EOT" description="" address="0xE003C014" access="rw" />
+      <register name="CAN_LUT_ERR_ADR" description="" address="0xE003C018" access="rw" />
+      <register name="CAN_LUT_ERR" description="" address="0xE003C01c" access="rw" />
+    </registergroup>
+    <registergroup name="CAN_CENTRAL" description="">
+      <register name="CAN_TX_SR" description="" address="0xE0040000" access="rw" />
+      <register name="CAN_RX_SR" description="" address="0xE0040004" access="rw" />
+      <register name="CAN_MSR" description="" address="0xE0040008" access="rw" />
+    </registergroup>
+    <registergroup name="CAN1" description="">
+      <register name="CAN1MOD" description="" address="0xE0044000" access="rw" />
+      <register name="CAN1CMR" description="" address="0xE0044004" access="rw" />
+      <register name="CAN1GSR" description="" address="0xE0044008" access="rw" />
+      <register name="CAN1ICR" description="" address="0xE004400c" access="rw" />
+      <register name="CAN1IER" description="" address="0xE0044010" access="rw" />
+      <register name="CAN1BTR" description="" address="0xE0044014" access="rw" />
+      <register name="CAN1EWL" description="" address="0xE0044018" access="rw" />
+      <register name="CAN1SR" description="" address="0xE004401c" access="rw" />
+      <register name="CAN1RFS" description="" address="0xE0044020" access="rw" />
+      <register name="CAN1RID" description="" address="0xE0044024" access="rw" />
+      <register name="CAN1RDA" description="" address="0xE0044028" access="rw" />
+      <register name="CAN1RDB" description="" address="0xE004402c" access="rw" />
+      <register name="CAN1TFI1" description="" address="0xE0044030" access="rw" />
+      <register name="CAN1TID1" description="" address="0xE0044034" access="rw" />
+      <register name="CAN1TDA1" description="" address="0xE0044038" access="rw" />
+      <register name="CAN1TDB1" description="" address="0xE004403c" access="rw" />
+      <register name="CAN1TFI2" description="" address="0xE0044040" access="rw" />
+      <register name="CAN1TID2" description="" address="0xE0044044" access="rw" />
+      <register name="CAN1TDA2" description="" address="0xE0044048" access="rw" />
+      <register name="CAN1TDB2" description="" address="0xE004404c" access="rw" />
+      <register name="CAN1TFI3" description="" address="0xE0044050" access="rw" />
+      <register name="CAN1TID3" description="" address="0xE0044054" access="rw" />
+      <register name="CAN1TDA3" description="" address="0xE0044058" access="rw" />
+      <register name="CAN1TDB3" description="" address="0xE004405c" access="rw" />
+    </registergroup>
+    <registergroup name="CAN2" description="">
+      <register name="CAN2MOD" description="" address="0xE0048000" access="rw" />
+      <register name="CAN2CMR" description="" address="0xE0048004" access="rw" />
+      <register name="CAN2GSR" description="" address="0xE0048008" access="rw" />
+      <register name="CAN2ICR" description="" address="0xE004800c" access="rw" />
+      <register name="CAN2IER" description="" address="0xE0048010" access="rw" />
+      <register name="CAN2BTR" description="" address="0xE0048014" access="rw" />
+      <register name="CAN2EWL" description="" address="0xE0048018" access="rw" />
+      <register name="CAN2SR" description="" address="0xE004801c" access="rw" />
+      <register name="CAN2RFS" description="" address="0xE0048020" access="rw" />
+      <register name="CAN2RID" description="" address="0xE0048024" access="rw" />
+      <register name="CAN2RDA" description="" address="0xE0048028" access="rw" />
+      <register name="CAN2RDB" description="" address="0xE004802c" access="rw" />
+      <register name="CAN2TFI1" description="" address="0xE0048030" access="rw" />
+      <register name="CAN2TID1" description="" address="0xE0048034" access="rw" />
+      <register name="CAN2TDA1" description="" address="0xE0048038" access="rw" />
+      <register name="CAN2TDB1" description="" address="0xE004803c" access="rw" />
+      <register name="CAN2TFI2" description="" address="0xE0048040" access="rw" />
+      <register name="CAN2TID2" description="" address="0xE0048044" access="rw" />
+      <register name="CAN2TDA2" description="" address="0xE0048048" access="rw" />
+      <register name="CAN2TDB2" description="" address="0xE004804c" access="rw" />
+      <register name="CAN2TFI3" description="" address="0xE0048050" access="rw" />
+      <register name="CAN2TID3" description="" address="0xE0048054" access="rw" />
+      <register name="CAN2TDA3" description="" address="0xE0048058" access="rw" />
+      <register name="CAN2TDB3" description="" address="0xE004805c" access="rw" />
+    </registergroup>
+  </group>
+  <group name="MCI" description="">
+    <registergroup name="MCI" description="">
+      <register name="MCI_POWER" description="" address="0xE008C000" access="rw" />
+      <register name="MCI_CLK" description="" address="0xE008C004" access="rw" />
+      <register name="MCI_ARGUMENT" description="" address="0xE008C008" access="rw" />
+      <register name="MCI_COMMAND" description="" address="0xE008C00c" access="rw" />
+      <register name="MCI_RESP_CMD" description="" address="0xE008C010" access="rw" />
+      <register name="MCI_RESP0" description="" address="0xE008C014" access="rw" />
+      <register name="MCI_RESP1" description="" address="0xE008C018" access="rw" />
+      <register name="MCI_RESP2" description="" address="0xE008C01c" access="rw" />
+      <register name="MCI_RESP3" description="" address="0xE008C020" access="rw" />
+      <register name="MCI_DATA_TMR" description="" address="0xE008C024" access="rw" />
+      <register name="MCI_DATA_LEN" description="" address="0xE008C028" access="rw" />
+      <register name="MCI_DATA_CTRL" description="" address="0xE008C02c" access="rw" />
+      <register name="MCI_DATA_CNT" description="" address="0xE008C030" access="rw" />
+      <register name="MCI_STATUS" description="" address="0xE008C034" access="rw" />
+      <register name="MCI_CLEAR" description="" address="0xE008C038" access="rw" />
+      <register name="MCI_MASK0" description="" address="0xE008C03c" access="rw" />
+      <register name="MCI_MASK1" description="" address="0xE008C040" access="rw" />
+      <register name="MCI_FIFO_CNT" description="" address="0xE008C048" access="rw" />
+      <register name="MCI_FIFO" description="" address="0xE008C080" access="rw" />
+    </registergroup>
+  </group>
+  <group name="I2S" description="">
+    <registergroup name="I2S" description="">
+      <register name="I2S_DAO" description="" address="0xE0088000" access="rw" />
+      <register name="I2S_DAI" description="" address="0xE0088004" access="rw" />
+      <register name="I2S_TX_FIFO" description="" address="0xE0088008" access="rw" />
+      <register name="I2S_RX_FIFO" description="" address="0xE008800c" access="rw" />
+      <register name="I2S_STATE" description="" address="0xE0088010" access="rw" />
+      <register name="I2S_DMA1" description="" address="0xE00880014" access="rw" />
+      <register name="I2S_DMA2" description="" address="0xE0088018" access="rw" />
+      <register name="I2S_IRQ" description="" address="0xE008801c" access="rw" />
+      <register name="I2S_TXRATE" description="" address="0xE0088020" access="rw" />
+      <register name="I2S_RXRATE" description="" address="0xE0088024" access="rw" />
+    </registergroup>
+  </group>
+  <group name="DMA" description="">
+    <registergroup name="DMA_CNTL" description="">
+      <register name="GPDMA_INT_STAT" description="" address="0xFFE04000" access="rw" />
+      <register name="GPDMA_INT_TCSTAT" description="" address="0xFFE04004" access="rw" />
+      <register name="GPDMA_INT_TCCLR" description="" address="0xFFE04008" access="rw" />
+      <register name="GPDMA_INT_ERR_STAT" description="" address="0xFFE0400c" access="rw" />
+      <register name="GPDMA_INT_ERR_CLR" description="" address="0xFFE04010" access="rw" />
+      <register name="GPDMA_RAW_INT_TCSTAT" description="" address="0xFFE04014" access="rw" />
+      <register name="GPDMA_RAW_INT_ERR_STAT" description="" address="0xFFE04018" access="rw" />
+      <register name="GPDMA_ENABLED_ CHNS" description="" address="0xFFE0401c" access="rw" />
+      <register name="GPDMA_SOFT_BREQ" description="" address="0xFFE04020" access="rw" />
+      <register name="GPDMA_SOFT_SREQ" description="" address="0xFFE04024" access="rw" />
+      <register name="GPDMA_SOFT_LBREQ" description="" address="0xFFE04028" access="rw" />
+      <register name="GPDMA_SOFT_LSREQ" description="" address="0xFFE0402c" access="rw" />
+      <register name="GPDMA_CONFIG" description="" address="0xFFE04030" access="rw" />
+      <register name="GPDMA_SYNC" description="" address="0xFFE04034" access="rw" />
+    </registergroup>
+    <registergroup name="DMA_CH0" description="">
+      <register name="GPDMA_CH0_SRC" description="" address="0xFFE04100" access="rw" />
+      <register name="GPDMA_CH0_DEST" description="" address="0xFFE04104" access="rw" />
+      <register name="GPDMA_CH0_LLI" description="" address="0xFFE04108" access="rw" />
+      <register name="GPDMA_CH0_CTRL" description="" address="0xFFE0410c" access="rw" />
+      <register name="GPDMA_CH0_CFG" description="" address="0xFFE04110" access="rw" />
+    </registergroup>
+    <registergroup name="DMA_CH1" description="">
+      <register name="GPDMA_CH1_SRC" description="" address="0xFFE04120" access="rw" />
+      <register name="GPDMA_CH1_DEST" description="" address="0xFFE04124" access="rw" />
+      <register name="GPDMA_CH1_LLI" description="" address="0xFFE04128" access="rw" />
+      <register name="GPDMA_CH1_CTRL" description="" address="0xFFE0412c" access="rw" />
+      <register name="GPDMA_CH1_CFG" description="" address="0xFFE04130" access="rw" />
+    </registergroup>
+  </group>
+  <group name="USB" description="">
+    <registergroup name="USB_CONTROLLER" description="">
+      <register name="USB_INT_STAT" description="" address="0xE01FC1C0" access="rw" />
+      <register name="USB_PORTSEL" description="" address="0xFFE0C110" access="rw" />
+      <register name="USB_CLKSEL" description="" address="0xFFE0CFF4" access="rw" />
+      <register name="USB_CLKST" description="" address="0xFFE0CFF8" access="rw" />
+    </registergroup>
+    <registergroup name="USB_DEV_INT" description="">
+      <register name="DEV_INT_STAT" description="" address="0xFFE0C200" access="rw" />
+      <register name="DEV_INT_EN" description="" address="0xFFE0C204" access="rw" />
+      <register name="DEV_INT_CLR" description="" address="0xFFE0C208" access="rw" />
+      <register name="DEV_INT_SET" description="" address="0xFFE0C20C" access="rw" />
+      <register name="DEV_INT_PRIO" description="" address="0xFFE0C22C" access="rw" />
+    </registergroup>
+    <registergroup name="USB_DEV_EP_INT" description="">
+      <register name="EP_INT_STAT" description="" address="0xFFE0C230" access="rw" />
+      <register name="EP_INT_EN" description="" address="0xFFE0C234" access="rw" />
+      <register name="EP_INT_CLR" description="" address="0xFFE0C238" access="rw" />
+      <register name="EP_INT_SET" description="" address="0xFFE0C23C" access="rw" />
+      <register name="EP_INT_PRIO" description="" address="0xFFE0C240" access="rw" />
+    </registergroup>
+    <registergroup name="USB_DEV_EP_REAL" description="">
+      <register name="REALIZE_EP" description="" address="0xFFE0C244" access="rw" />
+      <register name="EP_INDEX" description="" address="0xFFE0C248" access="rw" />
+      <register name="MAXPACKET_SIZE" description="" address="0xFFE0C24C" access="rw" />
+    </registergroup>
+    <registergroup name="USB_DEV_CMD" description="">
+      <register name="CMD_CODE" description="" address="0xFFE0C210" access="rw" />
+      <register name="CMD_DATA" description="" address="0xFFE0C214" access="rw" />
+    </registergroup>
+    <registergroup name="USB_DEV_DAT_TX" description="">
+      <register name="RX_DATA" description="" address="0xFFE0C218" access="rw" />
+      <register name="TX_DATA" description="" address="0xFFE0C21C" access="rw" />
+      <register name="RX_PLENGTH" description="" address="0xFFE0C220" access="rw" />
+      <register name="TX_PLENGTH" description="" address="0xFFE0C224" access="rw" />
+      <register name="USB_CTRL" description="" address="0xFFE0C228" access="rw" />
+    </registergroup>
+    <registergroup name="USB_DEV_DMA" description="">
+      <register name="DMA_REQ_STAT" description="" address="0xFFE0C250" access="rw" />
+      <register name="DMA_REQ_CLR" description="" address="0xFFE0C254" access="rw" />
+      <register name="DMA_REQ_SET" description="" address="0xFFE0C258" access="rw" />
+      <register name="UDCA_HEAD" description="" address="0xFFE0C280" access="rw" />
+      <register name="EP_DMA_STAT" description="" address="0xFFE0C284" access="rw" />
+      <register name="EP_DMA_EN" description="" address="0xFFE0C288" access="rw" />
+      <register name="EP_DMA_DIS" description="" address="0xFFE0C28C" access="rw" />
+      <register name="DMA_INT_STAT" description="" address="0xFFE0C290" access="rw" />
+      <register name="DMA_INT_EN" description="" address="0xFFE0C294" access="rw" />
+      <register name="EOT_INT_STAT" description="" address="0xFFE0C2A0" access="rw" />
+      <register name="EOT_INT_CLR" description="" address="0xFFE0C2A4" access="rw" />
+      <register name="EOT_INT_SET" description="" address="0xFFE0C2A8" access="rw" />
+      <register name="NDD_REQ_INT_STAT" description="" address="0xFFE0C2AC" access="rw" />
+      <register name="NDD_REQ_INT_CLR" description="" address="0xFFE0C2B0" access="rw" />
+      <register name="NDD_REQ_INT_SET" description="" address="0xFFE0C2B4" access="rw" />
+      <register name="SYS_ERR_INT_STAT" description="" address="0xFFE0C2B8" access="rw" />
+      <register name="SYS_ERR_INT_CLR" description="" address="0xFFE0C2BC" access="rw" />
+      <register name="SYS_ERR_INT_SET" description="" address="0xFFE0C2C0" access="rw" />
+    </registergroup>
+    <registergroup name="USB_HOST" description="">
+      <register name="HC_REVISION" description="" address="0xFFE0C000" access="rw" />
+      <register name="HC_CONTROL" description="" address="0xFFE0C004" access="rw" />
+      <register name="HC_CMD_STAT" description="" address="0xFFE0C008" access="rw" />
+      <register name="HC_INT_STAT" description="" address="0xFFE0C00C" access="rw" />
+      <register name="HC_INT_EN" description="" address="0xFFE0C010" access="rw" />
+      <register name="HC_INT_DIS" description="" address="0xFFE0C014" access="rw" />
+      <register name="HC_HCCA" description="" address="0xFFE0C018" access="rw" />
+      <register name="HC_PERIOD_CUR_ED" description="" address="0xFFE0C01C" access="rw" />
+      <register name="HC_CTRL_HEAD_ED" description="" address="0xFFE0C020" access="rw" />
+      <register name="HC_CTRL_CUR_ED" description="" address="0xFFE0C024" access="rw" />
+      <register name="HC_BULK_HEAD_ED" description="" address="0xFFE0C028" access="rw" />
+      <register name="HC_BULK_CUR_ED" description="" address="0xFFE0C02C" access="rw" />
+      <register name="HC_DONE_HEAD" description="" address="0xFFE0C030" access="rw" />
+      <register name="HC_FM_INTERVAL" description="" address="0xFFE0C034" access="rw" />
+      <register name="HC_FM_REMAINING" description="" address="0xFFE0C038" access="rw" />
+      <register name="HC_FM_NUMBER" description="" address="0xFFE0C03C" access="rw" />
+      <register name="HC_PERIOD_STAT" description="" address="0xFFE0C040" access="rw" />
+      <register name="HC_LS_THRHLD" description="" address="0xFFE0C044" access="rw" />
+      <register name="HC_RH_DESCA" description="" address="0xFFE0C048" access="rw" />
+      <register name="HC_RH_DESCB" description="" address="0xFFE0C04C" access="rw" />
+      <register name="HC_RH_STAT" description="" address="0xFFE0C050" access="rw" />
+      <register name="HC_RH_PORT_STAT1" description="" address="0xFFE0C054" access="rw" />
+      <register name="HC_RH_PORT_STAT2" description="" address="0xFFE0C058" access="rw" />
+    </registergroup>
+    <registergroup name="USB_OTG" description="">
+      <register name="OTG_INT_STAT" description="" address="0xFFE0C100" access="rw" />
+      <register name="OTG_INT_EN" description="" address="0xFFE0C104" access="rw" />
+      <register name="OTG_INT_SET" description="" address="0xFFE0C108" access="rw" />
+      <register name="OTG_INT_CLR" description="" address="0xFFE0C10C" access="rw" />
+      <register name="OTG_STAT_CTRL" description="" address="0xFFE0C110" access="rw" />
+      <register name="OTG_TIMER" description="" address="0xFFE0C114" access="rw" />
+      <register name="OTG_I2C_RX" description="" address="0xFFE0C300" access="rw" />
+      <register name="OTG_I2C_TX" description="" address="0xFFE0C300" access="rw" />
+      <register name="OTG_I2C_STS" description="" address="0xFFE0C304" access="rw" />
+      <register name="OTG_I2C_CTL" description="" address="0xFFE0C308" access="rw" />
+      <register name="OTG_I2C_CLKHI" description="" address="0xFFE0C30C" access="rw" />
+      <register name="OTG_I2C_CLKLO" description="" address="0xFFE0C310" access="rw" />
+      <register name="OTG_CLK_CTRL" description="" address="0xFFE0CFF4" access="rw" />
+      <register name="OTG_CLK_STAT" description="" address="0xFFE0CFF8" access="rw" />
+    </registergroup>
+  </group>
+  <group name="MAC" description="">
+    <registergroup name="MAC" description="">
+      <register name="MAC_MAC1" description="" address="0xFFE00000" access="rw" />
+      <register name="MAC_MAC2" description="" address="0xFFE00004" access="rw" />
+      <register name="MAC_IPGT" description="" address="0xFFE00008" access="rw" />
+      <register name="MAC_IPGR" description="" address="0xFFE0000C" access="rw" />
+      <register name="MAC_CLRT" description="" address="0xFFE00010" access="rw" />
+      <register name="MAC_MAXF" description="" address="0xFFE00014" access="rw" />
+      <register name="MAC_SUPP" description="" address="0xFFE00018" access="rw" />
+      <register name="MAC_TEST" description="" address="0xFFE0001C" access="rw" />
+      <register name="MAC_MCFG" description="" address="0xFFE00020" access="rw" />
+      <register name="MAC_MCMD" description="" address="0xFFE00024" access="rw" />
+      <register name="MAC_MADR" description="" address="0xFFE00028" access="rw" />
+      <register name="MAC_MWTD" description="" address="0xFFE0002C" access="rw" />
+      <register name="MAC_MRDD" description="" address="0xFFE00030" access="rw" />
+      <register name="MAC_MIND" description="" address="0xFFE00034" access="rw" />
+      <register name="MAC_SA0" description="" address="0xFFE00040" access="rw" />
+      <register name="MAC_SA1" description="" address="0xFFE00044" access="rw" />
+      <register name="MAC_SA2" description="" address="0xFFE00048" access="rw" />
+      <register name="MAC_COMMAND" description="" address="0xFFE00100" access="rw" />
+      <register name="MAC_STATUS" description="" address="0xFFE00104" access="rw" />
+      <register name="MAC_RXDESCRIPTOR" description="" address="0xFFE00108" access="rw" />
+      <register name="MAC_RXSTATUS" description="" address="0xFFE0010C" access="rw" />
+      <register name="MAC_RXDESCRIPTORNUM" description="" address="0xFFE00110" access="rw" />
+      <register name="MAC_RXPROCUDEINDEX" description="" address="0xFFE00114" access="rw" />
+      <register name="MAC_RXCONSUMEINDEX" description="" address="0xFFE00118" access="rw" />
+      <register name="MAC_TXDESCRIPTOR" description="" address="0xFFE0011C" access="rw" />
+      <register name="MAC_TXSTATUS" description="" address="0xFFE00120" access="rw" />
+      <register name="MAC_TXDESCRIPTORNUM" description="" address="0xFFE00124" access="rw" />
+      <register name="MAC_TXPRODUCEINDEX" description="" address="0xFFE00128" access="rw" />
+      <register name="MAC_TXCONSUMEINDEX" description="" address="0xFFE0012C" access="rw" />
+      <register name="MAC_TSV0" description="" address="0xFFE00158" access="rw" />
+      <register name="MAC_TSV1" description="" address="0xFFE0015C" access="rw" />
+      <register name="MAC_RSV" description="" address="0xFFE00160" access="rw" />
+      <register name="MAC_FLOWCONTROLCNT" description="" address="0xFFE00170" access="rw" />
+      <register name="MAC_FLOWCONTROLSTS" description="" address="0xFFE00174" access="rw" />
+      <register name="MAC_RXFILTERCTRL" description="" address="0xFFE00200" access="rw" />
+      <register name="MAC_RXFILTERWOLSTS" description="" address="0xFFE00204" access="rw" />
+      <register name="MAC_RXFILTERWOLCLR" description="" address="0xFFE00208" access="rw" />
+      <register name="MAC_HASHFILTERL" description="" address="0xFFE00210" access="rw" />
+      <register name="MAC_HASHFILTERH" description="" address="0xFFE00214" access="rw" />
+      <register name="MAC_INTSTATUS" description="" address="0xFFE00FE0" access="rw" />
+      <register name="MAC_INTENABLE" description="" address="0xFFE00FE4" access="rw" />
+      <register name="MAC_INTCLEAR" description="" address="0xFFE00FE8" access="rw" />
+      <register name="MAC_INTSET" description="" address="0xFFE00FEC" access="rw" />
+      <register name="MAC_POWERDOWN" description="" address="0xFFE00FF4" access="rw" />
+      <register name="MAC_MODULEID" description="" address="0xFFE00FFC" access="rw" />
+    </registergroup>
+  </group>
+</model>
