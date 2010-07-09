@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE model SYSTEM "embsysregview.dtd">
 
-<model chipname="INC/LM3S3739">
+<model chipname="LM3S3739">
   <chip_description>Product Features
 
    32-Bit RISC Performance

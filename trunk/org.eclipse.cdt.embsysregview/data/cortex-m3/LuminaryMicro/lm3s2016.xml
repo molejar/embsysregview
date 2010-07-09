@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE model SYSTEM "embsysregview.dtd">
 
-<model chipname="INC/LM3S2016">
+<model chipname="LM3S2016">
   <chip_description>Copyright © 2006-2009 Texas Instruments Incorporated. All rights reserved.</chip_description>
   <group name="WATCHDOG" description="Watchdog Timer">
     <registergroup name="WATCHDOG" description="">
