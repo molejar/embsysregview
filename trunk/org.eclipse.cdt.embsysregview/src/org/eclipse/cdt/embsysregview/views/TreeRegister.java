@@ -15,18 +15,16 @@
 
 package org.eclipse.cdt.embsysregview.views;
 
-import java.math.BigInteger;
-import org.eclipse.cdt.debug.internal.core.CMemoryBlockRetrievalExtension;
-import org.eclipse.cdt.debug.internal.core.model.CMemoryBlockExtension;
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.debug.core.DebugException;
-import org.eclipse.debug.core.model.IMemoryBlock;
-import org.eclipse.debug.core.model.IMemoryBlockRetrieval;
-import org.eclipse.debug.core.model.MemoryByte;
-import org.eclipse.debug.internal.ui.views.memory.MemoryViewUtil;
 import org.eclipse.debug.ui.DebugUITools;
+import org.eclipse.cdt.debug.mi.core.command.CommandFactory;
+import org.eclipse.cdt.debug.mi.core.command.MIDataReadMemory;
+import org.eclipse.cdt.debug.mi.core.output.MIDataReadMemoryInfo;
+import org.eclipse.cdt.debug.mi.core.MIFormat;
+import org.eclipse.cdt.debug.mi.core.MISession;
+import org.eclipse.cdt.debug.mi.core.MIException;
+import org.eclipse.cdt.debug.mi.core.output.MIMemory;
 
-@SuppressWarnings("restriction")
 public class TreeRegister extends TreeParent{
 	private long old_value;
 	private long value=-1;
@@ -38,20 +36,26 @@ public class TreeRegister extends TreeParent{
 	public boolean isReadWrite()
 	{
 		return (getType().toUpperCase().equals("RW") || 
+				getType().toUpperCase().equals("RW1") || 
 				getType().toUpperCase().equals("RW1C") || 
-				getType().toUpperCase().equals("RW1S"));
+				getType().toUpperCase().equals("RW1S") || 
+				getType().toUpperCase().equals("RWH"));
 	}
 	
 	public boolean isReadOnly()
 	{
 		return (getType().toUpperCase().equals("RO") || 
-				getType().toUpperCase().equals("RC"));
+				getType().toUpperCase().equals("RC") ||
+				getType().toUpperCase().equals("R"));
 	}
 	
 	public boolean isWriteOnly()
 	{
 		return (getType().toUpperCase().equals("WO") || 
-				getType().toUpperCase().equals("W1C"));
+				getType().toUpperCase().equals("W") || 
+				getType().toUpperCase().equals("W1C") || 
+				getType().toUpperCase().equals("W1S") || 
+				getType().toUpperCase().equals("W1"));
 	}
 	
 	public boolean hasValueChanged()
@@ -96,7 +100,7 @@ public class TreeRegister extends TreeParent{
 	/**
 	 * Updates the Registers value from live data in the Debug Context
 	 */
-	public void updateValue()
+	public void updateValue( MISession miSession )
 	{
 		if(retrievalActive && !isWriteOnly())
 		{
@@ -106,19 +110,24 @@ public class TreeRegister extends TreeParent{
 				IAdaptable context = DebugUITools.getDebugContext();
 				if(context!=null)
 				{
-					IMemoryBlockRetrieval retrieval = MemoryViewUtil.getMemoryBlockRetrieval(context);
-					CMemoryBlockRetrievalExtension cdtRetrieval = (CMemoryBlockRetrievalExtension) retrieval;
-					try {
-						IMemoryBlock mem = (CMemoryBlockExtension)cdtRetrieval.getMemoryBlock(registerAddress, 4);
-						MemoryByte[] membyte = ((CMemoryBlockExtension)mem).getBytesFromAddress(BigInteger.valueOf(registerAddress), 4);
-					
-						value = (long)(membyte[3].getValue() & 0xFF);
-						value = ((long)value << 8) + (long)(membyte[2].getValue() & 0xFF);
-						value = ((long)value << 8) + (long)(membyte[1].getValue() & 0xFF);
-						value = ((long)value << 8) + (long)(membyte[0].getValue() & 0xFF);
-											
-					} catch (DebugException e) {                                                 
-						value=-1;
+					if ( miSession != null ) {
+						CommandFactory factory = miSession.getCommandFactory();
+						MIDataReadMemory mem = factory.createMIDataReadMemory( 0, Long.toString(registerAddress),
+						                     								   MIFormat.HEXADECIMAL, 4, 1, 1, null );
+						value = -1;
+						try {
+						   miSession.postCommand(mem);
+						   MIDataReadMemoryInfo info = mem.getMIDataReadMemoryInfo();
+						   if (info != null) {
+							  MIMemory[] memories = info.getMemories();
+							  long[] val = memories[0].getData();
+							  value = val[0];
+						   }
+						} catch (MIException e) {
+							//throw new MI2CDIException(e);
+						}
+					} else {
+						value = -1;
 					}
 				}
 				else
