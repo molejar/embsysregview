@@ -727,7 +727,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 						// Update Value in Target
 						setRegister(laddress, rvalue);
 					
-						treeRegister.updateValue();
+						treeRegister.updateValue( miSession );
 						viewer.refresh(treeRegister);
 					}	
 				}
@@ -944,7 +944,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 						if(!treeRegister.isWriteOnly())
 						{
 							treeRegister.toggleRetrieval();
-							treeRegister.updateValue();
+							treeRegister.updateValue( miSession );
 						}
 					}
 					viewer.refresh(obj);
@@ -955,7 +955,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 					if(!treeRegister.isWriteOnly())
 					{
 						treeRegister.toggleRetrieval();
-						treeRegister.updateValue();
+						treeRegister.updateValue( miSession );
 						viewer.refresh(obj);
 					}
 				}
@@ -966,7 +966,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 					if(!treeRegister.isWriteOnly())
 					{
 						treeRegister.toggleRetrieval();
-						treeRegister.updateValue();
+						treeRegister.updateValue( miSession );
 						viewer.refresh(treeField.getParent());
 					}
 				}
@@ -986,6 +986,11 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 		DebugPlugin.getDefault().addDebugEventListener(this);
 	}
 
+	@Override
+	public void dispose() {
+	   DebugPlugin.getDefault().removeDebugEventListener(this);
+	}
+	
 	/**
 	 * Passing the focus request to the viewer's control.
 	 */
@@ -998,7 +1003,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 	 */
 	private void updateTreeFields(TreeElement element) {
 		if (element instanceof TreeRegister)
-			((TreeRegister) element).updateValue();
+			((TreeRegister) element).updateValue( miSession );
 		else if (element instanceof TreeParent
 				&& ((TreeParent) element).hasChildren()) {
 			TreeParent pelement = (TreeParent) element;
