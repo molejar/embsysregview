@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.cdt.embsysregview_feature"
+      label="embsysregview_feature"
+      version="0.1.5">
+
+   <description url="http://sourceforge.net/projects/embsysregview/">
+      This Plugin provides a Embedded Systems Peripherals Register
+View
+   </description>
+
+   <license url="http://www.gnu.org/licenses/gpl-3.0.html">
+      EmbSysRegView is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation, either version 3 of
+the License, or (at your option) any later version.
+EmbSysRegView is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with EmbSysRegView.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+   </license>
+
+   <plugin
+         id="org.eclipse.cdt.embsysregview"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>
