@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="org.eclipse.cdt.embsysregview_website">
+        <wb-resource deploy-path="/" source-path="/htdocs"/>
+        <property name="context-root" value="org.eclipse.cdt.embsysregview_website"/>
+    </wb-module>
+</project-modules>
