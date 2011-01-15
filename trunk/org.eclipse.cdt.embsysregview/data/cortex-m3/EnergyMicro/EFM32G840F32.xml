@@ -479,7 +479,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
       </register>
       <register name="CALCTRL" address="0x400c8018" access="RW" resetvalue="0x00000000">
         <description>Calibration Control Register</description>
-        <field name="REFSEL" bitoffset="0" bitlength="3">
+        <field name="UPSEL" bitoffset="0" bitlength="3">
           <description>
         Calibration Up-counter Select
         -
@@ -4877,12 +4877,31 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
           </description>
         </field>
       </register>
-      <register name="WAITSTATUS" address="0x400c2010" access="RO" resetvalue="0x000000FF">
+      <register name="CHWAITSTATUS" address="0x400c2010" access="RO" resetvalue="0x000000FF">
         <description>Channel Wait on Request Status Register</description>
-        <field name="WAITSTATUS" bitoffset="0" bitlength="32">
-          <description>
-        Channel Wait on Request Status
-          </description>
+        <field name="CH0WAITSTATUS" bitoffset="0" bitlength="1">
+          <description>Channel 0 Wait on Request Status</description>
+        </field>
+        <field name="CH1WAITSTATUS" bitoffset="1" bitlength="1">
+          <description>Channel 1 Wait on Request Status</description>
+        </field>
+        <field name="CH2WAITSTATUS" bitoffset="2" bitlength="1">
+          <description>Channel 2 Wait on Request Status</description>
+        </field>
+        <field name="CH3WAITSTATUS" bitoffset="3" bitlength="1">
+          <description>Channel 3 Wait on Request Status</description>
+        </field>
+        <field name="CH4WAITSTATUS" bitoffset="4" bitlength="1">
+          <description>Channel 4 Wait on Request Status</description>
+        </field>
+        <field name="CH5WAITSTATUS" bitoffset="5" bitlength="1">
+          <description>Channel 5 Wait on Request Status</description>
+        </field>
+        <field name="CH6WAITSTATUS" bitoffset="6" bitlength="1">
+          <description>Channel 6 Wait on Request Status</description>
+        </field>
+        <field name="CH7WAITSTATUS" bitoffset="7" bitlength="1">
+          <description>Channel 7 Wait on Request Status</description>
         </field>
       </register>
       <register name="CHSWREQ" address="0x400c2014" access="WO" resetvalue="0x00000000">
@@ -5186,6 +5205,60 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         <description>Bus Error Clear Register</description>
         <field name="ERRORC" bitoffset="0" bitlength="1">
           <description>Bus Error Clear</description>
+        </field>
+      </register>
+      <register name="CHREQSTATUS" address="0x400c2e10" access="RO" resetvalue="0x00000000">
+        <description>Channel Request Status</description>
+        <field name="CH0REQSTATUS" bitoffset="0" bitlength="1">
+          <description>Channel 0 Request Status</description>
+        </field>
+        <field name="CH1REQSTATUS" bitoffset="1" bitlength="1">
+          <description>Channel 1 Request Status</description>
+        </field>
+        <field name="CH2REQSTATUS" bitoffset="2" bitlength="1">
+          <description>Channel 2 Request Status</description>
+        </field>
+        <field name="CH3REQSTATUS" bitoffset="3" bitlength="1">
+          <description>Channel 3 Request Status</description>
+        </field>
+        <field name="CH4REQSTATUS" bitoffset="4" bitlength="1">
+          <description>Channel 4 Request Status</description>
+        </field>
+        <field name="CH5REQSTATUS" bitoffset="5" bitlength="1">
+          <description>Channel 5 Request Status</description>
+        </field>
+        <field name="CH6REQSTATUS" bitoffset="6" bitlength="1">
+          <description>Channel 6 Request Status</description>
+        </field>
+        <field name="CH7REQSTATUS" bitoffset="7" bitlength="1">
+          <description>Channel 7 Request Status</description>
+        </field>
+      </register>
+      <register name="CHSREQSTATUS" address="0x400c2e18" access="RO" resetvalue="0x00000000">
+        <description>Channel Single Request Status</description>
+        <field name="CH0SREQSTATUS" bitoffset="0" bitlength="1">
+          <description>Channel 0 Single Request Status</description>
+        </field>
+        <field name="CH1SREQSTATUS" bitoffset="1" bitlength="1">
+          <description>Channel 1 Single Request Status</description>
+        </field>
+        <field name="CH2SREQSTATUS" bitoffset="2" bitlength="1">
+          <description>Channel 2 Single Request Status</description>
+        </field>
+        <field name="CH3SREQSTATUS" bitoffset="3" bitlength="1">
+          <description>Channel 3 Single Request Status</description>
+        </field>
+        <field name="CH4SREQSTATUS" bitoffset="4" bitlength="1">
+          <description>Channel 4 Single Request Status</description>
+        </field>
+        <field name="CH5SREQSTATUS" bitoffset="5" bitlength="1">
+          <description>Channel 5 Single Request Status</description>
+        </field>
+        <field name="CH6SREQSTATUS" bitoffset="6" bitlength="1">
+          <description>Channel 6 Single Request Status</description>
+        </field>
+        <field name="CH7SREQSTATUS" bitoffset="7" bitlength="1">
+          <description>Channel 7 Single Request Status</description>
         </field>
       </register>
       <register name="IF" address="0x400c3000" access="RO" resetvalue="0x00000000">
@@ -11317,20 +11390,20 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         <field name="CTRL" bitoffset="0" bitlength="1">
           <description>LETIMERn_CTRL Register Busy</description>
         </field>
-        <field name="COMP0" bitoffset="1" bitlength="1">
+        <field name="CMD" bitoffset="1" bitlength="1">
+          <description>LETIMERn_CMD Register Busy</description>
+        </field>
+        <field name="COMP0" bitoffset="2" bitlength="1">
           <description>LETIMERn_COMP0 Register Busy</description>
         </field>
-        <field name="COMP1" bitoffset="2" bitlength="1">
+        <field name="COMP1" bitoffset="3" bitlength="1">
           <description>LETIMERn_COMP1 Register Busy</description>
         </field>
-        <field name="REP0" bitoffset="3" bitlength="1">
+        <field name="REP0" bitoffset="4" bitlength="1">
           <description>LETIMERn_REP0 Register Busy</description>
         </field>
-        <field name="REP1" bitoffset="4" bitlength="1">
+        <field name="REP1" bitoffset="5" bitlength="1">
           <description>LETIMERn_REP1 Register Busy</description>
-        </field>
-        <field name="CMD" bitoffset="5" bitlength="1">
-          <description>LETIMERn_CMD Register Busy</description>
         </field>
       </register>
       <register name="ROUTE" address="0x40082040" access="RW" resetvalue="0x00000000">
@@ -12702,20 +12775,6 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x00, 1V25 - Internal 1.25 V bandgap reference
         0x01, 2V5 - Internal 2.5 V bandgap reference
         0x02, VDD - VDD reference
-          </description>
-        </field>
-        <field name="LPFEN" bitoffset="12" bitlength="1">
-          <description>Low Pass Filter Enable</description>
-        </field>
-        <field name="LPFFREQ" bitoffset="14" bitlength="2">
-          <description>
-        Low Pass Filter Cut-off Frequency
-        -
-        Value, Description
-        0x00, FREQ0 - Cut-off frequency at FREQ0
-        0x01, FREQ1 - Cut-off frequency at FREQ1
-        0x02, FREQ2 - Cut-off frequency at FREQ2
-        0x03, FREQ3 - Cut-off frequency at FREQ3
           </description>
         </field>
         <field name="PRESC" bitoffset="16" bitlength="3">
