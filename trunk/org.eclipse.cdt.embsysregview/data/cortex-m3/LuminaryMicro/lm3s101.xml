@@ -4,7 +4,7 @@
 <model chipname="LM3S101">
   <chip_description>Product Features
 
-     * 32-bit ARM® Cortex(TM)-M3 v7M architecture optimized for
+     * 32-bit ARM® Cortex™-M3 v7M architecture optimized for
        small-footprint embedded applications
      * Thumb®-compatible Thumb-2-only instruction set processor core for
        high code density
@@ -30,8 +30,7 @@
      * Reset generation logic with an enable/disable Synchronous Serial
        Interface (SSI)
      * Programmable interface operation for Freescale SPI, National
-       Semiconductor MICROWIRE(TM), or Texas Instruments synchronous
-       serial
+       Semiconductor MICROWIRE™, or Texas Instruments synchronous serial
      * Master or slave operation
      * Fully programmable 16C550-type UART
      * Separate 16x8 transmit (TX) and 16x12 receive (RX) FIFOs to reduce
@@ -90,9 +89,19 @@
      * Extended-range (-40°C to +105°C)
 
 
-Copyright © 2006-2009 Texas Instruments Incorporated. All rights reserved.</chip_description>
-  <group name="WATCHDOG" description="Watchdog Timer">
-    <registergroup name="WATCHDOG" description="">
+Copyright � 2006-2011 Texas Instruments Incorporated. All rights reserved.</chip_description>
+  <group name="WATCHDOG" description="Watchdog Timer registers">
+    <registergroup name="WATCHDOG0" description="">
+      <register name="WATCHDOG0_LOAD_R" description="" address="0x40000000" access="rw" />
+      <register name="WATCHDOG0_VALUE_R" description="" address="0x40000004" access="rw" />
+      <register name="WATCHDOG0_CTL_R" description="" address="0x40000008" access="rw" />
+      <register name="WATCHDOG0_ICR_R" description="" address="0x4000000C" access="rw" />
+      <register name="WATCHDOG0_RIS_R" description="" address="0x40000010" access="rw" />
+      <register name="WATCHDOG0_MIS_R" description="" address="0x40000014" access="rw" />
+      <register name="WATCHDOG0_TEST_R" description="" address="0x40000418" access="rw" />
+      <register name="WATCHDOG0_LOCK_R" description="" address="0x40000C00" access="rw" />
+    </registergroup>
+    <registergroup name="NVIC" description="">
       <register name="WATCHDOG_LOAD_R" description="" address="0x40000000" access="rw" />
       <register name="WATCHDOG_VALUE_R" description="" address="0x40000004" access="rw" />
       <register name="WATCHDOG_CTL_R" description="" address="0x40000008" access="rw" />
@@ -103,7 +112,7 @@ Copyright © 2006-2009 Texas Instruments Incorporated. All rights reserved.</chi
       <register name="WATCHDOG_LOCK_R" description="" address="0x40000C00" access="rw" />
     </registergroup>
   </group>
-  <group name="GPIO" description="General-Purpose Input/Outputs">
+  <group name="GPIO" description="GPIO registers">
     <registergroup name="PORTA" description="">
       <register name="GPIO_PORTA_DATA_BITS_R" description="" address="0x40004000" access="rw" />
       <register name="GPIO_PORTA_DATA_R" description="" address="0x400043FC" access="rw" />
@@ -168,7 +177,7 @@ Copyright © 2006-2009 Texas Instruments Incorporated. All rights reserved.</chi
       <register name="GPIO_PORTC_DEN_R" description="" address="0x4000651C" access="rw" />
     </registergroup>
   </group>
-  <group name="SSI" description="Synchronous Serial Interface">
+  <group name="SSI" description="SSI registers">
     <registergroup name="SSI0" description="">
       <register name="SSI0_CR0_R" description="" address="0x40008000" access="rw" />
       <register name="SSI0_CR1_R" description="" address="0x40008004" access="rw" />
@@ -181,7 +190,7 @@ Copyright © 2006-2009 Texas Instruments Incorporated. All rights reserved.</chi
       <register name="SSI0_ICR_R" description="" address="0x40008020" access="rw" />
     </registergroup>
   </group>
-  <group name="UART" description="Universal Asynchronous Receivers/Transmitters">
+  <group name="UART" description="UART registers">
     <registergroup name="UART0" description="">
       <register name="UART0_DR_R" description="" address="0x4000C000" access="rw" />
       <register name="UART0_RSR_R" description="" address="0x4000C004" access="rw" />
@@ -198,7 +207,7 @@ Copyright © 2006-2009 Texas Instruments Incorporated. All rights reserved.</chi
       <register name="UART0_ICR_R" description="" address="0x4000C044" access="rw" />
     </registergroup>
   </group>
-  <group name="TIMER" description="General-Purpose Timers">
+  <group name="TIMER" description="Timer registers">
     <registergroup name="TIMER0" description="">
       <register name="TIMER0_CFG_R" description="" address="0x40030000" access="rw" />
       <register name="TIMER0_TAMR_R" description="" address="0x40030004" access="rw" />
@@ -240,7 +249,7 @@ Copyright © 2006-2009 Texas Instruments Incorporated. All rights reserved.</chi
       <register name="TIMER1_TBR_R" description="" address="0x4003104C" access="rw" />
     </registergroup>
   </group>
-  <group name="COMP" description="Analog Comparators">
+  <group name="COMP" description="Comparator registers">
     <registergroup name="COMP" description="">
       <register name="COMP_ACMIS_R" description="" address="0x4003C000" access="rw" />
       <register name="COMP_ACRIS_R" description="" address="0x4003C004" access="rw" />
@@ -252,8 +261,8 @@ Copyright © 2006-2009 Texas Instruments Incorporated. All rights reserved.</chi
       <register name="COMP_ACCTL1_R" description="" address="0x4003C044" access="rw" />
     </registergroup>
   </group>
-  <group name="FLASH" description="Internal Memory">
-    <registergroup name="FLASH" description="">
+  <group name="FLASH" description="FLASH registers">
+    <registergroup name="FLASH CTRL" description="">
       <register name="FLASH_FMA_R" description="" address="0x400FD000" access="rw" />
       <register name="FLASH_FMD_R" description="" address="0x400FD004" access="rw" />
       <register name="FLASH_FMC_R" description="" address="0x400FD008" access="rw" />
@@ -265,7 +274,7 @@ Copyright © 2006-2009 Texas Instruments Incorporated. All rights reserved.</chi
       <register name="FLASH_USECRL_R" description="" address="0x400FE140" access="rw" />
     </registergroup>
   </group>
-  <group name="SYSCTL" description="System Control">
+  <group name="SYSCTL" description="System Control registers">
     <registergroup name="SYSCTL" description="">
       <register name="SYSCTL_DID0_R" description="" address="0x400FE000" access="rw" />
       <register name="SYSCTL_DID1_R" description="" address="0x400FE004" access="rw" />
@@ -299,7 +308,7 @@ Copyright © 2006-2009 Texas Instruments Incorporated. All rights reserved.</chi
       <register name="SYSCTL_LDOARST_R" description="" address="0x400FE160" access="rw" />
     </registergroup>
   </group>
-  <group name="NVIC" description="Nested Vectored Interrupt Ctrl">
+  <group name="NVIC" description="NVIC registers">
     <registergroup name="NVIC" description="">
       <register name="NVIC_INT_TYPE_R" description="" address="0xE000E004" access="rw" />
       <register name="NVIC_ST_CTRL_R" description="" address="0xE000E010" access="rw" />

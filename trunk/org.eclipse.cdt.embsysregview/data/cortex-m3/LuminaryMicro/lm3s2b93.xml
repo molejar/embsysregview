@@ -4,14 +4,14 @@
 <model chipname="LM3S2B93">
   <chip_description>Product Features
 
-     * ARM® Cortex-M3 Processor Core
+     * ARM® Cortex™-M3 Processor Core
           + 80-MHz operation; 100 DMIPS performance
           + ARM Cortex SysTick Timer
           + Nested Vectored Interrupt Controller (NVIC)
      * On-Chip Memory
           + 256 KB single-cycle Flash
           + 96 KB single-cycle SRAM
-          + Internal ROM loaded with StellarisWare software:
+          + Internal ROM loaded with StellarisWare™ software:
                o Stellaris® Peripheral Driver Library
                o Stellaris® Boot Loader
                o Advanced Encryption Standard (AES) cryptography tables
@@ -70,7 +70,10 @@ Target Applications
      * Remote monitoring
      * Electronic point-of-sale (POS) machines
      * Network appliances and switches
-     * Gaming equipment</chip_description>
+     * Gaming equipment
+
+
+Copyright � 2006-2011 Texas Instruments Incorporated. All rights reserved.</chip_description>
   <group name="WATCHDOG" description="Watchdog Timer registers">
     <registergroup name="WATCHDOG0" description="">
       <register name="WATCHDOG0_LOAD_R" description="" address="0x40000000" access="rw" />
@@ -627,75 +630,43 @@ Target Applications
   <group name="I2C" description="I2C registers">
     <registergroup name="I2C0 MASTER" description="">
       <register name="I2C0_MASTER_MSA_R" description="" address="0x40020000" access="rw" />
-      <register name="I2C0_MASTER_SOAR_R" description="" address="0x40020000" access="rw" />
-      <register name="I2C0_MASTER_SCSR_R" description="" address="0x40020004" access="rw" />
       <register name="I2C0_MASTER_MCS_R" description="" address="0x40020004" access="rw" />
-      <register name="I2C0_MASTER_SDR_R" description="" address="0x40020008" access="rw" />
       <register name="I2C0_MASTER_MDR_R" description="" address="0x40020008" access="rw" />
       <register name="I2C0_MASTER_MTPR_R" description="" address="0x4002000C" access="rw" />
-      <register name="I2C0_MASTER_SIMR_R" description="" address="0x4002000C" access="rw" />
-      <register name="I2C0_MASTER_SRIS_R" description="" address="0x40020010" access="rw" />
       <register name="I2C0_MASTER_MIMR_R" description="" address="0x40020010" access="rw" />
       <register name="I2C0_MASTER_MRIS_R" description="" address="0x40020014" access="rw" />
-      <register name="I2C0_MASTER_SMIS_R" description="" address="0x40020014" access="rw" />
-      <register name="I2C0_MASTER_SICR_R" description="" address="0x40020018" access="rw" />
       <register name="I2C0_MASTER_MMIS_R" description="" address="0x40020018" access="rw" />
       <register name="I2C0_MASTER_MICR_R" description="" address="0x4002001C" access="rw" />
       <register name="I2C0_MASTER_MCR_R" description="" address="0x40020020" access="rw" />
     </registergroup>
     <registergroup name="I2C0 SLAVE" description="">
-      <register name="I2C0_SLAVE_MSA_R" description="" address="0x40020800" access="rw" />
       <register name="I2C0_SLAVE_SOAR_R" description="" address="0x40020800" access="rw" />
       <register name="I2C0_SLAVE_SCSR_R" description="" address="0x40020804" access="rw" />
-      <register name="I2C0_SLAVE_MCS_R" description="" address="0x40020804" access="rw" />
       <register name="I2C0_SLAVE_SDR_R" description="" address="0x40020808" access="rw" />
-      <register name="I2C0_SLAVE_MDR_R" description="" address="0x40020808" access="rw" />
-      <register name="I2C0_SLAVE_MTPR_R" description="" address="0x4002080C" access="rw" />
       <register name="I2C0_SLAVE_SIMR_R" description="" address="0x4002080C" access="rw" />
       <register name="I2C0_SLAVE_SRIS_R" description="" address="0x40020810" access="rw" />
-      <register name="I2C0_SLAVE_MIMR_R" description="" address="0x40020810" access="rw" />
-      <register name="I2C0_SLAVE_MRIS_R" description="" address="0x40020814" access="rw" />
       <register name="I2C0_SLAVE_SMIS_R" description="" address="0x40020814" access="rw" />
       <register name="I2C0_SLAVE_SICR_R" description="" address="0x40020818" access="rw" />
-      <register name="I2C0_SLAVE_MMIS_R" description="" address="0x40020818" access="rw" />
-      <register name="I2C0_SLAVE_MICR_R" description="" address="0x4002081C" access="rw" />
-      <register name="I2C0_SLAVE_MCR_R" description="" address="0x40020820" access="rw" />
     </registergroup>
     <registergroup name="I2C1 MASTER" description="">
       <register name="I2C1_MASTER_MSA_R" description="" address="0x40021000" access="rw" />
-      <register name="I2C1_MASTER_SOAR_R" description="" address="0x40021000" access="rw" />
-      <register name="I2C1_MASTER_SCSR_R" description="" address="0x40021004" access="rw" />
       <register name="I2C1_MASTER_MCS_R" description="" address="0x40021004" access="rw" />
-      <register name="I2C1_MASTER_SDR_R" description="" address="0x40021008" access="rw" />
       <register name="I2C1_MASTER_MDR_R" description="" address="0x40021008" access="rw" />
       <register name="I2C1_MASTER_MTPR_R" description="" address="0x4002100C" access="rw" />
-      <register name="I2C1_MASTER_SIMR_R" description="" address="0x4002100C" access="rw" />
-      <register name="I2C1_MASTER_SRIS_R" description="" address="0x40021010" access="rw" />
       <register name="I2C1_MASTER_MIMR_R" description="" address="0x40021010" access="rw" />
       <register name="I2C1_MASTER_MRIS_R" description="" address="0x40021014" access="rw" />
-      <register name="I2C1_MASTER_SMIS_R" description="" address="0x40021014" access="rw" />
-      <register name="I2C1_MASTER_SICR_R" description="" address="0x40021018" access="rw" />
       <register name="I2C1_MASTER_MMIS_R" description="" address="0x40021018" access="rw" />
       <register name="I2C1_MASTER_MICR_R" description="" address="0x4002101C" access="rw" />
       <register name="I2C1_MASTER_MCR_R" description="" address="0x40021020" access="rw" />
     </registergroup>
     <registergroup name="I2C1 SLAVE" description="">
-      <register name="I2C1_SLAVE_MSA_R" description="" address="0x40021800" access="rw" />
       <register name="I2C1_SLAVE_SOAR_R" description="" address="0x40021800" access="rw" />
       <register name="I2C1_SLAVE_SCSR_R" description="" address="0x40021804" access="rw" />
-      <register name="I2C1_SLAVE_MCS_R" description="" address="0x40021804" access="rw" />
       <register name="I2C1_SLAVE_SDR_R" description="" address="0x40021808" access="rw" />
-      <register name="I2C1_SLAVE_MDR_R" description="" address="0x40021808" access="rw" />
-      <register name="I2C1_SLAVE_MTPR_R" description="" address="0x4002180C" access="rw" />
       <register name="I2C1_SLAVE_SIMR_R" description="" address="0x4002180C" access="rw" />
       <register name="I2C1_SLAVE_SRIS_R" description="" address="0x40021810" access="rw" />
-      <register name="I2C1_SLAVE_MIMR_R" description="" address="0x40021810" access="rw" />
-      <register name="I2C1_SLAVE_MRIS_R" description="" address="0x40021814" access="rw" />
       <register name="I2C1_SLAVE_SMIS_R" description="" address="0x40021814" access="rw" />
       <register name="I2C1_SLAVE_SICR_R" description="" address="0x40021818" access="rw" />
-      <register name="I2C1_SLAVE_MMIS_R" description="" address="0x40021818" access="rw" />
-      <register name="I2C1_SLAVE_MICR_R" description="" address="0x4002181C" access="rw" />
-      <register name="I2C1_SLAVE_MCR_R" description="" address="0x40021820" access="rw" />
     </registergroup>
   </group>
   <group name="PWM" description="PWM registers">
@@ -1199,10 +1170,10 @@ Target Applications
       <register name="FLASH_FWBVAL_R" description="" address="0x400FD030" access="rw" />
       <register name="FLASH_FCTL_R" description="" address="0x400FD0F8" access="rw" />
       <register name="FLASH_FWBN_R" description="" address="0x400FD100" access="rw" />
-      <register name="FLASH_BOOTCFG_R" description="" address="0x400FD1D0" access="rw" />
       <register name="FLASH_RMCTL_R" description="" address="0x400FE0F0" access="rw" />
       <register name="FLASH_RMVER_R" description="" address="0x400FE0F4" access="rw" />
       <register name="FLASH_USERDBG_R" description="" address="0x400FE1D0" access="rw" />
+      <register name="FLASH_BOOTCFG_R" description="" address="0x400FE1D0" access="rw" />
       <register name="FLASH_USERREG0_R" description="" address="0x400FE1E0" access="rw" />
       <register name="FLASH_USERREG1_R" description="" address="0x400FE1E4" access="rw" />
       <register name="FLASH_USERREG2_R" description="" address="0x400FE1E8" access="rw" />
@@ -1279,12 +1250,16 @@ Target Applications
       <register name="UDMA_PRIOSET_R" description="" address="0x400FF038" access="rw" />
       <register name="UDMA_PRIOCLR_R" description="" address="0x400FF03C" access="rw" />
       <register name="UDMA_ERRCLR_R" description="" address="0x400FF04C" access="rw" />
-      <register name="UDMA_CHALT_R" description="" address="0x400FF500" access="rw" />
+      <register name="UDMA_CHASGN_R" description="" address="0x400FF500" access="rw" />
+    </registergroup>
+    <registergroup name="NVIC" description="">
+      <register name="UDMA_CHALT" description="" address="0x400FF500" access="rw" />
     </registergroup>
   </group>
   <group name="NVIC" description="NVIC registers">
     <registergroup name="NVIC" description="">
       <register name="NVIC_INT_TYPE_R" description="" address="0xE000E004" access="rw" />
+      <register name="NVIC_ACTLR_R" description="" address="0xE000E008" access="rw" />
       <register name="NVIC_ST_CTRL_R" description="" address="0xE000E010" access="rw" />
       <register name="NVIC_ST_RELOAD_R" description="" address="0xE000E014" access="rw" />
       <register name="NVIC_ST_CURRENT_R" description="" address="0xE000E018" access="rw" />
@@ -1333,6 +1308,12 @@ Target Applications
       <register name="NVIC_MPU_NUMBER_R" description="" address="0xE000ED98" access="rw" />
       <register name="NVIC_MPU_BASE_R" description="" address="0xE000ED9C" access="rw" />
       <register name="NVIC_MPU_ATTR_R" description="" address="0xE000EDA0" access="rw" />
+      <register name="NVIC_MPU_BASE1_R" description="" address="0xE000EDA4" access="rw" />
+      <register name="NVIC_MPU_ATTR1_R" description="" address="0xE000EDA8" access="rw" />
+      <register name="NVIC_MPU_BASE2_R" description="" address="0xE000EDAC" access="rw" />
+      <register name="NVIC_MPU_ATTR2_R" description="" address="0xE000EDB0" access="rw" />
+      <register name="NVIC_MPU_BASE3_R" description="" address="0xE000EDB4" access="rw" />
+      <register name="NVIC_MPU_ATTR3_R" description="" address="0xE000EDB8" access="rw" />
       <register name="NVIC_DBG_CTRL_R" description="" address="0xE000EDF0" access="rw" />
       <register name="NVIC_DBG_XFER_R" description="" address="0xE000EDF4" access="rw" />
       <register name="NVIC_DBG_DATA_R" description="" address="0xE000EDF8" access="rw" />

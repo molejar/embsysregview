@@ -2,9 +2,19 @@
 <!DOCTYPE model SYSTEM "embsysregview.dtd">
 
 <model chipname="LM3S2016">
-  <chip_description>Copyright © 2006-2009 Texas Instruments Incorporated. All rights reserved.</chip_description>
-  <group name="WATCHDOG" description="Watchdog Timer">
-    <registergroup name="WATCHDOG" description="">
+  <chip_description>Copyright � 2006-2011 Texas Instruments Incorporated. All rights reserved.</chip_description>
+  <group name="WATCHDOG" description="Watchdog Timer registers">
+    <registergroup name="WATCHDOG0" description="">
+      <register name="WATCHDOG0_LOAD_R" description="" address="0x40000000" access="rw" />
+      <register name="WATCHDOG0_VALUE_R" description="" address="0x40000004" access="rw" />
+      <register name="WATCHDOG0_CTL_R" description="" address="0x40000008" access="rw" />
+      <register name="WATCHDOG0_ICR_R" description="" address="0x4000000C" access="rw" />
+      <register name="WATCHDOG0_RIS_R" description="" address="0x40000010" access="rw" />
+      <register name="WATCHDOG0_MIS_R" description="" address="0x40000014" access="rw" />
+      <register name="WATCHDOG0_TEST_R" description="" address="0x40000418" access="rw" />
+      <register name="WATCHDOG0_LOCK_R" description="" address="0x40000C00" access="rw" />
+    </registergroup>
+    <registergroup name="NVIC" description="">
       <register name="WATCHDOG_LOAD_R" description="" address="0x40000000" access="rw" />
       <register name="WATCHDOG_VALUE_R" description="" address="0x40000004" access="rw" />
       <register name="WATCHDOG_CTL_R" description="" address="0x40000008" access="rw" />
@@ -15,7 +25,7 @@
       <register name="WATCHDOG_LOCK_R" description="" address="0x40000C00" access="rw" />
     </registergroup>
   </group>
-  <group name="GPIO" description="General-Purpose Input/Outputs">
+  <group name="GPIO" description="GPIO registers">
     <registergroup name="PORTA" description="">
       <register name="GPIO_PORTA_DATA_BITS_R" description="" address="0x40004000" access="rw" />
       <register name="GPIO_PORTA_DATA_R" description="" address="0x400043FC" access="rw" />
@@ -201,7 +211,7 @@
       <register name="GPIO_PORTH_CR_R" description="" address="0x40027524" access="rw" />
     </registergroup>
   </group>
-  <group name="SSI" description="Synchronous Serial Interface">
+  <group name="SSI" description="SSI registers">
     <registergroup name="SSI0" description="">
       <register name="SSI0_CR0_R" description="" address="0x40008000" access="rw" />
       <register name="SSI0_CR1_R" description="" address="0x40008004" access="rw" />
@@ -214,7 +224,7 @@
       <register name="SSI0_ICR_R" description="" address="0x40008020" access="rw" />
     </registergroup>
   </group>
-  <group name="UART" description="Universal Asynchronous Receivers/Transmitters">
+  <group name="UART" description="UART registers">
     <registergroup name="UART0" description="">
       <register name="UART0_DR_R" description="" address="0x4000C000" access="rw" />
       <register name="UART0_RSR_R" description="" address="0x4000C004" access="rw" />
@@ -248,8 +258,8 @@
       <register name="UART1_ICR_R" description="" address="0x4000D044" access="rw" />
     </registergroup>
   </group>
-  <group name="I2C" description="Inter-Integrated Circuit">
-    <registergroup name="MASTER" description="">
+  <group name="I2C" description="I2C registers">
+    <registergroup name="I2C0 MASTER" description="">
       <register name="I2C0_MASTER_MSA_R" description="" address="0x40020000" access="rw" />
       <register name="I2C0_MASTER_SOAR_R" description="" address="0x40020000" access="rw" />
       <register name="I2C0_MASTER_SCSR_R" description="" address="0x40020004" access="rw" />
@@ -267,7 +277,7 @@
       <register name="I2C0_MASTER_MICR_R" description="" address="0x4002001C" access="rw" />
       <register name="I2C0_MASTER_MCR_R" description="" address="0x40020020" access="rw" />
     </registergroup>
-    <registergroup name="SLAVE" description="">
+    <registergroup name="I2C0 SLAVE" description="">
       <register name="I2C0_SLAVE_MSA_R" description="" address="0x40020800" access="rw" />
       <register name="I2C0_SLAVE_SOAR_R" description="" address="0x40020800" access="rw" />
       <register name="I2C0_SLAVE_SCSR_R" description="" address="0x40020804" access="rw" />
@@ -286,7 +296,7 @@
       <register name="I2C0_SLAVE_MCR_R" description="" address="0x40020820" access="rw" />
     </registergroup>
   </group>
-  <group name="TIMER" description="General-Purpose Timers">
+  <group name="TIMER" description="Timer registers">
     <registergroup name="TIMER0" description="">
       <register name="TIMER0_CFG_R" description="" address="0x40030000" access="rw" />
       <register name="TIMER0_TAMR_R" description="" address="0x40030004" access="rw" />
@@ -328,8 +338,37 @@
       <register name="TIMER1_TBR_R" description="" address="0x4003104C" access="rw" />
     </registergroup>
   </group>
-  <group name="ADC" description="Analog-to-Digital Converter">
-    <registergroup name="ADC" description="">
+  <group name="ADC" description="ADC registers">
+    <registergroup name="ADC0" description="">
+      <register name="ADC0_ACTSS_R" description="" address="0x40038000" access="rw" />
+      <register name="ADC0_RIS_R" description="" address="0x40038004" access="rw" />
+      <register name="ADC0_IM_R" description="" address="0x40038008" access="rw" />
+      <register name="ADC0_ISC_R" description="" address="0x4003800C" access="rw" />
+      <register name="ADC0_OSTAT_R" description="" address="0x40038010" access="rw" />
+      <register name="ADC0_EMUX_R" description="" address="0x40038014" access="rw" />
+      <register name="ADC0_USTAT_R" description="" address="0x40038018" access="rw" />
+      <register name="ADC0_SSPRI_R" description="" address="0x40038020" access="rw" />
+      <register name="ADC0_PSSI_R" description="" address="0x40038028" access="rw" />
+      <register name="ADC0_SAC_R" description="" address="0x40038030" access="rw" />
+      <register name="ADC0_SSMUX0_R" description="" address="0x40038040" access="rw" />
+      <register name="ADC0_SSCTL0_R" description="" address="0x40038044" access="rw" />
+      <register name="ADC0_SSFIFO0_R" description="" address="0x40038048" access="rw" />
+      <register name="ADC0_SSFSTAT0_R" description="" address="0x4003804C" access="rw" />
+      <register name="ADC0_SSMUX1_R" description="" address="0x40038060" access="rw" />
+      <register name="ADC0_SSCTL1_R" description="" address="0x40038064" access="rw" />
+      <register name="ADC0_SSFIFO1_R" description="" address="0x40038068" access="rw" />
+      <register name="ADC0_SSFSTAT1_R" description="" address="0x4003806C" access="rw" />
+      <register name="ADC0_SSMUX2_R" description="" address="0x40038080" access="rw" />
+      <register name="ADC0_SSCTL2_R" description="" address="0x40038084" access="rw" />
+      <register name="ADC0_SSFIFO2_R" description="" address="0x40038088" access="rw" />
+      <register name="ADC0_SSFSTAT2_R" description="" address="0x4003808C" access="rw" />
+      <register name="ADC0_SSMUX3_R" description="" address="0x400380A0" access="rw" />
+      <register name="ADC0_SSCTL3_R" description="" address="0x400380A4" access="rw" />
+      <register name="ADC0_SSFIFO3_R" description="" address="0x400380A8" access="rw" />
+      <register name="ADC0_SSFSTAT3_R" description="" address="0x400380AC" access="rw" />
+      <register name="ADC0_TMLB_R" description="" address="0x40038100" access="rw" />
+    </registergroup>
+    <registergroup name="NVIC" description="">
       <register name="ADC_ACTSS_R" description="" address="0x40038000" access="rw" />
       <register name="ADC_RIS_R" description="" address="0x40038004" access="rw" />
       <register name="ADC_IM_R" description="" address="0x40038008" access="rw" />
@@ -359,7 +398,7 @@
       <register name="ADC_TMLB_R" description="" address="0x40038100" access="rw" />
     </registergroup>
   </group>
-  <group name="CAN" description="Controller Area Network">
+  <group name="CAN" description="CAN registers">
     <registergroup name="CAN0" description="">
       <register name="CAN0_CTL_R" description="" address="0x40040000" access="rw" />
       <register name="CAN0_STS_R" description="" address="0x40040004" access="rw" />
@@ -400,8 +439,8 @@
       <register name="CAN0_MSG2VAL_R" description="" address="0x40040164" access="rw" />
     </registergroup>
   </group>
-  <group name="FLASH" description="Internal Memory">
-    <registergroup name="FLASH" description="">
+  <group name="FLASH" description="FLASH registers">
+    <registergroup name="FLASH CTRL" description="">
       <register name="FLASH_FMA_R" description="" address="0x400FD000" access="rw" />
       <register name="FLASH_FMD_R" description="" address="0x400FD004" access="rw" />
       <register name="FLASH_FMC_R" description="" address="0x400FD008" access="rw" />
@@ -422,7 +461,7 @@
       <register name="FLASH_FMPPE3_R" description="" address="0x400FE40C" access="rw" />
     </registergroup>
   </group>
-  <group name="SYSCTL" description="System Control">
+  <group name="SYSCTL" description="System Control registers">
     <registergroup name="SYSCTL" description="">
       <register name="SYSCTL_DID0_R" description="" address="0x400FE000" access="rw" />
       <register name="SYSCTL_DID1_R" description="" address="0x400FE004" access="rw" />
@@ -455,7 +494,7 @@
       <register name="SYSCTL_DSLPCLKCFG_R" description="" address="0x400FE144" access="rw" />
     </registergroup>
   </group>
-  <group name="NVIC" description="Nested Vectored Interrupt Ctrl">
+  <group name="NVIC" description="NVIC registers">
     <registergroup name="NVIC" description="">
       <register name="NVIC_INT_TYPE_R" description="" address="0xE000E004" access="rw" />
       <register name="NVIC_ST_CTRL_R" description="" address="0xE000E010" access="rw" />
@@ -501,13 +540,14 @@
       <register name="NVIC_MPU_TYPE_R" description="" address="0xE000ED90" access="rw" />
       <register name="NVIC_MPU_CTRL_R" description="" address="0xE000ED94" access="rw" />
       <register name="NVIC_MPU_NUMBER_R" description="" address="0xE000ED98" access="rw" />
-      <register name="NVIC_MPU_R" description="" address="0xE000ED9C" access="rw" />
+      <register name="NVIC_MPU_BASE_R" description="" address="0xE000ED9C" access="rw" />
       <register name="NVIC_MPU_ATTR_R" description="" address="0xE000EDA0" access="rw" />
       <register name="NVIC_DBG_CTRL_R" description="" address="0xE000EDF0" access="rw" />
       <register name="NVIC_DBG_XFER_R" description="" address="0xE000EDF4" access="rw" />
       <register name="NVIC_DBG_DATA_R" description="" address="0xE000EDF8" access="rw" />
       <register name="NVIC_DBG_INT_R" description="" address="0xE000EDFC" access="rw" />
       <register name="NVIC_SW_TRIG_R" description="" address="0xE000EF00" access="rw" />
+      <register name="NVIC_MPU_R" description="" address="0xE000ED9C" access="rw" />
     </registergroup>
   </group>
 </model>
