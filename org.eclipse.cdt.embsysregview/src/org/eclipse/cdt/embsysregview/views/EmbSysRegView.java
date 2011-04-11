@@ -238,7 +238,8 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 							Attribute attr_rresetvalue = register
 									.getAttribute("resetvalue");
 							long rresetvalue;
-							if (attr_rresetvalue != null)
+							if (attr_rresetvalue != null && attr_rresetvalue
+									.getValue() != "")
 								rresetvalue = Long.parseLong(attr_rresetvalue
 										.getValue().substring(2), 16);
 							else
