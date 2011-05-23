@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE model SYSTEM "embsysregview.dtd">
-<model chipname="INC/EFM32TG110F8">
+<model chipname="INC/EFM32TG842F8">
   <chip_description>Product Features
   • ARM Cortex-M3 CPU platform
      • High Performance 32-bit processor @ up to 32 MHz
@@ -933,6 +933,9 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         <field name="LETIMER0" bitoffset="2" bitlength="1">
           <description>Low Energy Timer 0 Clock Enable</description>
         </field>
+        <field name="LCD" bitoffset="3" bitlength="1">
+          <description>Liquid Crystal Display Controller Clock Enable</description>
+        </field>
       </register>
       <register name="LFBCLKEN0" address="0x400c8060" access="RW" resetvalue="0x00000000">
         <description>Low Frequency B Clock Enable Register 0 (Async Reg)</description>
@@ -999,6 +1002,17 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         0x0F, DIV32768 - LFACLKLETIMER0 = LFACLK/32768
           </description>
         </field>
+        <field name="LCD" bitoffset="12" bitlength="2">
+          <description>
+        Liquid Crystal Display Controller Prescaler
+        -
+        Value, Description
+        0x00, DIV16 - LFACLKLCD = LFACLK/16
+        0x01, DIV32 - LFACLKLCD = LFACLK/32
+        0x02, DIV64 - LFACLKLCD = LFACLK/64
+        0x03, DIV128 - LFACLKLCD = LFACLK/128
+          </description>
+        </field>
       </register>
       <register name="LFBPRESC0" address="0x400c8070" access="RW" resetvalue="0x00000000">
         <description>Low Frequency B Prescaler Register 0  (Async Reg)</description>
@@ -1021,6 +1035,32 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         </field>
         <field name="PCNT0CLKSEL" bitoffset="1" bitlength="1">
           <description>PCNT0 Clock Select</description>
+        </field>
+      </register>
+      <register name="LCDCTRL" address="0x400c807c" access="RW" resetvalue="0x00000020">
+        <description>LCD Control Register</description>
+        <field name="FDIV" bitoffset="0" bitlength="3">
+          <description>
+        Frame Rate Control
+          </description>
+        </field>
+        <field name="VBOOSTEN" bitoffset="3" bitlength="1">
+          <description>Voltage Boost Enable</description>
+        </field>
+        <field name="VBFDIV" bitoffset="4" bitlength="3">
+          <description>
+        Voltage Boost Frequency Division
+        -
+        Value, Description
+        0x00, DIV1 - Voltage Boost update Frequency = LFACLK
+        0x01, DIV2 - Voltage Boost update Frequency = LFACLK/2
+        0x02, DIV4 - Voltage Boost update Frequency = LFACLK/4
+        0x03, DIV8 - Voltage Boost update Frequency = LFACLK/8
+        0x04, DIV16 - Voltage Boost update Frequency = LFACLK/16
+        0x05, DIV32 - Voltage Boost update Frequency = LFACLK/32
+        0x06, DIV64 - Voltage Boost update Frequency = LFACLK/64
+        0x07, DIV128 - Voltage Boost update Frequency = LFACLK/128
+          </description>
         </field>
       </register>
       <register name="ROUTE" address="0x400c8080" access="RW" resetvalue="0x00000000">
@@ -15637,6 +15677,312 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         </field>
         <field name="WARMUP" bitoffset="1" bitlength="1">
           <description>Warm-up Interrupt Flag Clear</description>
+        </field>
+      </register>
+    </registergroup>
+  </group>
+  <group name="LCD" description="">
+    <registergroup name="LCD" description="">
+      <register name="CTRL" address="0x4008a000" access="RW" resetvalue="0x00000000">
+        <description>Control Register</description>
+        <field name="EN" bitoffset="0" bitlength="1">
+          <description>LCD Enable</description>
+        </field>
+        <field name="UDCTRL" bitoffset="1" bitlength="2">
+          <description>
+        Update Data Control
+        -
+        Value, Description
+        0x00, REGULAR - The data transfer is controlled by SW. Transfer is performed as soon as possible
+        0x01, FCEVENT - The data transfer is done at the next event triggered by the Frame Counter
+        0x02, FRAMESTART - The data transfer is done continously at every LCD frame start
+          </description>
+        </field>
+        <field name="DSC" bitoffset="23" bitlength="1">
+          <description>Direct Segment Control</description>
+        </field>
+      </register>
+      <register name="DISPCTRL" address="0x4008a004" access="RW" resetvalue="0x000C1F00">
+        <description>Display Control Register</description>
+        <field name="MUX" bitoffset="0" bitlength="2">
+          <description>
+        Mux Configuration
+        -
+        Value, Description
+        0x00, STATIC - Static
+        0x01, DUPLEX - Duplex
+        0x02, TRIPLEX - Triplex
+        0x03, QUADRUPLEX - Quadruplex
+          </description>
+        </field>
+        <field name="BIAS" bitoffset="2" bitlength="2">
+          <description>
+        Bias Configuration
+        -
+        Value, Description
+        0x00, STATIC - Static
+        0x01, ONEHALF - 1/2 Bias
+        0x02, ONETHIRD - 1/3 Bias
+        0x03, ONEFOURTH - 1/4 Bias
+          </description>
+        </field>
+        <field name="WAVE" bitoffset="4" bitlength="1">
+          <description>Waveform Selection</description>
+        </field>
+        <field name="CONLEV" bitoffset="8" bitlength="5">
+          <description>
+        Contrast Level
+        -
+        Value, Description
+        0x00, MIN - Minimum contrast
+        0x01F, MAX - Maximum contrast
+          </description>
+        </field>
+        <field name="CONCONF" bitoffset="15" bitlength="1">
+          <description>Contrast Configuration</description>
+        </field>
+        <field name="VLCDSEL" bitoffset="16" bitlength="1">
+          <description>VLCD Selection</description>
+        </field>
+        <field name="VBLEV" bitoffset="18" bitlength="3">
+          <description>
+        Voltage Boost Level
+        -
+        Value, Description
+        0x00, LEVEL0 - Minimum boost level
+        0x01, LEVEL1 -
+        0x02, LEVEL2 -
+        0x03, LEVEL3 -
+        0x04, LEVEL4 -
+        0x05, LEVEL5 -
+        0x06, LEVEL6 -
+        0x07, LEVEL7 - Maximum boost level
+          </description>
+        </field>
+        <field name="MUXE" bitoffset="22" bitlength="1">
+          <description>Extended Mux Configuration</description>
+        </field>
+      </register>
+      <register name="SEGEN" address="0x4008a008" access="RW" resetvalue="0x00000000">
+        <description>Segment Enable Register</description>
+        <field name="SEGEN" bitoffset="0" bitlength="10">
+          <description>
+        Segment Enable
+          </description>
+        </field>
+      </register>
+      <register name="BACTRL" address="0x4008a00c" access="RW" resetvalue="0x00000000">
+        <description>Blink and Animation Control Register</description>
+        <field name="BLINKEN" bitoffset="0" bitlength="1">
+          <description>Blink Enable</description>
+        </field>
+        <field name="BLANK" bitoffset="1" bitlength="1">
+          <description>Blank Display</description>
+        </field>
+        <field name="AEN" bitoffset="2" bitlength="1">
+          <description>Animation Enable</description>
+        </field>
+        <field name="AREGASC" bitoffset="3" bitlength="2">
+          <description>
+        Animate Register A Shift Control
+        -
+        Value, Description
+        0x00, NOSHIFT - No Shift operation on Animation Register A
+        0x01, SHIFTLEFT - Animation Register A is shifted left
+        0x02, SHIFTRIGHT - Animation Register A is shifted right
+          </description>
+        </field>
+        <field name="AREGBSC" bitoffset="5" bitlength="2">
+          <description>
+        Animate Register B Shift Control
+        -
+        Value, Description
+        0x00, NOSHIFT - No Shift operation on Animation Register B
+        0x01, SHIFTLEFT - Animation Register B is shifted left
+        0x02, SHIFTRIGHT - Animation Register B is shifted right
+          </description>
+        </field>
+        <field name="ALOGSEL" bitoffset="7" bitlength="1">
+          <description>Animate Logic Function Select</description>
+        </field>
+        <field name="FCEN" bitoffset="8" bitlength="1">
+          <description>Frame Counter Enable</description>
+        </field>
+        <field name="FCPRESC" bitoffset="16" bitlength="2">
+          <description>
+        Frame Counter Prescaler
+        -
+        Value, Description
+        0x00, DIV1 - CLKFC = CLKFRAME / 1
+        0x01, DIV2 - CLKFC = CLKFRAME / 2
+        0x02, DIV4 - CLKFC = CLKFRAME / 4
+        0x03, DIV8 - CLKFC = CLKFRAME / 8
+          </description>
+        </field>
+        <field name="FCTOP" bitoffset="18" bitlength="6">
+          <description>
+        Frame Counter Top Value
+          </description>
+        </field>
+      </register>
+      <register name="STATUS" address="0x4008a010" access="RO" resetvalue="0x00000000">
+        <description>Status Register</description>
+        <field name="ASTATE" bitoffset="0" bitlength="4">
+          <description>
+        Current Animation State
+          </description>
+        </field>
+        <field name="BLINK" bitoffset="8" bitlength="1">
+          <description>Blink State</description>
+        </field>
+      </register>
+      <register name="AREGA" address="0x4008a014" access="RW" resetvalue="0x00000000">
+        <description>Animation Register A</description>
+        <field name="AREGA" bitoffset="0" bitlength="8">
+          <description>
+        Animation Register A Data
+          </description>
+        </field>
+      </register>
+      <register name="AREGB" address="0x4008a018" access="RW" resetvalue="0x00000000">
+        <description>Animation Register B</description>
+        <field name="AREGB" bitoffset="0" bitlength="8">
+          <description>
+        Animation Register B Data
+          </description>
+        </field>
+      </register>
+      <register name="IF" address="0x4008a01c" access="RO" resetvalue="0x00000000">
+        <description>Interrupt Flag Register</description>
+        <field name="FC" bitoffset="0" bitlength="1">
+          <description>Frame Counter Interrupt Flag</description>
+        </field>
+      </register>
+      <register name="IFS" address="0x4008a020" access="WO" resetvalue="0x00000000">
+        <description>Interrupt Flag Set Register</description>
+        <field name="FC" bitoffset="0" bitlength="1">
+          <description>Frame Counter Interrupt Flag Set</description>
+        </field>
+      </register>
+      <register name="IFC" address="0x4008a024" access="WO" resetvalue="0x00000000">
+        <description>Interrupt Flag Clear Register</description>
+        <field name="FC" bitoffset="0" bitlength="1">
+          <description>Frame Counter Interrupt Flag Clear</description>
+        </field>
+      </register>
+      <register name="IEN" address="0x4008a028" access="RW" resetvalue="0x00000000">
+        <description>Interrupt Enable Register</description>
+        <field name="FC" bitoffset="0" bitlength="1">
+          <description>Frame Counter Interrupt Enable</description>
+        </field>
+      </register>
+      <register name="SEGD0L" address="0x4008a040" access="RW" resetvalue="0x00000000">
+        <description>Segment Data Low Register 0</description>
+        <field name="SEGD0L" bitoffset="0" bitlength="24">
+          <description>
+        COM0 Segment Data Low
+          </description>
+        </field>
+      </register>
+      <register name="SEGD1L" address="0x4008a044" access="RW" resetvalue="0x00000000">
+        <description>Segment Data Low Register 1</description>
+        <field name="SEGD1L" bitoffset="0" bitlength="24">
+          <description>
+        COM1 Segment Data Low
+          </description>
+        </field>
+      </register>
+      <register name="SEGD2L" address="0x4008a048" access="RW" resetvalue="0x00000000">
+        <description>Segment Data Low Register 2</description>
+        <field name="SEGD2L" bitoffset="0" bitlength="24">
+          <description>
+        COM2 Segment Data Low
+          </description>
+        </field>
+      </register>
+      <register name="SEGD3L" address="0x4008a04c" access="RW" resetvalue="0x00000000">
+        <description>Segment Data Low Register 3</description>
+        <field name="SEGD3L" bitoffset="0" bitlength="24">
+          <description>
+        COM3 Segment Data Low
+          </description>
+        </field>
+      </register>
+      <register name="FREEZE" address="0x4008a060" access="RW" resetvalue="0x00000000">
+        <description>Freeze Register</description>
+        <field name="REGFREEZE" bitoffset="0" bitlength="1">
+          <description>Register Update Freeze</description>
+        </field>
+      </register>
+      <register name="SYNCBUSY" address="0x4008a064" access="RO" resetvalue="0x00000000">
+        <description>Synchronization Busy Register</description>
+        <field name="CTRL" bitoffset="0" bitlength="1">
+          <description>LCD_CTRL Register Busy</description>
+        </field>
+        <field name="BACTRL" bitoffset="1" bitlength="1">
+          <description>LCD_BACTRL Register Busy</description>
+        </field>
+        <field name="AREGA" bitoffset="2" bitlength="1">
+          <description>LCD_AREGA Register Busy</description>
+        </field>
+        <field name="AREGB" bitoffset="3" bitlength="1">
+          <description>LCD_AREGB Register Busy</description>
+        </field>
+        <field name="SEGD0L" bitoffset="4" bitlength="1">
+          <description>LCD_SEGD0L Register Busy</description>
+        </field>
+        <field name="SEGD1L" bitoffset="5" bitlength="1">
+          <description>LCD_SEGD1L Register Busy</description>
+        </field>
+        <field name="SEGD2L" bitoffset="6" bitlength="1">
+          <description>LCD_SEGD2L Register Busy</description>
+        </field>
+        <field name="SEGD3L" bitoffset="7" bitlength="1">
+          <description>LCD_SEGD3L Register Busy</description>
+        </field>
+        <field name="SEGD4L" bitoffset="16" bitlength="1">
+          <description>LCD_SEGD4L Register Busy</description>
+        </field>
+        <field name="SEGD5L" bitoffset="17" bitlength="1">
+          <description>LCD_SEGD5L Register Busy</description>
+        </field>
+        <field name="SEGD6L" bitoffset="18" bitlength="1">
+          <description>LCD_SEGD6L Register Busy</description>
+        </field>
+        <field name="SEGD7L" bitoffset="19" bitlength="1">
+          <description>LCD_SEGD7L Register Busy</description>
+        </field>
+      </register>
+      <register name="SEGD4L" address="0x4008a0cc" access="RW" resetvalue="0x00000000">
+        <description>Segment Data Low Register 4</description>
+        <field name="SEGD4L" bitoffset="0" bitlength="24">
+          <description>
+        COM4 Segment Data
+          </description>
+        </field>
+      </register>
+      <register name="SEGD5L" address="0x4008a0d0" access="RW" resetvalue="0x00000000">
+        <description>Segment Data Low Register 5</description>
+        <field name="SEGD5L" bitoffset="0" bitlength="24">
+          <description>
+        COM5 Segment Data
+          </description>
+        </field>
+      </register>
+      <register name="SEGD6L" address="0x4008a0d4" access="RW" resetvalue="0x00000000">
+        <description>Segment Data Low Register 6</description>
+        <field name="SEGD6L" bitoffset="0" bitlength="24">
+          <description>
+        COM6 Segment Data
+          </description>
+        </field>
+      </register>
+      <register name="SEGD7L" address="0x4008a0d8" access="RW" resetvalue="0x00000000">
+        <description>Segment Data Low Register 7</description>
+        <field name="SEGD7L" bitoffset="0" bitlength="24">
+          <description>
+        COM7 Segment Data
+          </description>
         </field>
       </register>
     </registergroup>

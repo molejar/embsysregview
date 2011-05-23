@@ -72,7 +72,7 @@
   • Temperature range -40 to 85 ºC
   • Single power supply 1.8 to 3.8 V
   • BGA112/QFN32/QFN64/QFP100 packages
-Copyright © 2010 Energy Micro AS. All rights reserved.
+Copyright © 2011 Energy Micro AS. All rights reserved.
   </chip_description>
   <group name="MSC" description="">
     <registergroup name="MSC" description="">
@@ -390,7 +390,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         -
         Value, Description
         0x00, XTAL - 4-32 MHz crystal oscillator
-        0x01, BUFEXTCLK - An AC coupled buffer is coupled in series with HFXTAL_N, suitable for external sine wave (4-32 MHz)
+        0x01, BUFEXTCLK - An AC coupled buffer is coupled in series with HFXTAL_N, suitable for external sine wave (4-32 MHz). The sine wave                                                                                should have a minimum of 200mV peak to peak.
         0x02, DIGEXTCLK - Digital external clock on HFXTAL_N pin. Oscillator is effectively bypassed.
           </description>
         </field>
@@ -8030,6 +8030,14 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         <field name="EM4WUEN" bitoffset="0" bitlength="6">
           <description>
         EM4 Wake-up enable
+        -
+        Value, Description
+        0x01, A0 - Enable em4 wakeup on pin A0
+        0x02, A6 - Enable em4 wakeup on pin A6
+        0x04, C9 - Enable em4 wakeup on pin C9
+        0x08, F1 - Enable em4 wakeup on pin F1
+        0x010, F2 - Enable em4 wakeup on pin F2
+        0x020, E13 - Enable em4 wakeup on pin E13
           </description>
         </field>
       </register>
@@ -8038,6 +8046,14 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         <field name="EM4WUPOL" bitoffset="0" bitlength="6">
           <description>
         EM4 Wake-up Polarity
+        -
+        Value, Description
+        0x01, A0 - Determines polarity on pin A0
+        0x02, A6 - Determines polarity on pin A6
+        0x04, C9 - Determines polarity on pin C9
+        0x08, F1 - Determines polarity on pin F1
+        0x010, F2 - Determines polarity on pin F2
+        0x020, E13 - Determines polarity on pin E13
           </description>
         </field>
       </register>
@@ -8046,6 +8062,14 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         <field name="EM4WUCAUSE" bitoffset="0" bitlength="6">
           <description>
         EM4 wake-up cause
+        -
+        Value, Description
+        0x01, A0 - This bit indicates an em4 wake-up request occurd on pin A0
+        0x02, A6 - This bit indicates an em4 wake-up request occurd on pin A6
+        0x04, C9 - This bit indicates an em4 wake-up request occurd on pin C9
+        0x08, F1 - This bit indicates an em4 wake-up request occurd on pin F1
+        0x010, F2 - This bit indicates an em4 wake-up request occurd on pin F2
+        0x020, E13 - This bit indicates an em4 wake-up request occurd on pin E13
           </description>
         </field>
       </register>
@@ -9071,12 +9095,31 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
           </description>
         </field>
       </register>
-      <register name="WAITSTATUS" address="0x400c2010" access="RO" resetvalue="0x000000FF">
+      <register name="CHWAITSTATUS" address="0x400c2010" access="RO" resetvalue="0x000000FF">
         <description>Channel Wait on Request Status Register</description>
-        <field name="WAITSTATUS" bitoffset="0" bitlength="32">
-          <description>
-        Channel Wait on Request Status
-          </description>
+        <field name="CH0WAITSTATUS" bitoffset="0" bitlength="1">
+          <description>Channel 0 Wait on Request Status</description>
+        </field>
+        <field name="CH1WAITSTATUS" bitoffset="1" bitlength="1">
+          <description>Channel 1 Wait on Request Status</description>
+        </field>
+        <field name="CH2WAITSTATUS" bitoffset="2" bitlength="1">
+          <description>Channel 2 Wait on Request Status</description>
+        </field>
+        <field name="CH3WAITSTATUS" bitoffset="3" bitlength="1">
+          <description>Channel 3 Wait on Request Status</description>
+        </field>
+        <field name="CH4WAITSTATUS" bitoffset="4" bitlength="1">
+          <description>Channel 4 Wait on Request Status</description>
+        </field>
+        <field name="CH5WAITSTATUS" bitoffset="5" bitlength="1">
+          <description>Channel 5 Wait on Request Status</description>
+        </field>
+        <field name="CH6WAITSTATUS" bitoffset="6" bitlength="1">
+          <description>Channel 6 Wait on Request Status</description>
+        </field>
+        <field name="CH7WAITSTATUS" bitoffset="7" bitlength="1">
+          <description>Channel 7 Wait on Request Status</description>
         </field>
       </register>
       <register name="CHSWREQ" address="0x400c2014" access="WO" resetvalue="0x00000000">
@@ -9382,16 +9425,70 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
           <description>Bus Error Clear</description>
         </field>
       </register>
+      <register name="CHREQSTATUS" address="0x400c2e10" access="RO" resetvalue="0x00000000">
+        <description>Channel Request Status</description>
+        <field name="CH0REQSTATUS" bitoffset="0" bitlength="1">
+          <description>Channel 0 Request Status</description>
+        </field>
+        <field name="CH1REQSTATUS" bitoffset="1" bitlength="1">
+          <description>Channel 1 Request Status</description>
+        </field>
+        <field name="CH2REQSTATUS" bitoffset="2" bitlength="1">
+          <description>Channel 2 Request Status</description>
+        </field>
+        <field name="CH3REQSTATUS" bitoffset="3" bitlength="1">
+          <description>Channel 3 Request Status</description>
+        </field>
+        <field name="CH4REQSTATUS" bitoffset="4" bitlength="1">
+          <description>Channel 4 Request Status</description>
+        </field>
+        <field name="CH5REQSTATUS" bitoffset="5" bitlength="1">
+          <description>Channel 5 Request Status</description>
+        </field>
+        <field name="CH6REQSTATUS" bitoffset="6" bitlength="1">
+          <description>Channel 6 Request Status</description>
+        </field>
+        <field name="CH7REQSTATUS" bitoffset="7" bitlength="1">
+          <description>Channel 7 Request Status</description>
+        </field>
+      </register>
+      <register name="CHSREQSTATUS" address="0x400c2e18" access="RO" resetvalue="0x00000000">
+        <description>Channel Single Request Status</description>
+        <field name="CH0SREQSTATUS" bitoffset="0" bitlength="1">
+          <description>Channel 0 Single Request Status</description>
+        </field>
+        <field name="CH1SREQSTATUS" bitoffset="1" bitlength="1">
+          <description>Channel 1 Single Request Status</description>
+        </field>
+        <field name="CH2SREQSTATUS" bitoffset="2" bitlength="1">
+          <description>Channel 2 Single Request Status</description>
+        </field>
+        <field name="CH3SREQSTATUS" bitoffset="3" bitlength="1">
+          <description>Channel 3 Single Request Status</description>
+        </field>
+        <field name="CH4SREQSTATUS" bitoffset="4" bitlength="1">
+          <description>Channel 4 Single Request Status</description>
+        </field>
+        <field name="CH5SREQSTATUS" bitoffset="5" bitlength="1">
+          <description>Channel 5 Single Request Status</description>
+        </field>
+        <field name="CH6SREQSTATUS" bitoffset="6" bitlength="1">
+          <description>Channel 6 Single Request Status</description>
+        </field>
+        <field name="CH7SREQSTATUS" bitoffset="7" bitlength="1">
+          <description>Channel 7 Single Request Status</description>
+        </field>
+      </register>
       <register name="IF" address="0x400c3000" access="RO" resetvalue="0x00000000">
         <description>Interrupt Flag Register</description>
         <field name="CH0DONE" bitoffset="0" bitlength="1">
-          <description>DMA Channel 1 Complete Interrupt Flag</description>
+          <description>DMA Channel 0 Complete Interrupt Flag</description>
         </field>
         <field name="CH1DONE" bitoffset="1" bitlength="1">
-          <description>DMA Channel 2 Complete Interrupt Flag</description>
+          <description>DMA Channel 1 Complete Interrupt Flag</description>
         </field>
         <field name="CH2DONE" bitoffset="2" bitlength="1">
-          <description>DMA Channel 3 Complete Interrupt Flag</description>
+          <description>DMA Channel 2 Complete Interrupt Flag</description>
         </field>
         <field name="CH3DONE" bitoffset="3" bitlength="1">
           <description>DMA Channel 3 Complete Interrupt Flag</description>
@@ -10265,7 +10362,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         <field name="CC2PEN" bitoffset="2" bitlength="1">
           <description>CC Channel 2 Pin Enable</description>
         </field>
-        <field name="LOCATION" bitoffset="16" bitlength="2">
+        <field name="LOCATION" bitoffset="16" bitlength="3">
           <description>
         I/O Location
         -
@@ -10274,6 +10371,8 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, LOC1 - Location 1
         0x02, LOC2 - Location 2
         0x03, LOC3 - Location 3
+        0x04, LOC4 - Location 4
+        0x05, LOC5 - Location 5
           </description>
         </field>
       </register>
@@ -10918,7 +11017,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         <field name="CC2PEN" bitoffset="2" bitlength="1">
           <description>CC Channel 2 Pin Enable</description>
         </field>
-        <field name="LOCATION" bitoffset="16" bitlength="2">
+        <field name="LOCATION" bitoffset="16" bitlength="3">
           <description>
         I/O Location
         -
@@ -10927,6 +11026,8 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, LOC1 - Location 1
         0x02, LOC2 - Location 2
         0x03, LOC3 - Location 3
+        0x04, LOC4 - Location 4
+        0x05, LOC5 - Location 5
           </description>
         </field>
       </register>
@@ -14828,7 +14929,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x00, DISABLE - Input disabled
         0x01, DAC - DAC as input
         0x02, POSPAD - POS PAD as input
-        0x03, OPA1IN - OPA1 as input
+        0x03, OPA0IN - OPA0 as input
         0x04, OPATAP - Resistor ladder as input
           </description>
         </field>
@@ -14996,7 +15097,6 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         -
         Value, Description
         0x00, DISABLE - Input disabled
-        0x01, DAC - DAC as input
         0x02, POSPAD - POS PAD as input
         0x03, OPA1IN - OPA1 as input
         0x04, OPATAP - Resistor ladder as input
