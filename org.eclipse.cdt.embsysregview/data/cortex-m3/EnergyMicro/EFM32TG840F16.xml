@@ -72,7 +72,7 @@
   • Temperature range -40 to 85 ºC
   • Single power supply 1.8 to 3.8 V
   • BGA112/QFN32/QFN64/QFP100 packages
-Copyright © 2010 Energy Micro AS. All rights reserved.
+Copyright © 2011 Energy Micro AS. All rights reserved.
   </chip_description>
   <group name="MSC" description="">
     <registergroup name="MSC" description="">
@@ -390,7 +390,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         -
         Value, Description
         0x00, XTAL - 4-32 MHz crystal oscillator
-        0x01, BUFEXTCLK - An AC coupled buffer is coupled in series with HFXTAL_N, suitable for external sine wave (4-32 MHz)
+        0x01, BUFEXTCLK - An AC coupled buffer is coupled in series with HFXTAL_N, suitable for external sine wave (4-32 MHz). The sine wave                                                                                should have a minimum of 200mV peak to peak.
         0x02, DIGEXTCLK - Digital external clock on HFXTAL_N pin. Oscillator is effectively bypassed.
           </description>
         </field>
@@ -872,6 +872,9 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         </field>
         <field name="USART0" bitoffset="2" bitlength="1">
           <description>Universal Synchronous/Asynchronous Receiver/Transmitter 0 Clock Enable</description>
+        </field>
+        <field name="USART1" bitoffset="3" bitlength="1">
+          <description>Universal Synchronous/Asynchronous Receiver/Transmitter 1 Clock Enable</description>
         </field>
         <field name="TIMER0" bitoffset="4" bitlength="1">
           <description>Timer 0 Clock Enable</description>
@@ -8067,6 +8070,14 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         <field name="EM4WUEN" bitoffset="0" bitlength="6">
           <description>
         EM4 Wake-up enable
+        -
+        Value, Description
+        0x01, A0 - Enable em4 wakeup on pin A0
+        0x02, A6 - Enable em4 wakeup on pin A6
+        0x04, C9 - Enable em4 wakeup on pin C9
+        0x08, F1 - Enable em4 wakeup on pin F1
+        0x010, F2 - Enable em4 wakeup on pin F2
+        0x020, E13 - Enable em4 wakeup on pin E13
           </description>
         </field>
       </register>
@@ -8075,6 +8086,14 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         <field name="EM4WUPOL" bitoffset="0" bitlength="6">
           <description>
         EM4 Wake-up Polarity
+        -
+        Value, Description
+        0x01, A0 - Determines polarity on pin A0
+        0x02, A6 - Determines polarity on pin A6
+        0x04, C9 - Determines polarity on pin C9
+        0x08, F1 - Determines polarity on pin F1
+        0x010, F2 - Determines polarity on pin F2
+        0x020, E13 - Determines polarity on pin E13
           </description>
         </field>
       </register>
@@ -8083,6 +8102,14 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         <field name="EM4WUCAUSE" bitoffset="0" bitlength="6">
           <description>
         EM4 wake-up cause
+        -
+        Value, Description
+        0x01, A0 - This bit indicates an em4 wake-up request occurd on pin A0
+        0x02, A6 - This bit indicates an em4 wake-up request occurd on pin A6
+        0x04, C9 - This bit indicates an em4 wake-up request occurd on pin C9
+        0x08, F1 - This bit indicates an em4 wake-up request occurd on pin F1
+        0x010, F2 - This bit indicates an em4 wake-up request occurd on pin F2
+        0x020, E13 - This bit indicates an em4 wake-up request occurd on pin E13
           </description>
         </field>
       </register>
@@ -8195,6 +8222,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, USART0TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, TIMER0OF - Timer 0
         0x01, TIMER1OF - Timer 1
         0x01, RTCCOMP0 - Real-Time Counter
@@ -8205,6 +8233,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, LESENSESCANRES9 - Low Energy Sensor Interface
         0x01, LESENSEDEC1 - Low Energy Sensor Interface
         0x02, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, TIMER0CC0 - Timer 0
         0x02, TIMER1CC0 - Timer 1
         0x02, RTCCOMP1 - Real-Time Counter
@@ -8251,6 +8280,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x06, DAC0 - Digital to Analog Converter 0
         0x08, ADC0 - Analog to Digital Converter 0
         0x010, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x011, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01C, TIMER0 - Timer 0
         0x01D, TIMER1 - Timer 1
         0x028, RTC - Real-Time Counter
@@ -8302,6 +8332,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, USART0TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, TIMER0OF - Timer 0
         0x01, TIMER1OF - Timer 1
         0x01, RTCCOMP0 - Real-Time Counter
@@ -8312,6 +8343,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, LESENSESCANRES9 - Low Energy Sensor Interface
         0x01, LESENSEDEC1 - Low Energy Sensor Interface
         0x02, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, TIMER0CC0 - Timer 0
         0x02, TIMER1CC0 - Timer 1
         0x02, RTCCOMP1 - Real-Time Counter
@@ -8358,6 +8390,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x06, DAC0 - Digital to Analog Converter 0
         0x08, ADC0 - Analog to Digital Converter 0
         0x010, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x011, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01C, TIMER0 - Timer 0
         0x01D, TIMER1 - Timer 1
         0x028, RTC - Real-Time Counter
@@ -8409,6 +8442,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, USART0TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, TIMER0OF - Timer 0
         0x01, TIMER1OF - Timer 1
         0x01, RTCCOMP0 - Real-Time Counter
@@ -8419,6 +8453,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, LESENSESCANRES9 - Low Energy Sensor Interface
         0x01, LESENSEDEC1 - Low Energy Sensor Interface
         0x02, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, TIMER0CC0 - Timer 0
         0x02, TIMER1CC0 - Timer 1
         0x02, RTCCOMP1 - Real-Time Counter
@@ -8465,6 +8500,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x06, DAC0 - Digital to Analog Converter 0
         0x08, ADC0 - Analog to Digital Converter 0
         0x010, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x011, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01C, TIMER0 - Timer 0
         0x01D, TIMER1 - Timer 1
         0x028, RTC - Real-Time Counter
@@ -8516,6 +8552,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, USART0TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, TIMER0OF - Timer 0
         0x01, TIMER1OF - Timer 1
         0x01, RTCCOMP0 - Real-Time Counter
@@ -8526,6 +8563,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, LESENSESCANRES9 - Low Energy Sensor Interface
         0x01, LESENSEDEC1 - Low Energy Sensor Interface
         0x02, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, TIMER0CC0 - Timer 0
         0x02, TIMER1CC0 - Timer 1
         0x02, RTCCOMP1 - Real-Time Counter
@@ -8572,6 +8610,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x06, DAC0 - Digital to Analog Converter 0
         0x08, ADC0 - Analog to Digital Converter 0
         0x010, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x011, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01C, TIMER0 - Timer 0
         0x01D, TIMER1 - Timer 1
         0x028, RTC - Real-Time Counter
@@ -8623,6 +8662,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, USART0TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, TIMER0OF - Timer 0
         0x01, TIMER1OF - Timer 1
         0x01, RTCCOMP0 - Real-Time Counter
@@ -8633,6 +8673,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, LESENSESCANRES9 - Low Energy Sensor Interface
         0x01, LESENSEDEC1 - Low Energy Sensor Interface
         0x02, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, TIMER0CC0 - Timer 0
         0x02, TIMER1CC0 - Timer 1
         0x02, RTCCOMP1 - Real-Time Counter
@@ -8679,6 +8720,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x06, DAC0 - Digital to Analog Converter 0
         0x08, ADC0 - Analog to Digital Converter 0
         0x010, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x011, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01C, TIMER0 - Timer 0
         0x01D, TIMER1 - Timer 1
         0x028, RTC - Real-Time Counter
@@ -8730,6 +8772,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, USART0TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, TIMER0OF - Timer 0
         0x01, TIMER1OF - Timer 1
         0x01, RTCCOMP0 - Real-Time Counter
@@ -8740,6 +8783,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, LESENSESCANRES9 - Low Energy Sensor Interface
         0x01, LESENSEDEC1 - Low Energy Sensor Interface
         0x02, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, TIMER0CC0 - Timer 0
         0x02, TIMER1CC0 - Timer 1
         0x02, RTCCOMP1 - Real-Time Counter
@@ -8786,6 +8830,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x06, DAC0 - Digital to Analog Converter 0
         0x08, ADC0 - Analog to Digital Converter 0
         0x010, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x011, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01C, TIMER0 - Timer 0
         0x01D, TIMER1 - Timer 1
         0x028, RTC - Real-Time Counter
@@ -8837,6 +8882,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, USART0TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, TIMER0OF - Timer 0
         0x01, TIMER1OF - Timer 1
         0x01, RTCCOMP0 - Real-Time Counter
@@ -8847,6 +8893,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, LESENSESCANRES9 - Low Energy Sensor Interface
         0x01, LESENSEDEC1 - Low Energy Sensor Interface
         0x02, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, TIMER0CC0 - Timer 0
         0x02, TIMER1CC0 - Timer 1
         0x02, RTCCOMP1 - Real-Time Counter
@@ -8893,6 +8940,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x06, DAC0 - Digital to Analog Converter 0
         0x08, ADC0 - Analog to Digital Converter 0
         0x010, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x011, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01C, TIMER0 - Timer 0
         0x01D, TIMER1 - Timer 1
         0x028, RTC - Real-Time Counter
@@ -8944,6 +8992,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, USART0TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXC - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, TIMER0OF - Timer 0
         0x01, TIMER1OF - Timer 1
         0x01, RTCCOMP0 - Real-Time Counter
@@ -8954,6 +9003,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, LESENSESCANRES9 - Low Energy Sensor Interface
         0x01, LESENSEDEC1 - Low Energy Sensor Interface
         0x02, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, TIMER0CC0 - Timer 0
         0x02, TIMER1CC0 - Timer 1
         0x02, RTCCOMP1 - Real-Time Counter
@@ -9000,6 +9050,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x06, DAC0 - Digital to Analog Converter 0
         0x08, ADC0 - Analog to Digital Converter 0
         0x010, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x011, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01C, TIMER0 - Timer 0
         0x01D, TIMER1 - Timer 1
         0x028, RTC - Real-Time Counter
@@ -9084,12 +9135,31 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
           </description>
         </field>
       </register>
-      <register name="WAITSTATUS" address="0x400c2010" access="RO" resetvalue="0x000000FF">
+      <register name="CHWAITSTATUS" address="0x400c2010" access="RO" resetvalue="0x000000FF">
         <description>Channel Wait on Request Status Register</description>
-        <field name="WAITSTATUS" bitoffset="0" bitlength="32">
-          <description>
-        Channel Wait on Request Status
-          </description>
+        <field name="CH0WAITSTATUS" bitoffset="0" bitlength="1">
+          <description>Channel 0 Wait on Request Status</description>
+        </field>
+        <field name="CH1WAITSTATUS" bitoffset="1" bitlength="1">
+          <description>Channel 1 Wait on Request Status</description>
+        </field>
+        <field name="CH2WAITSTATUS" bitoffset="2" bitlength="1">
+          <description>Channel 2 Wait on Request Status</description>
+        </field>
+        <field name="CH3WAITSTATUS" bitoffset="3" bitlength="1">
+          <description>Channel 3 Wait on Request Status</description>
+        </field>
+        <field name="CH4WAITSTATUS" bitoffset="4" bitlength="1">
+          <description>Channel 4 Wait on Request Status</description>
+        </field>
+        <field name="CH5WAITSTATUS" bitoffset="5" bitlength="1">
+          <description>Channel 5 Wait on Request Status</description>
+        </field>
+        <field name="CH6WAITSTATUS" bitoffset="6" bitlength="1">
+          <description>Channel 6 Wait on Request Status</description>
+        </field>
+        <field name="CH7WAITSTATUS" bitoffset="7" bitlength="1">
+          <description>Channel 7 Wait on Request Status</description>
         </field>
       </register>
       <register name="CHSWREQ" address="0x400c2014" access="WO" resetvalue="0x00000000">
@@ -9395,16 +9465,70 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
           <description>Bus Error Clear</description>
         </field>
       </register>
+      <register name="CHREQSTATUS" address="0x400c2e10" access="RO" resetvalue="0x00000000">
+        <description>Channel Request Status</description>
+        <field name="CH0REQSTATUS" bitoffset="0" bitlength="1">
+          <description>Channel 0 Request Status</description>
+        </field>
+        <field name="CH1REQSTATUS" bitoffset="1" bitlength="1">
+          <description>Channel 1 Request Status</description>
+        </field>
+        <field name="CH2REQSTATUS" bitoffset="2" bitlength="1">
+          <description>Channel 2 Request Status</description>
+        </field>
+        <field name="CH3REQSTATUS" bitoffset="3" bitlength="1">
+          <description>Channel 3 Request Status</description>
+        </field>
+        <field name="CH4REQSTATUS" bitoffset="4" bitlength="1">
+          <description>Channel 4 Request Status</description>
+        </field>
+        <field name="CH5REQSTATUS" bitoffset="5" bitlength="1">
+          <description>Channel 5 Request Status</description>
+        </field>
+        <field name="CH6REQSTATUS" bitoffset="6" bitlength="1">
+          <description>Channel 6 Request Status</description>
+        </field>
+        <field name="CH7REQSTATUS" bitoffset="7" bitlength="1">
+          <description>Channel 7 Request Status</description>
+        </field>
+      </register>
+      <register name="CHSREQSTATUS" address="0x400c2e18" access="RO" resetvalue="0x00000000">
+        <description>Channel Single Request Status</description>
+        <field name="CH0SREQSTATUS" bitoffset="0" bitlength="1">
+          <description>Channel 0 Single Request Status</description>
+        </field>
+        <field name="CH1SREQSTATUS" bitoffset="1" bitlength="1">
+          <description>Channel 1 Single Request Status</description>
+        </field>
+        <field name="CH2SREQSTATUS" bitoffset="2" bitlength="1">
+          <description>Channel 2 Single Request Status</description>
+        </field>
+        <field name="CH3SREQSTATUS" bitoffset="3" bitlength="1">
+          <description>Channel 3 Single Request Status</description>
+        </field>
+        <field name="CH4SREQSTATUS" bitoffset="4" bitlength="1">
+          <description>Channel 4 Single Request Status</description>
+        </field>
+        <field name="CH5SREQSTATUS" bitoffset="5" bitlength="1">
+          <description>Channel 5 Single Request Status</description>
+        </field>
+        <field name="CH6SREQSTATUS" bitoffset="6" bitlength="1">
+          <description>Channel 6 Single Request Status</description>
+        </field>
+        <field name="CH7SREQSTATUS" bitoffset="7" bitlength="1">
+          <description>Channel 7 Single Request Status</description>
+        </field>
+      </register>
       <register name="IF" address="0x400c3000" access="RO" resetvalue="0x00000000">
         <description>Interrupt Flag Register</description>
         <field name="CH0DONE" bitoffset="0" bitlength="1">
-          <description>DMA Channel 1 Complete Interrupt Flag</description>
+          <description>DMA Channel 0 Complete Interrupt Flag</description>
         </field>
         <field name="CH1DONE" bitoffset="1" bitlength="1">
-          <description>DMA Channel 2 Complete Interrupt Flag</description>
+          <description>DMA Channel 1 Complete Interrupt Flag</description>
         </field>
         <field name="CH2DONE" bitoffset="2" bitlength="1">
-          <description>DMA Channel 3 Complete Interrupt Flag</description>
+          <description>DMA Channel 2 Complete Interrupt Flag</description>
         </field>
         <field name="CH3DONE" bitoffset="3" bitlength="1">
           <description>DMA Channel 3 Complete Interrupt Flag</description>
@@ -9525,6 +9649,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x00, ADC0SINGLE - Analog to Digital Converter 0
         0x00, DAC0CH0 - Digital to Analog Converter 0
         0x00, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x00, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x00, LEUART0RXDATAV - Low Energy UART 0
         0x00, I2C0RXDATAV - I2C 0
         0x00, TIMER0UFOF - Timer 0
@@ -9535,19 +9660,23 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, LEUART0TXBL - Low Energy UART 0
         0x01, I2C0TXBL - I2C 0
         0x01, TIMER0CC0 - Timer 0
         0x01, TIMER1CC0 - Timer 1
         0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
         0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, LEUART0TXEMPTY - Low Energy UART 0
         0x02, TIMER0CC1 - Timer 0
         0x02, TIMER1CC1 - Timer 1
         0x02, AESDATARD - Advanced Encryption Standard Accelerator
+        0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x03, TIMER0CC2 - Timer 0
         0x03, TIMER1CC2 - Timer 1
         0x03, AESKEYWR - Advanced Encryption Standard Accelerator
+        0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
           </description>
         </field>
         <field name="SOURCESEL" bitoffset="16" bitlength="6">
@@ -9559,6 +9688,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x08, ADC0 - Analog to Digital Converter 0
         0x0A, DAC0 - Digital to Analog Converter 0
         0x0C, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x0D, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x010, LEUART0 - Low Energy UART 0
         0x014, I2C0 - I2C 0
         0x018, TIMER0 - Timer 0
@@ -9579,6 +9709,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x00, ADC0SINGLE - Analog to Digital Converter 0
         0x00, DAC0CH0 - Digital to Analog Converter 0
         0x00, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x00, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x00, LEUART0RXDATAV - Low Energy UART 0
         0x00, I2C0RXDATAV - I2C 0
         0x00, TIMER0UFOF - Timer 0
@@ -9589,19 +9720,23 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, LEUART0TXBL - Low Energy UART 0
         0x01, I2C0TXBL - I2C 0
         0x01, TIMER0CC0 - Timer 0
         0x01, TIMER1CC0 - Timer 1
         0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
         0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, LEUART0TXEMPTY - Low Energy UART 0
         0x02, TIMER0CC1 - Timer 0
         0x02, TIMER1CC1 - Timer 1
         0x02, AESDATARD - Advanced Encryption Standard Accelerator
+        0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x03, TIMER0CC2 - Timer 0
         0x03, TIMER1CC2 - Timer 1
         0x03, AESKEYWR - Advanced Encryption Standard Accelerator
+        0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
           </description>
         </field>
         <field name="SOURCESEL" bitoffset="16" bitlength="6">
@@ -9613,6 +9748,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x08, ADC0 - Analog to Digital Converter 0
         0x0A, DAC0 - Digital to Analog Converter 0
         0x0C, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x0D, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x010, LEUART0 - Low Energy UART 0
         0x014, I2C0 - I2C 0
         0x018, TIMER0 - Timer 0
@@ -9633,6 +9769,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x00, ADC0SINGLE - Analog to Digital Converter 0
         0x00, DAC0CH0 - Digital to Analog Converter 0
         0x00, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x00, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x00, LEUART0RXDATAV - Low Energy UART 0
         0x00, I2C0RXDATAV - I2C 0
         0x00, TIMER0UFOF - Timer 0
@@ -9643,19 +9780,23 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, LEUART0TXBL - Low Energy UART 0
         0x01, I2C0TXBL - I2C 0
         0x01, TIMER0CC0 - Timer 0
         0x01, TIMER1CC0 - Timer 1
         0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
         0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, LEUART0TXEMPTY - Low Energy UART 0
         0x02, TIMER0CC1 - Timer 0
         0x02, TIMER1CC1 - Timer 1
         0x02, AESDATARD - Advanced Encryption Standard Accelerator
+        0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x03, TIMER0CC2 - Timer 0
         0x03, TIMER1CC2 - Timer 1
         0x03, AESKEYWR - Advanced Encryption Standard Accelerator
+        0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
           </description>
         </field>
         <field name="SOURCESEL" bitoffset="16" bitlength="6">
@@ -9667,6 +9808,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x08, ADC0 - Analog to Digital Converter 0
         0x0A, DAC0 - Digital to Analog Converter 0
         0x0C, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x0D, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x010, LEUART0 - Low Energy UART 0
         0x014, I2C0 - I2C 0
         0x018, TIMER0 - Timer 0
@@ -9687,6 +9829,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x00, ADC0SINGLE - Analog to Digital Converter 0
         0x00, DAC0CH0 - Digital to Analog Converter 0
         0x00, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x00, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x00, LEUART0RXDATAV - Low Energy UART 0
         0x00, I2C0RXDATAV - I2C 0
         0x00, TIMER0UFOF - Timer 0
@@ -9697,19 +9840,23 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, LEUART0TXBL - Low Energy UART 0
         0x01, I2C0TXBL - I2C 0
         0x01, TIMER0CC0 - Timer 0
         0x01, TIMER1CC0 - Timer 1
         0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
         0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, LEUART0TXEMPTY - Low Energy UART 0
         0x02, TIMER0CC1 - Timer 0
         0x02, TIMER1CC1 - Timer 1
         0x02, AESDATARD - Advanced Encryption Standard Accelerator
+        0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x03, TIMER0CC2 - Timer 0
         0x03, TIMER1CC2 - Timer 1
         0x03, AESKEYWR - Advanced Encryption Standard Accelerator
+        0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
           </description>
         </field>
         <field name="SOURCESEL" bitoffset="16" bitlength="6">
@@ -9721,6 +9868,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x08, ADC0 - Analog to Digital Converter 0
         0x0A, DAC0 - Digital to Analog Converter 0
         0x0C, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x0D, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x010, LEUART0 - Low Energy UART 0
         0x014, I2C0 - I2C 0
         0x018, TIMER0 - Timer 0
@@ -9741,6 +9889,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x00, ADC0SINGLE - Analog to Digital Converter 0
         0x00, DAC0CH0 - Digital to Analog Converter 0
         0x00, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x00, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x00, LEUART0RXDATAV - Low Energy UART 0
         0x00, I2C0RXDATAV - I2C 0
         0x00, TIMER0UFOF - Timer 0
@@ -9751,19 +9900,23 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, LEUART0TXBL - Low Energy UART 0
         0x01, I2C0TXBL - I2C 0
         0x01, TIMER0CC0 - Timer 0
         0x01, TIMER1CC0 - Timer 1
         0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
         0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, LEUART0TXEMPTY - Low Energy UART 0
         0x02, TIMER0CC1 - Timer 0
         0x02, TIMER1CC1 - Timer 1
         0x02, AESDATARD - Advanced Encryption Standard Accelerator
+        0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x03, TIMER0CC2 - Timer 0
         0x03, TIMER1CC2 - Timer 1
         0x03, AESKEYWR - Advanced Encryption Standard Accelerator
+        0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
           </description>
         </field>
         <field name="SOURCESEL" bitoffset="16" bitlength="6">
@@ -9775,6 +9928,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x08, ADC0 - Analog to Digital Converter 0
         0x0A, DAC0 - Digital to Analog Converter 0
         0x0C, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x0D, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x010, LEUART0 - Low Energy UART 0
         0x014, I2C0 - I2C 0
         0x018, TIMER0 - Timer 0
@@ -9795,6 +9949,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x00, ADC0SINGLE - Analog to Digital Converter 0
         0x00, DAC0CH0 - Digital to Analog Converter 0
         0x00, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x00, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x00, LEUART0RXDATAV - Low Energy UART 0
         0x00, I2C0RXDATAV - I2C 0
         0x00, TIMER0UFOF - Timer 0
@@ -9805,19 +9960,23 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, LEUART0TXBL - Low Energy UART 0
         0x01, I2C0TXBL - I2C 0
         0x01, TIMER0CC0 - Timer 0
         0x01, TIMER1CC0 - Timer 1
         0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
         0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, LEUART0TXEMPTY - Low Energy UART 0
         0x02, TIMER0CC1 - Timer 0
         0x02, TIMER1CC1 - Timer 1
         0x02, AESDATARD - Advanced Encryption Standard Accelerator
+        0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x03, TIMER0CC2 - Timer 0
         0x03, TIMER1CC2 - Timer 1
         0x03, AESKEYWR - Advanced Encryption Standard Accelerator
+        0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
           </description>
         </field>
         <field name="SOURCESEL" bitoffset="16" bitlength="6">
@@ -9829,6 +9988,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x08, ADC0 - Analog to Digital Converter 0
         0x0A, DAC0 - Digital to Analog Converter 0
         0x0C, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x0D, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x010, LEUART0 - Low Energy UART 0
         0x014, I2C0 - I2C 0
         0x018, TIMER0 - Timer 0
@@ -9849,6 +10009,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x00, ADC0SINGLE - Analog to Digital Converter 0
         0x00, DAC0CH0 - Digital to Analog Converter 0
         0x00, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x00, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x00, LEUART0RXDATAV - Low Energy UART 0
         0x00, I2C0RXDATAV - I2C 0
         0x00, TIMER0UFOF - Timer 0
@@ -9859,19 +10020,23 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, LEUART0TXBL - Low Energy UART 0
         0x01, I2C0TXBL - I2C 0
         0x01, TIMER0CC0 - Timer 0
         0x01, TIMER1CC0 - Timer 1
         0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
         0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, LEUART0TXEMPTY - Low Energy UART 0
         0x02, TIMER0CC1 - Timer 0
         0x02, TIMER1CC1 - Timer 1
         0x02, AESDATARD - Advanced Encryption Standard Accelerator
+        0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x03, TIMER0CC2 - Timer 0
         0x03, TIMER1CC2 - Timer 1
         0x03, AESKEYWR - Advanced Encryption Standard Accelerator
+        0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
           </description>
         </field>
         <field name="SOURCESEL" bitoffset="16" bitlength="6">
@@ -9883,6 +10048,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x08, ADC0 - Analog to Digital Converter 0
         0x0A, DAC0 - Digital to Analog Converter 0
         0x0C, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x0D, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x010, LEUART0 - Low Energy UART 0
         0x014, I2C0 - I2C 0
         0x018, TIMER0 - Timer 0
@@ -9903,6 +10069,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x00, ADC0SINGLE - Analog to Digital Converter 0
         0x00, DAC0CH0 - Digital to Analog Converter 0
         0x00, USART0RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x00, USART1RXDATAV - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x00, LEUART0RXDATAV - Low Energy UART 0
         0x00, I2C0RXDATAV - I2C 0
         0x00, TIMER0UFOF - Timer 0
@@ -9913,19 +10080,23 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, ADC0SCAN - Analog to Digital Converter 0
         0x01, DAC0CH1 - Digital to Analog Converter 0
         0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x01, USART1TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x01, LEUART0TXBL - Low Energy UART 0
         0x01, I2C0TXBL - I2C 0
         0x01, TIMER0CC0 - Timer 0
         0x01, TIMER1CC0 - Timer 1
         0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
         0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x02, LEUART0TXEMPTY - Low Energy UART 0
         0x02, TIMER0CC1 - Timer 0
         0x02, TIMER1CC1 - Timer 1
         0x02, AESDATARD - Advanced Encryption Standard Accelerator
+        0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x03, TIMER0CC2 - Timer 0
         0x03, TIMER1CC2 - Timer 1
         0x03, AESKEYWR - Advanced Encryption Standard Accelerator
+        0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
           </description>
         </field>
         <field name="SOURCESEL" bitoffset="16" bitlength="6">
@@ -9937,6 +10108,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x08, ADC0 - Analog to Digital Converter 0
         0x0A, DAC0 - Digital to Analog Converter 0
         0x0C, USART0 - Universal Synchronous/Asynchronous Receiver/Transmitter 0
+        0x0D, USART1 - Universal Synchronous/Asynchronous Receiver/Transmitter 1
         0x010, LEUART0 - Low Energy UART 0
         0x014, I2C0 - I2C 0
         0x018, TIMER0 - Timer 0
@@ -10230,7 +10402,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         <field name="CC2PEN" bitoffset="2" bitlength="1">
           <description>CC Channel 2 Pin Enable</description>
         </field>
-        <field name="LOCATION" bitoffset="16" bitlength="2">
+        <field name="LOCATION" bitoffset="16" bitlength="3">
           <description>
         I/O Location
         -
@@ -10239,6 +10411,8 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, LOC1 - Location 1
         0x02, LOC2 - Location 2
         0x03, LOC3 - Location 3
+        0x04, LOC4 - Location 4
+        0x05, LOC5 - Location 5
           </description>
         </field>
       </register>
@@ -10883,7 +11057,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         <field name="CC2PEN" bitoffset="2" bitlength="1">
           <description>CC Channel 2 Pin Enable</description>
         </field>
-        <field name="LOCATION" bitoffset="16" bitlength="2">
+        <field name="LOCATION" bitoffset="16" bitlength="3">
           <description>
         I/O Location
         -
@@ -10892,6 +11066,8 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x01, LOC1 - Location 1
         0x02, LOC2 - Location 2
         0x03, LOC3 - Location 3
+        0x04, LOC4 - Location 4
+        0x05, LOC5 - Location 5
           </description>
         </field>
       </register>
@@ -11947,6 +12123,728 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="I2SCTRL" address="0x4000c05c" access="RW" resetvalue="0x00000000">
+        <description>I2S Control Register</description>
+        <field name="EN" bitoffset="0" bitlength="1">
+          <description>Enable I2S Mode</description>
+        </field>
+        <field name="MONO" bitoffset="1" bitlength="1">
+          <description>Stero or Mono</description>
+        </field>
+        <field name="JUSTIFY" bitoffset="2" bitlength="1">
+          <description>Justification of I2S Data</description>
+        </field>
+        <field name="DMASPLIT" bitoffset="3" bitlength="1">
+          <description>Separate DMA Request For Left/Right Data</description>
+        </field>
+        <field name="DELAY" bitoffset="4" bitlength="1">
+          <description>Delay on I2S data</description>
+        </field>
+        <field name="FORMAT" bitoffset="8" bitlength="3">
+          <description>
+        I2S Word Format
+        -
+        Value, Description
+        0x00, W32D32 - 32-bit word, 32-bit data
+        0x01, W32D24M - 32-bit word, 32-bit data with 8 lsb masked
+        0x02, W32D24 - 32-bit word, 24-bit data
+        0x03, W32D16 - 32-bit word, 16-bit data
+        0x04, W32D8 - 32-bit word, 8-bit data
+        0x05, W16D16 - 16-bit word, 16-bit data
+        0x06, W16D8 - 16-bit word, 8-bit data
+        0x07, W8D8 - 8-bit word, 8-bit data
+          </description>
+        </field>
+      </register>
+    </registergroup>
+    <registergroup name="USART1" description="">
+      <register name="CTRL" address="0x4000c400" access="RW" resetvalue="0x00000000">
+        <description>Control Register</description>
+        <field name="SYNC" bitoffset="0" bitlength="1">
+          <description>USART Synchronous Mode</description>
+        </field>
+        <field name="LOOPBK" bitoffset="1" bitlength="1">
+          <description>Loopback Enable</description>
+        </field>
+        <field name="CCEN" bitoffset="2" bitlength="1">
+          <description>Collision Check Enable</description>
+        </field>
+        <field name="MPM" bitoffset="3" bitlength="1">
+          <description>Multi-Processor Mode</description>
+        </field>
+        <field name="MPAB" bitoffset="4" bitlength="1">
+          <description>Multi-Processor Address-Bit</description>
+        </field>
+        <field name="OVS" bitoffset="5" bitlength="2">
+          <description>
+        Oversampling
+        -
+        Value, Description
+        0x00, X16 - Regular UART mode with 16X oversampling in asynchronous mode
+        0x01, X8 - Double speed with 8X oversampling in asynchronous mode
+        0x02, X6 - 6X oversampling in asynchronous mode
+        0x03, X4 - Quadruple speed with 4X oversampling in asynchronous mode
+          </description>
+        </field>
+        <field name="CLKPOL" bitoffset="8" bitlength="1">
+          <description>Clock Polarity</description>
+        </field>
+        <field name="CLKPHA" bitoffset="9" bitlength="1">
+          <description>Clock Edge For Setup/Sample</description>
+        </field>
+        <field name="MSBF" bitoffset="10" bitlength="1">
+          <description>Most Significant Bit First</description>
+        </field>
+        <field name="CSMA" bitoffset="11" bitlength="1">
+          <description>Action On Slave-Select In Master Mode</description>
+        </field>
+        <field name="TXBIL" bitoffset="12" bitlength="1">
+          <description>TX Buffer Interrupt Level</description>
+        </field>
+        <field name="RXINV" bitoffset="13" bitlength="1">
+          <description>Receiver Input Invert</description>
+        </field>
+        <field name="TXINV" bitoffset="14" bitlength="1">
+          <description>Transmitter output Invert</description>
+        </field>
+        <field name="CSINV" bitoffset="15" bitlength="1">
+          <description>Chip Select Invert</description>
+        </field>
+        <field name="AUTOCS" bitoffset="16" bitlength="1">
+          <description>Automatic Chip Select</description>
+        </field>
+        <field name="AUTOTRI" bitoffset="17" bitlength="1">
+          <description>Automatic TX Tristate</description>
+        </field>
+        <field name="SCMODE" bitoffset="18" bitlength="1">
+          <description>SmartCard Mode</description>
+        </field>
+        <field name="SCRETRANS" bitoffset="19" bitlength="1">
+          <description>SmartCard Retransmit</description>
+        </field>
+        <field name="SKIPPERRF" bitoffset="20" bitlength="1">
+          <description>Skip Parity Error Frames</description>
+        </field>
+        <field name="BIT8DV" bitoffset="21" bitlength="1">
+          <description>Bit 8 Default Value</description>
+        </field>
+        <field name="ERRSDMA" bitoffset="22" bitlength="1">
+          <description>Halt DMA On Error</description>
+        </field>
+        <field name="ERRSRX" bitoffset="23" bitlength="1">
+          <description>Disable RX On Error</description>
+        </field>
+        <field name="ERRSTX" bitoffset="24" bitlength="1">
+          <description>Disable TX On Error</description>
+        </field>
+        <field name="TXDELAY" bitoffset="26" bitlength="2">
+          <description>
+        TX Delay Transmission
+        -
+        Value, Description
+        0x00, NONE - Frames are transmitted immediately
+        0x01, SINGLE - Transmission of new frames are delayed by a single baud period
+        0x02, DOUBLE - Transmission of new frames are delayed by two baud periods
+        0x03, TRIPLE - Transmission of new frames are delayed by three baud periods
+          </description>
+        </field>
+        <field name="BYTESWAP" bitoffset="28" bitlength="1">
+          <description>Byteswap In Double Accesses</description>
+        </field>
+        <field name="AUTOTX" bitoffset="29" bitlength="1">
+          <description>Always Transmit When RX Not Full</description>
+        </field>
+        <field name="MVDIS" bitoffset="30" bitlength="1">
+          <description>Majority Vote Disable</description>
+        </field>
+      </register>
+      <register name="FRAME" address="0x4000c404" access="RW" resetvalue="0x00001005">
+        <description>USART Frame Format Register</description>
+        <field name="DATABITS" bitoffset="0" bitlength="4">
+          <description>
+        Data-Bit Mode
+        -
+        Value, Description
+        0x01, FOUR - Each frame contains 4 data bits
+        0x02, FIVE - Each frame contains 5 data bits
+        0x03, SIX - Each frame contains 6 data bits
+        0x04, SEVEN - Each frame contains 7 data bits
+        0x05, EIGHT - Each frame contains 8 data bits
+        0x06, NINE - Each frame contains 9 data bits
+        0x07, TEN - Each frame contains 10 data bits
+        0x08, ELEVEN - Each frame contains 11 data bits
+        0x09, TWELVE - Each frame contains 12 data bits
+        0x0A, THIRTEEN - Each frame contains 13 data bits
+        0x0B, FOURTEEN - Each frame contains 14 data bits
+        0x0C, FIFTEEN - Each frame contains 15 data bits
+        0x0D, SIXTEEN - Each frame contains 16 data bits
+          </description>
+        </field>
+        <field name="PARITY" bitoffset="8" bitlength="2">
+          <description>
+        Parity-Bit Mode
+        -
+        Value, Description
+        0x00, NONE - Parity bits are not used
+        0x02, EVEN - Even parity are used. Parity bits are automatically generated and checked by hardware.
+        0x03, ODD - Odd parity is used. Parity bits are automatically generated and checked by hardware.
+          </description>
+        </field>
+        <field name="STOPBITS" bitoffset="12" bitlength="2">
+          <description>
+        Stop-Bit Mode
+        -
+        Value, Description
+        0x00, HALF - The transmitter generates a half stop bit. Stop-bits are not verified by receiver
+        0x01, ONE - One stop bit is generated and verified
+        0x02, ONEANDAHALF - The transmitter generates one and a half stop bit. The receiver verifies the first stop bit
+        0x03, TWO - The transmitter generates two stop bits. The receiver checks the first stop-bit only
+          </description>
+        </field>
+      </register>
+      <register name="TRIGCTRL" address="0x4000c408" access="RW" resetvalue="0x00000000">
+        <description>USART Trigger Control register</description>
+        <field name="TSEL" bitoffset="0" bitlength="3">
+          <description>
+        Trigger PRS Channel Select
+        -
+        Value, Description
+        0x00, PRSCH0 - PRS Channel 0 selected
+        0x01, PRSCH1 - PRS Channel 1 selected
+        0x02, PRSCH2 - PRS Channel 2 selected
+        0x03, PRSCH3 - PRS Channel 3 selected
+        0x04, PRSCH4 - PRS Channel 4 selected
+        0x05, PRSCH5 - PRS Channel 5 selected
+        0x06, PRSCH6 - PRS Channel 6 selected
+        0x07, PRSCH7 - PRS Channel 7 selected
+          </description>
+        </field>
+        <field name="RXTEN" bitoffset="4" bitlength="1">
+          <description>Receive Trigger Enable</description>
+        </field>
+        <field name="TXTEN" bitoffset="5" bitlength="1">
+          <description>Transmit Trigger Enable</description>
+        </field>
+        <field name="AUTOTXTEN" bitoffset="6" bitlength="1">
+          <description>AUTOTX Trigger Enable</description>
+        </field>
+      </register>
+      <register name="CMD" address="0x4000c40c" access="WO" resetvalue="0x00000000">
+        <description>Command Register</description>
+        <field name="RXEN" bitoffset="0" bitlength="1">
+          <description>Receiver Enable</description>
+        </field>
+        <field name="RXDIS" bitoffset="1" bitlength="1">
+          <description>Receiver Disable</description>
+        </field>
+        <field name="TXEN" bitoffset="2" bitlength="1">
+          <description>Transmitter Enable</description>
+        </field>
+        <field name="TXDIS" bitoffset="3" bitlength="1">
+          <description>Transmitter Disable</description>
+        </field>
+        <field name="MASTEREN" bitoffset="4" bitlength="1">
+          <description>Master Enable</description>
+        </field>
+        <field name="MASTERDIS" bitoffset="5" bitlength="1">
+          <description>Master Disable</description>
+        </field>
+        <field name="RXBLOCKEN" bitoffset="6" bitlength="1">
+          <description>Receiver Block Enable</description>
+        </field>
+        <field name="RXBLOCKDIS" bitoffset="7" bitlength="1">
+          <description>Receiver Block Disable</description>
+        </field>
+        <field name="TXTRIEN" bitoffset="8" bitlength="1">
+          <description>Transmitter Tristate Enable</description>
+        </field>
+        <field name="TXTRIDIS" bitoffset="9" bitlength="1">
+          <description>Transmitter Tristate Disable</description>
+        </field>
+        <field name="CLEARTX" bitoffset="10" bitlength="1">
+          <description>Clear TX</description>
+        </field>
+        <field name="CLEARRX" bitoffset="11" bitlength="1">
+          <description>Clear RX</description>
+        </field>
+      </register>
+      <register name="STATUS" address="0x4000c410" access="RO" resetvalue="0x00000040">
+        <description>USART Status Register</description>
+        <field name="RXENS" bitoffset="0" bitlength="1">
+          <description>Receiver Enable Status</description>
+        </field>
+        <field name="TXENS" bitoffset="1" bitlength="1">
+          <description>Transmitter Enable Status</description>
+        </field>
+        <field name="MASTER" bitoffset="2" bitlength="1">
+          <description>SPI Master Mode</description>
+        </field>
+        <field name="RXBLOCK" bitoffset="3" bitlength="1">
+          <description>Block Incoming Data</description>
+        </field>
+        <field name="TXTRI" bitoffset="4" bitlength="1">
+          <description>Transmitter Tristated</description>
+        </field>
+        <field name="TXC" bitoffset="5" bitlength="1">
+          <description>TX Complete</description>
+        </field>
+        <field name="TXBL" bitoffset="6" bitlength="1">
+          <description>TX Buffer Level</description>
+        </field>
+        <field name="RXDATAV" bitoffset="7" bitlength="1">
+          <description>RX Data Valid</description>
+        </field>
+        <field name="RXFULL" bitoffset="8" bitlength="1">
+          <description>RX FIFO Full</description>
+        </field>
+        <field name="TXBDRIGHT" bitoffset="9" bitlength="1">
+          <description>TX Buffer Expects Double Right Data</description>
+        </field>
+        <field name="TXBSRIGHT" bitoffset="10" bitlength="1">
+          <description>TX Buffer Expects Single Right Data</description>
+        </field>
+        <field name="RXDATAVRIGHT" bitoffset="11" bitlength="1">
+          <description>RX Data Right</description>
+        </field>
+        <field name="RXFULLRIGHT" bitoffset="12" bitlength="1">
+          <description>RX Full of Right Data</description>
+        </field>
+      </register>
+      <register name="CLKDIV" address="0x4000c414" access="RW" resetvalue="0x00000000">
+        <description>Clock Control Register</description>
+        <field name="DIV" bitoffset="6" bitlength="15">
+          <description>
+        Fractional Clock Divider
+          </description>
+        </field>
+      </register>
+      <register name="RXDATAX" address="0x4000c418" access="RO" resetvalue="0x00000000">
+        <description>RX Buffer Data Extended Register</description>
+        <field name="RXDATA" bitoffset="0" bitlength="9">
+          <description>
+        RX Data
+          </description>
+        </field>
+        <field name="PERR" bitoffset="14" bitlength="1">
+          <description>Data Parity Error</description>
+        </field>
+        <field name="FERR" bitoffset="15" bitlength="1">
+          <description>Data Framing Error</description>
+        </field>
+      </register>
+      <register name="RXDATA" address="0x4000c41c" access="RO" resetvalue="0x00000000">
+        <description>RX Buffer Data Register</description>
+        <field name="RXDATA" bitoffset="0" bitlength="8">
+          <description>
+        RX Data
+          </description>
+        </field>
+      </register>
+      <register name="RXDOUBLEX" address="0x4000c420" access="RO" resetvalue="0x00000000">
+        <description>RX Buffer Double Data Extended Register</description>
+        <field name="RXDATA0" bitoffset="0" bitlength="9">
+          <description>
+        RX Data 0
+          </description>
+        </field>
+        <field name="PERR0" bitoffset="14" bitlength="1">
+          <description>Data Parity Error 0</description>
+        </field>
+        <field name="FERR0" bitoffset="15" bitlength="1">
+          <description>Data Framing Error 0</description>
+        </field>
+        <field name="RXDATA1" bitoffset="16" bitlength="9">
+          <description>
+        RX Data 1
+          </description>
+        </field>
+        <field name="PERR1" bitoffset="30" bitlength="1">
+          <description>Data Parity Error 1</description>
+        </field>
+        <field name="FERR1" bitoffset="31" bitlength="1">
+          <description>Data Framing Error 1</description>
+        </field>
+      </register>
+      <register name="RXDOUBLE" address="0x4000c424" access="RO" resetvalue="0x00000000">
+        <description>RX FIFO Double Data Register</description>
+        <field name="RXDATA0" bitoffset="0" bitlength="8">
+          <description>
+        RX Data 0
+          </description>
+        </field>
+        <field name="RXDATA1" bitoffset="8" bitlength="8">
+          <description>
+        RX Data 1
+          </description>
+        </field>
+      </register>
+      <register name="RXDATAXP" address="0x4000c428" access="RO" resetvalue="0x00000000">
+        <description>RX Buffer Data Extended Peek Register</description>
+        <field name="RXDATAP" bitoffset="0" bitlength="9">
+          <description>
+        RX Data Peek
+          </description>
+        </field>
+        <field name="PERRP" bitoffset="14" bitlength="1">
+          <description>Data Parity Error Peek</description>
+        </field>
+        <field name="FERRP" bitoffset="15" bitlength="1">
+          <description>Data Framing Error Peek</description>
+        </field>
+      </register>
+      <register name="RXDOUBLEXP" address="0x4000c42c" access="RO" resetvalue="0x00000000">
+        <description>RX Buffer Double Data Extended Peek Register</description>
+        <field name="RXDATAP0" bitoffset="0" bitlength="9">
+          <description>
+        RX Data 0 Peek
+          </description>
+        </field>
+        <field name="PERRP0" bitoffset="14" bitlength="1">
+          <description>Data Parity Error 0 Peek</description>
+        </field>
+        <field name="FERRP0" bitoffset="15" bitlength="1">
+          <description>Data Framing Error 0 Peek</description>
+        </field>
+        <field name="RXDATAP1" bitoffset="16" bitlength="9">
+          <description>
+        RX Data 1 Peek
+          </description>
+        </field>
+        <field name="PERRP1" bitoffset="30" bitlength="1">
+          <description>Data Parity Error 1 Peek</description>
+        </field>
+        <field name="FERRP1" bitoffset="31" bitlength="1">
+          <description>Data Framing Error 1 Peek</description>
+        </field>
+      </register>
+      <register name="TXDATAX" address="0x4000c430" access="WO" resetvalue="0x00000000">
+        <description>TX Buffer Data Extended Register</description>
+        <field name="TXDATAX" bitoffset="0" bitlength="9">
+          <description>
+        TX Data
+          </description>
+        </field>
+        <field name="UBRXAT" bitoffset="11" bitlength="1">
+          <description>Unblock RX After Transmission</description>
+        </field>
+        <field name="TXTRIAT" bitoffset="12" bitlength="1">
+          <description>Set TXTRI After Transmission</description>
+        </field>
+        <field name="TXBREAK" bitoffset="13" bitlength="1">
+          <description>Transmit Data As Break</description>
+        </field>
+        <field name="TXDISAT" bitoffset="14" bitlength="1">
+          <description>Clear TXEN After Transmission</description>
+        </field>
+        <field name="RXENAT" bitoffset="15" bitlength="1">
+          <description>Enable RX After Transmission</description>
+        </field>
+      </register>
+      <register name="TXDATA" address="0x4000c434" access="WO" resetvalue="0x00000000">
+        <description>TX Buffer Data Register</description>
+        <field name="TXDATA" bitoffset="0" bitlength="8">
+          <description>
+        TX Data
+          </description>
+        </field>
+      </register>
+      <register name="TXDOUBLEX" address="0x4000c438" access="WO" resetvalue="0x00000000">
+        <description>TX Buffer Double Data Extended Register</description>
+        <field name="TXDATA0" bitoffset="0" bitlength="9">
+          <description>
+        TX Data
+          </description>
+        </field>
+        <field name="UBRXAT0" bitoffset="11" bitlength="1">
+          <description>Unblock RX After Transmission</description>
+        </field>
+        <field name="TXTRIAT0" bitoffset="12" bitlength="1">
+          <description>Set TXTRI After Transmission</description>
+        </field>
+        <field name="TXBREAK0" bitoffset="13" bitlength="1">
+          <description>Transmit Data As Break</description>
+        </field>
+        <field name="TXDISAT0" bitoffset="14" bitlength="1">
+          <description>Clear TXEN After Transmission</description>
+        </field>
+        <field name="RXENAT0" bitoffset="15" bitlength="1">
+          <description>Enable RX After Transmission</description>
+        </field>
+        <field name="TXDATA1" bitoffset="16" bitlength="9">
+          <description>
+        TX Data
+          </description>
+        </field>
+        <field name="UBRXAT1" bitoffset="27" bitlength="1">
+          <description>Unblock RX After Transmission</description>
+        </field>
+        <field name="TXTRIAT1" bitoffset="28" bitlength="1">
+          <description>Set TXTRI After Transmission</description>
+        </field>
+        <field name="TXBREAK1" bitoffset="29" bitlength="1">
+          <description>Transmit Data As Break</description>
+        </field>
+        <field name="TXDISAT1" bitoffset="30" bitlength="1">
+          <description>Clear TXEN After Transmission</description>
+        </field>
+        <field name="RXENAT1" bitoffset="31" bitlength="1">
+          <description>Enable RX After Transmission</description>
+        </field>
+      </register>
+      <register name="TXDOUBLE" address="0x4000c43c" access="WO" resetvalue="0x00000000">
+        <description>TX Buffer Double Data Register</description>
+        <field name="TXDATA0" bitoffset="0" bitlength="8">
+          <description>
+        TX Data
+          </description>
+        </field>
+        <field name="TXDATA1" bitoffset="8" bitlength="8">
+          <description>
+        TX Data
+          </description>
+        </field>
+      </register>
+      <register name="IF" address="0x4000c440" access="RO" resetvalue="0x00000002">
+        <description>Interrupt Flag Register</description>
+        <field name="TXC" bitoffset="0" bitlength="1">
+          <description>TX Complete Interrupt Flag</description>
+        </field>
+        <field name="TXBL" bitoffset="1" bitlength="1">
+          <description>TX Buffer Level Interrupt Flag</description>
+        </field>
+        <field name="RXDATAV" bitoffset="2" bitlength="1">
+          <description>RX Data Valid Interrupt Flag</description>
+        </field>
+        <field name="RXFULL" bitoffset="3" bitlength="1">
+          <description>RX Buffer Full Interrupt Flag</description>
+        </field>
+        <field name="RXOF" bitoffset="4" bitlength="1">
+          <description>RX Overflow Interrupt Flag</description>
+        </field>
+        <field name="RXUF" bitoffset="5" bitlength="1">
+          <description>RX Underflow Interrupt Flag</description>
+        </field>
+        <field name="TXOF" bitoffset="6" bitlength="1">
+          <description>TX Overflow Interrupt Flag</description>
+        </field>
+        <field name="TXUF" bitoffset="7" bitlength="1">
+          <description>TX Underflow Interrupt Flag</description>
+        </field>
+        <field name="PERR" bitoffset="8" bitlength="1">
+          <description>Parity Error Interrupt Flag</description>
+        </field>
+        <field name="FERR" bitoffset="9" bitlength="1">
+          <description>Framing Error Interrupt Flag</description>
+        </field>
+        <field name="MPAF" bitoffset="10" bitlength="1">
+          <description>Multi-Processor Address Frame Interrupt Flag</description>
+        </field>
+        <field name="SSM" bitoffset="11" bitlength="1">
+          <description>Slave-Select In Master Mode Interrupt Flag</description>
+        </field>
+        <field name="CCF" bitoffset="12" bitlength="1">
+          <description>Collision Check Fail Interrupt Flag</description>
+        </field>
+      </register>
+      <register name="IFS" address="0x4000c444" access="WO" resetvalue="0x00000000">
+        <description>Interrupt Flag Set Register</description>
+        <field name="TXC" bitoffset="0" bitlength="1">
+          <description>Set TX Complete Interrupt Flag</description>
+        </field>
+        <field name="RXFULL" bitoffset="3" bitlength="1">
+          <description>Set RX Buffer Full Interrupt Flag</description>
+        </field>
+        <field name="RXOF" bitoffset="4" bitlength="1">
+          <description>Set RX Overflow Interrupt Flag</description>
+        </field>
+        <field name="RXUF" bitoffset="5" bitlength="1">
+          <description>Set RX Underflow Interrupt Flag</description>
+        </field>
+        <field name="TXOF" bitoffset="6" bitlength="1">
+          <description>Set TX Overflow Interrupt Flag</description>
+        </field>
+        <field name="TXUF" bitoffset="7" bitlength="1">
+          <description>Set TX Underflow Interrupt Flag</description>
+        </field>
+        <field name="PERR" bitoffset="8" bitlength="1">
+          <description>Set Parity Error Interrupt Flag</description>
+        </field>
+        <field name="FERR" bitoffset="9" bitlength="1">
+          <description>Set Framing Error Interrupt Flag</description>
+        </field>
+        <field name="MPAF" bitoffset="10" bitlength="1">
+          <description>Set Multi-Processor Address Frame Interrupt Flag</description>
+        </field>
+        <field name="SSM" bitoffset="11" bitlength="1">
+          <description>Set Slave-Select in Master mode Interrupt Flag</description>
+        </field>
+        <field name="CCF" bitoffset="12" bitlength="1">
+          <description>Set Collision Check Fail Interrupt Flag</description>
+        </field>
+      </register>
+      <register name="IFC" address="0x4000c448" access="WO" resetvalue="0x00000000">
+        <description>Interrupt Flag Clear Register</description>
+        <field name="TXC" bitoffset="0" bitlength="1">
+          <description>Clear TX Complete Interrupt Flag</description>
+        </field>
+        <field name="RXFULL" bitoffset="3" bitlength="1">
+          <description>Clear RX Buffer Full Interrupt Flag</description>
+        </field>
+        <field name="RXOF" bitoffset="4" bitlength="1">
+          <description>Clear RX Overflow Interrupt Flag</description>
+        </field>
+        <field name="RXUF" bitoffset="5" bitlength="1">
+          <description>Clear RX Underflow Interrupt Flag</description>
+        </field>
+        <field name="TXOF" bitoffset="6" bitlength="1">
+          <description>Clear TX Overflow Interrupt Flag</description>
+        </field>
+        <field name="TXUF" bitoffset="7" bitlength="1">
+          <description>Clear TX Underflow Interrupt Flag</description>
+        </field>
+        <field name="PERR" bitoffset="8" bitlength="1">
+          <description>Clear Parity Error Interrupt Flag</description>
+        </field>
+        <field name="FERR" bitoffset="9" bitlength="1">
+          <description>Clear Framing Error Interrupt Flag</description>
+        </field>
+        <field name="MPAF" bitoffset="10" bitlength="1">
+          <description>Clear Multi-Processor Address Frame Interrupt Flag</description>
+        </field>
+        <field name="SSM" bitoffset="11" bitlength="1">
+          <description>Clear Slave-Select In Master Mode Interrupt Flag</description>
+        </field>
+        <field name="CCF" bitoffset="12" bitlength="1">
+          <description>Clear Collision Check Fail Interrupt Flag</description>
+        </field>
+      </register>
+      <register name="IEN" address="0x4000c44c" access="RW" resetvalue="0x00000000">
+        <description>Interrupt Enable Register</description>
+        <field name="TXC" bitoffset="0" bitlength="1">
+          <description>TX Complete Interrupt Enable</description>
+        </field>
+        <field name="TXBL" bitoffset="1" bitlength="1">
+          <description>TX Buffer Level Interrupt Enable</description>
+        </field>
+        <field name="RXDATAV" bitoffset="2" bitlength="1">
+          <description>RX Data Valid Interrupt Enable</description>
+        </field>
+        <field name="RXFULL" bitoffset="3" bitlength="1">
+          <description>RX Buffer Full Interrupt Enable</description>
+        </field>
+        <field name="RXOF" bitoffset="4" bitlength="1">
+          <description>RX Overflow Interrupt Enable</description>
+        </field>
+        <field name="RXUF" bitoffset="5" bitlength="1">
+          <description>RX Underflow Interrupt Enable</description>
+        </field>
+        <field name="TXOF" bitoffset="6" bitlength="1">
+          <description>TX Overflow Interrupt Enable</description>
+        </field>
+        <field name="TXUF" bitoffset="7" bitlength="1">
+          <description>TX Underflow Interrupt Enable</description>
+        </field>
+        <field name="PERR" bitoffset="8" bitlength="1">
+          <description>Parity Error Interrupt Enable</description>
+        </field>
+        <field name="FERR" bitoffset="9" bitlength="1">
+          <description>Framing Error Interrupt Enable</description>
+        </field>
+        <field name="MPAF" bitoffset="10" bitlength="1">
+          <description>Multi-Processor Address Frame Interrupt Enable</description>
+        </field>
+        <field name="SSM" bitoffset="11" bitlength="1">
+          <description>Slave-Select In Master Mode Interrupt Enable</description>
+        </field>
+        <field name="CCF" bitoffset="12" bitlength="1">
+          <description>Collision Check Fail Interrupt Enable</description>
+        </field>
+      </register>
+      <register name="IRCTRL" address="0x4000c450" access="RW" resetvalue="0x00000000">
+        <description>IrDA Control Register</description>
+        <field name="IREN" bitoffset="0" bitlength="1">
+          <description>Enable IrDA Module</description>
+        </field>
+        <field name="IRPW" bitoffset="1" bitlength="2">
+          <description>
+        IrDA TX Pulse Width
+        -
+        Value, Description
+        0x00, ONE - IrDA pulse width is 1/16 for OVS=0 and 1/8 for OVS=1
+        0x01, TWO - IrDA pulse width is 2/16 for OVS=0 and 2/8 for OVS=1
+        0x02, THREE - IrDA pulse width is 3/16 for OVS=0 and 3/8 for OVS=1
+        0x03, FOUR - IrDA pulse width is 4/16 for OVS=0 and 4/8 for OVS=1
+          </description>
+        </field>
+        <field name="IRFILT" bitoffset="3" bitlength="1">
+          <description>IrDA RX Filter</description>
+        </field>
+        <field name="IRPRSSEL" bitoffset="4" bitlength="3">
+          <description>
+        IrDA PRS Channel Select
+        -
+        Value, Description
+        0x00, PRSCH0 - PRS Channel 0 selected
+        0x01, PRSCH1 - PRS Channel 1 selected
+        0x02, PRSCH2 - PRS Channel 2 selected
+        0x03, PRSCH3 - PRS Channel 3 selected
+        0x04, PRSCH4 - PRS Channel 4 selected
+        0x05, PRSCH5 - PRS Channel 5 selected
+        0x06, PRSCH6 - PRS Channel 6 selected
+        0x07, PRSCH7 - PRS Channel 7 selected
+          </description>
+        </field>
+        <field name="IRPRSEN" bitoffset="7" bitlength="1">
+          <description>IrDA PRS Channel Enable</description>
+        </field>
+      </register>
+      <register name="ROUTE" address="0x4000c454" access="RW" resetvalue="0x00000000">
+        <description>I/O Routing Register</description>
+        <field name="RXPEN" bitoffset="0" bitlength="1">
+          <description>RX Pin Enable</description>
+        </field>
+        <field name="TXPEN" bitoffset="1" bitlength="1">
+          <description>TX Pin Enable</description>
+        </field>
+        <field name="CSPEN" bitoffset="2" bitlength="1">
+          <description>CS Pin Enable</description>
+        </field>
+        <field name="CLKPEN" bitoffset="3" bitlength="1">
+          <description>CLK Pin Enable</description>
+        </field>
+        <field name="LOCATION" bitoffset="8" bitlength="3">
+          <description>
+        I/O Location
+        -
+        Value, Description
+        0x00, LOC0 - Location 0
+        0x01, LOC1 - Location 1
+        0x02, LOC2 - Location 2
+        0x03, LOC3 - Location 3
+          </description>
+        </field>
+      </register>
+      <register name="INPUT" address="0x4000c458" access="RW" resetvalue="0x00000000">
+        <description>USART Input Register</description>
+        <field name="RXPRSSEL" bitoffset="0" bitlength="3">
+          <description>
+        RX PRS Channel Select
+        -
+        Value, Description
+        0x00, PRSCH0 - PRS Channel 0 selected
+        0x01, PRSCH1 - PRS Channel 1 selected
+        0x02, PRSCH2 - PRS Channel 2 selected
+        0x03, PRSCH3 - PRS Channel 3 selected
+        0x04, PRSCH4 - PRS Channel 4 selected
+        0x05, PRSCH5 - PRS Channel 5 selected
+        0x06, PRSCH6 - PRS Channel 6 selected
+        0x07, PRSCH7 - PRS Channel 7 selected
+          </description>
+        </field>
+        <field name="RXPRS" bitoffset="4" bitlength="1">
+          <description>PRS RX Enable</description>
+        </field>
+      </register>
+      <register name="I2SCTRL" address="0x4000c45c" access="RW" resetvalue="0x00000000">
         <description>I2S Control Register</description>
         <field name="EN" bitoffset="0" bitlength="1">
           <description>Enable I2S Mode</description>
@@ -14071,7 +14969,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         0x00, DISABLE - Input disabled
         0x01, DAC - DAC as input
         0x02, POSPAD - POS PAD as input
-        0x03, OPA1IN - OPA1 as input
+        0x03, OPA0IN - OPA0 as input
         0x04, OPATAP - Resistor ladder as input
           </description>
         </field>
@@ -14239,7 +15137,6 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         -
         Value, Description
         0x00, DISABLE - Input disabled
-        0x01, DAC - DAC as input
         0x02, POSPAD - POS PAD as input
         0x03, OPA1IN - OPA1 as input
         0x04, OPATAP - Resistor ladder as input

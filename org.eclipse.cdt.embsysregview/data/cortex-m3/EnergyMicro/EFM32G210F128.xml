@@ -313,7 +313,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
         -
         Value, Description
         0x00, XTAL - 4-32 MHz crystal oscillator
-        0x01, BUFEXTCLK - An AC coupled buffer is coupled in series with HFXTAL_N, suitable for external sine wave (4-32 MHz)
+        0x01, BUFEXTCLK - An AC coupled buffer is coupled in series with HFXTAL_N, suitable for external sine wave (4-32 MHz). The sine wave                                                                                should have a minimum of 200mV peak to peak.
         0x02, DIGEXTCLK - Digital external clock on HFXTAL_N pin. Oscillator is effectively bypassed.
           </description>
         </field>
@@ -5120,13 +5120,13 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
       <register name="IF" address="0x400c3000" access="RO" resetvalue="0x00000000">
         <description>Interrupt Flag Register</description>
         <field name="CH0DONE" bitoffset="0" bitlength="1">
-          <description>DMA Channel 1 Complete Interrupt Flag</description>
+          <description>DMA Channel 0 Complete Interrupt Flag</description>
         </field>
         <field name="CH1DONE" bitoffset="1" bitlength="1">
-          <description>DMA Channel 2 Complete Interrupt Flag</description>
+          <description>DMA Channel 1 Complete Interrupt Flag</description>
         </field>
         <field name="CH2DONE" bitoffset="2" bitlength="1">
-          <description>DMA Channel 3 Complete Interrupt Flag</description>
+          <description>DMA Channel 2 Complete Interrupt Flag</description>
         </field>
         <field name="CH3DONE" bitoffset="3" bitlength="1">
           <description>DMA Channel 3 Complete Interrupt Flag</description>
@@ -9346,7 +9346,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
       </register>
       <register name="CNT" address="0x4008600c" access="RO" resetvalue="0x00000000">
         <description>Counter Value Register</description>
-        <field name="CNT" bitoffset="0" bitlength="16">
+        <field name="CNT" bitoffset="0" bitlength="8">
           <description>
         Counter Value
           </description>
@@ -9354,7 +9354,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
       </register>
       <register name="TOP" address="0x40086010" access="RO" resetvalue="0x000000FF">
         <description>Top Value Register</description>
-        <field name="TOP" bitoffset="0" bitlength="16">
+        <field name="TOP" bitoffset="0" bitlength="8">
           <description>
         Counter Top Value
           </description>
@@ -9362,7 +9362,7 @@ Copyright © 2010 Energy Micro AS. All rights reserved.
       </register>
       <register name="TOPB" address="0x40086014" access="RW" resetvalue="0x000000FF">
         <description>Top Value Buffer Register</description>
-        <field name="TOPB" bitoffset="0" bitlength="16">
+        <field name="TOPB" bitoffset="0" bitlength="8">
           <description>
         Counter Top Buffer
           </description>
