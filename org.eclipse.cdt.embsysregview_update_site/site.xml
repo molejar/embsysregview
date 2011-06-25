@@ -6,6 +6,12 @@
    <feature url="features/org.eclipse.cdt.embsysregview_feature_0.1.8.jar" id="org.eclipse.cdt.embsysregview_feature" version="0.1.8">
       <category name="embsysregview"/>
    </feature>
+   <feature url="features/org.eclipse.cdt.embsysregview_feature_0.1.8.90.jar" id="org.eclipse.cdt.embsysregview_feature" version="0.1.8.90">
+      <category name="embsysregview"/>
+   </feature>
+   <feature url="features/org.eclipse.cdt.embsysregview_feature_0.1.9.jar" id="org.eclipse.cdt.embsysregview_feature" version="0.1.9">
+      <category name="embsysregview"/>
+   </feature>
    <archive path="plugins/org.eclipse.cdt.embsysregview_0.1.5.jar" url="http://downloads.sourceforge.net/embsysregview/org.eclipse.cdt.embsysregview_0.1.5.jar"/>
    <category-def name="embsysregview" label="embsysregview">
       <description>

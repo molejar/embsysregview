@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE model SYSTEM "embsysregview.dtd">
+
+<model chipname="openmsp430: Xilinx Diligent S3 Board example">
+  <chip_description>
+    Xilinx Diligent S3 Board example implementation
+    for the openMSP430 project.
+    http://opencores.org/project,openmsp430
+  </chip_description>
+
+  <group name="System peripherals" description="">
+    <registergroup name="Basic Clock Module" description="">
+      <register name="BCSCTL1" description="Basic clock system control 1" address="0x0057" access="rw" size="1" >
+	  <field bitoffset="4" bitlength="2" name="DIVAx" description="Divider for ACLK (0: /1; 1: /2; 2: /4; 3: /8)" />
+      </register>
+      <register name="BCSCTL2" description="Basic clock system control 2" address="0x0058" access="rw" size="1" >
+	  <field bitoffset="3" bitlength="1" name="SELS"  description="This bit selects the SMCLK source (0: DCOCLK; 1; LFXT1CLK)" />
+	  <field bitoffset="1" bitlength="2" name="DIVSx" description="Divider for SMCLK (0: /1; 1: /2; 2: /4; 3: /8)" />
+      </register>
+    </registergroup>
+    <registergroup name="Special Function Registers" description="">
+      <register name="IE1" description="SFR interrupt enable register 1" address="0x0001" access="rw" size="1" >
+	  <field bitoffset="4" bitlength="1" name="NMIIE" description="NMI interrupt enable" />
+	  <field bitoffset="0" bitlength="1" name="WDTIE" description="Watchdog timer interrupt enable" />
+      </register>
+      <register name="IFG1" description="SFR interrupt flag register 1" address="0x0002" access="rw" size="1" >
+	  <field bitoffset="4" bitlength="1" name="NMIIFG" description="NMI interrupt flag" />
+	  <field bitoffset="0" bitlength="1" name="WDTIFG" description="Watchdog timer interrupt flag" />
+      </register>
+    </registergroup>
+    <registergroup name="Watchdog" description="">
+      <register name="WDTCTL" description="Watchdog timer control register" address="0x0120" access="rw" size="2" >
+	  <field bitoffset="8" bitlength="8" name="WDTPW"    description="Watchdog timer password (always read 069h, must be written as 05Ah)" />
+	  <field bitoffset="7" bitlength="1" name="WDTHOLD"  description="Watchdog timer hold" />
+	  <field bitoffset="6" bitlength="1" name="WDTNMIES" description="Watchdog timer NMI edge select (0: rising; 1: falling)" />
+	  <field bitoffset="4" bitlength="1" name="WDTTMSEL" description="Watchdog timer mode select (0: watchdog mode; 1: interval timer mode" />
+	  <field bitoffset="3" bitlength="1" name="WDTCNTCL" description="Watchdog timer counter clear (always reads 0)" />
+	  <field bitoffset="2" bitlength="1" name="WDTSSEL"  description="Watchdog timer clock source select (0: SMCLK; 1: ACLK)" />
+	  <field bitoffset="0" bitlength="2" name="WDTISx"   description="Watchdog timer interval select (0: /64; 1: /512; 2: /8192; 3: /32768)" />
+      </register>
+    </registergroup>
+  </group>
+
+  <group name="Hardware Math units" description="">
+    <registergroup name="16x16 Hardware multiplier" description="">
+      <register name="MPY"    description="Operand one - multiply"                   address="0x0130" access="rw" size="2" />
+      <register name="MPYS"   description="Operand one - signed multiply"            address="0x0132" access="rw" size="2" />
+      <register name="MAC"    description="Operand one - multiply accumulate"        address="0x0134" access="rw" size="2" />
+      <register name="MACS"   description="Operand one - signed multiply accumulate" address="0x0136" access="rw" size="2" />
+      <register name="OP2"    description="Operand two"                              address="0x0138" access="rw" size="2" />
+      <register name="RESLO"  description="Result low word"                          address="0x013A" access="rw" size="2" />
+      <register name="RESHI"  description="Result high word"                         address="0x013C" access="rw" size="2" />
+      <register name="SUMEXT" description="Sum Extension register"                   address="0x013E" access="ro" size="2" />
+    </registergroup>
+  </group>
+
+  <group name="Digital I/O" description="">
+    <registergroup name="Port 1" description="">
+      <register name="P1IN"  description="Input"                 address="0x0020" access="rw" size="1" />
+      <register name="P1OUT" description="Output"                address="0x0021" access="rw" size="1" />
+      <register name="P1DIR" description="Direction"             address="0x0022" access="rw" size="1" />
+      <register name="P1IFG" description="Interrupt Flag"        address="0x0023" access="rw" size="1" />
+      <register name="P1IES" description="Interrupt Edge Select" address="0x0024" access="rw" size="1" />
+      <register name="P1IE"  description="Interrupt Enable"      address="0x0025" access="rw" size="1" />
+      <register name="P1SEL" description="Port Select"           address="0x0026" access="rw" size="1" />
+    </registergroup>
+    <registergroup name="Port 2" description="">
+      <register name="P2IN"  description="Input"                 address="0x0028" access="rw" size="1" />
+      <register name="P2OUT" description="Output"                address="0x0029" access="rw" size="1" />
+      <register name="P2DIR" description="Direction"             address="0x002A" access="rw" size="1" />
+      <register name="P2IFG" description="Interrupt Flag"        address="0x002B" access="rw" size="1" />
+      <register name="P2IES" description="Interrupt Edge Select" address="0x002C" access="rw" size="1" />
+      <register name="P2IE"  description="Interrupt Enable"      address="0x002D" access="rw" size="1" />
+      <register name="P2SEL" description="Port Select"           address="0x002E" access="rw" size="1" />
+    </registergroup>
+    <registergroup name="Port 3" description="">
+      <register name="P3IN"  description="Input"                 address="0x0018" access="rw" size="1" />
+      <register name="P3OUT" description="Output"                address="0x0019" access="rw" size="1" />
+      <register name="P3DIR" description="Direction"             address="0x001A" access="rw" size="1" />
+      <register name="P3SEL" description="Port Select"           address="0x001B" access="rw" size="1" />
+    </registergroup>
+  </group>
+
+  <group name="Timers" description="">
+    <registergroup name="Timer-A" description="">
+      <register name="TACTL"   description="Timer-A control"                   address="0x0160" access="rw" size="2" >
+	  <field bitoffset="8" bitlength="2" name="TASSELx" description="Timer-A clock source select (0: TACLK; 1: ACLK; 2: SMCLK; 3: INCLK)" />
+	  <field bitoffset="6" bitlength="2" name="IDx"     description="Input divider (0: /1; 1: /2; 2: /4; 3: /8)" />
+	  <field bitoffset="4" bitlength="2" name="MCx"     description="Mode control (0: stop mode; 1: up mode; 2: continuous mode; 3: up/down mode)" />
+	  <field bitoffset="2" bitlength="1" name="TACLR"   description="Timer-A clear" />
+	  <field bitoffset="1" bitlength="1" name="TAIE"    description="Timer-A interrupt enable" />
+	  <field bitoffset="0" bitlength="1" name="TAIFG"   description="Timer-A interrupt flag" />
+      </register>
+      <register name="TAR"     description="Timer-A counter"                   address="0x0170" access="rw" size="2" />
+      <register name="TACCTL0" description="Timer-A capture/compare control 0" address="0x0162" access="rw" size="2" >
+	  <field bitoffset="14" bitlength="2" name="CMx"     description="Capture mode (0: no capture; 1: rising edge; 2: falling edge; 3: both edges)" />
+	  <field bitoffset="12" bitlength="2" name="CCISx"   description="Capture/compare input select (0: CCIxA; 1: CCIxB; 2: GND; 3: Vcc)" />
+	  <field bitoffset="11" bitlength="1" name="SCS"     description="Synchronize capture source" />
+	  <field bitoffset="10" bitlength="1" name="SCCI"    description="Synchronize capture/compare input" />
+	  <field bitoffset="8"  bitlength="1" name="CAP"     description="Capture mode (0: compare mode; 1: capture mode)" />
+	  <field bitoffset="5"  bitlength="3" name="OUTMODx" description="Output mode (0: OUT bit value; 1: Set; 2: toggle/reset; 3: set/reset; 4: toggle; 5: reset; 6: toggle/set; 7: reset/set)" />
+	  <field bitoffset="4"  bitlength="1" name="CCIE"    description="Capture/compare interrupt enable" />
+	  <field bitoffset="3"  bitlength="1" name="CCI"     description="Capture/compare input" />
+	  <field bitoffset="2"  bitlength="1" name="OUT"     description="Output" />
+	  <field bitoffset="1"  bitlength="1" name="COV"     description="Capture overflow" />
+	  <field bitoffset="0"  bitlength="1" name="CCIFG"   description="Capture/compare interrupt flag" />
+      </register>
+      <register name="TACCR0"  description="Timer-A capture/compare 0"         address="0x0172" access="rw" size="2" />
+      <register name="TACCTL1" description="Timer-A capture/compare control 1" address="0x0164" access="rw" size="2" >
+	  <field bitoffset="14" bitlength="2" name="CMx"     description="Capture mode (0: no capture; 1: rising edge; 2: falling edge; 3: both edges)" />
+	  <field bitoffset="12" bitlength="2" name="CCISx"   description="Capture/compare input select (0: CCIxA; 1: CCIxB; 2: GND; 3: Vcc)" />
+	  <field bitoffset="11" bitlength="1" name="SCS"     description="Synchronize capture source" />
+	  <field bitoffset="10" bitlength="1" name="SCCI"    description="Synchronize capture/compare input" />
+	  <field bitoffset="8"  bitlength="1" name="CAP"     description="Capture mode (0: compare mode; 1: capture mode)" />
+	  <field bitoffset="5"  bitlength="3" name="OUTMODx" description="Output mode (0: OUT bit value; 1: Set; 2: toggle/reset; 3: set/reset; 4: toggle; 5: reset; 6: toggle/set; 7: reset/set)" />
+	  <field bitoffset="4"  bitlength="1" name="CCIE"    description="Capture/compare interrupt enable" />
+	  <field bitoffset="3"  bitlength="1" name="CCI"     description="Capture/compare input" />
+	  <field bitoffset="2"  bitlength="1" name="OUT"     description="Output" />
+	  <field bitoffset="1"  bitlength="1" name="COV"     description="Capture overflow" />
+	  <field bitoffset="0"  bitlength="1" name="CCIFG"   description="Capture/compare interrupt flag" />
+      </register>
+      <register name="TACCR1"  description="Timer-A capture/compare 1"         address="0x0174" access="rw" size="2" />
+      <register name="TACCTL2" description="Timer-A capture/compare control 2" address="0x0166" access="rw" size="2" >
+      	  <field bitoffset="14" bitlength="2" name="CMx"     description="Capture mode (0: no capture; 1: rising edge; 2: falling edge; 3: both edges)" />
+	  <field bitoffset="12" bitlength="2" name="CCISx"   description="Capture/compare input select (0: CCIxA; 1: CCIxB; 2: GND; 3: Vcc)" />
+	  <field bitoffset="11" bitlength="1" name="SCS"     description="Synchronize capture source" />
+	  <field bitoffset="10" bitlength="1" name="SCCI"    description="Synchronize capture/compare input" />
+	  <field bitoffset="8"  bitlength="1" name="CAP"     description="Capture mode (0: compare mode; 1: capture mode)" />
+	  <field bitoffset="5"  bitlength="3" name="OUTMODx" description="Output mode (0: OUT bit value; 1: Set; 2: toggle/reset; 3: set/reset; 4: toggle; 5: reset; 6: toggle/set; 7: reset/set)" />
+	  <field bitoffset="4"  bitlength="1" name="CCIE"    description="Capture/compare interrupt enable" />
+	  <field bitoffset="3"  bitlength="1" name="CCI"     description="Capture/compare input" />
+	  <field bitoffset="2"  bitlength="1" name="OUT"     description="Output" />
+	  <field bitoffset="1"  bitlength="1" name="COV"     description="Capture overflow" />
+	  <field bitoffset="0"  bitlength="1" name="CCIFG"   description="Capture/compare interrupt flag" />
+      </register>
+      <register name="TACCR2"  description="Timer-A capture/compare 2"         address="0x0176" access="rw" size="2" />
+      <register name="TAIV"    description="Timer-A interrupt vector"          address="0x012E" access="rw" size="2" >
+	  <field bitoffset="0"  bitlength="4" name="TAIV" description="00h: No interrupt pending; 02h: capture/compare 1; 04h: capture/compare 2; 0Ah: timer overflow;" />
+      </register>
+    </registergroup>
+  </group>
+
+  <group name="UART (8N1)" description="">
+    <registergroup name="UART0 (8N1)" description="">
+      <register name="UART_CTL"  description="UART Control register"        address="0x0080" access="rw" size="1" >
+	  <field bitoffset="7"  bitlength="1" name="IEN_TX_EMPTY" description="Enable TX interrupt with the completion of the last byte transmission." />
+	  <field bitoffset="6"  bitlength="1" name="IEN_TX"       description="Enable TX interrupt with the completion of each byte transmission" />
+	  <field bitoffset="5"  bitlength="1" name="IEN_RX_OVFLW" description="Enable RX interrupt when a receive overflow is detected" />
+	  <field bitoffset="4"  bitlength="1" name="IEN_RX"       description="Enable RX interrupt with each received byte" />
+	  <field bitoffset="1"  bitlength="1" name="SMCLK_SEL"    description="UART base clock selection (0: MCLK; 1: SMCLK)" />
+	  <field bitoffset="0"  bitlength="1" name="EN"           description="Enable UART module (0: disabled; 1: enabled)" />
+      </register>
+      <register name="UART_STAT" description="UART Status register"         address="0x0081" access="rw" size="1" >
+	  <field bitoffset="7"  bitlength="1" name="TX_EMPTY_PND" description="Transmission done pending and nothing left to send (write 1 to clear status and IRQ)." />
+	  <field bitoffset="6"  bitlength="1" name="TX_PND"       description="Transmission done pending (write 1 to clear status and IRQ)." />
+	  <field bitoffset="5"  bitlength="1" name="RX_OVFLW_PND" description="Received overflow byte pending (write 1 to clear status and IRQ)." />
+	  <field bitoffset="4"  bitlength="1" name="RX_PND"       description="Received byte pending (write 1 to clear status and IRQ)." />
+	  <field bitoffset="3"  bitlength="1" name="TX_FULL"      description="Transmit buffers are currently full." />
+	  <field bitoffset="2"  bitlength="1" name="TX_BUSY"      description="Currently transmitting a byte" />
+	  <field bitoffset="0"  bitlength="1" name="RX_BUSY"      description="Currently receiving a byte" />
+      </register>
+      <register name="UART_BAUD" description="UART Baud rate configuration (UART_BAUD = base_clock_frequency/baudrate-1)" address="0x0082" access="rw" size="2" />
+      <register name="UART_TXD"  description="UART Transmit data register"  address="0x0084" access="rw" size="1" />
+      <register name="UART_RXD"  description="UART Receive data register"   address="0x0085" access="ro" size="1" />
+    </registergroup>
+  </group>
+
+  <group name="Four-digit, seven-segment LED display" description="">
+    <registergroup name="Four-digit, seven-segment LED display" description="">
+      <register name="DIGIT0" description="" address="0x0090" access="rw" size="1" />
+      <register name="DIGIT1" description="" address="0x0091" access="rw" size="1" />
+      <register name="DIGIT2" description="" address="0x0092" access="rw" size="1" />
+      <register name="DIGIT3" description="" address="0x0093" access="rw" size="1" />
+    </registergroup>
+  </group>
+
+</model>

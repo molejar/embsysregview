@@ -24,6 +24,7 @@
 <!ATTLIST register address CDATA #REQUIRED>
 <!ATTLIST register resetvalue CDATA #IMPLIED>
 <!ATTLIST register access CDATA #IMPLIED>
+<!ATTLIST register size CDATA #IMPLIED>
 
 <!ELEMENT description (#PCDATA)>
 
