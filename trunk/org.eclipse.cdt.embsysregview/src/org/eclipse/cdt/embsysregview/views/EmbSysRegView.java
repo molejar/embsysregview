@@ -253,9 +253,18 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 								raccess = attr_raccess.getValue();
 							else
 								raccess = "RO";
+							
+							// Optional attribute size (in byte)
+							Attribute attr_rsize = register
+									.getAttribute("size");
+							int rsize;
+							if (attr_rsize != null)
+								rsize = Integer.parseInt(attr_rsize.getValue());
+							else
+								rsize = 4;
 
 							TreeRegister obj_register = new TreeRegister(rname,
-									rdescription, raddress, rresetvalue, raccess);
+									rdescription, raddress, rresetvalue, raccess, rsize);
 							obj_registergroup.addChild(obj_register);
 							
 							Element register_description = register.getChild("description");
@@ -463,14 +472,16 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 				infoLabel.setText("Arch: "+store_architecture+"  Vendor: "+store_vendor+"  Chip: "+store_chip+"  Board: "+store_board);
 	}
 
-	public void setRegister(long laddress, long lvalue)
+	public void setRegister(TreeRegister treeRegister, long lvalue)
 	{
+		long laddress = treeRegister.getRegisterAddress();
+		
 		CommandFactory factory = miSession.getCommandFactory();
 		
 			String value = "0x" + Long.toHexString(lvalue);
 			String address = Long.toString(laddress);
 			MIDataWriteMemory mw = factory.createMIDataWriteMemory(0,
-				address, MIFormat.HEXADECIMAL, 4, value);
+				address, MIFormat.HEXADECIMAL, treeRegister.getByteSize(), value);
 			try {
 				miSession.postCommand(mw);
 				MIInfo info = mw.getMIInfo();
@@ -609,7 +620,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 							return "- write only -";
 						else
 							return longtoHexString(((TreeRegister) element)
-								.getValue(), 32);
+								.getValue(), ((TreeRegister) element).getBitSize());
 				if (element instanceof TreeField)
 					if (((TreeRegister) ((TreeField) element).getParent())
 							.getValue() == -1)
@@ -677,7 +688,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 					return longtoHexString(((TreeField) element).getValue(),((TreeField) element).getBitLength()); 
 					
 				if (element instanceof TreeRegister && ((TreeRegister)element).getValue()!=-1)
-					return longtoHexString(((TreeRegister) element).getValue(), 32); 
+					return longtoHexString(((TreeRegister) element).getValue(), ((TreeRegister) element).getBitSize()); 
 
 				return null;
 			}
@@ -692,10 +703,10 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 					TreeRegister treeRegister = ((TreeRegister) element);
 					if(treeRegister.getValue()!=-1 && treeRegister.getValue()!=lvalue)
 					{
-						long laddress = treeRegister.getRegisterAddress();
+						
 					
 						// Update Value on device
-						setRegister(laddress, lvalue);
+						setRegister(treeRegister, lvalue);
 					
 						updateTreeFields(invisibleRoot); // Update all enabled Fields, not just the changed
 						viewer.refresh();
@@ -711,8 +722,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 					if(treeField.getValue()!=-1 && treeField.getValue()!=fvalue)
 					{
 						TreeRegister treeRegister = ((TreeRegister)treeField.getParent());
-						long laddress = treeRegister.getRegisterAddress();
-					
+											
 						// calculate register value + modified field to write into register
 						long rvalue=treeRegister.getValue();
 						int bitLength = treeField.getBitLength();
@@ -726,7 +736,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 						rvalue = rvalue | fvalue ; // blend the field value into the register value
 						
 						// Update Value in Target
-						setRegister(laddress, rvalue);
+						setRegister(treeRegister, rvalue);
 					
 						treeRegister.updateValue( miSession );
 						viewer.refresh(treeRegister);
@@ -770,7 +780,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 							return "------------- write only -------------";
 						else
 							return longtobinarystring(((TreeRegister) element)
-								.getValue(), 32);
+								.getValue(), ((TreeRegister) element).getBitSize());
 				if (element instanceof TreeField)
 					if (((TreeRegister) ((TreeField) element).getParent())
 							.getValue() == -1)
@@ -801,7 +811,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 					return "";
 				if (element instanceof TreeRegister)
 					return longtoHexString(((TreeRegister) element).getResetValue()
-								, 32);
+								, ((TreeRegister) element).getBitSize());
 				if (element instanceof TreeField)
 					return "";
 				else
@@ -846,7 +856,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 					return "";
 				if (element instanceof TreeRegister)
 					return longtoHexString(((TreeRegister) element).getRegisterAddress()
-								, 32);
+								, 32); //TODO: get address width from xml ...
 				if (element instanceof TreeField)
 					return "";
 				else

@@ -32,6 +32,7 @@ public class TreeRegister extends TreeParent{
 	private String type;
 	private long registerAddress;
 	private boolean retrievalActive = false;
+	private int size=4;
 	
 	public boolean isReadWrite()
 	{
@@ -75,11 +76,12 @@ public class TreeRegister extends TreeParent{
 		return registerAddress;
 	}
 
-	public TreeRegister(String name, String description, long registerAddress, long resetValue, String type ) {
+	public TreeRegister(String name, String description, long registerAddress, long resetValue, String type, int size ) {
 		super(name, description);
 		this.registerAddress=registerAddress;
 		this.resetValue=resetValue;
 		this.type=type;		
+		this.size=size;
 	}
 
 	public long getValue() {
@@ -113,7 +115,7 @@ public class TreeRegister extends TreeParent{
 					if ( miSession != null ) {
 						CommandFactory factory = miSession.getCommandFactory();
 						MIDataReadMemory mem = factory.createMIDataReadMemory( 0, Long.toString(registerAddress),
-						                     								   MIFormat.HEXADECIMAL, 4, 1, 1, null );
+						                     								   MIFormat.HEXADECIMAL, getByteSize(), 1, 1, null );
 						value = -1;
 						try {
 						   miSession.postCommand(mem);
@@ -150,6 +152,16 @@ public class TreeRegister extends TreeParent{
 		}
 	}
 	
+	public int getBitSize() 
+	{
+		return size*8;
+	}
+	
+	public int getByteSize() 
+	{
+		return size;
+	}
+
 	public void clearValue()
 	{
 		value=-1;
