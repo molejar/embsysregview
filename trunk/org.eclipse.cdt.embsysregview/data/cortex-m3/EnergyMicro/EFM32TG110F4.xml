@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE model SYSTEM "embsysregview.dtd">
-<model chipname="INC/EFM32TG110F4">
+<model chipname="EFM32TG110F4">
   <chip_description>Product Features
   • ARM Cortex-M3 CPU platform
      • High Performance 32-bit processor @ up to 32 MHz
@@ -1038,6 +1038,7 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         Value, Description
         0x00, LOC0 - Location 0
         0x01, LOC1 - Location 1
+        0x02, LOC2 - Location 2
           </description>
         </field>
       </register>
@@ -12058,6 +12059,8 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         0x01, LOC1 - Location 1
         0x02, LOC2 - Location 2
         0x03, LOC3 - Location 3
+        0x04, LOC4 - Location 4
+        0x05, LOC5 - Location 5
           </description>
         </field>
       </register>
@@ -12780,6 +12783,8 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         0x01, LOC1 - Location 1
         0x02, LOC2 - Location 2
         0x03, LOC3 - Location 3
+        0x04, LOC4 - Location 4
+        0x05, LOC5 - Location 5
           </description>
         </field>
       </register>
@@ -13230,6 +13235,7 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         0x01, LOC1 - Location 1
         0x02, LOC2 - Location 2
         0x03, LOC3 - Location 3
+        0x04, LOC4 - Location 4
           </description>
         </field>
       </register>
@@ -13768,7 +13774,7 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         Value, Description
         0x00, STANDARD - The ratio is 4:4. Both low and high periods lasts 4 prescaled clock cycles
         0x01, ASYMMETRIC - The ratio is 6:3. Low period lasts 6 and high period lasts 4 prescaled clock cycles
-        0x02, FAST - The ratio is 11:6. Low period lasts 16 and high period lasts 9 prescaled clock cycles
+        0x02, FAST - The ratio is 14:9. Low period lasts 16 and high period lasts 9 prescaled clock cycles
           </description>
         </field>
         <field name="BITO" bitoffset="12" bitlength="2">
@@ -14156,7 +14162,9 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         0x00, LOC0 - Location 0
         0x01, LOC1 - Location 1
         0x02, LOC2 - Location 2
-        0x03, LOC3 - Location 3
+        0x04, LOC4 - Location 4
+        0x05, LOC5 - Location 5
+        0x06, LOC6 - Location 6
           </description>
         </field>
       </register>
@@ -14876,7 +14884,7 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         </field>
         <field name="OPA0LPFDIS" bitoffset="12" bitlength="2">
           <description>
-        Enables Low Pass Filter.
+        Disables Low Pass Filter.
         -
         Value, Description
         0x01, PLPFDIS - Disables the LPF between positive pad and positive input.
@@ -14885,7 +14893,7 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         </field>
         <field name="OPA1LPFDIS" bitoffset="14" bitlength="2">
           <description>
-        Enables Low Pass Filter.
+        Disables Low Pass Filter.
         -
         Value, Description
         0x01, PLPFDIS - Disables the LPF between positive pad and positive input.
@@ -14894,7 +14902,7 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         </field>
         <field name="OPA2LPFDIS" bitoffset="16" bitlength="2">
           <description>
-        Enables Low Pass Filter.
+        Disables Low Pass Filter.
         -
         Value, Description
         0x01, PLPFDIS - Disables the LPF between positive pad and positive input.
@@ -14929,7 +14937,7 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         0x00, DISABLE - Input disabled
         0x01, DAC - DAC as input
         0x02, POSPAD - POS PAD as input
-        0x03, OPA0IN - OPA0 as input
+        0x03, OPA0INP - OPA0 as input
         0x04, OPATAP - Resistor ladder as input
           </description>
         </field>
@@ -14950,7 +14958,7 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         -
         Value, Description
         0x00, DISABLE - Set for Unity Gain
-        0x01, OPA2INP - set for OPA2 input
+        0x01, OPA0INP - set for OPA2 input
         0x02, NEGPAD - Neg pad connected
         0x03, POSPAD - Pos pad connected
         0x04, VSS - VSS connected
@@ -15014,7 +15022,7 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         0x00, DISABLE - Input disabled
         0x01, DAC - DAC as input
         0x02, POSPAD - POS PAD as input
-        0x03, OPA0IN - OPA0 as input
+        0x03, OPA0INP - OPA0 as input
         0x04, OPATAP - Resistor ladder as input
           </description>
         </field>
@@ -15098,7 +15106,7 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         Value, Description
         0x00, DISABLE - Input disabled
         0x02, POSPAD - POS PAD as input
-        0x03, OPA1IN - OPA1 as input
+        0x03, OPA1INP - OPA1 as input
         0x04, OPATAP - Resistor ladder as input
           </description>
         </field>
@@ -15133,18 +15141,18 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         </field>
         <field name="OUTPEN" bitoffset="14" bitlength="2">
           <description>
-        OPA2 Output Enable Value
+        OPA2 Output Location
         -
         Value, Description
-        0x01, OUT0 - Alternate Output 0
-        0x02, OUT1 - Alternate Output 1
+        0x01, OUT0 - Main Output 0
+        0x02, OUT1 - Main Output 1
           </description>
         </field>
         <field name="OUTMODE" bitoffset="22" bitlength="1">
           <description>Output Select</description>
         </field>
         <field name="NEXTOUT" bitoffset="26" bitlength="1">
-          <description>OPA1 Next Enable</description>
+          <description>OPA2 Next Enable</description>
         </field>
         <field name="RESSEL" bitoffset="28" bitlength="3">
           <description>

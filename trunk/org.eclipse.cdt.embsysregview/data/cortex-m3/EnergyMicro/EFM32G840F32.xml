@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE model SYSTEM "embsysregview.dtd">
-<model chipname="INC/EFM32G840F32">
+<model chipname="EFM32G840F32">
   <chip_description>Product Features
   • ARM Cortex-M3 CPU platform
      • High Performance 32-bit processor @ up to 32 MHz

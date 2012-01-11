@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE model SYSTEM "embsysregview.dtd">
-<model chipname="INC/EFM32TG108F8">
+<model chipname="EFM32TG108F8">
   <chip_description>Product Features
   • ARM Cortex-M3 CPU platform
      • High Performance 32-bit processor @ up to 32 MHz
@@ -1026,6 +1026,7 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         Value, Description
         0x00, LOC0 - Location 0
         0x01, LOC1 - Location 1
+        0x02, LOC2 - Location 2
           </description>
         </field>
       </register>
@@ -11702,6 +11703,8 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         0x01, LOC1 - Location 1
         0x02, LOC2 - Location 2
         0x03, LOC3 - Location 3
+        0x04, LOC4 - Location 4
+        0x05, LOC5 - Location 5
           </description>
         </field>
       </register>
@@ -12152,6 +12155,7 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         0x01, LOC1 - Location 1
         0x02, LOC2 - Location 2
         0x03, LOC3 - Location 3
+        0x04, LOC4 - Location 4
           </description>
         </field>
       </register>
@@ -12690,7 +12694,7 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         Value, Description
         0x00, STANDARD - The ratio is 4:4. Both low and high periods lasts 4 prescaled clock cycles
         0x01, ASYMMETRIC - The ratio is 6:3. Low period lasts 6 and high period lasts 4 prescaled clock cycles
-        0x02, FAST - The ratio is 11:6. Low period lasts 16 and high period lasts 9 prescaled clock cycles
+        0x02, FAST - The ratio is 14:9. Low period lasts 16 and high period lasts 9 prescaled clock cycles
           </description>
         </field>
         <field name="BITO" bitoffset="12" bitlength="2">
@@ -13078,7 +13082,9 @@ Copyright © 2011 Energy Micro AS. All rights reserved.
         0x00, LOC0 - Location 0
         0x01, LOC1 - Location 1
         0x02, LOC2 - Location 2
-        0x03, LOC3 - Location 3
+        0x04, LOC4 - Location 4
+        0x05, LOC5 - Location 5
+        0x06, LOC6 - Location 6
           </description>
         </field>
       </register>
