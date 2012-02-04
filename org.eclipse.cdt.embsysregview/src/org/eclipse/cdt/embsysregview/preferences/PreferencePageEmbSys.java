@@ -28,12 +28,15 @@ import org.eclipse.jface.preference.*;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
@@ -109,8 +112,6 @@ public class PreferencePageEmbSys extends PreferencePage implements
 		return super.performOk();
 	}
 	
-	
-	@SuppressWarnings("unchecked")
 	private List<String> getDirList(String path, String pattern)
 	{
 		List<String> dirList = new ArrayList<String>();
@@ -196,6 +197,7 @@ public class PreferencePageEmbSys extends PreferencePage implements
 			vendor.add(entry);
 
 		vendor.setText("");
+		descriptionText.setText("");
 	}
 	
 	private void fillChip(String selectedArchitecture, String selectedVendor)
@@ -210,6 +212,7 @@ public class PreferencePageEmbSys extends PreferencePage implements
 			chip.add(entry.substring(0, entry.length()-4));
 		
 		chip.setText("");
+		descriptionText.setText("");
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -312,6 +315,11 @@ public class PreferencePageEmbSys extends PreferencePage implements
 		descriptionText = new Text(descriptionGroup,SWT.H_SCROLL | SWT.V_SCROLL | SWT.MULTI | SWT.READ_ONLY | SWT.WRAP);		
 		descriptionText.setLayoutData("height 100%,width 100%,hmin 0,wmin 400");
 		descriptionText.setText("");
+		FontData[] fD = descriptionText.getFont().getFontData();
+		fD[0].setName("Lucida Console");
+		Font f = new Font(Display.getCurrent(), fD[0]);
+		descriptionText.setFont(f);
+		
 
 		architecture.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent event) {

@@ -21,6 +21,8 @@ import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 import net.miginfocom.swt.MigLayout;
+
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
@@ -28,16 +30,26 @@ import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.part.*;
 import org.eclipse.jface.action.Action;
+import org.eclipse.jface.preference.IPreferenceNode;
+import org.eclipse.jface.preference.IPreferencePage;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.preference.PreferenceDialog;
+import org.eclipse.jface.preference.PreferenceManager;
+import org.eclipse.jface.preference.PreferenceNode;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.*;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.layout.RowData;
+import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.ui.*;
 import org.eclipse.swt.SWT;
 import org.eclipse.cdt.embsysregview.Activator;
+import org.eclipse.cdt.embsysregview.preferences.PreferencePageEmbSys;
 import org.eclipse.core.runtime.Platform;
 import org.jdom.Attribute;
 import org.jdom.Document;
@@ -53,9 +65,11 @@ import org.osgi.framework.Bundle;
 public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListener,IGDBInterfaceTerminateListener {
 	private TreeViewer viewer;
 	private TreeParent invisibleRoot;
-	Label infoLabel;
+	private Label infoLabel;
+	private Button configButton;
+	private Composite header;
 	private Action doubleClickAction;
-	private Image selectedImage, unselectedImage, selectedFieldImage, unselectedFieldImage, infoImage, interpretationImage;
+	private Image selectedImage, unselectedImage, selectedFieldImage, unselectedFieldImage, infoImage, interpretationImage, configButtonImage;
 	static public GDBInterface GDBi;
 	
 	/**
@@ -441,6 +455,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 		URL fileURL4 = bundle.getEntry("icons/unselected_field.png");
 		URL fileURL5 = bundle.getEntry("icons/info.png");
 		URL fileURL6 = bundle.getEntry("icons/interpretation.png");
+		URL fileURL7 = bundle.getEntry("icons/config.png");
 		
 		try {
 			selectedImage = new Image(parent.getDisplay(),fileURL.openStream());
@@ -449,6 +464,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 			unselectedFieldImage = new Image(parent.getDisplay(),fileURL4.openStream());
 			infoImage = new Image(parent.getDisplay(),fileURL5.openStream());
 			interpretationImage = new Image(parent.getDisplay(),fileURL6.openStream());
+			configButtonImage = new Image(parent.getDisplay(),fileURL7.openStream());
 		} catch (Exception e) {
 			selectedImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_DEC_FIELD_ERROR);
 			unselectedImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_DEC_FIELD_ERROR);
@@ -456,13 +472,67 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 			unselectedFieldImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_DEC_FIELD_ERROR);
 			infoImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_DEC_FIELD_ERROR);
 			interpretationImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_DEC_FIELD_ERROR);
+			configButtonImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_DEC_FIELD_ERROR);
 		}
 
 		TreeViewerColumn column;
-
 		parent.setLayout(new MigLayout("fill","",""));
-		infoLabel = new Label(parent,SWT.NONE);
-		infoLabel.setLayoutData("dock north,height 15px,width 100%,wmin 0");
+		
+		header = new Composite(parent, SWT.NONE);
+		/*header.setLayout(new MigLayout("fill","",""));*/
+		header.setLayoutData("dock north,height 16px,width 100%,wmin 0,hmin 16,gap 0 0 -5 0");
+		RowLayout rowLayout = new RowLayout(SWT.HORIZONTAL);
+	    
+	    rowLayout.marginLeft=-1;
+	    rowLayout.marginRight=0;
+	    rowLayout.marginTop=-1;
+	    rowLayout.marginBottom=0;
+	    rowLayout.fill=true;
+	    rowLayout.wrap=false;
+	    rowLayout.spacing=5;
+		header.setLayout(rowLayout);
+		
+		configButton = new Button(header,SWT.FLAT);
+		//configButton.setText("config...");
+		configButton.setImage(configButtonImage);
+		configButton.setSize(17, 17);
+		//configButton.setLayoutData("align right,height 16px,width 50px,wmin 0,hmin 16,hmax 16,gap 0 0 0 0");
+		RowData data = new RowData();
+	    data.width = 17;
+	    data.height = 17;
+	    configButton.setLayoutData(data);
+	    configButton.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseUp(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseDown(MouseEvent e) {
+				IPreferencePage page = new PreferencePageEmbSys();
+				page.setTitle("EmbSysRegView");
+				PreferenceManager mgr = new PreferenceManager();
+				IPreferenceNode node = new PreferenceNode("1", page);
+				mgr.addToRoot(node);
+				PreferenceDialog dialog = new PreferenceDialog(PlatformUI.getWorkbench().
+		                getActiveWorkbenchWindow().getShell(), mgr);
+				dialog.create();
+				dialog.setMessage(page.getTitle());
+				dialog.open();
+			}
+			
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	    
+	    infoLabel = new Label(header,SWT.NONE);
+	    	    
+		//infoLabel.setLayoutData("align left,height 16px,width 100%,wmin 0,hmin 16,hmax 16,gap 0 0 0 0");
 
 		viewer = new TreeViewer(parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION);
 		viewer.getControl().setLayoutData("height 100%,width 100%,hmin 0,wmin 0");
