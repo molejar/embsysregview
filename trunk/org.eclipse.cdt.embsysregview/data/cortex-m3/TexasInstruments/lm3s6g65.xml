@@ -1,0 +1,1229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE model SYSTEM "embsysregview.dtd">
+
+<model chipname="LM3S6G65">
+  <chip_description>Flash (KB)                        384
+RAM (KB)                          64
+StellarisWare in ROM              Yes
+Boot Loader in ROM                1
+DMA                               32
+SafeRTOS                          0
+Max Speed (MHz)                   80
+Precision Oscillators             Yes
+Memory Protection Unit (MPU)      Yes
+Timers                            5
+RTC                               Yes
+Watchdog Timers                   2
+Motion PWM                        6
+PWM Faults                        4
+Dead-Band Generator               Yes
+Capture Pins                      8
+QEI                               2
+EPI/EMIF                          No
+Ethernet                          MAC+PHY
+IEEE 1588                         No
+CAN                               0
+USB D, H/D, or OTG                No
+UART                              3
+UART Modem Status                 No
+I2C                               2
+SSI/SPI                           1
+I2S                               No
+ADC Units                         2
+ADC Channels                      16
+ADC Resolution (Bits)             12
+ADC Sample Rate (kSPS)            1000
+ADC Ext Reference                 Yes
+Internal Temp Sensor              1
+Analog Comparators                2
+Maximum 5-V Tolerant GPIOs        46
+Dedicated 5-V Tolerant GPIOs      0
+Digital Comparators               16
+Battery-Backed Hibernation Module Yes
+Internal LDO Voltage Regulator    Yes
+Active Current (mA) /MHz          pending
+Standby Current (uA)              pending
+Operating Temperature Range (C)   -40 to 85
+Pin/Package                       100LQFP, 108NFBGA
+Package Area (mm2)                100,196
+
+
+Copyright Texas Instruments Incorporated. All rights reserved.</chip_description>
+  <group name="WATCHDOG" description="Watchdog Timer registers">
+    <registergroup name="WATCHDOG0" description="">
+      <register name="WATCHDOG0_LOAD_R" description="" address="0x40000000" access="rw" />
+      <register name="WATCHDOG0_VALUE_R" description="" address="0x40000004" access="rw" />
+      <register name="WATCHDOG0_CTL_R" description="" address="0x40000008" access="rw" />
+      <register name="WATCHDOG0_ICR_R" description="" address="0x4000000C" access="rw" />
+      <register name="WATCHDOG0_RIS_R" description="" address="0x40000010" access="rw" />
+      <register name="WATCHDOG0_MIS_R" description="" address="0x40000014" access="rw" />
+      <register name="WATCHDOG0_TEST_R" description="" address="0x40000418" access="rw" />
+      <register name="WATCHDOG0_LOCK_R" description="" address="0x40000C00" access="rw" />
+    </registergroup>
+    <registergroup name="WATCHDOG1" description="">
+      <register name="WATCHDOG1_LOAD_R" description="" address="0x40001000" access="rw" />
+      <register name="WATCHDOG1_VALUE_R" description="" address="0x40001004" access="rw" />
+      <register name="WATCHDOG1_CTL_R" description="" address="0x40001008" access="rw" />
+      <register name="WATCHDOG1_ICR_R" description="" address="0x4000100C" access="rw" />
+      <register name="WATCHDOG1_RIS_R" description="" address="0x40001010" access="rw" />
+      <register name="WATCHDOG1_MIS_R" description="" address="0x40001014" access="rw" />
+      <register name="WATCHDOG1_TEST_R" description="" address="0x40001418" access="rw" />
+      <register name="WATCHDOG1_LOCK_R" description="" address="0x40001C00" access="rw" />
+    </registergroup>
+  </group>
+  <group name="GPIO" description="GPIO registers">
+    <registergroup name="PORTA" description="">
+      <register name="GPIO_PORTA_DATA_BITS_R" description="" address="0x40004000" access="rw" />
+      <register name="GPIO_PORTA_DATA_R" description="" address="0x400043FC" access="rw" />
+      <register name="GPIO_PORTA_DIR_R" description="" address="0x40004400" access="rw" />
+      <register name="GPIO_PORTA_IS_R" description="" address="0x40004404" access="rw" />
+      <register name="GPIO_PORTA_IBE_R" description="" address="0x40004408" access="rw" />
+      <register name="GPIO_PORTA_IEV_R" description="" address="0x4000440C" access="rw" />
+      <register name="GPIO_PORTA_IM_R" description="" address="0x40004410" access="rw" />
+      <register name="GPIO_PORTA_RIS_R" description="" address="0x40004414" access="rw" />
+      <register name="GPIO_PORTA_MIS_R" description="" address="0x40004418" access="rw" />
+      <register name="GPIO_PORTA_ICR_R" description="" address="0x4000441C" access="rw" />
+      <register name="GPIO_PORTA_AFSEL_R" description="" address="0x40004420" access="rw" />
+      <register name="GPIO_PORTA_DR2R_R" description="" address="0x40004500" access="rw" />
+      <register name="GPIO_PORTA_DR4R_R" description="" address="0x40004504" access="rw" />
+      <register name="GPIO_PORTA_DR8R_R" description="" address="0x40004508" access="rw" />
+      <register name="GPIO_PORTA_ODR_R" description="" address="0x4000450C" access="rw" />
+      <register name="GPIO_PORTA_PUR_R" description="" address="0x40004510" access="rw" />
+      <register name="GPIO_PORTA_PDR_R" description="" address="0x40004514" access="rw" />
+      <register name="GPIO_PORTA_SLR_R" description="" address="0x40004518" access="rw" />
+      <register name="GPIO_PORTA_DEN_R" description="" address="0x4000451C" access="rw" />
+      <register name="GPIO_PORTA_LOCK_R" description="" address="0x40004520" access="rw" />
+      <register name="GPIO_PORTA_CR_R" description="" address="0x40004524" access="rw" />
+      <register name="GPIO_PORTA_AMSEL_R" description="" address="0x40004528" access="rw" />
+      <register name="GPIO_PORTA_PCTL_R" description="" address="0x4000452C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTB" description="">
+      <register name="GPIO_PORTB_DATA_BITS_R" description="" address="0x40005000" access="rw" />
+      <register name="GPIO_PORTB_DATA_R" description="" address="0x400053FC" access="rw" />
+      <register name="GPIO_PORTB_DIR_R" description="" address="0x40005400" access="rw" />
+      <register name="GPIO_PORTB_IS_R" description="" address="0x40005404" access="rw" />
+      <register name="GPIO_PORTB_IBE_R" description="" address="0x40005408" access="rw" />
+      <register name="GPIO_PORTB_IEV_R" description="" address="0x4000540C" access="rw" />
+      <register name="GPIO_PORTB_IM_R" description="" address="0x40005410" access="rw" />
+      <register name="GPIO_PORTB_RIS_R" description="" address="0x40005414" access="rw" />
+      <register name="GPIO_PORTB_MIS_R" description="" address="0x40005418" access="rw" />
+      <register name="GPIO_PORTB_ICR_R" description="" address="0x4000541C" access="rw" />
+      <register name="GPIO_PORTB_AFSEL_R" description="" address="0x40005420" access="rw" />
+      <register name="GPIO_PORTB_DR2R_R" description="" address="0x40005500" access="rw" />
+      <register name="GPIO_PORTB_DR4R_R" description="" address="0x40005504" access="rw" />
+      <register name="GPIO_PORTB_DR8R_R" description="" address="0x40005508" access="rw" />
+      <register name="GPIO_PORTB_ODR_R" description="" address="0x4000550C" access="rw" />
+      <register name="GPIO_PORTB_PUR_R" description="" address="0x40005510" access="rw" />
+      <register name="GPIO_PORTB_PDR_R" description="" address="0x40005514" access="rw" />
+      <register name="GPIO_PORTB_SLR_R" description="" address="0x40005518" access="rw" />
+      <register name="GPIO_PORTB_DEN_R" description="" address="0x4000551C" access="rw" />
+      <register name="GPIO_PORTB_LOCK_R" description="" address="0x40005520" access="rw" />
+      <register name="GPIO_PORTB_CR_R" description="" address="0x40005524" access="rw" />
+      <register name="GPIO_PORTB_AMSEL_R" description="" address="0x40005528" access="rw" />
+      <register name="GPIO_PORTB_PCTL_R" description="" address="0x4000552C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTC" description="">
+      <register name="GPIO_PORTC_DATA_BITS_R" description="" address="0x40006000" access="rw" />
+      <register name="GPIO_PORTC_DATA_R" description="" address="0x400063FC" access="rw" />
+      <register name="GPIO_PORTC_DIR_R" description="" address="0x40006400" access="rw" />
+      <register name="GPIO_PORTC_IS_R" description="" address="0x40006404" access="rw" />
+      <register name="GPIO_PORTC_IBE_R" description="" address="0x40006408" access="rw" />
+      <register name="GPIO_PORTC_IEV_R" description="" address="0x4000640C" access="rw" />
+      <register name="GPIO_PORTC_IM_R" description="" address="0x40006410" access="rw" />
+      <register name="GPIO_PORTC_RIS_R" description="" address="0x40006414" access="rw" />
+      <register name="GPIO_PORTC_MIS_R" description="" address="0x40006418" access="rw" />
+      <register name="GPIO_PORTC_ICR_R" description="" address="0x4000641C" access="rw" />
+      <register name="GPIO_PORTC_AFSEL_R" description="" address="0x40006420" access="rw" />
+      <register name="GPIO_PORTC_DR2R_R" description="" address="0x40006500" access="rw" />
+      <register name="GPIO_PORTC_DR4R_R" description="" address="0x40006504" access="rw" />
+      <register name="GPIO_PORTC_DR8R_R" description="" address="0x40006508" access="rw" />
+      <register name="GPIO_PORTC_ODR_R" description="" address="0x4000650C" access="rw" />
+      <register name="GPIO_PORTC_PUR_R" description="" address="0x40006510" access="rw" />
+      <register name="GPIO_PORTC_PDR_R" description="" address="0x40006514" access="rw" />
+      <register name="GPIO_PORTC_SLR_R" description="" address="0x40006518" access="rw" />
+      <register name="GPIO_PORTC_DEN_R" description="" address="0x4000651C" access="rw" />
+      <register name="GPIO_PORTC_LOCK_R" description="" address="0x40006520" access="rw" />
+      <register name="GPIO_PORTC_CR_R" description="" address="0x40006524" access="rw" />
+      <register name="GPIO_PORTC_AMSEL_R" description="" address="0x40006528" access="rw" />
+      <register name="GPIO_PORTC_PCTL_R" description="" address="0x4000652C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTD" description="">
+      <register name="GPIO_PORTD_DATA_BITS_R" description="" address="0x40007000" access="rw" />
+      <register name="GPIO_PORTD_DATA_R" description="" address="0x400073FC" access="rw" />
+      <register name="GPIO_PORTD_DIR_R" description="" address="0x40007400" access="rw" />
+      <register name="GPIO_PORTD_IS_R" description="" address="0x40007404" access="rw" />
+      <register name="GPIO_PORTD_IBE_R" description="" address="0x40007408" access="rw" />
+      <register name="GPIO_PORTD_IEV_R" description="" address="0x4000740C" access="rw" />
+      <register name="GPIO_PORTD_IM_R" description="" address="0x40007410" access="rw" />
+      <register name="GPIO_PORTD_RIS_R" description="" address="0x40007414" access="rw" />
+      <register name="GPIO_PORTD_MIS_R" description="" address="0x40007418" access="rw" />
+      <register name="GPIO_PORTD_ICR_R" description="" address="0x4000741C" access="rw" />
+      <register name="GPIO_PORTD_AFSEL_R" description="" address="0x40007420" access="rw" />
+      <register name="GPIO_PORTD_DR2R_R" description="" address="0x40007500" access="rw" />
+      <register name="GPIO_PORTD_DR4R_R" description="" address="0x40007504" access="rw" />
+      <register name="GPIO_PORTD_DR8R_R" description="" address="0x40007508" access="rw" />
+      <register name="GPIO_PORTD_ODR_R" description="" address="0x4000750C" access="rw" />
+      <register name="GPIO_PORTD_PUR_R" description="" address="0x40007510" access="rw" />
+      <register name="GPIO_PORTD_PDR_R" description="" address="0x40007514" access="rw" />
+      <register name="GPIO_PORTD_SLR_R" description="" address="0x40007518" access="rw" />
+      <register name="GPIO_PORTD_DEN_R" description="" address="0x4000751C" access="rw" />
+      <register name="GPIO_PORTD_LOCK_R" description="" address="0x40007520" access="rw" />
+      <register name="GPIO_PORTD_CR_R" description="" address="0x40007524" access="rw" />
+      <register name="GPIO_PORTD_AMSEL_R" description="" address="0x40007528" access="rw" />
+      <register name="GPIO_PORTD_PCTL_R" description="" address="0x4000752C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTE" description="">
+      <register name="GPIO_PORTE_DATA_BITS_R" description="" address="0x40024000" access="rw" />
+      <register name="GPIO_PORTE_DATA_R" description="" address="0x400243FC" access="rw" />
+      <register name="GPIO_PORTE_DIR_R" description="" address="0x40024400" access="rw" />
+      <register name="GPIO_PORTE_IS_R" description="" address="0x40024404" access="rw" />
+      <register name="GPIO_PORTE_IBE_R" description="" address="0x40024408" access="rw" />
+      <register name="GPIO_PORTE_IEV_R" description="" address="0x4002440C" access="rw" />
+      <register name="GPIO_PORTE_IM_R" description="" address="0x40024410" access="rw" />
+      <register name="GPIO_PORTE_RIS_R" description="" address="0x40024414" access="rw" />
+      <register name="GPIO_PORTE_MIS_R" description="" address="0x40024418" access="rw" />
+      <register name="GPIO_PORTE_ICR_R" description="" address="0x4002441C" access="rw" />
+      <register name="GPIO_PORTE_AFSEL_R" description="" address="0x40024420" access="rw" />
+      <register name="GPIO_PORTE_DR2R_R" description="" address="0x40024500" access="rw" />
+      <register name="GPIO_PORTE_DR4R_R" description="" address="0x40024504" access="rw" />
+      <register name="GPIO_PORTE_DR8R_R" description="" address="0x40024508" access="rw" />
+      <register name="GPIO_PORTE_ODR_R" description="" address="0x4002450C" access="rw" />
+      <register name="GPIO_PORTE_PUR_R" description="" address="0x40024510" access="rw" />
+      <register name="GPIO_PORTE_PDR_R" description="" address="0x40024514" access="rw" />
+      <register name="GPIO_PORTE_SLR_R" description="" address="0x40024518" access="rw" />
+      <register name="GPIO_PORTE_DEN_R" description="" address="0x4002451C" access="rw" />
+      <register name="GPIO_PORTE_LOCK_R" description="" address="0x40024520" access="rw" />
+      <register name="GPIO_PORTE_CR_R" description="" address="0x40024524" access="rw" />
+      <register name="GPIO_PORTE_AMSEL_R" description="" address="0x40024528" access="rw" />
+      <register name="GPIO_PORTE_PCTL_R" description="" address="0x4002452C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTF" description="">
+      <register name="GPIO_PORTF_DATA_BITS_R" description="" address="0x40025000" access="rw" />
+      <register name="GPIO_PORTF_DATA_R" description="" address="0x400253FC" access="rw" />
+      <register name="GPIO_PORTF_DIR_R" description="" address="0x40025400" access="rw" />
+      <register name="GPIO_PORTF_IS_R" description="" address="0x40025404" access="rw" />
+      <register name="GPIO_PORTF_IBE_R" description="" address="0x40025408" access="rw" />
+      <register name="GPIO_PORTF_IEV_R" description="" address="0x4002540C" access="rw" />
+      <register name="GPIO_PORTF_IM_R" description="" address="0x40025410" access="rw" />
+      <register name="GPIO_PORTF_RIS_R" description="" address="0x40025414" access="rw" />
+      <register name="GPIO_PORTF_MIS_R" description="" address="0x40025418" access="rw" />
+      <register name="GPIO_PORTF_ICR_R" description="" address="0x4002541C" access="rw" />
+      <register name="GPIO_PORTF_AFSEL_R" description="" address="0x40025420" access="rw" />
+      <register name="GPIO_PORTF_DR2R_R" description="" address="0x40025500" access="rw" />
+      <register name="GPIO_PORTF_DR4R_R" description="" address="0x40025504" access="rw" />
+      <register name="GPIO_PORTF_DR8R_R" description="" address="0x40025508" access="rw" />
+      <register name="GPIO_PORTF_ODR_R" description="" address="0x4002550C" access="rw" />
+      <register name="GPIO_PORTF_PUR_R" description="" address="0x40025510" access="rw" />
+      <register name="GPIO_PORTF_PDR_R" description="" address="0x40025514" access="rw" />
+      <register name="GPIO_PORTF_SLR_R" description="" address="0x40025518" access="rw" />
+      <register name="GPIO_PORTF_DEN_R" description="" address="0x4002551C" access="rw" />
+      <register name="GPIO_PORTF_LOCK_R" description="" address="0x40025520" access="rw" />
+      <register name="GPIO_PORTF_CR_R" description="" address="0x40025524" access="rw" />
+      <register name="GPIO_PORTF_AMSEL_R" description="" address="0x40025528" access="rw" />
+      <register name="GPIO_PORTF_PCTL_R" description="" address="0x4002552C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTG" description="">
+      <register name="GPIO_PORTG_DATA_BITS_R" description="" address="0x40026000" access="rw" />
+      <register name="GPIO_PORTG_DATA_R" description="" address="0x400263FC" access="rw" />
+      <register name="GPIO_PORTG_DIR_R" description="" address="0x40026400" access="rw" />
+      <register name="GPIO_PORTG_IS_R" description="" address="0x40026404" access="rw" />
+      <register name="GPIO_PORTG_IBE_R" description="" address="0x40026408" access="rw" />
+      <register name="GPIO_PORTG_IEV_R" description="" address="0x4002640C" access="rw" />
+      <register name="GPIO_PORTG_IM_R" description="" address="0x40026410" access="rw" />
+      <register name="GPIO_PORTG_RIS_R" description="" address="0x40026414" access="rw" />
+      <register name="GPIO_PORTG_MIS_R" description="" address="0x40026418" access="rw" />
+      <register name="GPIO_PORTG_ICR_R" description="" address="0x4002641C" access="rw" />
+      <register name="GPIO_PORTG_AFSEL_R" description="" address="0x40026420" access="rw" />
+      <register name="GPIO_PORTG_DR2R_R" description="" address="0x40026500" access="rw" />
+      <register name="GPIO_PORTG_DR4R_R" description="" address="0x40026504" access="rw" />
+      <register name="GPIO_PORTG_DR8R_R" description="" address="0x40026508" access="rw" />
+      <register name="GPIO_PORTG_ODR_R" description="" address="0x4002650C" access="rw" />
+      <register name="GPIO_PORTG_PUR_R" description="" address="0x40026510" access="rw" />
+      <register name="GPIO_PORTG_PDR_R" description="" address="0x40026514" access="rw" />
+      <register name="GPIO_PORTG_SLR_R" description="" address="0x40026518" access="rw" />
+      <register name="GPIO_PORTG_DEN_R" description="" address="0x4002651C" access="rw" />
+      <register name="GPIO_PORTG_LOCK_R" description="" address="0x40026520" access="rw" />
+      <register name="GPIO_PORTG_CR_R" description="" address="0x40026524" access="rw" />
+      <register name="GPIO_PORTG_AMSEL_R" description="" address="0x40026528" access="rw" />
+      <register name="GPIO_PORTG_PCTL_R" description="" address="0x4002652C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTH" description="">
+      <register name="GPIO_PORTH_DATA_BITS_R" description="" address="0x40027000" access="rw" />
+      <register name="GPIO_PORTH_DATA_R" description="" address="0x400273FC" access="rw" />
+      <register name="GPIO_PORTH_DIR_R" description="" address="0x40027400" access="rw" />
+      <register name="GPIO_PORTH_IS_R" description="" address="0x40027404" access="rw" />
+      <register name="GPIO_PORTH_IBE_R" description="" address="0x40027408" access="rw" />
+      <register name="GPIO_PORTH_IEV_R" description="" address="0x4002740C" access="rw" />
+      <register name="GPIO_PORTH_IM_R" description="" address="0x40027410" access="rw" />
+      <register name="GPIO_PORTH_RIS_R" description="" address="0x40027414" access="rw" />
+      <register name="GPIO_PORTH_MIS_R" description="" address="0x40027418" access="rw" />
+      <register name="GPIO_PORTH_ICR_R" description="" address="0x4002741C" access="rw" />
+      <register name="GPIO_PORTH_AFSEL_R" description="" address="0x40027420" access="rw" />
+      <register name="GPIO_PORTH_DR2R_R" description="" address="0x40027500" access="rw" />
+      <register name="GPIO_PORTH_DR4R_R" description="" address="0x40027504" access="rw" />
+      <register name="GPIO_PORTH_DR8R_R" description="" address="0x40027508" access="rw" />
+      <register name="GPIO_PORTH_ODR_R" description="" address="0x4002750C" access="rw" />
+      <register name="GPIO_PORTH_PUR_R" description="" address="0x40027510" access="rw" />
+      <register name="GPIO_PORTH_PDR_R" description="" address="0x40027514" access="rw" />
+      <register name="GPIO_PORTH_SLR_R" description="" address="0x40027518" access="rw" />
+      <register name="GPIO_PORTH_DEN_R" description="" address="0x4002751C" access="rw" />
+      <register name="GPIO_PORTH_LOCK_R" description="" address="0x40027520" access="rw" />
+      <register name="GPIO_PORTH_CR_R" description="" address="0x40027524" access="rw" />
+      <register name="GPIO_PORTH_AMSEL_R" description="" address="0x40027528" access="rw" />
+      <register name="GPIO_PORTH_PCTL_R" description="" address="0x4002752C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTJ" description="">
+      <register name="GPIO_PORTJ_DATA_BITS_R" description="" address="0x4003D000" access="rw" />
+      <register name="GPIO_PORTJ_DATA_R" description="" address="0x4003D3FC" access="rw" />
+      <register name="GPIO_PORTJ_DIR_R" description="" address="0x4003D400" access="rw" />
+      <register name="GPIO_PORTJ_IS_R" description="" address="0x4003D404" access="rw" />
+      <register name="GPIO_PORTJ_IBE_R" description="" address="0x4003D408" access="rw" />
+      <register name="GPIO_PORTJ_IEV_R" description="" address="0x4003D40C" access="rw" />
+      <register name="GPIO_PORTJ_IM_R" description="" address="0x4003D410" access="rw" />
+      <register name="GPIO_PORTJ_RIS_R" description="" address="0x4003D414" access="rw" />
+      <register name="GPIO_PORTJ_MIS_R" description="" address="0x4003D418" access="rw" />
+      <register name="GPIO_PORTJ_ICR_R" description="" address="0x4003D41C" access="rw" />
+      <register name="GPIO_PORTJ_AFSEL_R" description="" address="0x4003D420" access="rw" />
+      <register name="GPIO_PORTJ_DR2R_R" description="" address="0x4003D500" access="rw" />
+      <register name="GPIO_PORTJ_DR4R_R" description="" address="0x4003D504" access="rw" />
+      <register name="GPIO_PORTJ_DR8R_R" description="" address="0x4003D508" access="rw" />
+      <register name="GPIO_PORTJ_ODR_R" description="" address="0x4003D50C" access="rw" />
+      <register name="GPIO_PORTJ_PUR_R" description="" address="0x4003D510" access="rw" />
+      <register name="GPIO_PORTJ_PDR_R" description="" address="0x4003D514" access="rw" />
+      <register name="GPIO_PORTJ_SLR_R" description="" address="0x4003D518" access="rw" />
+      <register name="GPIO_PORTJ_DEN_R" description="" address="0x4003D51C" access="rw" />
+      <register name="GPIO_PORTJ_LOCK_R" description="" address="0x4003D520" access="rw" />
+      <register name="GPIO_PORTJ_CR_R" description="" address="0x4003D524" access="rw" />
+      <register name="GPIO_PORTJ_AMSEL_R" description="" address="0x4003D528" access="rw" />
+      <register name="GPIO_PORTJ_PCTL_R" description="" address="0x4003D52C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTA AHB" description="">
+      <register name="GPIO_PORTA_AHB_DATA_R" description="" address="0x400583FC" access="rw" />
+      <register name="GPIO_PORTA_AHB_DIR_R" description="" address="0x40058400" access="rw" />
+      <register name="GPIO_PORTA_AHB_IS_R" description="" address="0x40058404" access="rw" />
+      <register name="GPIO_PORTA_AHB_IBE_R" description="" address="0x40058408" access="rw" />
+      <register name="GPIO_PORTA_AHB_IEV_R" description="" address="0x4005840C" access="rw" />
+      <register name="GPIO_PORTA_AHB_IM_R" description="" address="0x40058410" access="rw" />
+      <register name="GPIO_PORTA_AHB_RIS_R" description="" address="0x40058414" access="rw" />
+      <register name="GPIO_PORTA_AHB_MIS_R" description="" address="0x40058418" access="rw" />
+      <register name="GPIO_PORTA_AHB_ICR_R" description="" address="0x4005841C" access="rw" />
+      <register name="GPIO_PORTA_AHB_AFSEL_R" description="" address="0x40058420" access="rw" />
+      <register name="GPIO_PORTA_AHB_DR2R_R" description="" address="0x40058500" access="rw" />
+      <register name="GPIO_PORTA_AHB_DR4R_R" description="" address="0x40058504" access="rw" />
+      <register name="GPIO_PORTA_AHB_DR8R_R" description="" address="0x40058508" access="rw" />
+      <register name="GPIO_PORTA_AHB_ODR_R" description="" address="0x4005850C" access="rw" />
+      <register name="GPIO_PORTA_AHB_PUR_R" description="" address="0x40058510" access="rw" />
+      <register name="GPIO_PORTA_AHB_PDR_R" description="" address="0x40058514" access="rw" />
+      <register name="GPIO_PORTA_AHB_SLR_R" description="" address="0x40058518" access="rw" />
+      <register name="GPIO_PORTA_AHB_DEN_R" description="" address="0x4005851C" access="rw" />
+      <register name="GPIO_PORTA_AHB_LOCK_R" description="" address="0x40058520" access="rw" />
+      <register name="GPIO_PORTA_AHB_CR_R" description="" address="0x40058524" access="rw" />
+      <register name="GPIO_PORTA_AHB_AMSEL_R" description="" address="0x40058528" access="rw" />
+      <register name="GPIO_PORTA_AHB_PCTL_R" description="" address="0x4005852C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTB AHB" description="">
+      <register name="GPIO_PORTB_AHB_DATA_R" description="" address="0x400593FC" access="rw" />
+      <register name="GPIO_PORTB_AHB_DIR_R" description="" address="0x40059400" access="rw" />
+      <register name="GPIO_PORTB_AHB_IS_R" description="" address="0x40059404" access="rw" />
+      <register name="GPIO_PORTB_AHB_IBE_R" description="" address="0x40059408" access="rw" />
+      <register name="GPIO_PORTB_AHB_IEV_R" description="" address="0x4005940C" access="rw" />
+      <register name="GPIO_PORTB_AHB_IM_R" description="" address="0x40059410" access="rw" />
+      <register name="GPIO_PORTB_AHB_RIS_R" description="" address="0x40059414" access="rw" />
+      <register name="GPIO_PORTB_AHB_MIS_R" description="" address="0x40059418" access="rw" />
+      <register name="GPIO_PORTB_AHB_ICR_R" description="" address="0x4005941C" access="rw" />
+      <register name="GPIO_PORTB_AHB_AFSEL_R" description="" address="0x40059420" access="rw" />
+      <register name="GPIO_PORTB_AHB_DR2R_R" description="" address="0x40059500" access="rw" />
+      <register name="GPIO_PORTB_AHB_DR4R_R" description="" address="0x40059504" access="rw" />
+      <register name="GPIO_PORTB_AHB_DR8R_R" description="" address="0x40059508" access="rw" />
+      <register name="GPIO_PORTB_AHB_ODR_R" description="" address="0x4005950C" access="rw" />
+      <register name="GPIO_PORTB_AHB_PUR_R" description="" address="0x40059510" access="rw" />
+      <register name="GPIO_PORTB_AHB_PDR_R" description="" address="0x40059514" access="rw" />
+      <register name="GPIO_PORTB_AHB_SLR_R" description="" address="0x40059518" access="rw" />
+      <register name="GPIO_PORTB_AHB_DEN_R" description="" address="0x4005951C" access="rw" />
+      <register name="GPIO_PORTB_AHB_LOCK_R" description="" address="0x40059520" access="rw" />
+      <register name="GPIO_PORTB_AHB_CR_R" description="" address="0x40059524" access="rw" />
+      <register name="GPIO_PORTB_AHB_AMSEL_R" description="" address="0x40059528" access="rw" />
+      <register name="GPIO_PORTB_AHB_PCTL_R" description="" address="0x4005952C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTC AHB" description="">
+      <register name="GPIO_PORTC_AHB_DATA_R" description="" address="0x4005A3FC" access="rw" />
+      <register name="GPIO_PORTC_AHB_DIR_R" description="" address="0x4005A400" access="rw" />
+      <register name="GPIO_PORTC_AHB_IS_R" description="" address="0x4005A404" access="rw" />
+      <register name="GPIO_PORTC_AHB_IBE_R" description="" address="0x4005A408" access="rw" />
+      <register name="GPIO_PORTC_AHB_IEV_R" description="" address="0x4005A40C" access="rw" />
+      <register name="GPIO_PORTC_AHB_IM_R" description="" address="0x4005A410" access="rw" />
+      <register name="GPIO_PORTC_AHB_RIS_R" description="" address="0x4005A414" access="rw" />
+      <register name="GPIO_PORTC_AHB_MIS_R" description="" address="0x4005A418" access="rw" />
+      <register name="GPIO_PORTC_AHB_ICR_R" description="" address="0x4005A41C" access="rw" />
+      <register name="GPIO_PORTC_AHB_AFSEL_R" description="" address="0x4005A420" access="rw" />
+      <register name="GPIO_PORTC_AHB_DR2R_R" description="" address="0x4005A500" access="rw" />
+      <register name="GPIO_PORTC_AHB_DR4R_R" description="" address="0x4005A504" access="rw" />
+      <register name="GPIO_PORTC_AHB_DR8R_R" description="" address="0x4005A508" access="rw" />
+      <register name="GPIO_PORTC_AHB_ODR_R" description="" address="0x4005A50C" access="rw" />
+      <register name="GPIO_PORTC_AHB_PUR_R" description="" address="0x4005A510" access="rw" />
+      <register name="GPIO_PORTC_AHB_PDR_R" description="" address="0x4005A514" access="rw" />
+      <register name="GPIO_PORTC_AHB_SLR_R" description="" address="0x4005A518" access="rw" />
+      <register name="GPIO_PORTC_AHB_DEN_R" description="" address="0x4005A51C" access="rw" />
+      <register name="GPIO_PORTC_AHB_LOCK_R" description="" address="0x4005A520" access="rw" />
+      <register name="GPIO_PORTC_AHB_CR_R" description="" address="0x4005A524" access="rw" />
+      <register name="GPIO_PORTC_AHB_AMSEL_R" description="" address="0x4005A528" access="rw" />
+      <register name="GPIO_PORTC_AHB_PCTL_R" description="" address="0x4005A52C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTD AHB" description="">
+      <register name="GPIO_PORTD_AHB_DATA_R" description="" address="0x4005B3FC" access="rw" />
+      <register name="GPIO_PORTD_AHB_DIR_R" description="" address="0x4005B400" access="rw" />
+      <register name="GPIO_PORTD_AHB_IS_R" description="" address="0x4005B404" access="rw" />
+      <register name="GPIO_PORTD_AHB_IBE_R" description="" address="0x4005B408" access="rw" />
+      <register name="GPIO_PORTD_AHB_IEV_R" description="" address="0x4005B40C" access="rw" />
+      <register name="GPIO_PORTD_AHB_IM_R" description="" address="0x4005B410" access="rw" />
+      <register name="GPIO_PORTD_AHB_RIS_R" description="" address="0x4005B414" access="rw" />
+      <register name="GPIO_PORTD_AHB_MIS_R" description="" address="0x4005B418" access="rw" />
+      <register name="GPIO_PORTD_AHB_ICR_R" description="" address="0x4005B41C" access="rw" />
+      <register name="GPIO_PORTD_AHB_AFSEL_R" description="" address="0x4005B420" access="rw" />
+      <register name="GPIO_PORTD_AHB_DR2R_R" description="" address="0x4005B500" access="rw" />
+      <register name="GPIO_PORTD_AHB_DR4R_R" description="" address="0x4005B504" access="rw" />
+      <register name="GPIO_PORTD_AHB_DR8R_R" description="" address="0x4005B508" access="rw" />
+      <register name="GPIO_PORTD_AHB_ODR_R" description="" address="0x4005B50C" access="rw" />
+      <register name="GPIO_PORTD_AHB_PUR_R" description="" address="0x4005B510" access="rw" />
+      <register name="GPIO_PORTD_AHB_PDR_R" description="" address="0x4005B514" access="rw" />
+      <register name="GPIO_PORTD_AHB_SLR_R" description="" address="0x4005B518" access="rw" />
+      <register name="GPIO_PORTD_AHB_DEN_R" description="" address="0x4005B51C" access="rw" />
+      <register name="GPIO_PORTD_AHB_LOCK_R" description="" address="0x4005B520" access="rw" />
+      <register name="GPIO_PORTD_AHB_CR_R" description="" address="0x4005B524" access="rw" />
+      <register name="GPIO_PORTD_AHB_AMSEL_R" description="" address="0x4005B528" access="rw" />
+      <register name="GPIO_PORTD_AHB_PCTL_R" description="" address="0x4005B52C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTE AHB" description="">
+      <register name="GPIO_PORTE_AHB_DATA_R" description="" address="0x4005C3FC" access="rw" />
+      <register name="GPIO_PORTE_AHB_DIR_R" description="" address="0x4005C400" access="rw" />
+      <register name="GPIO_PORTE_AHB_IS_R" description="" address="0x4005C404" access="rw" />
+      <register name="GPIO_PORTE_AHB_IBE_R" description="" address="0x4005C408" access="rw" />
+      <register name="GPIO_PORTE_AHB_IEV_R" description="" address="0x4005C40C" access="rw" />
+      <register name="GPIO_PORTE_AHB_IM_R" description="" address="0x4005C410" access="rw" />
+      <register name="GPIO_PORTE_AHB_RIS_R" description="" address="0x4005C414" access="rw" />
+      <register name="GPIO_PORTE_AHB_MIS_R" description="" address="0x4005C418" access="rw" />
+      <register name="GPIO_PORTE_AHB_ICR_R" description="" address="0x4005C41C" access="rw" />
+      <register name="GPIO_PORTE_AHB_AFSEL_R" description="" address="0x4005C420" access="rw" />
+      <register name="GPIO_PORTE_AHB_DR2R_R" description="" address="0x4005C500" access="rw" />
+      <register name="GPIO_PORTE_AHB_DR4R_R" description="" address="0x4005C504" access="rw" />
+      <register name="GPIO_PORTE_AHB_DR8R_R" description="" address="0x4005C508" access="rw" />
+      <register name="GPIO_PORTE_AHB_ODR_R" description="" address="0x4005C50C" access="rw" />
+      <register name="GPIO_PORTE_AHB_PUR_R" description="" address="0x4005C510" access="rw" />
+      <register name="GPIO_PORTE_AHB_PDR_R" description="" address="0x4005C514" access="rw" />
+      <register name="GPIO_PORTE_AHB_SLR_R" description="" address="0x4005C518" access="rw" />
+      <register name="GPIO_PORTE_AHB_DEN_R" description="" address="0x4005C51C" access="rw" />
+      <register name="GPIO_PORTE_AHB_LOCK_R" description="" address="0x4005C520" access="rw" />
+      <register name="GPIO_PORTE_AHB_CR_R" description="" address="0x4005C524" access="rw" />
+      <register name="GPIO_PORTE_AHB_AMSEL_R" description="" address="0x4005C528" access="rw" />
+      <register name="GPIO_PORTE_AHB_PCTL_R" description="" address="0x4005C52C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTF AHB" description="">
+      <register name="GPIO_PORTF_AHB_DATA_R" description="" address="0x4005D3FC" access="rw" />
+      <register name="GPIO_PORTF_AHB_DIR_R" description="" address="0x4005D400" access="rw" />
+      <register name="GPIO_PORTF_AHB_IS_R" description="" address="0x4005D404" access="rw" />
+      <register name="GPIO_PORTF_AHB_IBE_R" description="" address="0x4005D408" access="rw" />
+      <register name="GPIO_PORTF_AHB_IEV_R" description="" address="0x4005D40C" access="rw" />
+      <register name="GPIO_PORTF_AHB_IM_R" description="" address="0x4005D410" access="rw" />
+      <register name="GPIO_PORTF_AHB_RIS_R" description="" address="0x4005D414" access="rw" />
+      <register name="GPIO_PORTF_AHB_MIS_R" description="" address="0x4005D418" access="rw" />
+      <register name="GPIO_PORTF_AHB_ICR_R" description="" address="0x4005D41C" access="rw" />
+      <register name="GPIO_PORTF_AHB_AFSEL_R" description="" address="0x4005D420" access="rw" />
+      <register name="GPIO_PORTF_AHB_DR2R_R" description="" address="0x4005D500" access="rw" />
+      <register name="GPIO_PORTF_AHB_DR4R_R" description="" address="0x4005D504" access="rw" />
+      <register name="GPIO_PORTF_AHB_DR8R_R" description="" address="0x4005D508" access="rw" />
+      <register name="GPIO_PORTF_AHB_ODR_R" description="" address="0x4005D50C" access="rw" />
+      <register name="GPIO_PORTF_AHB_PUR_R" description="" address="0x4005D510" access="rw" />
+      <register name="GPIO_PORTF_AHB_PDR_R" description="" address="0x4005D514" access="rw" />
+      <register name="GPIO_PORTF_AHB_SLR_R" description="" address="0x4005D518" access="rw" />
+      <register name="GPIO_PORTF_AHB_DEN_R" description="" address="0x4005D51C" access="rw" />
+      <register name="GPIO_PORTF_AHB_LOCK_R" description="" address="0x4005D520" access="rw" />
+      <register name="GPIO_PORTF_AHB_CR_R" description="" address="0x4005D524" access="rw" />
+      <register name="GPIO_PORTF_AHB_AMSEL_R" description="" address="0x4005D528" access="rw" />
+      <register name="GPIO_PORTF_AHB_PCTL_R" description="" address="0x4005D52C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTG AHB" description="">
+      <register name="GPIO_PORTG_AHB_DATA_R" description="" address="0x4005E3FC" access="rw" />
+      <register name="GPIO_PORTG_AHB_DIR_R" description="" address="0x4005E400" access="rw" />
+      <register name="GPIO_PORTG_AHB_IS_R" description="" address="0x4005E404" access="rw" />
+      <register name="GPIO_PORTG_AHB_IBE_R" description="" address="0x4005E408" access="rw" />
+      <register name="GPIO_PORTG_AHB_IEV_R" description="" address="0x4005E40C" access="rw" />
+      <register name="GPIO_PORTG_AHB_IM_R" description="" address="0x4005E410" access="rw" />
+      <register name="GPIO_PORTG_AHB_RIS_R" description="" address="0x4005E414" access="rw" />
+      <register name="GPIO_PORTG_AHB_MIS_R" description="" address="0x4005E418" access="rw" />
+      <register name="GPIO_PORTG_AHB_ICR_R" description="" address="0x4005E41C" access="rw" />
+      <register name="GPIO_PORTG_AHB_AFSEL_R" description="" address="0x4005E420" access="rw" />
+      <register name="GPIO_PORTG_AHB_DR2R_R" description="" address="0x4005E500" access="rw" />
+      <register name="GPIO_PORTG_AHB_DR4R_R" description="" address="0x4005E504" access="rw" />
+      <register name="GPIO_PORTG_AHB_DR8R_R" description="" address="0x4005E508" access="rw" />
+      <register name="GPIO_PORTG_AHB_ODR_R" description="" address="0x4005E50C" access="rw" />
+      <register name="GPIO_PORTG_AHB_PUR_R" description="" address="0x4005E510" access="rw" />
+      <register name="GPIO_PORTG_AHB_PDR_R" description="" address="0x4005E514" access="rw" />
+      <register name="GPIO_PORTG_AHB_SLR_R" description="" address="0x4005E518" access="rw" />
+      <register name="GPIO_PORTG_AHB_DEN_R" description="" address="0x4005E51C" access="rw" />
+      <register name="GPIO_PORTG_AHB_LOCK_R" description="" address="0x4005E520" access="rw" />
+      <register name="GPIO_PORTG_AHB_CR_R" description="" address="0x4005E524" access="rw" />
+      <register name="GPIO_PORTG_AHB_AMSEL_R" description="" address="0x4005E528" access="rw" />
+      <register name="GPIO_PORTG_AHB_PCTL_R" description="" address="0x4005E52C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTH AHB" description="">
+      <register name="GPIO_PORTH_AHB_DATA_R" description="" address="0x4005F3FC" access="rw" />
+      <register name="GPIO_PORTH_AHB_DIR_R" description="" address="0x4005F400" access="rw" />
+      <register name="GPIO_PORTH_AHB_IS_R" description="" address="0x4005F404" access="rw" />
+      <register name="GPIO_PORTH_AHB_IBE_R" description="" address="0x4005F408" access="rw" />
+      <register name="GPIO_PORTH_AHB_IEV_R" description="" address="0x4005F40C" access="rw" />
+      <register name="GPIO_PORTH_AHB_IM_R" description="" address="0x4005F410" access="rw" />
+      <register name="GPIO_PORTH_AHB_RIS_R" description="" address="0x4005F414" access="rw" />
+      <register name="GPIO_PORTH_AHB_MIS_R" description="" address="0x4005F418" access="rw" />
+      <register name="GPIO_PORTH_AHB_ICR_R" description="" address="0x4005F41C" access="rw" />
+      <register name="GPIO_PORTH_AHB_AFSEL_R" description="" address="0x4005F420" access="rw" />
+      <register name="GPIO_PORTH_AHB_DR2R_R" description="" address="0x4005F500" access="rw" />
+      <register name="GPIO_PORTH_AHB_DR4R_R" description="" address="0x4005F504" access="rw" />
+      <register name="GPIO_PORTH_AHB_DR8R_R" description="" address="0x4005F508" access="rw" />
+      <register name="GPIO_PORTH_AHB_ODR_R" description="" address="0x4005F50C" access="rw" />
+      <register name="GPIO_PORTH_AHB_PUR_R" description="" address="0x4005F510" access="rw" />
+      <register name="GPIO_PORTH_AHB_PDR_R" description="" address="0x4005F514" access="rw" />
+      <register name="GPIO_PORTH_AHB_SLR_R" description="" address="0x4005F518" access="rw" />
+      <register name="GPIO_PORTH_AHB_DEN_R" description="" address="0x4005F51C" access="rw" />
+      <register name="GPIO_PORTH_AHB_LOCK_R" description="" address="0x4005F520" access="rw" />
+      <register name="GPIO_PORTH_AHB_CR_R" description="" address="0x4005F524" access="rw" />
+      <register name="GPIO_PORTH_AHB_AMSEL_R" description="" address="0x4005F528" access="rw" />
+      <register name="GPIO_PORTH_AHB_PCTL_R" description="" address="0x4005F52C" access="rw" />
+    </registergroup>
+    <registergroup name="PORTJ AHB" description="">
+      <register name="GPIO_PORTJ_AHB_DATA_R" description="" address="0x400603FC" access="rw" />
+      <register name="GPIO_PORTJ_AHB_DIR_R" description="" address="0x40060400" access="rw" />
+      <register name="GPIO_PORTJ_AHB_IS_R" description="" address="0x40060404" access="rw" />
+      <register name="GPIO_PORTJ_AHB_IBE_R" description="" address="0x40060408" access="rw" />
+      <register name="GPIO_PORTJ_AHB_IEV_R" description="" address="0x4006040C" access="rw" />
+      <register name="GPIO_PORTJ_AHB_IM_R" description="" address="0x40060410" access="rw" />
+      <register name="GPIO_PORTJ_AHB_RIS_R" description="" address="0x40060414" access="rw" />
+      <register name="GPIO_PORTJ_AHB_MIS_R" description="" address="0x40060418" access="rw" />
+      <register name="GPIO_PORTJ_AHB_ICR_R" description="" address="0x4006041C" access="rw" />
+      <register name="GPIO_PORTJ_AHB_AFSEL_R" description="" address="0x40060420" access="rw" />
+      <register name="GPIO_PORTJ_AHB_DR2R_R" description="" address="0x40060500" access="rw" />
+      <register name="GPIO_PORTJ_AHB_DR4R_R" description="" address="0x40060504" access="rw" />
+      <register name="GPIO_PORTJ_AHB_DR8R_R" description="" address="0x40060508" access="rw" />
+      <register name="GPIO_PORTJ_AHB_ODR_R" description="" address="0x4006050C" access="rw" />
+      <register name="GPIO_PORTJ_AHB_PUR_R" description="" address="0x40060510" access="rw" />
+      <register name="GPIO_PORTJ_AHB_PDR_R" description="" address="0x40060514" access="rw" />
+      <register name="GPIO_PORTJ_AHB_SLR_R" description="" address="0x40060518" access="rw" />
+      <register name="GPIO_PORTJ_AHB_DEN_R" description="" address="0x4006051C" access="rw" />
+      <register name="GPIO_PORTJ_AHB_LOCK_R" description="" address="0x40060520" access="rw" />
+      <register name="GPIO_PORTJ_AHB_CR_R" description="" address="0x40060524" access="rw" />
+      <register name="GPIO_PORTJ_AHB_AMSEL_R" description="" address="0x40060528" access="rw" />
+      <register name="GPIO_PORTJ_AHB_PCTL_R" description="" address="0x4006052C" access="rw" />
+    </registergroup>
+  </group>
+  <group name="SSI" description="SSI registers">
+    <registergroup name="SSI0" description="">
+      <register name="SSI0_CR0_R" description="" address="0x40008000" access="rw" />
+      <register name="SSI0_CR1_R" description="" address="0x40008004" access="rw" />
+      <register name="SSI0_DR_R" description="" address="0x40008008" access="rw" />
+      <register name="SSI0_SR_R" description="" address="0x4000800C" access="rw" />
+      <register name="SSI0_CPSR_R" description="" address="0x40008010" access="rw" />
+      <register name="SSI0_IM_R" description="" address="0x40008014" access="rw" />
+      <register name="SSI0_RIS_R" description="" address="0x40008018" access="rw" />
+      <register name="SSI0_MIS_R" description="" address="0x4000801C" access="rw" />
+      <register name="SSI0_ICR_R" description="" address="0x40008020" access="rw" />
+      <register name="SSI0_DMACTL_R" description="" address="0x40008024" access="rw" />
+    </registergroup>
+  </group>
+  <group name="UART" description="UART registers">
+    <registergroup name="UART0" description="">
+      <register name="UART0_DR_R" description="" address="0x4000C000" access="rw" />
+      <register name="UART0_RSR_R" description="" address="0x4000C004" access="rw" />
+      <register name="UART0_ECR_R" description="" address="0x4000C004" access="rw" />
+      <register name="UART0_FR_R" description="" address="0x4000C018" access="rw" />
+      <register name="UART0_ILPR_R" description="" address="0x4000C020" access="rw" />
+      <register name="UART0_IBRD_R" description="" address="0x4000C024" access="rw" />
+      <register name="UART0_FBRD_R" description="" address="0x4000C028" access="rw" />
+      <register name="UART0_LCRH_R" description="" address="0x4000C02C" access="rw" />
+      <register name="UART0_CTL_R" description="" address="0x4000C030" access="rw" />
+      <register name="UART0_IFLS_R" description="" address="0x4000C034" access="rw" />
+      <register name="UART0_IM_R" description="" address="0x4000C038" access="rw" />
+      <register name="UART0_RIS_R" description="" address="0x4000C03C" access="rw" />
+      <register name="UART0_MIS_R" description="" address="0x4000C040" access="rw" />
+      <register name="UART0_ICR_R" description="" address="0x4000C044" access="rw" />
+      <register name="UART0_DMACTL_R" description="" address="0x4000C048" access="rw" />
+      <register name="UART0_LCTL_R" description="" address="0x4000C090" access="rw" />
+      <register name="UART0_LSS_R" description="" address="0x4000C094" access="rw" />
+      <register name="UART0_LTIM_R" description="" address="0x4000C098" access="rw" />
+    </registergroup>
+    <registergroup name="UART1" description="">
+      <register name="UART1_DR_R" description="" address="0x4000D000" access="rw" />
+      <register name="UART1_RSR_R" description="" address="0x4000D004" access="rw" />
+      <register name="UART1_ECR_R" description="" address="0x4000D004" access="rw" />
+      <register name="UART1_FR_R" description="" address="0x4000D018" access="rw" />
+      <register name="UART1_ILPR_R" description="" address="0x4000D020" access="rw" />
+      <register name="UART1_IBRD_R" description="" address="0x4000D024" access="rw" />
+      <register name="UART1_FBRD_R" description="" address="0x4000D028" access="rw" />
+      <register name="UART1_LCRH_R" description="" address="0x4000D02C" access="rw" />
+      <register name="UART1_CTL_R" description="" address="0x4000D030" access="rw" />
+      <register name="UART1_IFLS_R" description="" address="0x4000D034" access="rw" />
+      <register name="UART1_IM_R" description="" address="0x4000D038" access="rw" />
+      <register name="UART1_RIS_R" description="" address="0x4000D03C" access="rw" />
+      <register name="UART1_MIS_R" description="" address="0x4000D040" access="rw" />
+      <register name="UART1_ICR_R" description="" address="0x4000D044" access="rw" />
+      <register name="UART1_DMACTL_R" description="" address="0x4000D048" access="rw" />
+      <register name="UART1_LCTL_R" description="" address="0x4000D090" access="rw" />
+      <register name="UART1_LSS_R" description="" address="0x4000D094" access="rw" />
+      <register name="UART1_LTIM_R" description="" address="0x4000D098" access="rw" />
+    </registergroup>
+    <registergroup name="UART2" description="">
+      <register name="UART2_DR_R" description="" address="0x4000E000" access="rw" />
+      <register name="UART2_RSR_R" description="" address="0x4000E004" access="rw" />
+      <register name="UART2_ECR_R" description="" address="0x4000E004" access="rw" />
+      <register name="UART2_FR_R" description="" address="0x4000E018" access="rw" />
+      <register name="UART2_ILPR_R" description="" address="0x4000E020" access="rw" />
+      <register name="UART2_IBRD_R" description="" address="0x4000E024" access="rw" />
+      <register name="UART2_FBRD_R" description="" address="0x4000E028" access="rw" />
+      <register name="UART2_LCRH_R" description="" address="0x4000E02C" access="rw" />
+      <register name="UART2_CTL_R" description="" address="0x4000E030" access="rw" />
+      <register name="UART2_IFLS_R" description="" address="0x4000E034" access="rw" />
+      <register name="UART2_IM_R" description="" address="0x4000E038" access="rw" />
+      <register name="UART2_RIS_R" description="" address="0x4000E03C" access="rw" />
+      <register name="UART2_MIS_R" description="" address="0x4000E040" access="rw" />
+      <register name="UART2_ICR_R" description="" address="0x4000E044" access="rw" />
+      <register name="UART2_DMACTL_R" description="" address="0x4000E048" access="rw" />
+      <register name="UART2_LCTL_R" description="" address="0x4000E090" access="rw" />
+      <register name="UART2_LSS_R" description="" address="0x4000E094" access="rw" />
+      <register name="UART2_LTIM_R" description="" address="0x4000E098" access="rw" />
+    </registergroup>
+  </group>
+  <group name="I2C" description="I2C registers">
+    <registergroup name="I2C0 MASTER" description="">
+      <register name="I2C0_MASTER_MSA_R" description="" address="0x40020000" access="rw" />
+      <register name="I2C0_MASTER_MCS_R" description="" address="0x40020004" access="rw" />
+      <register name="I2C0_MASTER_MDR_R" description="" address="0x40020008" access="rw" />
+      <register name="I2C0_MASTER_MTPR_R" description="" address="0x4002000C" access="rw" />
+      <register name="I2C0_MASTER_MIMR_R" description="" address="0x40020010" access="rw" />
+      <register name="I2C0_MASTER_MRIS_R" description="" address="0x40020014" access="rw" />
+      <register name="I2C0_MASTER_MMIS_R" description="" address="0x40020018" access="rw" />
+      <register name="I2C0_MASTER_MICR_R" description="" address="0x4002001C" access="rw" />
+      <register name="I2C0_MASTER_MCR_R" description="" address="0x40020020" access="rw" />
+    </registergroup>
+    <registergroup name="I2C0 SLAVE" description="">
+      <register name="I2C0_SLAVE_SOAR_R" description="" address="0x40020800" access="rw" />
+      <register name="I2C0_SLAVE_SCSR_R" description="" address="0x40020804" access="rw" />
+      <register name="I2C0_SLAVE_SDR_R" description="" address="0x40020808" access="rw" />
+      <register name="I2C0_SLAVE_SIMR_R" description="" address="0x4002080C" access="rw" />
+      <register name="I2C0_SLAVE_SRIS_R" description="" address="0x40020810" access="rw" />
+      <register name="I2C0_SLAVE_SMIS_R" description="" address="0x40020814" access="rw" />
+      <register name="I2C0_SLAVE_SICR_R" description="" address="0x40020818" access="rw" />
+    </registergroup>
+    <registergroup name="I2C1 MASTER" description="">
+      <register name="I2C1_MASTER_MSA_R" description="" address="0x40021000" access="rw" />
+      <register name="I2C1_MASTER_MCS_R" description="" address="0x40021004" access="rw" />
+      <register name="I2C1_MASTER_MDR_R" description="" address="0x40021008" access="rw" />
+      <register name="I2C1_MASTER_MTPR_R" description="" address="0x4002100C" access="rw" />
+      <register name="I2C1_MASTER_MIMR_R" description="" address="0x40021010" access="rw" />
+      <register name="I2C1_MASTER_MRIS_R" description="" address="0x40021014" access="rw" />
+      <register name="I2C1_MASTER_MMIS_R" description="" address="0x40021018" access="rw" />
+      <register name="I2C1_MASTER_MICR_R" description="" address="0x4002101C" access="rw" />
+      <register name="I2C1_MASTER_MCR_R" description="" address="0x40021020" access="rw" />
+    </registergroup>
+    <registergroup name="I2C1 SLAVE" description="">
+      <register name="I2C1_SLAVE_SOAR_R" description="" address="0x40021800" access="rw" />
+      <register name="I2C1_SLAVE_SCSR_R" description="" address="0x40021804" access="rw" />
+      <register name="I2C1_SLAVE_SDR_R" description="" address="0x40021808" access="rw" />
+      <register name="I2C1_SLAVE_SIMR_R" description="" address="0x4002180C" access="rw" />
+      <register name="I2C1_SLAVE_SRIS_R" description="" address="0x40021810" access="rw" />
+      <register name="I2C1_SLAVE_SMIS_R" description="" address="0x40021814" access="rw" />
+      <register name="I2C1_SLAVE_SICR_R" description="" address="0x40021818" access="rw" />
+    </registergroup>
+  </group>
+  <group name="PWM" description="PWM registers">
+    <registergroup name="PWM" description="">
+      <register name="PWM_CTL_R" description="" address="0x40028000" access="rw" />
+      <register name="PWM_SYNC_R" description="" address="0x40028004" access="rw" />
+      <register name="PWM_ENABLE_R" description="" address="0x40028008" access="rw" />
+      <register name="PWM_INVERT_R" description="" address="0x4002800C" access="rw" />
+      <register name="PWM_FAULT_R" description="" address="0x40028010" access="rw" />
+      <register name="PWM_INTEN_R" description="" address="0x40028014" access="rw" />
+      <register name="PWM_RIS_R" description="" address="0x40028018" access="rw" />
+      <register name="PWM_ISC_R" description="" address="0x4002801C" access="rw" />
+      <register name="PWM_STATUS_R" description="" address="0x40028020" access="rw" />
+      <register name="PWM_FAULTVAL_R" description="" address="0x40028024" access="rw" />
+      <register name="PWM_ENUPD_R" description="" address="0x40028028" access="rw" />
+      <register name="PWM_0_CTL_R" description="" address="0x40028040" access="rw" />
+      <register name="PWM_0_INTEN_R" description="" address="0x40028044" access="rw" />
+      <register name="PWM_0_RIS_R" description="" address="0x40028048" access="rw" />
+      <register name="PWM_0_ISC_R" description="" address="0x4002804C" access="rw" />
+      <register name="PWM_0_LOAD_R" description="" address="0x40028050" access="rw" />
+      <register name="PWM_0_COUNT_R" description="" address="0x40028054" access="rw" />
+      <register name="PWM_0_CMPA_R" description="" address="0x40028058" access="rw" />
+      <register name="PWM_0_CMPB_R" description="" address="0x4002805C" access="rw" />
+      <register name="PWM_0_GENA_R" description="" address="0x40028060" access="rw" />
+      <register name="PWM_0_GENB_R" description="" address="0x40028064" access="rw" />
+      <register name="PWM_0_DBCTL_R" description="" address="0x40028068" access="rw" />
+      <register name="PWM_0_DBRISE_R" description="" address="0x4002806C" access="rw" />
+      <register name="PWM_0_DBFALL_R" description="" address="0x40028070" access="rw" />
+      <register name="PWM_0_FLTSRC0_R" description="" address="0x40028074" access="rw" />
+      <register name="PWM_0_FLTSRC1_R" description="" address="0x40028078" access="rw" />
+      <register name="PWM_0_MINFLTPER_R" description="" address="0x4002807C" access="rw" />
+      <register name="PWM_1_CTL_R" description="" address="0x40028080" access="rw" />
+      <register name="PWM_1_INTEN_R" description="" address="0x40028084" access="rw" />
+      <register name="PWM_1_RIS_R" description="" address="0x40028088" access="rw" />
+      <register name="PWM_1_ISC_R" description="" address="0x4002808C" access="rw" />
+      <register name="PWM_1_LOAD_R" description="" address="0x40028090" access="rw" />
+      <register name="PWM_1_COUNT_R" description="" address="0x40028094" access="rw" />
+      <register name="PWM_1_CMPA_R" description="" address="0x40028098" access="rw" />
+      <register name="PWM_1_CMPB_R" description="" address="0x4002809C" access="rw" />
+      <register name="PWM_1_GENA_R" description="" address="0x400280A0" access="rw" />
+      <register name="PWM_1_GENB_R" description="" address="0x400280A4" access="rw" />
+      <register name="PWM_1_DBCTL_R" description="" address="0x400280A8" access="rw" />
+      <register name="PWM_1_DBRISE_R" description="" address="0x400280AC" access="rw" />
+      <register name="PWM_1_DBFALL_R" description="" address="0x400280B0" access="rw" />
+      <register name="PWM_1_FLTSRC0_R" description="" address="0x400280B4" access="rw" />
+      <register name="PWM_1_FLTSRC1_R" description="" address="0x400280B8" access="rw" />
+      <register name="PWM_1_MINFLTPER_R" description="" address="0x400280BC" access="rw" />
+      <register name="PWM_2_CTL_R" description="" address="0x400280C0" access="rw" />
+      <register name="PWM_2_INTEN_R" description="" address="0x400280C4" access="rw" />
+      <register name="PWM_2_RIS_R" description="" address="0x400280C8" access="rw" />
+      <register name="PWM_2_ISC_R" description="" address="0x400280CC" access="rw" />
+      <register name="PWM_2_LOAD_R" description="" address="0x400280D0" access="rw" />
+      <register name="PWM_2_COUNT_R" description="" address="0x400280D4" access="rw" />
+      <register name="PWM_2_CMPA_R" description="" address="0x400280D8" access="rw" />
+      <register name="PWM_2_CMPB_R" description="" address="0x400280DC" access="rw" />
+      <register name="PWM_2_GENA_R" description="" address="0x400280E0" access="rw" />
+      <register name="PWM_2_GENB_R" description="" address="0x400280E4" access="rw" />
+      <register name="PWM_2_DBCTL_R" description="" address="0x400280E8" access="rw" />
+      <register name="PWM_2_DBRISE_R" description="" address="0x400280EC" access="rw" />
+      <register name="PWM_2_DBFALL_R" description="" address="0x400280F0" access="rw" />
+      <register name="PWM_2_FLTSRC0_R" description="" address="0x400280F4" access="rw" />
+      <register name="PWM_2_FLTSRC1_R" description="" address="0x400280F8" access="rw" />
+      <register name="PWM_2_MINFLTPER_R" description="" address="0x400280FC" access="rw" />
+      <register name="PWM_0_FLTSEN_R" description="" address="0x40028800" access="rw" />
+      <register name="PWM_0_FLTSTAT0_R" description="" address="0x40028804" access="rw" />
+      <register name="PWM_0_FLTSTAT1_R" description="" address="0x40028808" access="rw" />
+      <register name="PWM_1_FLTSEN_R" description="" address="0x40028880" access="rw" />
+      <register name="PWM_1_FLTSTAT0_R" description="" address="0x40028884" access="rw" />
+      <register name="PWM_1_FLTSTAT1_R" description="" address="0x40028888" access="rw" />
+      <register name="PWM_2_FLTSEN_R" description="" address="0x40028900" access="rw" />
+      <register name="PWM_2_FLTSTAT0_R" description="" address="0x40028904" access="rw" />
+      <register name="PWM_2_FLTSTAT1_R" description="" address="0x40028908" access="rw" />
+      <register name="PWM_3_FLTSEN_R" description="" address="0x40028980" access="rw" />
+    </registergroup>
+    <registergroup name="PWM0" description="">
+      <register name="PWM0_CTL_R" description="" address="0x40028000" access="rw" />
+      <register name="PWM0_SYNC_R" description="" address="0x40028004" access="rw" />
+      <register name="PWM0_ENABLE_R" description="" address="0x40028008" access="rw" />
+      <register name="PWM0_INVERT_R" description="" address="0x4002800C" access="rw" />
+      <register name="PWM0_FAULT_R" description="" address="0x40028010" access="rw" />
+      <register name="PWM0_INTEN_R" description="" address="0x40028014" access="rw" />
+      <register name="PWM0_RIS_R" description="" address="0x40028018" access="rw" />
+      <register name="PWM0_ISC_R" description="" address="0x4002801C" access="rw" />
+      <register name="PWM0_STATUS_R" description="" address="0x40028020" access="rw" />
+      <register name="PWM0_FAULTVAL_R" description="" address="0x40028024" access="rw" />
+      <register name="PWM0_ENUPD_R" description="" address="0x40028028" access="rw" />
+      <register name="PWM0_0_CTL_R" description="" address="0x40028040" access="rw" />
+      <register name="PWM0_0_INTEN_R" description="" address="0x40028044" access="rw" />
+      <register name="PWM0_0_RIS_R" description="" address="0x40028048" access="rw" />
+      <register name="PWM0_0_ISC_R" description="" address="0x4002804C" access="rw" />
+      <register name="PWM0_0_LOAD_R" description="" address="0x40028050" access="rw" />
+      <register name="PWM0_0_COUNT_R" description="" address="0x40028054" access="rw" />
+      <register name="PWM0_0_CMPA_R" description="" address="0x40028058" access="rw" />
+      <register name="PWM0_0_CMPB_R" description="" address="0x4002805C" access="rw" />
+      <register name="PWM0_0_GENA_R" description="" address="0x40028060" access="rw" />
+      <register name="PWM0_0_GENB_R" description="" address="0x40028064" access="rw" />
+      <register name="PWM0_0_DBCTL_R" description="" address="0x40028068" access="rw" />
+      <register name="PWM0_0_DBRISE_R" description="" address="0x4002806C" access="rw" />
+      <register name="PWM0_0_DBFALL_R" description="" address="0x40028070" access="rw" />
+      <register name="PWM0_0_FLTSRC0_R" description="" address="0x40028074" access="rw" />
+      <register name="PWM0_0_FLTSRC1_R" description="" address="0x40028078" access="rw" />
+      <register name="PWM0_0_MINFLTPER_R" description="" address="0x4002807C" access="rw" />
+      <register name="PWM0_1_CTL_R" description="" address="0x40028080" access="rw" />
+      <register name="PWM0_1_INTEN_R" description="" address="0x40028084" access="rw" />
+      <register name="PWM0_1_RIS_R" description="" address="0x40028088" access="rw" />
+      <register name="PWM0_1_ISC_R" description="" address="0x4002808C" access="rw" />
+      <register name="PWM0_1_LOAD_R" description="" address="0x40028090" access="rw" />
+      <register name="PWM0_1_COUNT_R" description="" address="0x40028094" access="rw" />
+      <register name="PWM0_1_CMPA_R" description="" address="0x40028098" access="rw" />
+      <register name="PWM0_1_CMPB_R" description="" address="0x4002809C" access="rw" />
+      <register name="PWM0_1_GENA_R" description="" address="0x400280A0" access="rw" />
+      <register name="PWM0_1_GENB_R" description="" address="0x400280A4" access="rw" />
+      <register name="PWM0_1_DBCTL_R" description="" address="0x400280A8" access="rw" />
+      <register name="PWM0_1_DBRISE_R" description="" address="0x400280AC" access="rw" />
+      <register name="PWM0_1_DBFALL_R" description="" address="0x400280B0" access="rw" />
+      <register name="PWM0_1_FLTSRC0_R" description="" address="0x400280B4" access="rw" />
+      <register name="PWM0_1_FLTSRC1_R" description="" address="0x400280B8" access="rw" />
+      <register name="PWM0_1_MINFLTPER_R" description="" address="0x400280BC" access="rw" />
+      <register name="PWM0_2_CTL_R" description="" address="0x400280C0" access="rw" />
+      <register name="PWM0_2_INTEN_R" description="" address="0x400280C4" access="rw" />
+      <register name="PWM0_2_RIS_R" description="" address="0x400280C8" access="rw" />
+      <register name="PWM0_2_ISC_R" description="" address="0x400280CC" access="rw" />
+      <register name="PWM0_2_LOAD_R" description="" address="0x400280D0" access="rw" />
+      <register name="PWM0_2_COUNT_R" description="" address="0x400280D4" access="rw" />
+      <register name="PWM0_2_CMPA_R" description="" address="0x400280D8" access="rw" />
+      <register name="PWM0_2_CMPB_R" description="" address="0x400280DC" access="rw" />
+      <register name="PWM0_2_GENA_R" description="" address="0x400280E0" access="rw" />
+      <register name="PWM0_2_GENB_R" description="" address="0x400280E4" access="rw" />
+      <register name="PWM0_2_DBCTL_R" description="" address="0x400280E8" access="rw" />
+      <register name="PWM0_2_DBRISE_R" description="" address="0x400280EC" access="rw" />
+      <register name="PWM0_2_DBFALL_R" description="" address="0x400280F0" access="rw" />
+      <register name="PWM0_2_FLTSRC0_R" description="" address="0x400280F4" access="rw" />
+      <register name="PWM0_2_FLTSRC1_R" description="" address="0x400280F8" access="rw" />
+      <register name="PWM0_2_MINFLTPER_R" description="" address="0x400280FC" access="rw" />
+      <register name="PWM0_0_FLTSEN_R" description="" address="0x40028800" access="rw" />
+      <register name="PWM0_0_FLTSTAT0_R" description="" address="0x40028804" access="rw" />
+      <register name="PWM0_0_FLTSTAT1_R" description="" address="0x40028808" access="rw" />
+      <register name="PWM0_1_FLTSEN_R" description="" address="0x40028880" access="rw" />
+      <register name="PWM0_1_FLTSTAT0_R" description="" address="0x40028884" access="rw" />
+      <register name="PWM0_1_FLTSTAT1_R" description="" address="0x40028888" access="rw" />
+      <register name="PWM0_2_FLTSEN_R" description="" address="0x40028900" access="rw" />
+      <register name="PWM0_2_FLTSTAT0_R" description="" address="0x40028904" access="rw" />
+      <register name="PWM0_2_FLTSTAT1_R" description="" address="0x40028908" access="rw" />
+      <register name="PWM0_3_FLTSEN_R" description="" address="0x40028980" access="rw" />
+    </registergroup>
+  </group>
+  <group name="QEI" description="QEI registers">
+    <registergroup name="QEI0" description="">
+      <register name="QEI0_CTL_R" description="" address="0x4002C000" access="rw" />
+      <register name="QEI0_STAT_R" description="" address="0x4002C004" access="rw" />
+      <register name="QEI0_POS_R" description="" address="0x4002C008" access="rw" />
+      <register name="QEI0_MAXPOS_R" description="" address="0x4002C00C" access="rw" />
+      <register name="QEI0_LOAD_R" description="" address="0x4002C010" access="rw" />
+      <register name="QEI0_TIME_R" description="" address="0x4002C014" access="rw" />
+      <register name="QEI0_COUNT_R" description="" address="0x4002C018" access="rw" />
+      <register name="QEI0_SPEED_R" description="" address="0x4002C01C" access="rw" />
+      <register name="QEI0_INTEN_R" description="" address="0x4002C020" access="rw" />
+      <register name="QEI0_RIS_R" description="" address="0x4002C024" access="rw" />
+      <register name="QEI0_ISC_R" description="" address="0x4002C028" access="rw" />
+    </registergroup>
+    <registergroup name="QEI1" description="">
+      <register name="QEI1_CTL_R" description="" address="0x4002D000" access="rw" />
+      <register name="QEI1_STAT_R" description="" address="0x4002D004" access="rw" />
+      <register name="QEI1_POS_R" description="" address="0x4002D008" access="rw" />
+      <register name="QEI1_MAXPOS_R" description="" address="0x4002D00C" access="rw" />
+      <register name="QEI1_LOAD_R" description="" address="0x4002D010" access="rw" />
+      <register name="QEI1_TIME_R" description="" address="0x4002D014" access="rw" />
+      <register name="QEI1_COUNT_R" description="" address="0x4002D018" access="rw" />
+      <register name="QEI1_SPEED_R" description="" address="0x4002D01C" access="rw" />
+      <register name="QEI1_INTEN_R" description="" address="0x4002D020" access="rw" />
+      <register name="QEI1_RIS_R" description="" address="0x4002D024" access="rw" />
+      <register name="QEI1_ISC_R" description="" address="0x4002D028" access="rw" />
+    </registergroup>
+  </group>
+  <group name="TIMER" description="Timer registers">
+    <registergroup name="TIMER0" description="">
+      <register name="TIMER0_CFG_R" description="" address="0x40030000" access="rw" />
+      <register name="TIMER0_TAMR_R" description="" address="0x40030004" access="rw" />
+      <register name="TIMER0_TBMR_R" description="" address="0x40030008" access="rw" />
+      <register name="TIMER0_CTL_R" description="" address="0x4003000C" access="rw" />
+      <register name="TIMER0_IMR_R" description="" address="0x40030018" access="rw" />
+      <register name="TIMER0_RIS_R" description="" address="0x4003001C" access="rw" />
+      <register name="TIMER0_MIS_R" description="" address="0x40030020" access="rw" />
+      <register name="TIMER0_ICR_R" description="" address="0x40030024" access="rw" />
+      <register name="TIMER0_TAILR_R" description="" address="0x40030028" access="rw" />
+      <register name="TIMER0_TBILR_R" description="" address="0x4003002C" access="rw" />
+      <register name="TIMER0_TAMATCHR_R" description="" address="0x40030030" access="rw" />
+      <register name="TIMER0_TBMATCHR_R" description="" address="0x40030034" access="rw" />
+      <register name="TIMER0_TAPR_R" description="" address="0x40030038" access="rw" />
+      <register name="TIMER0_TBPR_R" description="" address="0x4003003C" access="rw" />
+      <register name="TIMER0_TAPMR_R" description="" address="0x40030040" access="rw" />
+      <register name="TIMER0_TBPMR_R" description="" address="0x40030044" access="rw" />
+      <register name="TIMER0_TAR_R" description="" address="0x40030048" access="rw" />
+      <register name="TIMER0_TBR_R" description="" address="0x4003004C" access="rw" />
+      <register name="TIMER0_TAV_R" description="" address="0x40030050" access="rw" />
+      <register name="TIMER0_TBV_R" description="" address="0x40030054" access="rw" />
+    </registergroup>
+    <registergroup name="TIMER1" description="">
+      <register name="TIMER1_CFG_R" description="" address="0x40031000" access="rw" />
+      <register name="TIMER1_TAMR_R" description="" address="0x40031004" access="rw" />
+      <register name="TIMER1_TBMR_R" description="" address="0x40031008" access="rw" />
+      <register name="TIMER1_CTL_R" description="" address="0x4003100C" access="rw" />
+      <register name="TIMER1_IMR_R" description="" address="0x40031018" access="rw" />
+      <register name="TIMER1_RIS_R" description="" address="0x4003101C" access="rw" />
+      <register name="TIMER1_MIS_R" description="" address="0x40031020" access="rw" />
+      <register name="TIMER1_ICR_R" description="" address="0x40031024" access="rw" />
+      <register name="TIMER1_TAILR_R" description="" address="0x40031028" access="rw" />
+      <register name="TIMER1_TBILR_R" description="" address="0x4003102C" access="rw" />
+      <register name="TIMER1_TAMATCHR_R" description="" address="0x40031030" access="rw" />
+      <register name="TIMER1_TBMATCHR_R" description="" address="0x40031034" access="rw" />
+      <register name="TIMER1_TAPR_R" description="" address="0x40031038" access="rw" />
+      <register name="TIMER1_TBPR_R" description="" address="0x4003103C" access="rw" />
+      <register name="TIMER1_TAPMR_R" description="" address="0x40031040" access="rw" />
+      <register name="TIMER1_TBPMR_R" description="" address="0x40031044" access="rw" />
+      <register name="TIMER1_TAR_R" description="" address="0x40031048" access="rw" />
+      <register name="TIMER1_TBR_R" description="" address="0x4003104C" access="rw" />
+      <register name="TIMER1_TAV_R" description="" address="0x40031050" access="rw" />
+      <register name="TIMER1_TBV_R" description="" address="0x40031054" access="rw" />
+    </registergroup>
+    <registergroup name="TIMER2" description="">
+      <register name="TIMER2_CFG_R" description="" address="0x40032000" access="rw" />
+      <register name="TIMER2_TAMR_R" description="" address="0x40032004" access="rw" />
+      <register name="TIMER2_TBMR_R" description="" address="0x40032008" access="rw" />
+      <register name="TIMER2_CTL_R" description="" address="0x4003200C" access="rw" />
+      <register name="TIMER2_IMR_R" description="" address="0x40032018" access="rw" />
+      <register name="TIMER2_RIS_R" description="" address="0x4003201C" access="rw" />
+      <register name="TIMER2_MIS_R" description="" address="0x40032020" access="rw" />
+      <register name="TIMER2_ICR_R" description="" address="0x40032024" access="rw" />
+      <register name="TIMER2_TAILR_R" description="" address="0x40032028" access="rw" />
+      <register name="TIMER2_TBILR_R" description="" address="0x4003202C" access="rw" />
+      <register name="TIMER2_TAMATCHR_R" description="" address="0x40032030" access="rw" />
+      <register name="TIMER2_TBMATCHR_R" description="" address="0x40032034" access="rw" />
+      <register name="TIMER2_TAPR_R" description="" address="0x40032038" access="rw" />
+      <register name="TIMER2_TBPR_R" description="" address="0x4003203C" access="rw" />
+      <register name="TIMER2_TAPMR_R" description="" address="0x40032040" access="rw" />
+      <register name="TIMER2_TBPMR_R" description="" address="0x40032044" access="rw" />
+      <register name="TIMER2_TAR_R" description="" address="0x40032048" access="rw" />
+      <register name="TIMER2_TBR_R" description="" address="0x4003204C" access="rw" />
+      <register name="TIMER2_TAV_R" description="" address="0x40032050" access="rw" />
+      <register name="TIMER2_TBV_R" description="" address="0x40032054" access="rw" />
+    </registergroup>
+    <registergroup name="TIMER3" description="">
+      <register name="TIMER3_CFG_R" description="" address="0x40033000" access="rw" />
+      <register name="TIMER3_TAMR_R" description="" address="0x40033004" access="rw" />
+      <register name="TIMER3_TBMR_R" description="" address="0x40033008" access="rw" />
+      <register name="TIMER3_CTL_R" description="" address="0x4003300C" access="rw" />
+      <register name="TIMER3_IMR_R" description="" address="0x40033018" access="rw" />
+      <register name="TIMER3_RIS_R" description="" address="0x4003301C" access="rw" />
+      <register name="TIMER3_MIS_R" description="" address="0x40033020" access="rw" />
+      <register name="TIMER3_ICR_R" description="" address="0x40033024" access="rw" />
+      <register name="TIMER3_TAILR_R" description="" address="0x40033028" access="rw" />
+      <register name="TIMER3_TBILR_R" description="" address="0x4003302C" access="rw" />
+      <register name="TIMER3_TAMATCHR_R" description="" address="0x40033030" access="rw" />
+      <register name="TIMER3_TBMATCHR_R" description="" address="0x40033034" access="rw" />
+      <register name="TIMER3_TAPR_R" description="" address="0x40033038" access="rw" />
+      <register name="TIMER3_TBPR_R" description="" address="0x4003303C" access="rw" />
+      <register name="TIMER3_TAPMR_R" description="" address="0x40033040" access="rw" />
+      <register name="TIMER3_TBPMR_R" description="" address="0x40033044" access="rw" />
+      <register name="TIMER3_TAR_R" description="" address="0x40033048" access="rw" />
+      <register name="TIMER3_TBR_R" description="" address="0x4003304C" access="rw" />
+      <register name="TIMER3_TAV_R" description="" address="0x40033050" access="rw" />
+      <register name="TIMER3_TBV_R" description="" address="0x40033054" access="rw" />
+    </registergroup>
+  </group>
+  <group name="ADC" description="ADC registers">
+    <registergroup name="ADC0" description="">
+      <register name="ADC0_ACTSS_R" description="" address="0x40038000" access="rw" />
+      <register name="ADC0_RIS_R" description="" address="0x40038004" access="rw" />
+      <register name="ADC0_IM_R" description="" address="0x40038008" access="rw" />
+      <register name="ADC0_ISC_R" description="" address="0x4003800C" access="rw" />
+      <register name="ADC0_OSTAT_R" description="" address="0x40038010" access="rw" />
+      <register name="ADC0_EMUX_R" description="" address="0x40038014" access="rw" />
+      <register name="ADC0_USTAT_R" description="" address="0x40038018" access="rw" />
+      <register name="ADC0_SSPRI_R" description="" address="0x40038020" access="rw" />
+      <register name="ADC0_SPC_R" description="" address="0x40038024" access="rw" />
+      <register name="ADC0_PSSI_R" description="" address="0x40038028" access="rw" />
+      <register name="ADC0_SAC_R" description="" address="0x40038030" access="rw" />
+      <register name="ADC0_DCISC_R" description="" address="0x40038034" access="rw" />
+      <register name="ADC0_CTL_R" description="" address="0x40038038" access="rw" />
+      <register name="ADC0_SSMUX0_R" description="" address="0x40038040" access="rw" />
+      <register name="ADC0_SSCTL0_R" description="" address="0x40038044" access="rw" />
+      <register name="ADC0_SSFIFO0_R" description="" address="0x40038048" access="rw" />
+      <register name="ADC0_SSFSTAT0_R" description="" address="0x4003804C" access="rw" />
+      <register name="ADC0_SSOP0_R" description="" address="0x40038050" access="rw" />
+      <register name="ADC0_SSDC0_R" description="" address="0x40038054" access="rw" />
+      <register name="ADC0_SSMUX1_R" description="" address="0x40038060" access="rw" />
+      <register name="ADC0_SSCTL1_R" description="" address="0x40038064" access="rw" />
+      <register name="ADC0_SSFIFO1_R" description="" address="0x40038068" access="rw" />
+      <register name="ADC0_SSFSTAT1_R" description="" address="0x4003806C" access="rw" />
+      <register name="ADC0_SSOP1_R" description="" address="0x40038070" access="rw" />
+      <register name="ADC0_SSDC1_R" description="" address="0x40038074" access="rw" />
+      <register name="ADC0_SSMUX2_R" description="" address="0x40038080" access="rw" />
+      <register name="ADC0_SSCTL2_R" description="" address="0x40038084" access="rw" />
+      <register name="ADC0_SSFIFO2_R" description="" address="0x40038088" access="rw" />
+      <register name="ADC0_SSFSTAT2_R" description="" address="0x4003808C" access="rw" />
+      <register name="ADC0_SSOP2_R" description="" address="0x40038090" access="rw" />
+      <register name="ADC0_SSDC2_R" description="" address="0x40038094" access="rw" />
+      <register name="ADC0_SSMUX3_R" description="" address="0x400380A0" access="rw" />
+      <register name="ADC0_SSCTL3_R" description="" address="0x400380A4" access="rw" />
+      <register name="ADC0_SSFIFO3_R" description="" address="0x400380A8" access="rw" />
+      <register name="ADC0_SSFSTAT3_R" description="" address="0x400380AC" access="rw" />
+      <register name="ADC0_SSOP3_R" description="" address="0x400380B0" access="rw" />
+      <register name="ADC0_SSDC3_R" description="" address="0x400380B4" access="rw" />
+      <register name="ADC0_DCRIC_R" description="" address="0x40038D00" access="rw" />
+      <register name="ADC0_DCCTL0_R" description="" address="0x40038E00" access="rw" />
+      <register name="ADC0_DCCTL1_R" description="" address="0x40038E04" access="rw" />
+      <register name="ADC0_DCCTL2_R" description="" address="0x40038E08" access="rw" />
+      <register name="ADC0_DCCTL3_R" description="" address="0x40038E0C" access="rw" />
+      <register name="ADC0_DCCTL4_R" description="" address="0x40038E10" access="rw" />
+      <register name="ADC0_DCCTL5_R" description="" address="0x40038E14" access="rw" />
+      <register name="ADC0_DCCTL6_R" description="" address="0x40038E18" access="rw" />
+      <register name="ADC0_DCCTL7_R" description="" address="0x40038E1C" access="rw" />
+      <register name="ADC0_DCCMP0_R" description="" address="0x40038E40" access="rw" />
+      <register name="ADC0_DCCMP1_R" description="" address="0x40038E44" access="rw" />
+      <register name="ADC0_DCCMP2_R" description="" address="0x40038E48" access="rw" />
+      <register name="ADC0_DCCMP3_R" description="" address="0x40038E4C" access="rw" />
+      <register name="ADC0_DCCMP4_R" description="" address="0x40038E50" access="rw" />
+      <register name="ADC0_DCCMP5_R" description="" address="0x40038E54" access="rw" />
+      <register name="ADC0_DCCMP6_R" description="" address="0x40038E58" access="rw" />
+      <register name="ADC0_DCCMP7_R" description="" address="0x40038E5C" access="rw" />
+    </registergroup>
+    <registergroup name="ADC1" description="">
+      <register name="ADC1_ACTSS_R" description="" address="0x40039000" access="rw" />
+      <register name="ADC1_RIS_R" description="" address="0x40039004" access="rw" />
+      <register name="ADC1_IM_R" description="" address="0x40039008" access="rw" />
+      <register name="ADC1_ISC_R" description="" address="0x4003900C" access="rw" />
+      <register name="ADC1_OSTAT_R" description="" address="0x40039010" access="rw" />
+      <register name="ADC1_EMUX_R" description="" address="0x40039014" access="rw" />
+      <register name="ADC1_USTAT_R" description="" address="0x40039018" access="rw" />
+      <register name="ADC1_SSPRI_R" description="" address="0x40039020" access="rw" />
+      <register name="ADC1_SPC_R" description="" address="0x40039024" access="rw" />
+      <register name="ADC1_PSSI_R" description="" address="0x40039028" access="rw" />
+      <register name="ADC1_SAC_R" description="" address="0x40039030" access="rw" />
+      <register name="ADC1_DCISC_R" description="" address="0x40039034" access="rw" />
+      <register name="ADC1_CTL_R" description="" address="0x40039038" access="rw" />
+      <register name="ADC1_SSMUX0_R" description="" address="0x40039040" access="rw" />
+      <register name="ADC1_SSCTL0_R" description="" address="0x40039044" access="rw" />
+      <register name="ADC1_SSFIFO0_R" description="" address="0x40039048" access="rw" />
+      <register name="ADC1_SSFSTAT0_R" description="" address="0x4003904C" access="rw" />
+      <register name="ADC1_SSOP0_R" description="" address="0x40039050" access="rw" />
+      <register name="ADC1_SSDC0_R" description="" address="0x40039054" access="rw" />
+      <register name="ADC1_SSMUX1_R" description="" address="0x40039060" access="rw" />
+      <register name="ADC1_SSCTL1_R" description="" address="0x40039064" access="rw" />
+      <register name="ADC1_SSFIFO1_R" description="" address="0x40039068" access="rw" />
+      <register name="ADC1_SSFSTAT1_R" description="" address="0x4003906C" access="rw" />
+      <register name="ADC1_SSOP1_R" description="" address="0x40039070" access="rw" />
+      <register name="ADC1_SSDC1_R" description="" address="0x40039074" access="rw" />
+      <register name="ADC1_SSMUX2_R" description="" address="0x40039080" access="rw" />
+      <register name="ADC1_SSCTL2_R" description="" address="0x40039084" access="rw" />
+      <register name="ADC1_SSFIFO2_R" description="" address="0x40039088" access="rw" />
+      <register name="ADC1_SSFSTAT2_R" description="" address="0x4003908C" access="rw" />
+      <register name="ADC1_SSOP2_R" description="" address="0x40039090" access="rw" />
+      <register name="ADC1_SSDC2_R" description="" address="0x40039094" access="rw" />
+      <register name="ADC1_SSMUX3_R" description="" address="0x400390A0" access="rw" />
+      <register name="ADC1_SSCTL3_R" description="" address="0x400390A4" access="rw" />
+      <register name="ADC1_SSFIFO3_R" description="" address="0x400390A8" access="rw" />
+      <register name="ADC1_SSFSTAT3_R" description="" address="0x400390AC" access="rw" />
+      <register name="ADC1_SSOP3_R" description="" address="0x400390B0" access="rw" />
+      <register name="ADC1_SSDC3_R" description="" address="0x400390B4" access="rw" />
+      <register name="ADC1_DCRIC_R" description="" address="0x40039D00" access="rw" />
+      <register name="ADC1_DCCTL0_R" description="" address="0x40039E00" access="rw" />
+      <register name="ADC1_DCCTL1_R" description="" address="0x40039E04" access="rw" />
+      <register name="ADC1_DCCTL2_R" description="" address="0x40039E08" access="rw" />
+      <register name="ADC1_DCCTL3_R" description="" address="0x40039E0C" access="rw" />
+      <register name="ADC1_DCCTL4_R" description="" address="0x40039E10" access="rw" />
+      <register name="ADC1_DCCTL5_R" description="" address="0x40039E14" access="rw" />
+      <register name="ADC1_DCCTL6_R" description="" address="0x40039E18" access="rw" />
+      <register name="ADC1_DCCTL7_R" description="" address="0x40039E1C" access="rw" />
+      <register name="ADC1_DCCMP0_R" description="" address="0x40039E40" access="rw" />
+      <register name="ADC1_DCCMP1_R" description="" address="0x40039E44" access="rw" />
+      <register name="ADC1_DCCMP2_R" description="" address="0x40039E48" access="rw" />
+      <register name="ADC1_DCCMP3_R" description="" address="0x40039E4C" access="rw" />
+      <register name="ADC1_DCCMP4_R" description="" address="0x40039E50" access="rw" />
+      <register name="ADC1_DCCMP5_R" description="" address="0x40039E54" access="rw" />
+      <register name="ADC1_DCCMP6_R" description="" address="0x40039E58" access="rw" />
+      <register name="ADC1_DCCMP7_R" description="" address="0x40039E5C" access="rw" />
+    </registergroup>
+  </group>
+  <group name="COMP" description="Comparator registers">
+    <registergroup name="COMP" description="">
+      <register name="COMP_ACMIS_R" description="" address="0x4003C000" access="rw" />
+      <register name="COMP_ACRIS_R" description="" address="0x4003C004" access="rw" />
+      <register name="COMP_ACINTEN_R" description="" address="0x4003C008" access="rw" />
+      <register name="COMP_ACREFCTL_R" description="" address="0x4003C010" access="rw" />
+      <register name="COMP_ACSTAT0_R" description="" address="0x4003C020" access="rw" />
+      <register name="COMP_ACCTL0_R" description="" address="0x4003C024" access="rw" />
+      <register name="COMP_ACSTAT1_R" description="" address="0x4003C040" access="rw" />
+      <register name="COMP_ACCTL1_R" description="" address="0x4003C044" access="rw" />
+    </registergroup>
+  </group>
+  <group name="MAC" description="Ethernet MAC registers">
+    <registergroup name="MAC" description="">
+      <register name="MAC_RIS_R" description="" address="0x40048000" access="rw" />
+      <register name="MAC_IM_R" description="" address="0x40048004" access="rw" />
+      <register name="MAC_RCTL_R" description="" address="0x40048008" access="rw" />
+      <register name="MAC_TCTL_R" description="" address="0x4004800C" access="rw" />
+      <register name="MAC_DATA_R" description="" address="0x40048010" access="rw" />
+      <register name="MAC_IA0_R" description="" address="0x40048014" access="rw" />
+      <register name="MAC_IA1_R" description="" address="0x40048018" access="rw" />
+      <register name="MAC_THR_R" description="" address="0x4004801C" access="rw" />
+      <register name="MAC_MCTL_R" description="" address="0x40048020" access="rw" />
+      <register name="MAC_MDV_R" description="" address="0x40048024" access="rw" />
+      <register name="MAC_MTXD_R" description="" address="0x4004802C" access="rw" />
+      <register name="MAC_MRXD_R" description="" address="0x40048030" access="rw" />
+      <register name="MAC_NP_R" description="" address="0x40048034" access="rw" />
+      <register name="MAC_TR_R" description="" address="0x40048038" access="rw" />
+      <register name="MAC_LED_R" description="" address="0x40048040" access="rw" />
+      <register name="MAC_MDIX_R" description="" address="0x40048044" access="rw" />
+    </registergroup>
+  </group>
+  <group name="HIB" description="Hibernation module registers">
+    <registergroup name="HIB" description="">
+      <register name="HIB_RTCC_R" description="" address="0x400FC000" access="rw" />
+      <register name="HIB_RTCM0_R" description="" address="0x400FC004" access="rw" />
+      <register name="HIB_RTCM1_R" description="" address="0x400FC008" access="rw" />
+      <register name="HIB_RTCLD_R" description="" address="0x400FC00C" access="rw" />
+      <register name="HIB_CTL_R" description="" address="0x400FC010" access="rw" />
+      <register name="HIB_IM_R" description="" address="0x400FC014" access="rw" />
+      <register name="HIB_RIS_R" description="" address="0x400FC018" access="rw" />
+      <register name="HIB_MIS_R" description="" address="0x400FC01C" access="rw" />
+      <register name="HIB_IC_R" description="" address="0x400FC020" access="rw" />
+      <register name="HIB_RTCT_R" description="" address="0x400FC024" access="rw" />
+      <register name="HIB_DATA_R" description="" address="0x400FC030" access="rw" />
+    </registergroup>
+  </group>
+  <group name="FLASH" description="FLASH registers">
+    <registergroup name="FLASH CTRL" description="">
+      <register name="FLASH_FMA_R" description="" address="0x400FD000" access="rw" />
+      <register name="FLASH_FMD_R" description="" address="0x400FD004" access="rw" />
+      <register name="FLASH_FMC_R" description="" address="0x400FD008" access="rw" />
+      <register name="FLASH_FCRIS_R" description="" address="0x400FD00C" access="rw" />
+      <register name="FLASH_FCIM_R" description="" address="0x400FD010" access="rw" />
+      <register name="FLASH_FCMISC_R" description="" address="0x400FD014" access="rw" />
+      <register name="FLASH_FMC2_R" description="" address="0x400FD020" access="rw" />
+      <register name="FLASH_FWBVAL_R" description="" address="0x400FD030" access="rw" />
+      <register name="FLASH_FCTL_R" description="" address="0x400FD0F8" access="rw" />
+      <register name="FLASH_FWBN_R" description="" address="0x400FD100" access="rw" />
+      <register name="FLASH_RMCTL_R" description="" address="0x400FE0F0" access="rw" />
+      <register name="FLASH_RMVER_R" description="" address="0x400FE0F4" access="rw" />
+      <register name="FLASH_BOOTCFG_R" description="" address="0x400FE1D0" access="rw" />
+      <register name="FLASH_USERREG0_R" description="" address="0x400FE1E0" access="rw" />
+      <register name="FLASH_USERREG1_R" description="" address="0x400FE1E4" access="rw" />
+      <register name="FLASH_USERREG2_R" description="" address="0x400FE1E8" access="rw" />
+      <register name="FLASH_USERREG3_R" description="" address="0x400FE1EC" access="rw" />
+      <register name="FLASH_FMPRE0_R" description="" address="0x400FE200" access="rw" />
+      <register name="FLASH_FMPRE1_R" description="" address="0x400FE204" access="rw" />
+      <register name="FLASH_FMPRE2_R" description="" address="0x400FE208" access="rw" />
+      <register name="FLASH_FMPRE3_R" description="" address="0x400FE20C" access="rw" />
+      <register name="FLASH_FMPRE4_R" description="" address="0x400FE210" access="rw" />
+      <register name="FLASH_FMPRE5_R" description="" address="0x400FE214" access="rw" />
+      <register name="FLASH_FMPRE6_R" description="" address="0x400FE218" access="rw" />
+      <register name="FLASH_FMPRE7_R" description="" address="0x400FE21C" access="rw" />
+      <register name="FLASH_FMPPE0_R" description="" address="0x400FE400" access="rw" />
+      <register name="FLASH_FMPPE1_R" description="" address="0x400FE404" access="rw" />
+      <register name="FLASH_FMPPE2_R" description="" address="0x400FE408" access="rw" />
+      <register name="FLASH_FMPPE3_R" description="" address="0x400FE40C" access="rw" />
+      <register name="FLASH_FMPPE4_R" description="" address="0x400FE410" access="rw" />
+      <register name="FLASH_FMPPE5_R" description="" address="0x400FE414" access="rw" />
+      <register name="FLASH_FMPPE6_R" description="" address="0x400FE418" access="rw" />
+      <register name="FLASH_FMPPE7_R" description="" address="0x400FE41C" access="rw" />
+    </registergroup>
+  </group>
+  <group name="SYSCTL" description="System Control registers">
+    <registergroup name="SYSCTL" description="">
+      <register name="SYSCTL_DID0_R" description="" address="0x400FE000" access="rw" />
+      <register name="SYSCTL_DID1_R" description="" address="0x400FE004" access="rw" />
+      <register name="SYSCTL_DC0_R" description="" address="0x400FE008" access="rw" />
+      <register name="SYSCTL_DC1_R" description="" address="0x400FE010" access="rw" />
+      <register name="SYSCTL_DC2_R" description="" address="0x400FE014" access="rw" />
+      <register name="SYSCTL_DC3_R" description="" address="0x400FE018" access="rw" />
+      <register name="SYSCTL_DC4_R" description="" address="0x400FE01C" access="rw" />
+      <register name="SYSCTL_DC5_R" description="" address="0x400FE020" access="rw" />
+      <register name="SYSCTL_DC6_R" description="" address="0x400FE024" access="rw" />
+      <register name="SYSCTL_DC7_R" description="" address="0x400FE028" access="rw" />
+      <register name="SYSCTL_DC8_R" description="" address="0x400FE02C" access="rw" />
+      <register name="SYSCTL_PBORCTL_R" description="" address="0x400FE030" access="rw" />
+      <register name="SYSCTL_SRCR0_R" description="" address="0x400FE040" access="rw" />
+      <register name="SYSCTL_SRCR1_R" description="" address="0x400FE044" access="rw" />
+      <register name="SYSCTL_SRCR2_R" description="" address="0x400FE048" access="rw" />
+      <register name="SYSCTL_RIS_R" description="" address="0x400FE050" access="rw" />
+      <register name="SYSCTL_IMC_R" description="" address="0x400FE054" access="rw" />
+      <register name="SYSCTL_MISC_R" description="" address="0x400FE058" access="rw" />
+      <register name="SYSCTL_RESC_R" description="" address="0x400FE05C" access="rw" />
+      <register name="SYSCTL_RCC_R" description="" address="0x400FE060" access="rw" />
+      <register name="SYSCTL_PLLCFG_R" description="" address="0x400FE064" access="rw" />
+      <register name="SYSCTL_GPIOHBCTL_R" description="" address="0x400FE06C" access="rw" />
+      <register name="SYSCTL_RCC2_R" description="" address="0x400FE070" access="rw" />
+      <register name="SYSCTL_MOSCCTL_R" description="" address="0x400FE07C" access="rw" />
+      <register name="SYSCTL_RCGC0_R" description="" address="0x400FE100" access="rw" />
+      <register name="SYSCTL_RCGC1_R" description="" address="0x400FE104" access="rw" />
+      <register name="SYSCTL_RCGC2_R" description="" address="0x400FE108" access="rw" />
+      <register name="SYSCTL_SCGC0_R" description="" address="0x400FE110" access="rw" />
+      <register name="SYSCTL_SCGC1_R" description="" address="0x400FE114" access="rw" />
+      <register name="SYSCTL_SCGC2_R" description="" address="0x400FE118" access="rw" />
+      <register name="SYSCTL_DCGC0_R" description="" address="0x400FE120" access="rw" />
+      <register name="SYSCTL_DCGC1_R" description="" address="0x400FE124" access="rw" />
+      <register name="SYSCTL_DCGC2_R" description="" address="0x400FE128" access="rw" />
+      <register name="SYSCTL_DSLPCLKCFG_R" description="" address="0x400FE144" access="rw" />
+      <register name="SYSCTL_PIOSCCAL_R" description="" address="0x400FE150" access="rw" />
+      <register name="SYSCTL_PIOSCSTAT_R" description="" address="0x400FE154" access="rw" />
+      <register name="SYSCTL_DC9_R" description="" address="0x400FE190" access="rw" />
+      <register name="SYSCTL_NVMSTAT_R" description="" address="0x400FE1A0" access="rw" />
+    </registergroup>
+  </group>
+  <group name="UDMA" description="Micro Direct Memory Access registers">
+    <registergroup name="UDMA" description="">
+      <register name="UDMA_STAT_R" description="" address="0x400FF000" access="rw" />
+      <register name="UDMA_CFG_R" description="" address="0x400FF004" access="rw" />
+      <register name="UDMA_CTLBASE_R" description="" address="0x400FF008" access="rw" />
+      <register name="UDMA_ALTBASE_R" description="" address="0x400FF00C" access="rw" />
+      <register name="UDMA_WAITSTAT_R" description="" address="0x400FF010" access="rw" />
+      <register name="UDMA_SWREQ_R" description="" address="0x400FF014" access="rw" />
+      <register name="UDMA_USEBURSTSET_R" description="" address="0x400FF018" access="rw" />
+      <register name="UDMA_USEBURSTCLR_R" description="" address="0x400FF01C" access="rw" />
+      <register name="UDMA_REQMASKSET_R" description="" address="0x400FF020" access="rw" />
+      <register name="UDMA_REQMASKCLR_R" description="" address="0x400FF024" access="rw" />
+      <register name="UDMA_ENASET_R" description="" address="0x400FF028" access="rw" />
+      <register name="UDMA_ENACLR_R" description="" address="0x400FF02C" access="rw" />
+      <register name="UDMA_ALTSET_R" description="" address="0x400FF030" access="rw" />
+      <register name="UDMA_ALTCLR_R" description="" address="0x400FF034" access="rw" />
+      <register name="UDMA_PRIOSET_R" description="" address="0x400FF038" access="rw" />
+      <register name="UDMA_PRIOCLR_R" description="" address="0x400FF03C" access="rw" />
+      <register name="UDMA_ERRCLR_R" description="" address="0x400FF04C" access="rw" />
+      <register name="UDMA_CHASGN_R" description="" address="0x400FF500" access="rw" />
+      <register name="UDMA_CHIS_R" description="" address="0x400FF504" access="rw" />
+    </registergroup>
+    <registergroup name="NVIC" description="">
+      <register name="UDMA_CHALT" description="" address="0x400FF500" access="rw" />
+    </registergroup>
+  </group>
+  <group name="NVIC" description="NVIC registers">
+    <registergroup name="NVIC" description="">
+      <register name="NVIC_INT_TYPE_R" description="" address="0xE000E004" access="rw" />
+      <register name="NVIC_ACTLR_R" description="" address="0xE000E008" access="rw" />
+      <register name="NVIC_ST_CTRL_R" description="" address="0xE000E010" access="rw" />
+      <register name="NVIC_ST_RELOAD_R" description="" address="0xE000E014" access="rw" />
+      <register name="NVIC_ST_CURRENT_R" description="" address="0xE000E018" access="rw" />
+      <register name="NVIC_ST_CAL_R" description="" address="0xE000E01C" access="rw" />
+      <register name="NVIC_EN0_R" description="" address="0xE000E100" access="rw" />
+      <register name="NVIC_EN1_R" description="" address="0xE000E104" access="rw" />
+      <register name="NVIC_DIS0_R" description="" address="0xE000E180" access="rw" />
+      <register name="NVIC_DIS1_R" description="" address="0xE000E184" access="rw" />
+      <register name="NVIC_PEND0_R" description="" address="0xE000E200" access="rw" />
+      <register name="NVIC_PEND1_R" description="" address="0xE000E204" access="rw" />
+      <register name="NVIC_UNPEND0_R" description="" address="0xE000E280" access="rw" />
+      <register name="NVIC_UNPEND1_R" description="" address="0xE000E284" access="rw" />
+      <register name="NVIC_ACTIVE0_R" description="" address="0xE000E300" access="rw" />
+      <register name="NVIC_ACTIVE1_R" description="" address="0xE000E304" access="rw" />
+      <register name="NVIC_PRI0_R" description="" address="0xE000E400" access="rw" />
+      <register name="NVIC_PRI1_R" description="" address="0xE000E404" access="rw" />
+      <register name="NVIC_PRI2_R" description="" address="0xE000E408" access="rw" />
+      <register name="NVIC_PRI3_R" description="" address="0xE000E40C" access="rw" />
+      <register name="NVIC_PRI4_R" description="" address="0xE000E410" access="rw" />
+      <register name="NVIC_PRI5_R" description="" address="0xE000E414" access="rw" />
+      <register name="NVIC_PRI6_R" description="" address="0xE000E418" access="rw" />
+      <register name="NVIC_PRI7_R" description="" address="0xE000E41C" access="rw" />
+      <register name="NVIC_PRI8_R" description="" address="0xE000E420" access="rw" />
+      <register name="NVIC_PRI9_R" description="" address="0xE000E424" access="rw" />
+      <register name="NVIC_PRI10_R" description="" address="0xE000E428" access="rw" />
+      <register name="NVIC_PRI11_R" description="" address="0xE000E42C" access="rw" />
+      <register name="NVIC_PRI12_R" description="" address="0xE000E430" access="rw" />
+      <register name="NVIC_PRI13_R" description="" address="0xE000E434" access="rw" />
+      <register name="NVIC_CPUID_R" description="" address="0xE000ED00" access="rw" />
+      <register name="NVIC_INT_CTRL_R" description="" address="0xE000ED04" access="rw" />
+      <register name="NVIC_VTABLE_R" description="" address="0xE000ED08" access="rw" />
+      <register name="NVIC_APINT_R" description="" address="0xE000ED0C" access="rw" />
+      <register name="NVIC_SYS_CTRL_R" description="" address="0xE000ED10" access="rw" />
+      <register name="NVIC_CFG_CTRL_R" description="" address="0xE000ED14" access="rw" />
+      <register name="NVIC_SYS_PRI1_R" description="" address="0xE000ED18" access="rw" />
+      <register name="NVIC_SYS_PRI2_R" description="" address="0xE000ED1C" access="rw" />
+      <register name="NVIC_SYS_PRI3_R" description="" address="0xE000ED20" access="rw" />
+      <register name="NVIC_SYS_HND_CTRL_R" description="" address="0xE000ED24" access="rw" />
+      <register name="NVIC_FAULT_STAT_R" description="" address="0xE000ED28" access="rw" />
+      <register name="NVIC_HFAULT_STAT_R" description="" address="0xE000ED2C" access="rw" />
+      <register name="NVIC_DEBUG_STAT_R" description="" address="0xE000ED30" access="rw" />
+      <register name="NVIC_MM_ADDR_R" description="" address="0xE000ED34" access="rw" />
+      <register name="NVIC_FAULT_ADDR_R" description="" address="0xE000ED38" access="rw" />
+      <register name="NVIC_MPU_TYPE_R" description="" address="0xE000ED90" access="rw" />
+      <register name="NVIC_MPU_CTRL_R" description="" address="0xE000ED94" access="rw" />
+      <register name="NVIC_MPU_NUMBER_R" description="" address="0xE000ED98" access="rw" />
+      <register name="NVIC_MPU_BASE_R" description="" address="0xE000ED9C" access="rw" />
+      <register name="NVIC_MPU_ATTR_R" description="" address="0xE000EDA0" access="rw" />
+      <register name="NVIC_MPU_BASE1_R" description="" address="0xE000EDA4" access="rw" />
+      <register name="NVIC_MPU_ATTR1_R" description="" address="0xE000EDA8" access="rw" />
+      <register name="NVIC_MPU_BASE2_R" description="" address="0xE000EDAC" access="rw" />
+      <register name="NVIC_MPU_ATTR2_R" description="" address="0xE000EDB0" access="rw" />
+      <register name="NVIC_MPU_BASE3_R" description="" address="0xE000EDB4" access="rw" />
+      <register name="NVIC_MPU_ATTR3_R" description="" address="0xE000EDB8" access="rw" />
+      <register name="NVIC_DBG_CTRL_R" description="" address="0xE000EDF0" access="rw" />
+      <register name="NVIC_DBG_XFER_R" description="" address="0xE000EDF4" access="rw" />
+      <register name="NVIC_DBG_DATA_R" description="" address="0xE000EDF8" access="rw" />
+      <register name="NVIC_DBG_INT_R" description="" address="0xE000EDFC" access="rw" />
+      <register name="NVIC_SW_TRIG_R" description="" address="0xE000EF00" access="rw" />
+    </registergroup>
+  </group>
+</model>
+
