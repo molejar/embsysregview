@@ -21,8 +21,6 @@ public class TreeField extends TreeElement {
 	private byte bitOffset;
 	private byte bitLength;
 	private HashMap <String,String> interpretations;
-	private long old_value=-1;
-	private long value=-1;
 	
 	public TreeField(String name, String description, byte bitOffset, byte bitLength, HashMap<String, String> interpretations) {
 		super(name, description);
@@ -33,7 +31,7 @@ public class TreeField extends TreeElement {
 	
 	public boolean hasValueChanged()
 	{
-		return (old_value!=value);
+		return (getOldValue()!=getValue());
 	}
 
 	public byte getBitOffset() {
@@ -48,25 +46,30 @@ public class TreeField extends TreeElement {
 		return interpretations;
 	}
 	
-	public long getValue() {
+	private long stripValue(long value) {
+		if(value!=-1)
+		{
+			value >>= bitOffset;					// drop the unnecessary bits "below" the field
+			value &= ~(0xFFFFFFFFL << bitLength);	// drop the bits "above" the field
+		}
 		return value;
 	}
 	
-	public void updateValue() {
-		long registerValue=-1;
+	private long getOldValue() {
+		return stripValue(((TreeRegister)this.getParent()).getOldValue());
+	}
+	
+	public long getValue() {
+		return stripValue(((TreeRegister)this.getParent()).getValue());
+	}
+	
+	public void setValue(long value) {
+		value <<= bitOffset;
+		long regValue = ((TreeRegister)this.getParent()).getValue();
+		regValue &= ~(0xFFFFFFFFL >> (32-bitLength) << bitOffset);
+		regValue |= value;
 		
-		TreeElement parent = this.getParent();
-		if (parent instanceof TreeRegister)
-		{
-			registerValue=((TreeRegister)parent).getValue();
-			if(registerValue!=-1)
-			{
-				registerValue >>= bitOffset;					// drop the unnecessary bits "below" the field
-				registerValue &= ~(0xFFFFFFFFL << bitLength);	// drop the bits "above" the field
-			}
-		}
-		old_value=value;
-		value=registerValue;
+		((TreeRegister)this.getParent()).setAndWriteValue(regValue);
 	}
 	
 	public String getInterpretation() {
@@ -78,5 +81,12 @@ public class TreeField extends TreeElement {
 			return interpretations.get(key);
 		} else
 			return "";
+	}
+	
+	public boolean hasInterpretation() {
+		if(this.getInterpretation().equals(""))
+			return false;
+		else
+			return true;
 	}
 }
