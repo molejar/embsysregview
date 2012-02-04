@@ -20,8 +20,6 @@ import java.net.URL;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import net.miginfocom.swt.MigLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
@@ -39,42 +37,27 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.*;
 import org.eclipse.swt.SWT;
-import org.eclipse.cdt.debug.internal.core.model.CDebugTarget;
 import org.eclipse.cdt.embsysregview.Activator;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.debug.core.DebugEvent;
-import org.eclipse.debug.core.DebugPlugin;
-import org.eclipse.debug.core.IDebugEventSetListener;
-import org.eclipse.debug.core.model.IDebugTarget;
 import org.jdom.Attribute;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 import org.osgi.framework.Bundle;
-import org.eclipse.cdt.debug.core.cdi.ICDISession;
-import org.eclipse.cdt.debug.core.cdi.model.ICDITarget;
-import org.eclipse.cdt.debug.mi.core.MIException;
-import org.eclipse.cdt.debug.mi.core.MIFormat;
-import org.eclipse.cdt.debug.mi.core.MISession;
-import org.eclipse.cdt.debug.mi.core.cdi.model.Target;
-import org.eclipse.cdt.debug.mi.core.command.CommandFactory;
-import org.eclipse.cdt.debug.mi.core.command.MIDataWriteMemory;
-import org.eclipse.cdt.debug.mi.core.output.MIInfo;
 
 /**
  * Generates a View, displaying Registers for an Embedded Device
  */
 
-public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
+public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListener,IGDBInterfaceTerminateListener {
 	private TreeViewer viewer;
 	private TreeParent invisibleRoot;
 	Label infoLabel;
 	private Action doubleClickAction;
-	private Image selectedImage, unselectedImage, selectedFieldImage, unselectedFieldImage;
-	private MISession miSession;
-	private Target miTarget;
-
+	private Image selectedImage, unselectedImage, selectedFieldImage, unselectedFieldImage, infoImage, interpretationImage;
+	static public GDBInterface GDBi;
+	
 	/**
 	 * This is the Content Provider that present the Static Model to the
 	 * TreeViewer
@@ -398,34 +381,9 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 	 * The constructor.
 	 */
 	public EmbSysRegView() {
-		
-		IDebugTarget[] targets_ = DebugPlugin.getDefault().getLaunchManager().getDebugTargets();
-		for (IDebugTarget target:targets_)
-		{
-			if(target instanceof CDebugTarget)
-			{
-				CDebugTarget debugTarget = (CDebugTarget) target;
-
-				ICDISession cdiSession = debugTarget.getCDISession();
-				ICDITarget[] targets = cdiSession.getTargets();
-				miSession = null;
-
-				ICDITarget cdiTarget = null;
-				for (int i = 0; i < targets.length; i++) {
-					ICDITarget cdiTargetCandidate = targets[i];
-					if (cdiTargetCandidate instanceof Target) {
-						cdiTarget = cdiTargetCandidate;
-						break;
-					}
-				}
-				if (cdiTarget != null) {
-					miTarget = (Target) cdiTarget;
-					miSession = miTarget.getMISession();
-				}
-			}
-			if(miSession!=null)
-				return;
-		}
+		GDBi = new GDBInterfaceStandard();
+		GDBi.addSuspendListener(this);
+		GDBi.addterminateListener(this);
 	}
 
 	public String longtobinarystring(long wert, int bits) {
@@ -471,28 +429,6 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 			else
 				infoLabel.setText("Arch: "+store_architecture+"  Vendor: "+store_vendor+"  Chip: "+store_chip+"  Board: "+store_board);
 	}
-
-	public void setRegister(TreeRegister treeRegister, long lvalue)
-	{
-		long laddress = treeRegister.getRegisterAddress();
-		
-		CommandFactory factory = miSession.getCommandFactory();
-		
-			String value = "0x" + Long.toHexString(lvalue);
-			String address = Long.toString(laddress);
-			MIDataWriteMemory mw = factory.createMIDataWriteMemory(0,
-				address, MIFormat.HEXADECIMAL, treeRegister.getByteSize(), value);
-			try {
-				miSession.postCommand(mw);
-				MIInfo info = mw.getMIInfo();
-				
-				if (info == null) {
-					// TODO: handle ERROR ???
-				}
-			} catch (MIException e) {
-
-			}
-	}
 	
 	/**
 	 * This is a callback that creates the viewer and initialize it.
@@ -503,16 +439,23 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 		URL fileURL2 = bundle.getEntry("icons/unselected_register.png");
 		URL fileURL3 = bundle.getEntry("icons/selected_field.png");
 		URL fileURL4 = bundle.getEntry("icons/unselected_field.png");
+		URL fileURL5 = bundle.getEntry("icons/info.png");
+		URL fileURL6 = bundle.getEntry("icons/interpretation.png");
+		
 		try {
 			selectedImage = new Image(parent.getDisplay(),fileURL.openStream());
 			unselectedImage = new Image(parent.getDisplay(),fileURL2.openStream());
 			selectedFieldImage = new Image(parent.getDisplay(),fileURL3.openStream());
 			unselectedFieldImage = new Image(parent.getDisplay(),fileURL4.openStream());
+			infoImage = new Image(parent.getDisplay(),fileURL5.openStream());
+			interpretationImage = new Image(parent.getDisplay(),fileURL6.openStream());
 		} catch (Exception e) {
 			selectedImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_DEC_FIELD_ERROR);
 			unselectedImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_DEC_FIELD_ERROR);
 			selectedFieldImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_DEC_FIELD_ERROR);
 			unselectedFieldImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_DEC_FIELD_ERROR);
+			infoImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_DEC_FIELD_ERROR);
+			interpretationImage = PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_DEC_FIELD_ERROR);
 		}
 
 		TreeViewerColumn column;
@@ -525,6 +468,9 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 		viewer.getControl().setLayoutData("height 100%,width 100%,hmin 0,wmin 0");
 		viewer.getTree().setLinesVisible(true);
 		viewer.getTree().setHeaderVisible(true);
+		
+		//viewer.setCellModifier(modifier);
+		
 		
 		
 		// Registername
@@ -647,17 +593,22 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 				if(value instanceof String && ((String)value).startsWith("0x"))
 				{
 					String svalue=((String)value);
-					long lvalue=Long.valueOf(svalue.substring(2, svalue.length()), 16);
-					int bits=32;
-					ISelection selection = viewer.getSelection();
-					Object obj = ((IStructuredSelection)selection).getFirstElement();
-					if(obj instanceof TreeField)
-						bits=((TreeField)obj).getBitLength();
-					long maxvalue=(1L<<bits)-1;
-					if(lvalue >= 0 && lvalue <=maxvalue)
-						return null;
-					else
-						return "out of range";					
+					long lvalue;
+					try {
+						lvalue=Long.valueOf(svalue.substring(2, svalue.length()), 16);
+						int bits=32;
+						ISelection selection = viewer.getSelection();
+						Object obj = ((IStructuredSelection)selection).getFirstElement();
+						if(obj instanceof TreeField)
+							bits=((TreeField)obj).getBitLength();
+						long maxvalue=(1L<<bits)-1;
+						if(lvalue >= 0 && lvalue <=maxvalue)
+							return null;
+						else
+							return "out of range";
+					}catch(NumberFormatException nfe){
+						
+					}
 				}	
 				return null;
 			}
@@ -706,7 +657,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 						
 					
 						// Update Value on device
-						setRegister(treeRegister, lvalue);
+						treeRegister.setAndWriteValue(lvalue);
 					
 						updateTreeFields(invisibleRoot); // Update all enabled Fields, not just the changed
 						viewer.refresh();
@@ -736,9 +687,8 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 						rvalue = rvalue | fvalue ; // blend the field value into the register value
 						
 						// Update Value in Target
-						setRegister(treeRegister, rvalue);
-					
-						treeRegister.updateValue( miSession );
+						treeRegister.setAndWriteValue(rvalue);
+						treeRegister.readValue();
 						viewer.refresh(treeRegister);
 					}	
 				}
@@ -797,6 +747,37 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 			}
 
 		});
+		
+
+		column.setEditingSupport(new EditingSupport(viewer) {
+			@Override
+			protected boolean canEdit(Object element) {
+				if (element instanceof TreeField && 
+					((((TreeRegister)((TreeField)element).getParent()).isReadWrite()) || 
+					 (((TreeRegister)((TreeField)element).getParent()).isWriteOnly())))
+					return true;
+				if (element instanceof TreeRegister && 
+						(((TreeRegister)element).isReadWrite() || 
+						 ((TreeRegister)element).isWriteOnly()))
+					return true;
+				return false;
+			}
+
+			@Override
+			protected CellEditor getCellEditor(Object element) {
+				return new BinaryButtonsCellEditor(viewer.getTree(),viewer);
+			}
+
+			@Override
+			protected Object getValue(Object element) {
+				return element;
+			}
+
+			@Override
+			protected void setValue(Object element, Object value) {
+				viewer.refresh(element);
+			}
+		}); 
 		
 		// Register Reset Value (hex)
 		column = new TreeViewerColumn(viewer, SWT.NONE);
@@ -876,10 +857,19 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 
 			public String getToolTipText(Object element) {
 				if (element instanceof TreeRegister)
-					return ((TreeRegister) element).getDescription();
+				{ // only display if more than one line is found
+					if(org.eclipse.cdt.embsysregview.views.Utils.countTextLines(((TreeRegister) element).getDescription())>1)
+						return ((TreeRegister) element).getDescription();
+					else
+						return null;
+				}
 				if (element instanceof TreeField)
-					return ((TreeField) element).getDescription();
-					
+				{	// display tooltip if more than one line is found, or an interpretation is shown instead of this one line
+					if(org.eclipse.cdt.embsysregview.views.Utils.countTextLines(((TreeField) element).getDescription())>1 || ((TreeField) element).hasInterpretation())
+						return ((TreeField) element).getDescription();
+					else
+						return null;
+				}	
 				return null;
 			}
 
@@ -903,25 +893,23 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 					cell.setText(((TreeRegisterGroup) element).getDescription());
 				if (element instanceof TreeRegister)
 				{
-					String fulltext = ((TreeRegister) element).getDescription();
-					// Compile the pattern
-				    String patternStr = "^(.*)$";
-				    Pattern pattern = Pattern.compile(patternStr, Pattern.MULTILINE);
-				    Matcher matcher = pattern.matcher(fulltext);
-				    
-				    if(matcher.find())
-				    {
-				    	String text = matcher.group(1);
-				    	cell.setText(text);
-				    }
+					cell.setText(org.eclipse.cdt.embsysregview.views.Utils.getFirstNotEmptyTextLine(((TreeRegister) element).getDescription()).trim());
 				}
 			    
 				if (element instanceof TreeField)
-					if (((TreeRegister) ((TreeField) element).getParent())
-							.getValue() != -1)
+					if (((TreeField) element).hasInterpretation())
+					{
 						cell.setText(((TreeField) element).getInterpretation());
+						cell.setImage(interpretationImage);
+					}
 					else
-						cell.setText("");
+					{
+						// Display first line
+						cell.setText(org.eclipse.cdt.embsysregview.views.Utils.getFirstNotEmptyTextLine(((TreeField) element).getDescription()).trim());
+						// Display Icon if there are more than one line
+						if(org.eclipse.cdt.embsysregview.views.Utils.countTextLines(((TreeField) element).getDescription())>1)
+							cell.setImage(infoImage);
+					}
 			}
 		});
 		
@@ -955,7 +943,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 						if(!treeRegister.isWriteOnly())
 						{
 							treeRegister.toggleRetrieval();
-							treeRegister.updateValue( miSession );
+							treeRegister.readValue();
 						}
 					}
 					viewer.refresh(obj);
@@ -966,7 +954,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 					if(!treeRegister.isWriteOnly())
 					{
 						treeRegister.toggleRetrieval();
-						treeRegister.updateValue( miSession );
+						treeRegister.readValue();
 						viewer.refresh(obj);
 					}
 				}
@@ -977,10 +965,10 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 					if(!treeRegister.isWriteOnly())
 					{
 						treeRegister.toggleRetrieval();
-						treeRegister.updateValue( miSession );
+						treeRegister.readValue();
 						viewer.refresh(treeField.getParent());
 					}
-				}
+				}		
 			}
 		};
 		
@@ -993,13 +981,11 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 		viewer.setContentProvider(new ViewContentProvider());
 		updateInfoLabel();
 		viewer.setInput(invisibleRoot);
-
-		DebugPlugin.getDefault().addDebugEventListener(this);
 	}
 
 	@Override
 	public void dispose() {
-	   DebugPlugin.getDefault().removeDebugEventListener(this);
+	   GDBi.dispose();
 	}
 	
 	/**
@@ -1014,7 +1000,7 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 	 */
 	private void updateTreeFields(TreeElement element) {
 		if (element instanceof TreeRegister)
-			((TreeRegister) element).updateValue( miSession );
+			((TreeRegister) element).readValue();
 		else if (element instanceof TreeParent
 				&& ((TreeParent) element).hasChildren()) {
 			TreeParent pelement = (TreeParent) element;
@@ -1037,53 +1023,25 @@ public class EmbSysRegView extends ViewPart implements IDebugEventSetListener {
 		}
 	}
 
-	/**
-	 * Handle DebugEvents while an active Debug Session
-	 */
 	@Override
-	public void handleDebugEvents(DebugEvent[] events) {
-		for (DebugEvent event : events) {
+	public void gdbTerminateListener() {
+		clearTreeFields(invisibleRoot);
 
-			Object source = event.getSource();
-			
-			if (event.getKind() == DebugEvent.SUSPEND && source instanceof CDebugTarget) {
-				System.out.println("DebugEvent " + event.toString());
-				
-				CDebugTarget debugTarget = (CDebugTarget) source;
-
-				ICDISession cdiSession = debugTarget.getCDISession();
-				ICDITarget[] targets = cdiSession.getTargets();
-				miSession = null;
-
-				ICDITarget cdiTarget = null;
-				for (int i = 0; i < targets.length; i++) {
-					ICDITarget cdiTargetCandidate = targets[i];
-					if (cdiTargetCandidate instanceof Target) {
-						cdiTarget = cdiTargetCandidate;
-						break;
-					}
-				}
-				if (cdiTarget != null) {
-					miTarget = (Target) cdiTarget;
-					miSession = miTarget.getMISession();
-				}
-				updateTreeFields(invisibleRoot);
-
-				Display.getDefault().asyncExec(new Runnable() {
-					public void run() {
-						viewer.refresh();
-					}
-				});
+		Display.getDefault().asyncExec(new Runnable() {
+			public void run() {
+				viewer.refresh();
 			}
-			if (event.getKind() == DebugEvent.TERMINATE) {
-				clearTreeFields(invisibleRoot);
+		});
+	}
 
-				Display.getDefault().asyncExec(new Runnable() {
-					public void run() {
-						viewer.refresh();
-					}
-				});
+	@Override
+	public void gdbSuspendListener() {
+		updateTreeFields(invisibleRoot);
+
+		Display.getDefault().asyncExec(new Runnable() {
+			public void run() {
+				viewer.refresh();
 			}
-		}
+		});
 	}
 }

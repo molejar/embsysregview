@@ -17,13 +17,6 @@ package org.eclipse.cdt.embsysregview.views;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.debug.ui.DebugUITools;
-import org.eclipse.cdt.debug.mi.core.command.CommandFactory;
-import org.eclipse.cdt.debug.mi.core.command.MIDataReadMemory;
-import org.eclipse.cdt.debug.mi.core.output.MIDataReadMemoryInfo;
-import org.eclipse.cdt.debug.mi.core.MIFormat;
-import org.eclipse.cdt.debug.mi.core.MISession;
-import org.eclipse.cdt.debug.mi.core.MIException;
-import org.eclipse.cdt.debug.mi.core.output.MIMemory;
 
 public class TreeRegister extends TreeParent{
 	private long old_value;
@@ -83,6 +76,11 @@ public class TreeRegister extends TreeParent{
 		this.type=type;		
 		this.size=size;
 	}
+	
+	protected long getOldValue()
+	{
+		return old_value;
+	}
 
 	public long getValue() {
 		if(isWriteOnly())
@@ -90,7 +88,7 @@ public class TreeRegister extends TreeParent{
 		else
 			return value;
 	}
-
+	
 	public long getResetValue() {
 		return resetValue;
 	}
@@ -100,9 +98,34 @@ public class TreeRegister extends TreeParent{
 	}
 	
 	/**
-	 * Updates the Registers value from live data in the Debug Context
+	 * Sets the Register
 	 */
-	public void updateValue( MISession miSession )
+	public void setValue(long lvalue)
+	{
+		this.value=lvalue;
+	}
+	
+	/**
+	 * Sets the Registers value and writes it to the device
+	 */
+	public void setAndWriteValue(long lvalue)
+	{
+		setValue(lvalue);
+		writeValue();
+	}
+	
+	/**
+	 * Write value to the device 
+	 */
+	private void writeValue()
+	{
+		EmbSysRegView.GDBi.writeMemory(getRegisterAddress(), getValue(), getByteSize());
+	}
+	
+	/**
+	 * Reads the Registers value from live data in the Debug Context
+	 */
+	public void readValue()
 	{
 		if(retrievalActive && !isWriteOnly())
 		{
@@ -112,43 +135,18 @@ public class TreeRegister extends TreeParent{
 				IAdaptable context = DebugUITools.getDebugContext();
 				if(context!=null)
 				{
-					if ( miSession != null ) {
-						CommandFactory factory = miSession.getCommandFactory();
-						MIDataReadMemory mem = factory.createMIDataReadMemory( 0, Long.toString(registerAddress),
-						                     								   MIFormat.HEXADECIMAL, getByteSize(), 1, 1, null );
-						value = -1;
-						try {
-						   miSession.postCommand(mem);
-						   MIDataReadMemoryInfo info = mem.getMIDataReadMemoryInfo();
-						   if (info != null) {
-							  MIMemory[] memories = info.getMemories();
-							  long[] val = memories[0].getData();
-							  value = val[0];
-						   }
-						} catch (MIException e) {
-							//throw new MI2CDIException(e);
-						}
-					} else {
-						value = -1;
-					}
+					value = EmbSysRegView.GDBi.readMemory(registerAddress, getByteSize());
 				}
 				else
 					value=-1;
 			}
 			else
-				registerAddress=-1;
+				registerAddress=-1; //TODO: why this ???
 		}
 		else
 		{
 			old_value=value;
 			value=-1;
-		}
-		
-		
-		TreeElement[] x = getChildren();
-		for (TreeElement treeElement : x)
-		{
-			((TreeField)treeElement).updateValue();
 		}
 	}
 	
