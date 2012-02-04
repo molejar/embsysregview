@@ -22,6 +22,7 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
+import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
@@ -108,7 +109,11 @@ public class BinaryButtonsCellEditor extends CellEditor {
 			final Button[] b = new Button[bitsize];
 
 			for (int i = bitsize-1; i >=0 ; i--) {
-				b[i] = new Button(composite, SWT.NONE);
+				b[i] = new Button(composite, SWT.FLAT);
+				RowData data = new RowData();
+			    data.width = 15;
+			    data.height = 19;
+			    b[i].setLayoutData(data);
 				FontData[] fD = b[i].getFont().getFontData();
 				fD[0].setHeight(7);
 				f = new Font(Display.getCurrent(), fD[0]);
@@ -121,7 +126,6 @@ public class BinaryButtonsCellEditor extends CellEditor {
 
 					@Override
 					public void mouseDown(MouseEvent e) {
-						// TODO Auto-generated method stub
 						Button but = ((Button) e.getSource());
 						if (but.getText().equals("1"))
 							but.setText("0");
@@ -147,6 +151,10 @@ public class BinaryButtonsCellEditor extends CellEditor {
 
 			Button setButton = new Button(composite, SWT.NONE);
 			setButton.setText("Set");
+			RowData data = new RowData();
+		    data.width = 26;
+		    data.height = 19;
+		    setButton.setLayoutData(data);
 			setButton.addMouseListener(new MouseListener() {
 
 				@Override
