@@ -110,6 +110,7 @@ public class TreeRegister extends TreeParent{
 	 */
 	public void setAndWriteValue(long lvalue)
 	{
+		old_value=value;
 		setValue(lvalue);
 		writeValue();
 	}

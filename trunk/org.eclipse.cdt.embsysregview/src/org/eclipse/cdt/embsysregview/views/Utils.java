@@ -73,4 +73,31 @@ public class Utils {
 	{
 		return (int) ((value>>bitnr)%2);
 	}
+	
+	public static String longtobinarystring(long wert, int bits) {
+		StringBuilder text = new StringBuilder();
+
+		for (int i = bits; i > 0; i--) {
+			text.append(Math.abs(wert % 2));
+			wert /= 2;
+		}
+		text.reverse();
+		return text.toString();
+	}
+	
+	public static String longtoHexString(long wert, int bits) {
+		
+		int hexdigits=bits/4;
+		if(bits%4!=0)
+			hexdigits++;
+		
+		StringBuilder hex = new StringBuilder();
+		hex.append("0x");
+		String x = Long.toHexString(wert);
+		int missingLen = hexdigits - x.length();
+		for (int i = 0; i < missingLen; i++)
+			hex.append('0');
+		hex.append(x.toUpperCase());
+		return hex.toString();
+	}
 }
