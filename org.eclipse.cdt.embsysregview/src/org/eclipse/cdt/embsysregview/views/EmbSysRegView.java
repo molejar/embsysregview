@@ -19,10 +19,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import net.miginfocom.swt.MigLayout;
 
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
@@ -39,8 +41,11 @@ import org.eclipse.jface.preference.PreferenceNode;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.*;
+import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
@@ -57,13 +62,14 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 import org.osgi.framework.Bundle;
+import org.eclipse.cdt.embsysregview.views.Utils;
 
 /**
  * Generates a View, displaying Registers for an Embedded Device
  */
 
 public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListener,IGDBInterfaceTerminateListener {
-	private TreeViewer viewer;
+	protected TreeViewer viewer;
 	private TreeParent invisibleRoot;
 	private Label infoLabel;
 	private Button configButton;
@@ -71,6 +77,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 	private Action doubleClickAction;
 	private Image selectedImage, unselectedImage, selectedFieldImage, unselectedFieldImage, infoImage, interpretationImage, configButtonImage;
 	static public GDBInterface GDBi;
+	private TreeElement currentEditedElement = null;
 	
 	/**
 	 * This is the Content Provider that present the Static Model to the
@@ -335,16 +342,16 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 									if(field_description!=null)
 										fdescription = field_description.getText();
 									
-									HashMap<String, String> interpretations = new HashMap<String, String>();
+									Interpretations interpretations = new Interpretations();
 									List<Element> interpretationlist = field
 											.getChildren("interpretation");
 									for (Element interpretation : interpretationlist) {
 										// Mandatory attribute key
 										Attribute attr_key = interpretation
 												.getAttribute("key");
-										String key;
+										long key;
 										if (attr_key != null)
-											key = attr_key.getValue();
+											key = attr_key.getLongValue();
 										else
 											throw new ParseException(
 													"interpretation requires key",
@@ -361,12 +368,13 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 													"interpretation requires text",
 													1);
 
-										interpretations.put(key, text);
+										interpretations.addInterpretation(key, text);
 									}
 
 									TreeField obj_field = new TreeField(fname,
 											fdescription, fbitoffset,
 											fbitlength, interpretations);
+									interpretations.setTreeField(obj_field);
 									obj_register.addChild(obj_field);
 								}
 							}
@@ -400,32 +408,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 		GDBi.addterminateListener(this);
 	}
 
-	public String longtobinarystring(long wert, int bits) {
-		StringBuilder text = new StringBuilder();
-
-		for (int i = bits; i > 0; i--) {
-			text.append(Math.abs(wert % 2));
-			wert /= 2;
-		}
-		text.reverse();
-		return text.toString();
-	}
 	
-	public String longtoHexString(long wert, int bits) {
-		
-		int hexdigits=bits/4;
-		if(bits%4!=0)
-			hexdigits++;
-		
-		StringBuilder hex = new StringBuilder();
-		hex.append("0x");
-		String x = Long.toHexString(wert);
-		int missingLen = hexdigits - x.length();
-		for (int i = 0; i < missingLen; i++)
-			hex.append('0');
-		hex.append(x.toUpperCase());
-		return hex.toString();
-	}
 	
 	private void updateInfoLabel()
 	{
@@ -493,10 +476,8 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 		header.setLayout(rowLayout);
 		
 		configButton = new Button(header,SWT.FLAT);
-		//configButton.setText("config...");
 		configButton.setImage(configButtonImage);
 		configButton.setSize(17, 17);
-		//configButton.setLayoutData("align right,height 16px,width 50px,wmin 0,hmin 16,hmax 16,gap 0 0 0 0");
 		RowData data = new RowData();
 	    data.width = 17;
 	    data.height = 17;
@@ -504,10 +485,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 	    configButton.addMouseListener(new MouseListener() {
 			
 			@Override
-			public void mouseUp(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
+			public void mouseUp(MouseEvent e) {}
 			
 			@Override
 			public void mouseDown(MouseEvent e) {
@@ -524,24 +502,16 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 			}
 			
 			@Override
-			public void mouseDoubleClick(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
+			public void mouseDoubleClick(MouseEvent e) {}
 		});
 	    
 	    infoLabel = new Label(header,SWT.NONE);
 	    	    
-		//infoLabel.setLayoutData("align left,height 16px,width 100%,wmin 0,hmin 16,hmax 16,gap 0 0 0 0");
-
 		viewer = new TreeViewer(parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION);
 		viewer.getControl().setLayoutData("height 100%,width 100%,hmin 0,wmin 0");
 		viewer.getTree().setLinesVisible(true);
 		viewer.getTree().setHeaderVisible(true);
-		
-		//viewer.setCellModifier(modifier);
-		
-		
+
 		
 		// Registername
 		column = new TreeViewerColumn(viewer, SWT.NONE);
@@ -635,7 +605,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 						if (((TreeRegister) element).isWriteOnly())
 							return "- write only -";
 						else
-							return longtoHexString(((TreeRegister) element)
+							return Utils.longtoHexString(((TreeRegister) element)
 								.getValue(), ((TreeRegister) element).getBitSize());
 				if (element instanceof TreeField)
 					if (((TreeRegister) ((TreeField) element).getParent())
@@ -645,7 +615,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 						if (((TreeRegister) ((TreeField)element).getParent()).isWriteOnly())
 							return "- write only -";
 						else
-							return longtoHexString(((TreeField) element)
+							return Utils.longtoHexString(((TreeField) element)
 								.getValue(), ((TreeField) element)
 								.getBitLength());
 				else
@@ -655,32 +625,87 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 		});
 		
 		final TextCellEditor textCellEditor = new TextCellEditor(viewer.getTree());
-		textCellEditor.setValidator(new ICellEditorValidator() {
+		textCellEditor.setValidator(new HexCellEditorValidator(viewer));
+		final ComboBoxCellEditor comboBoxCellEditor = new ComboBoxCellEditor(viewer.getTree(), new String[0], SWT.NONE);
 		
+		
+		comboBoxCellEditor.setValidator(new HexCellEditorValidator(viewer));
+		((CCombo)comboBoxCellEditor.getControl()).addSelectionListener(new SelectionListener() {
+			
 			@Override
-			public String isValid(Object value) {
+			public void widgetSelected(SelectionEvent e) {
+				int selectionIndex = ((CCombo)comboBoxCellEditor.getControl()).getSelectionIndex();
 				
-				if(value instanceof String && ((String)value).startsWith("0x"))
+				TreeElement obj = currentEditedElement;
+				if(obj instanceof TreeField)
 				{
-					String svalue=((String)value);
-					long lvalue;
-					try {
-						lvalue=Long.valueOf(svalue.substring(2, svalue.length()), 16);
-						int bits=32;
-						ISelection selection = viewer.getSelection();
-						Object obj = ((IStructuredSelection)selection).getFirstElement();
-						if(obj instanceof TreeField)
-							bits=((TreeField)obj).getBitLength();
-						long maxvalue=(1L<<bits)-1;
-						if(lvalue >= 0 && lvalue <=maxvalue)
-							return null;
-						else
-							return "out of range";
-					}catch(NumberFormatException nfe){
+					long value=-1;
+					
+					if(selectionIndex!=-1)
+					{
+						value = ((TreeField)obj).getInterpretations().getValue(((CCombo)comboBoxCellEditor.getControl()).getItem(selectionIndex));
+					}
+					else
+					{	
+						String svalue= ((CCombo)comboBoxCellEditor.getControl()).getText();
+						if (svalue.startsWith("0x"))
+							value=Long.valueOf(svalue.substring(2, svalue.length()), 16);
 						
 					}
-				}	
-				return null;
+					if (value!=-1)
+						((TreeField)obj).setValue(value);
+					
+				}
+					
+				viewer.refresh();
+				
+			}
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+				int a=0;
+				a++;				
+			}
+		});
+		comboBoxCellEditor.addListener(new ICellEditorListener(){
+
+			@Override
+			public void applyEditorValue() {
+				int selectionIndex = ((CCombo)comboBoxCellEditor.getControl()).getSelectionIndex();
+								
+				TreeElement obj = currentEditedElement;
+				if(obj instanceof TreeField)
+				{
+					long value=-1;
+					
+					if(selectionIndex!=-1)
+					{
+						value = ((TreeField)obj).getInterpretations().getValue(((CCombo)comboBoxCellEditor.getControl()).getItem(selectionIndex));
+					}
+					else
+					{	
+						String svalue= ((CCombo)comboBoxCellEditor.getControl()).getText();
+						if (svalue.startsWith("0x"))
+							value=Long.valueOf(svalue.substring(2, svalue.length()), 16);
+						
+					}
+					if (value!=-1)
+						((TreeField)obj).setValue(value);
+					
+				}
+					
+				viewer.refresh();
+			}
+
+			@Override
+			public void cancelEditor() {}
+
+			@Override
+			public void editorValueChanged(boolean oldValidState,
+					boolean newValidState) {
+				int a;
+				a=1;
 			}
 		});
 		
@@ -698,71 +723,83 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 				return false;
 			}
 
+			
 			@Override
 			protected CellEditor getCellEditor(Object element) {
-				return textCellEditor;
+				if (element instanceof TreeField && ((TreeField)element).hasInterpretation())
+				{
+					comboBoxCellEditor.setItems(((TreeField)element).getInterpretations().getInterpretations());
+					currentEditedElement = (TreeElement)element;
+					return comboBoxCellEditor;
+				}
+				else	
+					return textCellEditor;
 			}
 
 			@Override
 			protected Object getValue(Object element) {
+				if (element instanceof TreeField && ((TreeField)element).hasInterpretation())
+				{
+					return new Integer((int) ((TreeField)element).getValue()); // TODO: what to do on large bitfield ?
+				}
+				else
+				{
 				if (element instanceof TreeField && ((TreeField)element).getValue()!=-1)
-					return longtoHexString(((TreeField) element).getValue(),((TreeField) element).getBitLength()); 
+					return Utils.longtoHexString(((TreeField) element).getValue(),((TreeField) element).getBitLength()); 
 					
 				if (element instanceof TreeRegister && ((TreeRegister)element).getValue()!=-1)
-					return longtoHexString(((TreeRegister) element).getValue(), ((TreeRegister) element).getBitSize()); 
-
+					return Utils.longtoHexString(((TreeRegister) element).getValue(), ((TreeRegister) element).getBitSize()); 
+				}  
 				return null;
 			}
 
 			@Override
 			protected void setValue(Object element, Object value) {
-				if (element instanceof TreeRegister && ((String)value).startsWith("0x"))
-				{
-					String svalue=((String)value);
-					long lvalue=Long.valueOf(svalue.substring(2, svalue.length()), 16);
-					
-					TreeRegister treeRegister = ((TreeRegister) element);
-					if(treeRegister.getValue()!=-1 && treeRegister.getValue()!=lvalue)
+				if (value == null)
+					return;
+				if (value instanceof String) {
+					if (element instanceof TreeRegister && ((String)value).startsWith("0x"))
 					{
+						String svalue=((String)value);
+						long lvalue=Long.valueOf(svalue.substring(2, svalue.length()), 16);
 						
+						TreeRegister treeRegister = ((TreeRegister) element);
+						if(treeRegister.getValue()!=-1 && treeRegister.getValue()!=lvalue)
+						{
+							// Update Value on device
+							treeRegister.setAndWriteValue(lvalue);
+							viewer.refresh();
+						}
+					}
 					
-						// Update Value on device
-						treeRegister.setAndWriteValue(lvalue);
-					
-						updateTreeFields(invisibleRoot); // Update all enabled Fields, not just the changed
-						viewer.refresh();
-					}	
-				}
-				
-				if (element instanceof TreeField && ((String)value).startsWith("0x"))
-				{
-					String svalue=((String)value);
-					long fvalue=Long.valueOf(svalue.substring(2, svalue.length()), 16);
-					
-					TreeField treeField = ((TreeField) element);
-					if(treeField.getValue()!=-1 && treeField.getValue()!=fvalue)
+					if (element instanceof TreeField && ((String)value).startsWith("0x"))
 					{
-						TreeRegister treeRegister = ((TreeRegister)treeField.getParent());
-											
-						// calculate register value + modified field to write into register
-						long rvalue=treeRegister.getValue();
-						int bitLength = treeField.getBitLength();
-						int bitOffset = treeField.getBitOffset();
-						long mask;
+						String svalue=((String)value);
+						long fvalue=Long.valueOf(svalue.substring(2, svalue.length()), 16);
 						
-						mask = (0xFFFFFFFFL >> (32 - bitLength)) << bitOffset;
-						rvalue = rvalue & (~mask) ; // clear field bits in register value
-						fvalue = fvalue << bitOffset; // shift field value into its position in the register
-						fvalue = fvalue & mask ; // just to be sure, cut everything but the field
-						rvalue = rvalue | fvalue ; // blend the field value into the register value
-						
-						// Update Value in Target
-						treeRegister.setAndWriteValue(rvalue);
-						treeRegister.readValue();
-						viewer.refresh(treeRegister);
-					}	
+						TreeField treeField = ((TreeField) element);
+						if(treeField.getValue()!=-1 && treeField.getValue()!=fvalue)
+						{
+							TreeRegister treeRegister = ((TreeRegister)treeField.getParent());
+												
+							// calculate register value + modified field to write into register
+							long rvalue=treeRegister.getValue();
+							int bitLength = treeField.getBitLength();
+							int bitOffset = treeField.getBitOffset();
+							long mask;
+							
+							mask = (0xFFFFFFFFL >> (32 - bitLength)) << bitOffset;
+							rvalue = rvalue & (~mask) ; // clear field bits in register value
+							fvalue = fvalue << bitOffset; // shift field value into its position in the register
+							fvalue = fvalue & mask ; // just to be sure, cut everything but the field
+							rvalue = rvalue | fvalue ; // blend the field value into the register value
+							
+							// Update Value in Target
+							treeRegister.setAndWriteValue(rvalue);
+							viewer.refresh(treeRegister);
+						}	
+					}
 				}
-				
 				viewer.refresh(element);
 			}
 		}); 
@@ -799,7 +836,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 						if (((TreeRegister) element).isWriteOnly())
 							return "------------- write only -------------";
 						else
-							return longtobinarystring(((TreeRegister) element)
+							return Utils.longtobinarystring(((TreeRegister) element)
 								.getValue(), ((TreeRegister) element).getBitSize());
 				if (element instanceof TreeField)
 					if (((TreeRegister) ((TreeField) element).getParent())
@@ -809,7 +846,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 						if (((TreeRegister) ((TreeField)element).getParent()).isWriteOnly())
 							return "------------- write only -------------";
 						else
-							return longtobinarystring(((TreeField) element)
+							return Utils.longtobinarystring(((TreeField) element)
 								.getValue(), ((TreeField) element)
 								.getBitLength());
 				else
@@ -861,7 +898,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 				if (element instanceof TreeRegisterGroup)
 					return "";
 				if (element instanceof TreeRegister)
-					return longtoHexString(((TreeRegister) element).getResetValue()
+					return Utils.longtoHexString(((TreeRegister) element).getResetValue()
 								, ((TreeRegister) element).getBitSize());
 				if (element instanceof TreeField)
 					return "";
@@ -906,7 +943,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 				if (element instanceof TreeRegisterGroup)
 					return "";
 				if (element instanceof TreeRegister)
-					return longtoHexString(((TreeRegister) element).getRegisterAddress()
+					return Utils.longtoHexString(((TreeRegister) element).getRegisterAddress()
 								, 32); //TODO: get address width from xml ...
 				if (element instanceof TreeField)
 					return "";

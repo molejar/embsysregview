@@ -1,0 +1,46 @@
+// This file is part of EmbSysRegView.
+//
+// EmbSysRegView is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// EmbSysRegView is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with EmbSysRegView.  If not, see <http://www.gnu.org/licenses/>.
+
+package org.eclipse.cdt.embsysregview.views;
+
+public class Interpretation implements Comparable<Interpretation> {
+	long value;
+	public long getValue() {
+		return value;
+	}
+
+	public String getInterpretation() {
+		return interpretation;
+	}
+
+	String interpretation;
+	
+	public Interpretation(long value, String interpretation) {
+		this.interpretation=interpretation;
+		this.value=value;
+	}
+
+	@Override
+	public int compareTo(Interpretation interpretation) {
+		if(this.value ==  interpretation.getValue())
+			return 0;
+		if(this.value >  interpretation.getValue())
+			return -1;
+		if(this.value <  interpretation.getValue())
+			return 1;
+		
+		return 0;
+	}
+}

@@ -172,7 +172,6 @@ public class BinaryButtonsCellEditor extends CellEditor {
 					if (element instanceof TreeField)
 					{
 						((TreeField) element).setValue(value);
-						((TreeRegister) element.getParent()).readValue();
 					}
 					updateViewer();
 				}

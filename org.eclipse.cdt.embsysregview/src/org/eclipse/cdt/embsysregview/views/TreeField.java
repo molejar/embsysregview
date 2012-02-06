@@ -15,14 +15,12 @@
 
 package org.eclipse.cdt.embsysregview.views;
 
-import java.util.HashMap;
-
 public class TreeField extends TreeElement {
 	private byte bitOffset;
 	private byte bitLength;
-	private HashMap <String,String> interpretations;
+	private Interpretations interpretations;
 	
-	public TreeField(String name, String description, byte bitOffset, byte bitLength, HashMap<String, String> interpretations) {
+	public TreeField(String name, String description, byte bitOffset, byte bitLength, Interpretations interpretations) {
 		super(name, description);
 		this.bitOffset=bitOffset;
 		this.bitLength=bitLength;
@@ -42,7 +40,7 @@ public class TreeField extends TreeElement {
 		return bitLength;
 	}
 
-	public HashMap<String, String> getInterpretations() {
+	public Interpretations getInterpretations() {
 		return interpretations;
 	}
 	
@@ -72,13 +70,9 @@ public class TreeField extends TreeElement {
 		((TreeRegister)this.getParent()).setAndWriteValue(regValue);
 	}
 	
-	public String getInterpretation() {
-		long registerValue=getValue();
-		
-		String key = String.valueOf(registerValue);
-			
-		if(interpretations.containsKey(key)) {
-			return interpretations.get(key);
+	public String getInterpretation() {		
+		if(interpretations.containsKey(getValue())) {
+			return interpretations.getInterpretation(getValue());
 		} else
 			return "";
 	}
