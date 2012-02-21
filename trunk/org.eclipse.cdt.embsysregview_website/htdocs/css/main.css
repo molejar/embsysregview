@@ -1,0 +1,204 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #000000;
+	font-family: Verdana, Arial, Helvetica, Sans-Serif;
+	color: #99F;
+	font-size: 12px;
+	overflow: scroll;
+}
+
+a {
+	text-decoration: none;	
+	font-weight: bold;
+	color: #F60;
+}
+
+a:hover {	color: #CC0; }
+a:focus { color: #CC0; }
+a:active { color: #CC0; } /*fÃ¼r gerade angeklickte Verweise -> geht nicht*/
+
+img {
+	padding-top: 10px;
+	display:block;
+	margin-right: auto;	
+	margin-left: auto;
+	border: none;	
+}
+
+p {
+	margin-top: 10px;
+	margin-bottom: 10px;	
+}
+
+ul {
+	margin-top: 10px;
+	margin-bottom: 0px;	
+}
+
+table, td, th {
+	border-spacing:2px;
+	border: 1px solid #333;
+	
+}
+
+td {
+	padding: 2px 5px;	
+}
+
+.wrapper_header {
+	position: relative;
+/*	width: 960px;*/
+/*	min-height: 600px;*/
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #666;
+}
+
+.wrapper_body {
+	position: relative;
+	width: 960px;
+	/*min-height: 600px;*/
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #000000;
+}
+
+.wrapper_footer {
+	border-top: 1px solid #002BB8; 
+  	border-bottom: 1px solid #002BB8;
+	padding-bottom:4px;
+	padding-top: 4px;
+	background-color:#000000;
+	text-align:center;
+	padding-left: 860px;
+}
+
+
+.top {
+	background-image: url(../img/line.png);
+	height:141px;
+	margin: 0px 0 0px 0;
+	padding: 0;
+	background-color: #000000;
+	background-position:center;
+}
+
+.logo {
+	float: inherit;
+	padding: 0px 0px 0px 0px;
+	width:960px;
+	height:141px;
+}
+
+.middle {
+	font-size:80px;
+	padding: 10px 0 0 40px; /*vertical-align: middle; hat nicht funktioniert -> div statt span weil padding */
+}
+
+
+.navi{
+	border-top: 1px solid #002BB8; 
+  	border-bottom: 1px solid #002BB8;
+	padding-bottom:4px;
+	padding-top: 4px;
+	background-color:#000000;
+	text-align:center;
+	
+}
+.navi ul{
+	margin: 0;
+	padding-right: 30px;
+	list-style-type: none;
+}
+
+.navi ul li {	
+	display: inline;
+	padding: 0px 17px;
+}
+
+.sidebar{
+	float: left;
+	/*min-height: 450px;*/
+	margin: 0; 
+	padding: 0 10px;
+	width: 130px;
+	background-color: #000000;	
+	border-left: 1px solid #002BB8; 
+  	border-right: 1px solid #002BB8;
+  	border-bottom: 1px solid #002BB8;
+}
+
+.sidebar ul{
+	display: block;
+	padding:0;
+	padding-top: 20px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+.sidebar ul li{
+	display: block;
+	margin: 0 0 20px 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#subvz {
+	display:block;
+	margin:0px;
+	padding:0px;
+}
+
+#subvz li {
+	display:block;
+	margin:12px;
+	padding:2px;
+}
+
+#subvz li a{
+	color:#FFF;
+}
+
+#subvz a:hover {	color: #CC0; }
+#subvz a:focus { color: #CC0; }
+
+#org {
+	margin: 0;	
+}
+.content {
+	min-height: 440px;
+	margin-left: 155px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	background-color:#000000;
+	border-left: 1px solid #002BB8; 
+  	border-right: 1px solid #002BB8;
+}
+
+.content h1{
+	padding: 20px 0 0px 0;
+	margin:0;
+}
+
+.content div {
+	margin-top: 10px;
+	margin-bottom: 10px;	
+}
+
+.content table {
+	margin-top: 10px;
+	margin-bottom: 10px;	
+}
+
+.footer {
+/*	background-color: #103A79; 
+	padding-right: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	text-align:right;*/
+}
+

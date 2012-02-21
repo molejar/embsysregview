@@ -1,0 +1,5 @@
+# executed in the data dir it generates the chip pages for the website
+nr=1;for i in $(find . -name "*.xml"|cut -d'/' -f 2-3|uniq);do echo "<h1>"$(echo $i|sed -e"s/\// /g")"</h1><ul>">chip${nr}.html;find $i -name "*.xml" -exec grep -H chipname {} \;|cut -d'"' -f 2 |sed -e"s/^/  <li>/g;s/$/<\/li>/g;s/INC\///g">>chip${nr}.html;echo "</ul>">>chip${nr}.html;let nr=nr+1; done;
+
+# executed in the data dir it generates the chip menu page for the website
+nr=1; echo "<ul>">chip_menu.html;for i in $(find . -name "*.xml"|cut -d'/' -f 2-3|uniq);do echo "<li><a href=\"javascript:void();\" title=\"$(echo $i|sed -e"s/\// /g")\" onclick=\"dynloadcontent('chip','$nr')\">"$(echo $i|sed -e"s/\// /g")"</a></li>";let nr=nr+1;done>>chip_menu.html; echo "</ul>" >>chip_menu.html
