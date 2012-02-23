@@ -6,7 +6,7 @@ body {
 	padding: 0;
 	background-color: #000000;
 	font-family: Verdana, Arial, Helvetica, Sans-Serif;
-	color: #99F;
+	color: #77F;
 	font-size: 12px;
 	overflow: scroll;
 }
@@ -17,9 +17,9 @@ a {
 	color: #F60;
 }
 
-a:hover {	color: #CC0; }
-a:focus { color: #CC0; }
-a:active { color: #CC0; } /*fÃ¼r gerade angeklickte Verweise -> geht nicht*/
+a:hover {	color: #FF4; } /* #CC0 */
+a:focus { color: #FF4; }
+a:active { color: #FF4; } /*fÃ¼r gerade angeklickte Verweise -> geht nicht*/
 
 img {
 	padding-top: 10px;
@@ -63,16 +63,6 @@ td {
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #000000;
-}
-
-.wrapper_footer {
-	border-top: 1px solid #002BB8; 
-  	border-bottom: 1px solid #002BB8;
-	padding-bottom:4px;
-	padding-top: 4px;
-	background-color:#000000;
-	text-align:center;
-	padding-left: 860px;
 }
 
 
@@ -192,13 +182,28 @@ td {
 	margin-bottom: 10px;	
 }
 
+
+.wrapper_footer {
+	border-top: 1px solid #002BB8; 
+  	border-bottom: 1px solid #002BB8;
+	padding-bottom:0px;
+	padding-top: 0px;
+	background-color:#000000;
+	text-align:center;
+	padding-left: 860px;
+	margin:0;
+}
+
 .footer {
-	
+	max-height: 10px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin:0;
 /*	background-color: #103A79; 
 	padding-right: 10px;
 	padding-top: 4px;
 	padding-bottom: 4px;
-	text-align:right;*/
+	text-align:right; */
 }
 
 .sflogo {
