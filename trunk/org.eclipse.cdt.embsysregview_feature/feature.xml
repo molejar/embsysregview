@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.eclipse.cdt.embsysregview_feature"
-      label="embsysregview_feature"
-      version="0.1.9">
+      label="Embedded Systems Register View (SFR)"
+      version="0.1.9.90">
 
    <description url="http://sourceforge.net/projects/embsysregview/">
       This Plugin provides a Embedded Systems Peripherals Register
