@@ -1,0 +1,29 @@
+enhancements:
+=============
+*) add SVD Support || change everything to SVD || write SVD converter
+
+*) Merge shipped xml with xml in home dir
+   - to extend existing xml
+   - to correct xml
+   - even to write xml that way
+   
+   1) only shipped xml -> simple load
+   2) only home xml -> simple load
+   3) shipped and home xml -> load shipped & insert home tags into dom
+   
+   xml chooser has to search shipped & home dir
+   
+*) add optional tag for xml open nameddest
+   - doc.pdf#nameddest=Chapter6
+   - where to find pdf (its too big for download on klick)
+   
+*) editing support
+   - new dialog ...
+   - right klick popupmenu->add group/registergroup/register/field
+     /* MenuManager menuManager = new MenuManager();
+        menuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+        viewer.getTree().setMenu(menuManager.createContextMenu(viewer.getTree()));
+        getSite().registerContextMenu(menuManager, viewer);*/
+      - adds to bottom of list
+      - (rearange via drag & drop -> complex & requires separate edit mode)
+   - possibility to send in created files (direct/link/mail)
