@@ -1,5 +1,7 @@
 enhancements:
 =============
+*) DSF-GDB interface -> implement GDBInterfaceDSF 
+
 *) add SVD Support || change everything to SVD || write SVD converter
 
 *) Merge shipped xml with xml in home dir
