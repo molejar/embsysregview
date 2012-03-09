@@ -15,16 +15,12 @@
 
 package org.eclipse.cdt.embsysregview.views;
 
-import java.io.IOException;
+
+
 import java.net.URL;
 import java.text.ParseException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 import net.miginfocom.swt.MigLayout;
-
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
@@ -54,13 +50,10 @@ import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.ui.*;
 import org.eclipse.swt.SWT;
 import org.eclipse.cdt.embsysregview.Activator;
+import org.eclipse.cdt.embsysregview.parser.RegisterXMLParser;
 import org.eclipse.cdt.embsysregview.preferences.PreferencePageEmbSys;
 import org.eclipse.core.runtime.Platform;
-import org.jdom.Attribute;
-import org.jdom.Document;
-import org.jdom.Element;
 import org.jdom.JDOMException;
-import org.jdom.input.SAXBuilder;
 import org.osgi.framework.Bundle;
 import org.eclipse.cdt.embsysregview.views.Utils;
 
@@ -135,265 +128,13 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 			return false;
 		}
 
-		@SuppressWarnings("unchecked")
-		private TreeParent LoadXML() throws JDOMException, IOException,
-				ParseException {
-			TreeParent tempRoot = new TreeParent("", "");
-				
-			Bundle bundle = Platform.getBundle("org.eclipse.cdt.embsysregview");
-			IPreferenceStore store = Activator.getDefault().getPreferenceStore();
-			String store_architecture = store.getString("architecture");
-			String store_vendor = store.getString("vendor");
-			String store_chip = store.getString("chip");
-			String store_board = store.getString("board");
-			URL fileURL = bundle.getEntry("data/"	+ store_architecture+"/"+store_vendor+"/"+store_chip+".xml");
-			if (fileURL == null)
-				return tempRoot;
-			
-			SAXBuilder builder = new SAXBuilder();
-			builder.setValidation(true);
-			
-			Document doc = builder.build(fileURL);
-			Element model = doc.getRootElement();
-
-			List<Element> grouplist = model.getChildren("group");
-
-			for (Element group : grouplist) {
-				
-					// Mandatory attribute name
-					Attribute attr_gname = group.getAttribute("name");
-					String gname;
-					if (attr_gname != null)
-						gname = attr_gname.getValue();
-					else
-						throw new ParseException("group requires name", 1);
-
-					// Optional attribute description
-					Attribute attr_gdescription = group
-							.getAttribute("description");
-					String gdescription;
-					if (attr_gname != null)
-						gdescription = attr_gdescription.getValue();
-					else
-						gdescription = "";
-
-					TreeGroup obj_group = new TreeGroup(gname, gdescription);
-					tempRoot.addChild(obj_group);
-
-					List<Element> registergrouplist = group.getChildren();
-					for (Element registergroup : registergrouplist) {
-						// Mandatory attribute name
-						Attribute attr_rgname = registergroup
-								.getAttribute("name");
-						String rgname;
-						if (attr_rgname != null)
-							rgname = attr_rgname.getValue();
-						else
-							throw new ParseException(
-									"registergroup requires name", 1);
-
-						// Optional attribute description
-						Attribute attr_rgdescription = registergroup
-								.getAttribute("description");
-						String rgdescription;
-						if (attr_rgdescription != null)
-							rgdescription = attr_rgdescription.getValue();
-						else
-							rgdescription = "";
-
-						TreeRegisterGroup obj_registergroup = new TreeRegisterGroup(
-								rgname, rgdescription);
-						obj_group.addChild(obj_registergroup);
-
-						List<Element> registerlist = registergroup
-								.getChildren();
-						for (Element register : registerlist) {
-							// Mandatory attribute name
-							Attribute attr_rname = register
-									.getAttribute("name");
-							String rname;
-							if (attr_rgname != null)
-								rname = attr_rname.getValue();
-							else
-								throw new ParseException(
-										"register requires name", 1);
-
-							// Optional attribute description
-							Attribute attr_rdescription = register
-									.getAttribute("description");
-							String rdescription;
-							if (attr_rdescription != null)
-								rdescription = attr_rdescription.getValue();
-							else
-								rdescription = "";
-
-							// Mandatory attribute address
-							Attribute attr_roffsetaddress = register
-									.getAttribute("address");
-							long raddress;
-							if (attr_roffsetaddress != null)
-								raddress = Long.parseLong(attr_roffsetaddress
-										.getValue().substring(2), 16);
-							else
-								throw new ParseException(
-										"register requires address", 1);
-
-							// Optional attribute resetvalue
-							Attribute attr_rresetvalue = register
-									.getAttribute("resetvalue");
-							long rresetvalue;
-							if (attr_rresetvalue != null && attr_rresetvalue
-									.getValue() != "")
-								rresetvalue = Long.parseLong(attr_rresetvalue
-										.getValue().substring(2), 16);
-							else
-								rresetvalue = 0x00000000;
-
-							// Optional attribute access
-							Attribute attr_raccess = register
-									.getAttribute("access");
-							String raccess;
-							if (attr_raccess != null)
-								raccess = attr_raccess.getValue();
-							else
-								raccess = "RO";
-							
-							// Optional attribute size (in byte)
-							Attribute attr_rsize = register
-									.getAttribute("size");
-							int rsize;
-							if (attr_rsize != null)
-								rsize = Integer.parseInt(attr_rsize.getValue());
-							else
-								rsize = 4;
-
-							TreeRegister obj_register = new TreeRegister(rname,
-									rdescription, raddress, rresetvalue, raccess, rsize);
-							obj_registergroup.addChild(obj_register);
-							
-							Element register_description = register.getChild("description");
-							if(register_description!=null)
-							{
-								rdescription = register_description.getText();
-								obj_register.setDescription(rdescription);
-							}
-							
-							List<Element> fieldlist = register.getChildren("field");
-							for (Element field : fieldlist) {
-								// Optional attribute board_id
-								Attribute attr_fboard_id = field
-										.getAttribute("board_id");
-								String fboard_id;
-								if (attr_fboard_id != null)
-									fboard_id = attr_fboard_id.getValue();
-								else
-									fboard_id = "";
-
-								// only digg deeper if field is going to be
-								// added
-								
-								if (fboard_id.equals("")
-										|| fboard_id.equals(store_board)) {
-									// Mandatory attribute name
-									Attribute attr_fname = field
-											.getAttribute("name");
-									String fname;
-									if (attr_fname != null)
-										fname = attr_fname.getValue();
-									else
-										throw new ParseException(
-												"field requires name", 1);
-
-									// Optional attribute description
-									Attribute attr_fdescription = field
-											.getAttribute("description");
-									String fdescription;
-									if (attr_fdescription != null)
-										fdescription = attr_fdescription
-												.getValue();
-									else
-										fdescription = "";
-
-									// Mandatory attribute bitoffset
-									Attribute attr_fbitoffset = field
-											.getAttribute("bitoffset");
-									byte fbitoffset;
-									if (attr_fbitoffset != null)
-										fbitoffset = Byte
-												.parseByte(attr_fbitoffset
-														.getValue());
-									else
-										throw new ParseException(
-												"field requires bitoffset", 1);
-
-									// Mandatory attribute bitlength
-									Attribute attr_fbitlength = field
-											.getAttribute("bitlength");
-									byte fbitlength;
-									if (attr_fbitlength != null)
-										fbitlength = Byte
-												.parseByte(attr_fbitlength
-														.getValue());
-									else
-										throw new ParseException(
-												"field requires bitlength", 1);
-
-									Element field_description = field.getChild("description");
-									if(field_description!=null)
-										fdescription = field_description.getText();
-									
-									Interpretations interpretations = new Interpretations();
-									List<Element> interpretationlist = field
-											.getChildren("interpretation");
-									for (Element interpretation : interpretationlist) {
-										// Mandatory attribute key
-										Attribute attr_key = interpretation
-												.getAttribute("key");
-										long key;
-										if (attr_key != null)
-											key = attr_key.getLongValue();
-										else
-											throw new ParseException(
-													"interpretation requires key",
-													1);
-
-										// Mandatory attribute text
-										Attribute attr_text = interpretation
-												.getAttribute("text");
-										String text;
-										if (attr_text != null)
-											text = attr_text.getValue();
-										else
-											throw new ParseException(
-													"interpretation requires text",
-													1);
-
-										interpretations.addInterpretation(key, text);
-									}
-
-									TreeField obj_field = new TreeField(fname,
-											fdescription, fbitoffset,
-											fbitlength, interpretations);
-									interpretations.setTreeField(obj_field);
-									obj_register.addChild(obj_field);
-								}
-							}
-						}
-					}
-				}
-			
-
-			return tempRoot;
-		}
-
 		private void initialize() {
 			// initialize invisibleRoot with an empty TreeParent to show an empty Tree if LoadXML fails
 			invisibleRoot = new TreeParent("", "");
 			try {
-				invisibleRoot = LoadXML();
+				invisibleRoot = new RegisterXMLParser().LoadXML();
 				
 			} catch (JDOMException e) { 
-			} catch (IOException e) {
 			} catch (ParseException e) {
 			}
 		}
@@ -404,12 +145,11 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 	 */
 	public EmbSysRegView() {
 		GDBi = new GDBInterfaceStandard();
+		//GDBi = new GDBInterfaceDSF();
 		GDBi.addSuspendListener(this);
 		GDBi.addterminateListener(this);
 	}
 
-	
-	
 	private void updateInfoLabel()
 	{
 		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
@@ -662,11 +402,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 			}
 			
 			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {
-				// TODO Auto-generated method stub
-				int a=0;
-				a++;				
-			}
+			public void widgetDefaultSelected(SelectionEvent e) {}
 		});
 		comboBoxCellEditor.addListener(new ICellEditorListener(){
 
@@ -703,10 +439,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 
 			@Override
 			public void editorValueChanged(boolean oldValidState,
-					boolean newValidState) {
-				int a;
-				a=1;
-			}
+					boolean newValidState) {}
 		});
 		
 		column.setEditingSupport(new EditingSupport(viewer) {
