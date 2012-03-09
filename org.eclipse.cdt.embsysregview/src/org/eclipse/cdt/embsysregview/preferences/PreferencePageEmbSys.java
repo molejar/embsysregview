@@ -222,35 +222,42 @@ public class PreferencePageEmbSys extends PreferencePage implements
 		board.add("---  none ---");
 		// Check if boards are listed ...
 		SAXBuilder builder = new SAXBuilder();
-		builder.setValidation(true);
+		builder.setValidation(false);
 		Bundle bundle = Platform.getBundle("org.eclipse.cdt.embsysregview");
 		URL fileURL = bundle.getEntry("data/"	+ selectedArchitecture +"/"+ selectedVendor+"/"+selectedChip+".xml");
 		Document doc;
 		boolean containsBoards=false;
 		try {
 			doc = builder.build(fileURL);
-			Element model = doc.getRootElement();
-			List<Element> grouplist = model.getChildren("boards");
-			for(Element group:grouplist)
+			Element root = doc.getRootElement();
+			if(root.getName() != "device")
 			{
-				List<Element> boardlist = group.getChildren();
-				for(Element boardElement:boardlist)
+				List<Element> grouplist = root.getChildren("boards");
+				for(Element group:grouplist)
 				{
-					containsBoards=true;
-					Attribute attr_bname = boardElement.getAttribute("id");
-					String bname;
-					if( attr_bname != null )
-						bname = attr_bname.getValue();
-					else
-						bname = "-1";
-					board.add(bname);	
-					
+					List<Element> boardlist = group.getChildren();
+					for(Element boardElement:boardlist)
+					{
+						containsBoards=true;
+						Attribute attr_bname = boardElement.getAttribute("id");
+						String bname;
+						if( attr_bname != null )
+							bname = attr_bname.getValue();
+						else
+							bname = "-1";
+						board.add(bname);	
+						
+					}
 				}
+				
+				Element chip_description = root.getChild("chip_description");
+				if (chip_description!=null)
+					descriptionText.setText(chip_description.getText());
+			} else {
+				Element chip_description = root.getChild("description");
+				if (chip_description!=null)
+					descriptionText.setText(chip_description.getText());
 			}
-			
-			Element chip_description = model.getChild("chip_description");
-			if (chip_description!=null)
-				descriptionText.setText(chip_description.getText());
 		} catch (JDOMException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
