@@ -484,9 +484,15 @@ public class RegisterXMLParser {
 							for (Element interpretation : interpretationlist) {
 								// Mandatory attribute key
 								Attribute attr_key = interpretation.getAttribute("key");
+								String skey;
 								long key;
-								if (attr_key != null)
-									key = attr_key.getLongValue();
+								if (attr_key != null){
+									skey = attr_key.getValue();
+									if(skey.startsWith("0x"))
+										key = Long.parseLong(skey.substring(2),16);
+									else
+										key = Long.parseLong(skey);
+								}
 								else
 									throw new ParseException("interpretation requires key", 1);
 
