@@ -1,13 +1,29 @@
++ ... Done   - ... dismissed   * ... TODO
+
+bugfixing:
+==========
+*) get MISession on view open if debug is already active
+   *  currently miSession is only updated when debug event received (next debug step after view open)
+
+*) ERROR: org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Target is not suspended[]
+
+
 enhancements:
 =============
+*) Binary column input "Set" button Preference Setting
+   * with or without set button ...without ... bitbuttons have direct effect
+
 *) DSF-GDB interface -> implement GDBInterfaceDSF 
 
-*) add SVD Support || change everything to SVD || write SVD converter
++) SVD Support 
+   + add SVD Support
+   - change everything to SVD
+   - write SVD converter
 
 *) Merge shipped xml with xml in home dir
-   - to extend existing xml
-   - to correct xml
-   - even to write xml that way
+   * to extend existing xml
+   * to correct xml
+   * even to write xml that way
    
    1) only shipped xml -> simple load
    2) only home xml -> simple load
@@ -16,16 +32,16 @@ enhancements:
    xml chooser has to search shipped & home dir
    
 *) add optional tag for xml open nameddest
-   - doc.pdf#nameddest=Chapter6
-   - where to find pdf (its too big for download on klick)
+   * doc.pdf#nameddest=Chapter6
+   * where to find pdf (its too big for download on klick)
    
 *) editing support
-   - new dialog ...
-   - right klick popupmenu->add group/registergroup/register/field
+   * new dialog ...
+   * right klick popupmenu->add group/registergroup/register/field
      /* MenuManager menuManager = new MenuManager();
         menuManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
         viewer.getTree().setMenu(menuManager.createContextMenu(viewer.getTree()));
         getSite().registerContextMenu(menuManager, viewer);*/
-      - adds to bottom of list
-      - (rearange via drag & drop -> complex & requires separate edit mode)
-   - possibility to send in created files (direct/link/mail)
+      * adds to bottom of list
+      * (rearange via drag & drop -> complex & requires separate edit mode)
+   * possibility to send in created files (direct/link/mail)
