@@ -15,6 +15,8 @@
 
 package org.eclipse.cdt.embsysregview.views;
 
+import org.eclipse.cdt.embsysregview.Activator;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
@@ -34,6 +36,8 @@ public class BinaryButtonsCellEditor extends CellEditor {
 	Composite composite;
 	TreeElement element;
 	TreeViewer viewer = null;
+	boolean store_bitbuttons;
+	private Button[] b;
 
 	public BinaryButtonsCellEditor(Composite parent) {
 		super(parent);
@@ -44,10 +48,13 @@ public class BinaryButtonsCellEditor extends CellEditor {
 		this.viewer=viewer;
 	}
 	
-	private void updateViewer() {
+	private void updateViewer(final Object Element) {
 		Display.getDefault().asyncExec(new Runnable() {
 			public void run() {
-				viewer.refresh();
+				if(Element==null)
+					viewer.refresh();
+				else
+					viewer.refresh(Element);
 			}
 		});
 	}
@@ -86,12 +93,33 @@ public class BinaryButtonsCellEditor extends CellEditor {
 			composite.setFocus();
 		}
 	}
+	
+	protected void updateBinaryValue(Object Element, boolean updateView)
+	{
+		long value = 0;
+		
+		for (int i = b.length-1; i >= 0; i--)
+			value = (value << 1) + Integer.valueOf(b[i].getText());
+
+		if (Element instanceof TreeRegister)
+			((TreeRegister) Element).setAndWriteValue(value);
+		if (Element instanceof TreeField)
+		{
+			((TreeField) Element).setValue(value);
+		}
+		
+		if(updateView==true)
+			updateViewer(Element);
+	}
 
 	@Override
 	protected void doSetValue(Object value) {
 		int bitsize = 0;
 		long regvalue = -1;
 		element = (TreeElement)value;
+		
+		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
+		store_bitbuttons = store.getBoolean("bitbuttons");
 
 		if (element instanceof TreeRegister) {
 			bitsize = ((TreeRegister) element).getBitSize();
@@ -106,7 +134,7 @@ public class BinaryButtonsCellEditor extends CellEditor {
 		Font f;
 		if (regvalue != -1)
 		{
-			final Button[] b = new Button[bitsize];
+			b = new Button[bitsize];
 
 			for (int i = bitsize-1; i >=0 ; i--) {
 				b[i] = new Button(composite, SWT.FLAT);
@@ -131,6 +159,8 @@ public class BinaryButtonsCellEditor extends CellEditor {
 							but.setText("0");
 						else
 							but.setText("1");
+						if (store_bitbuttons==true)
+							updateBinaryValue(element,false);
 					}
 
 					@Override
@@ -149,36 +179,31 @@ public class BinaryButtonsCellEditor extends CellEditor {
 											((TreeField) element).getValue())));
 			}
 
-			Button setButton = new Button(composite, SWT.NONE);
-			setButton.setText("Set");
-			RowData data = new RowData();
-		    data.width = 26;
-		    data.height = 19;
-		    setButton.setLayoutData(data);
-			setButton.addMouseListener(new MouseListener() {
-
-				@Override
-				public void mouseUp(MouseEvent e) {}
-
-				@Override
-				public void mouseDown(MouseEvent e) {
-					long value = 0;
-
-					for (int i = b.length-1; i >= 0; i--)
-						value = (value << 1) + Integer.valueOf(b[i].getText());
-
-					if (element instanceof TreeRegister)
-						((TreeRegister) element).setAndWriteValue(value);
-					if (element instanceof TreeField)
-					{
-						((TreeField) element).setValue(value);
+			
+			
+			// show set button only if immediate effect is disabled
+			if(store_bitbuttons==false)
+			{
+				Button setButton = new Button(composite, SWT.NONE);
+				setButton.setText("Set");
+				RowData data = new RowData();
+			    data.width = 26;
+			    data.height = 19;
+			    setButton.setLayoutData(data);
+				setButton.addMouseListener(new MouseListener() {
+	
+					@Override
+					public void mouseUp(MouseEvent e) {}
+	
+					@Override
+					public void mouseDown(MouseEvent e) {
+						updateBinaryValue(element, true);
 					}
-					updateViewer();
-				}
-
-				@Override
-				public void mouseDoubleClick(MouseEvent e) {}
-			});
+	
+					@Override
+					public void mouseDoubleClick(MouseEvent e) {}
+				});
+			}
 		}
 	}
 }

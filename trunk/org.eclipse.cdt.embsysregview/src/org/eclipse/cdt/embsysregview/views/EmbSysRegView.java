@@ -28,6 +28,8 @@ import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.part.*;
 import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.preference.IPreferenceNode;
 import org.eclipse.jface.preference.IPreferencePage;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -52,6 +54,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.cdt.embsysregview.Activator;
 import org.eclipse.cdt.embsysregview.parser.RegisterXMLParser;
 import org.eclipse.cdt.embsysregview.preferences.PreferencePageEmbSys;
+import org.eclipse.cdt.embsysregview.preferences.PreferencePageEmbSysBehavior;
 import org.eclipse.core.runtime.Platform;
 import org.jdom.JDOMException;
 import org.osgi.framework.Bundle;
@@ -86,10 +89,14 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 
 				@Override
 				public void propertyChange(PropertyChangeEvent event) {
-					initialize();
-					viewer.setInput(invisibleRoot);
-					viewer.refresh();
-					updateInfoLabel();
+					// only rebuild tree on chip/board change
+					if(event.getProperty().equals("architecture") || event.getProperty().equals("vendor") || event.getProperty().equals("chip") || event.getProperty().equals("board"))
+					{
+						initialize();
+						viewer.setInput(invisibleRoot);
+						viewer.refresh();
+						updateInfoLabel();
+					}
 				}});
 		}
 		
@@ -231,8 +238,11 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 			public void mouseDown(MouseEvent e) {
 				IPreferencePage page = new PreferencePageEmbSys();
 				page.setTitle("EmbSysRegView");
+				IPreferencePage page2 = new PreferencePageEmbSysBehavior();
+				page2.setTitle("Behavior");
 				PreferenceManager mgr = new PreferenceManager();
 				IPreferenceNode node = new PreferenceNode("1", page);
+				node.add(new PreferenceNode("2",page2));
 				mgr.addToRoot(node);
 				PreferenceDialog dialog = new PreferenceDialog(PlatformUI.getWorkbench().
 		                getActiveWorkbenchWindow().getShell(), mgr);
@@ -251,7 +261,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 		viewer.getControl().setLayoutData("height 100%,width 100%,hmin 0,wmin 0");
 		viewer.getTree().setLinesVisible(true);
 		viewer.getTree().setHeaderVisible(true);
-
+		
 		
 		// Registername
 		column = new TreeViewerColumn(viewer, SWT.NONE);
@@ -370,6 +380,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 		
 		
 		comboBoxCellEditor.setValidator(new HexCellEditorValidator(viewer));
+		
 		((CCombo)comboBoxCellEditor.getControl()).addSelectionListener(new SelectionListener() {
 			
 			@Override
@@ -462,6 +473,10 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 				if (element instanceof TreeField && ((TreeField)element).hasInterpretation())
 				{
 					comboBoxCellEditor.setItems(((TreeField)element).getInterpretations().getInterpretations());
+					IPreferenceStore store = Activator.getDefault().getPreferenceStore();
+					int store_combolength = store.getInt("combolength");
+					if(store_combolength>0)
+						((CCombo)comboBoxCellEditor.getControl()).setVisibleItemCount(store_combolength);
 					currentEditedElement = (TreeElement)element;
 					return comboBoxCellEditor;
 				}

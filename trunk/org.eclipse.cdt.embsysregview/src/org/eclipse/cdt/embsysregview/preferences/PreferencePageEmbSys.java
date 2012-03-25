@@ -86,30 +86,37 @@ public class PreferencePageEmbSys extends PreferencePage implements
 
 	@Override
 	public boolean performOk() {
-		if(chip.getSelectionIndex()==-1)
-			return false;  
-		IPreferenceStore store = getPreferenceStore();
-		
-		if(architecture.getSelectionIndex()!=-1)
-			store.setValue("architecture", architecture.getItem(architecture.getSelectionIndex()));
-		else
-			store.setValue("architecture","");
-		
-		if(vendor.getSelectionIndex()!=-1)
-			store.setValue("vendor", vendor.getItem(vendor.getSelectionIndex()));
-		else
-			store.setValue("vendor","");
-		
-		if(chip.getSelectionIndex()!=-1)
-			store.setValue("chip", chip.getItem(chip.getSelectionIndex()));
-		else
-			store.setValue("chip","");
-		
-		if(board.getSelectionIndex()!=-1)
-			store.setValue("board", board.getItem(board.getSelectionIndex()));
-		else
-			store.setValue("board","");
-		return super.performOk();
+		if(chip!=null && architecture!=null && vendor!=null && chip!=null && board!=null)
+		{
+			if(chip.getSelectionIndex()==-1)
+				return false;  
+			IPreferenceStore store = getPreferenceStore();
+			
+			if(architecture.getSelectionIndex()!=-1)
+				store.setValue("architecture", architecture.getItem(architecture.getSelectionIndex()));
+			else
+				store.setValue("architecture","");
+			
+			if(vendor.getSelectionIndex()!=-1)
+				store.setValue("vendor", vendor.getItem(vendor.getSelectionIndex()));
+			else
+				store.setValue("vendor","");
+			
+			if(chip.getSelectionIndex()!=-1)
+				store.setValue("chip", chip.getItem(chip.getSelectionIndex()));
+			else
+				store.setValue("chip","");
+			
+			if(board.getSelectionIndex()!=-1)
+				store.setValue("board", board.getItem(board.getSelectionIndex()));
+			else
+				store.setValue("board","");
+			
+			// if arch+vendor+chip is selected then return ok ...
+			return architecture.getSelectionIndex()!=-1 && vendor.getSelectionIndex()!=-1 && chip.getSelectionIndex()!=-1;
+		}
+		//return super.performOk();
+		return true ;
 	}
 	
 	private List<String> getDirList(String path, String pattern)
