@@ -38,6 +38,12 @@
             id="org.eclipse.cdt.embsysregview.preferences.PreferencePageEmbSys"
             name="EmbSys Register View">
       </page>
+      <page
+         category="org.eclipse.cdt.embsysregview.preferences.PreferencePageEmbSys"
+         class="org.eclipse.cdt.embsysregview.preferences.PreferencePageEmbSysBehavior"
+         id="org.eclipse.cdt.embsysregview.preferences.PreferencePageEmbSysBehavior"
+         name="Behavior">
+      </page>
    </extension>
    <extension
          point="org.eclipse.core.runtime.preferences">
