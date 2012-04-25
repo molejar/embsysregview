@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE model SYSTEM "embsysregview.dtd">
+<model chipname="LPC175x/6x">
+  <chip_description>Works for LPC175x/6x (ARM Cortex-M3)
+Developed by FH- Technikum Wien, Institut für Embedded Systems, http://embsys.technikum-wien.at/
+Heavily fixed and improved by Freddie Chopin, http://www.freddiechopin.info/</chip_description>
+  <group name="LPC_SC" description="">
+    <registergroup name="LPC_SC" description="">
+      <register name="LPC_SC_FLASHCFG" description="" address="0x400fc000" access="rw" />
+      <register name="LPC_SC_PLL0CON" description="" address="0x400fc080" access="rw" />
+      <register name="LPC_SC_PLL0CFG" description="" address="0x400fc084" access="rw" />
+      <register name="LPC_SC_PLL0STAT" description="" address="0x400fc088" access="ro" />
+      <register name="LPC_SC_PLL0FEED" description="" address="0x400fc08c" access="wo" />
+      <register name="LPC_SC_PLL1CON" description="" address="0x400fc0a0" access="rw" />
+      <register name="LPC_SC_PLL1CFG" description="" address="0x400fc0a4" access="rw" />
+      <register name="LPC_SC_PLL1STAT" description="" address="0x400fc0a8" access="ro" />
+      <register name="LPC_SC_PLL1FEED" description="" address="0x400fc0ac" access="wo" />
+      <register name="LPC_SC_PCON" description="" address="0x400fc0c0" access="rw" />
+      <register name="LPC_SC_PCONP" description="" address="0x400fc0c4" access="rw" />
+      <register name="LPC_SC_CCLKCFG" description="" address="0x400fc104" access="rw" />
+      <register name="LPC_SC_USBCLKCFG" description="" address="0x400fc108" access="rw" />
+      <register name="LPC_SC_CLKSRCSEL" description="" address="0x400fc10c" access="rw" />
+      <register name="LPC_SC_CANSLEEPCLR" description="" address="0x400fc110" access="rw" />
+      <register name="LPC_SC_CANWAKEFLAGS" description="" address="0x400fc114" access="rw" />
+      <register name="LPC_SC_EXTINT" description="" address="0x400fc140" access="rw" />
+      <register name="LPC_SC_EXTMODE" description="" address="0x400fc148" access="rw" />
+      <register name="LPC_SC_EXTPOLAR" description="" address="0x400fc14c" access="rw" />
+      <register name="LPC_SC_RSID" description="" address="0x400fc180" access="rw" />
+      <register name="LPC_SC_SCS" description="" address="0x400fc1a0" access="rw" />
+      <register name="LPC_SC_PCLKSEL0" description="" address="0x400fc1a8" access="rw" />
+      <register name="LPC_SC_PCLKSEL1" description="" address="0x400fc1ac" access="rw" />
+      <register name="LPC_SC_USBIntSt" description="" address="0x400fc1c0" access="rw" />
+      <register name="LPC_SC_DMAREQSEL" description="" address="0x400fc1c4" access="rw" />
+      <register name="LPC_SC_CLKOUTCFG" description="" address="0x400fc1c8" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_PINCON" description="">
+    <registergroup name="LPC_PINCON" description="">
+      <register name="LPC_PINCON_PINSEL0" description="" address="0x4002c000" access="rw" />
+      <register name="LPC_PINCON_PINSEL1" description="" address="0x4002c004" access="rw" />
+      <register name="LPC_PINCON_PINSEL2" description="" address="0x4002c008" access="rw" />
+      <register name="LPC_PINCON_PINSEL3" description="" address="0x4002c00c" access="rw" />
+      <register name="LPC_PINCON_PINSEL4" description="" address="0x4002c010" access="rw" />
+      <register name="LPC_PINCON_PINSEL7" description="" address="0x4002c01c" access="rw" />
+      <register name="LPC_PINCON_PINSEL9" description="" address="0x4002c024" access="rw" />
+      <register name="LPC_PINCON_PINSEL10" description="" address="0x4002c028" access="rw" />
+      <register name="LPC_PINCON_PINMODE0" description="" address="0x4002c040" access="rw" />
+      <register name="LPC_PINCON_PINMODE1" description="" address="0x4002c044" access="rw" />
+      <register name="LPC_PINCON_PINMODE2" description="" address="0x4002c048" access="rw" />
+      <register name="LPC_PINCON_PINMODE3" description="" address="0x4002c04c" access="rw" />
+      <register name="LPC_PINCON_PINMODE4" description="" address="0x4002c050" access="rw" />
+      <register name="LPC_PINCON_PINMODE7" description="" address="0x4002c05c" access="rw" />
+      <register name="LPC_PINCON_PINMODE9" description="" address="0x4002c064" access="rw" />
+      <register name="LPC_PINCON_PINMODE_OD0" description="" address="0x4002c068" access="rw" />
+      <register name="LPC_PINCON_PINMODE_OD1" description="" address="0x4002c06c" access="rw" />
+      <register name="LPC_PINCON_PINMODE_OD2" description="" address="0x4002c070" access="rw" />
+      <register name="LPC_PINCON_PINMODE_OD3" description="" address="0x4002c074" access="rw" />
+      <register name="LPC_PINCON_PINMODE_OD4" description="" address="0x4002c078" access="rw" />
+      <register name="LPC_PINCON_I2CPADCFG" description="" address="0x4002c07c" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_GPIO" description="">
+    <registergroup name="LPC_GPIO0" description="">
+      <register name="LPC_GPIO0_FIODIR" description="" address="0x2009c000" access="rw" />
+      <register name="LPC_GPIO0_FIODIR0" description="" address="0x2009c000" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIODIR1" description="" address="0x2009c001" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIODIR2" description="" address="0x2009c002" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIODIR3" description="" address="0x2009c003" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIODIRL" description="" address="0x2009c000" access="rw" size="2" />
+      <register name="LPC_GPIO0_FIODIRU" description="" address="0x2009c002" access="rw" size="2" />
+      <register name="LPC_GPIO0_FIOMASK" description="" address="0x2009c010" access="rw" />
+      <register name="LPC_GPIO0_FIOMASK0" description="" address="0x2009c010" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIOMASK1" description="" address="0x2009c011" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIOMASK2" description="" address="0x2009c012" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIOMASK3" description="" address="0x2009c013" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIOMASKL" description="" address="0x2009c010" access="rw" size="2" />
+      <register name="LPC_GPIO0_FIOMASKU" description="" address="0x2009c012" access="rw" size="2" />
+      <register name="LPC_GPIO0_FIOPIN" description="" address="0x2009c014" access="rw" />
+      <register name="LPC_GPIO0_FIOPIN0" description="" address="0x2009c014" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIOPIN1" description="" address="0x2009c015" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIOPIN2" description="" address="0x2009c016" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIOPIN3" description="" address="0x2009c017" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIOPINL" description="" address="0x2009c014" access="rw" size="2" />
+      <register name="LPC_GPIO0_FIOPINU" description="" address="0x2009c016" access="rw" size="2" />
+      <register name="LPC_GPIO0_FIOSET" description="" address="0x2009c018" access="rw" />
+      <register name="LPC_GPIO0_FIOSET0" description="" address="0x2009c018" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIOSET1" description="" address="0x2009c019" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIOSET2" description="" address="0x2009c01a" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIOSET3" description="" address="0x2009c01b" access="rw" size="1" />
+      <register name="LPC_GPIO0_FIOSETL" description="" address="0x2009c018" access="rw" size="2" />
+      <register name="LPC_GPIO0_FIOSETU" description="" address="0x2009c01a" access="rw" size="2" />
+      <register name="LPC_GPIO0_FIOCLR" description="" address="0x2009c01c" access="wo" />
+      <register name="LPC_GPIO0_FIOCLR0" description="" address="0x2009c01c" access="wo" size="1" />
+      <register name="LPC_GPIO0_FIOCLR1" description="" address="0x2009c01d" access="wo" size="1" />
+      <register name="LPC_GPIO0_FIOCLR2" description="" address="0x2009c01e" access="wo" size="1" />
+      <register name="LPC_GPIO0_FIOCLR3" description="" address="0x2009c01f" access="wo" size="1" />
+      <register name="LPC_GPIO0_FIOCLRL" description="" address="0x2009c01c" access="wo" size="2" />
+      <register name="LPC_GPIO0_FIOCLRU" description="" address="0x2009c01e" access="wo" size="2" />
+    </registergroup>
+    <registergroup name="LPC_GPIO1" description="">
+      <register name="LPC_GPIO1_FIODIR" description="" address="0x2009c020" access="rw" />
+      <register name="LPC_GPIO1_FIODIR0" description="" address="0x2009c020" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIODIR1" description="" address="0x2009c021" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIODIR2" description="" address="0x2009c022" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIODIR3" description="" address="0x2009c023" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIODIRL" description="" address="0x2009c020" access="rw" size="2" />
+      <register name="LPC_GPIO1_FIODIRU" description="" address="0x2009c022" access="rw" size="2" />
+      <register name="LPC_GPIO1_FIOMASK" description="" address="0x2009c030" access="rw" />
+      <register name="LPC_GPIO1_FIOMASK0" description="" address="0x2009c030" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIOMASK1" description="" address="0x2009c031" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIOMASK2" description="" address="0x2009c032" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIOMASK3" description="" address="0x2009c033" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIOMASKL" description="" address="0x2009c030" access="rw" size="2" />
+      <register name="LPC_GPIO1_FIOMASKU" description="" address="0x2009c032" access="rw" size="2" />
+      <register name="LPC_GPIO1_FIOPIN" description="" address="0x2009c034" access="rw" />
+      <register name="LPC_GPIO1_FIOPIN0" description="" address="0x2009c034" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIOPIN1" description="" address="0x2009c035" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIOPIN2" description="" address="0x2009c036" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIOPIN3" description="" address="0x2009c037" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIOPINL" description="" address="0x2009c034" access="rw" size="2" />
+      <register name="LPC_GPIO1_FIOPINU" description="" address="0x2009c036" access="rw" size="2" />
+      <register name="LPC_GPIO1_FIOSET" description="" address="0x2009c038" access="rw" />
+      <register name="LPC_GPIO1_FIOSET0" description="" address="0x2009c038" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIOSET1" description="" address="0x2009c039" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIOSET2" description="" address="0x2009c03a" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIOSET3" description="" address="0x2009c03b" access="rw" size="1" />
+      <register name="LPC_GPIO1_FIOSETL" description="" address="0x2009c038" access="rw" size="2" />
+      <register name="LPC_GPIO1_FIOSETU" description="" address="0x2009c03a" access="rw" size="2" />
+      <register name="LPC_GPIO1_FIOCLR" description="" address="0x2009c03c" access="wo" />
+      <register name="LPC_GPIO1_FIOCLR0" description="" address="0x2009c03c" access="wo" size="1" />
+      <register name="LPC_GPIO1_FIOCLR1" description="" address="0x2009c03d" access="wo" size="1" />
+      <register name="LPC_GPIO1_FIOCLR2" description="" address="0x2009c03e" access="wo" size="1" />
+      <register name="LPC_GPIO1_FIOCLR3" description="" address="0x2009c03f" access="wo" size="1" />
+      <register name="LPC_GPIO1_FIOCLRL" description="" address="0x2009c03c" access="wo" size="2" />
+      <register name="LPC_GPIO1_FIOCLRU" description="" address="0x2009c03e" access="wo" size="2" />
+    </registergroup>
+    <registergroup name="LPC_GPIO2" description="">
+      <register name="LPC_GPIO2_FIODIR" description="" address="0x2009c040" access="rw" />
+      <register name="LPC_GPIO2_FIODIR0" description="" address="0x2009c040" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIODIR1" description="" address="0x2009c041" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIODIR2" description="" address="0x2009c042" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIODIR3" description="" address="0x2009c043" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIODIRL" description="" address="0x2009c040" access="rw" size="2" />
+      <register name="LPC_GPIO2_FIODIRU" description="" address="0x2009c042" access="rw" size="2" />
+      <register name="LPC_GPIO2_FIOMASK" description="" address="0x2009c050" access="rw" />
+      <register name="LPC_GPIO2_FIOMASK0" description="" address="0x2009c050" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIOMASK1" description="" address="0x2009c051" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIOMASK2" description="" address="0x2009c052" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIOMASK3" description="" address="0x2009c053" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIOMASKL" description="" address="0x2009c050" access="rw" size="2" />
+      <register name="LPC_GPIO2_FIOMASKU" description="" address="0x2009c052" access="rw" size="2" />
+      <register name="LPC_GPIO2_FIOPIN" description="" address="0x2009c054" access="rw" />
+      <register name="LPC_GPIO2_FIOPIN0" description="" address="0x2009c054" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIOPIN1" description="" address="0x2009c055" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIOPIN2" description="" address="0x2009c056" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIOPIN3" description="" address="0x2009c057" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIOPINL" description="" address="0x2009c054" access="rw" size="2" />
+      <register name="LPC_GPIO2_FIOPINU" description="" address="0x2009c056" access="rw" size="2" />
+      <register name="LPC_GPIO2_FIOSET" description="" address="0x2009c058" access="rw" />
+      <register name="LPC_GPIO2_FIOSET0" description="" address="0x2009c058" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIOSET1" description="" address="0x2009c059" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIOSET2" description="" address="0x2009c05a" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIOSET3" description="" address="0x2009c05b" access="rw" size="1" />
+      <register name="LPC_GPIO2_FIOSETL" description="" address="0x2009c058" access="rw" size="2" />
+      <register name="LPC_GPIO2_FIOSETU" description="" address="0x2009c05a" access="rw" size="2" />
+      <register name="LPC_GPIO2_FIOCLR" description="" address="0x2009c05c" access="wo" />
+      <register name="LPC_GPIO2_FIOCLR0" description="" address="0x2009c05c" access="wo" size="1" />
+      <register name="LPC_GPIO2_FIOCLR1" description="" address="0x2009c05d" access="wo" size="1" />
+      <register name="LPC_GPIO2_FIOCLR2" description="" address="0x2009c05e" access="wo" size="1" />
+      <register name="LPC_GPIO2_FIOCLR3" description="" address="0x2009c05f" access="wo" size="1" />
+      <register name="LPC_GPIO2_FIOCLRL" description="" address="0x2009c05c" access="wo" size="2" />
+      <register name="LPC_GPIO2_FIOCLRU" description="" address="0x2009c05e" access="wo" size="2" />
+    </registergroup>
+    <registergroup name="LPC_GPIO3" description="">
+      <register name="LPC_GPIO3_FIODIR" description="" address="0x2009c060" access="rw" />
+      <register name="LPC_GPIO3_FIODIR0" description="" address="0x2009c060" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIODIR1" description="" address="0x2009c061" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIODIR2" description="" address="0x2009c062" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIODIR3" description="" address="0x2009c063" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIODIRL" description="" address="0x2009c060" access="rw" size="2" />
+      <register name="LPC_GPIO3_FIODIRU" description="" address="0x2009c062" access="rw" size="2" />
+      <register name="LPC_GPIO3_FIOMASK" description="" address="0x2009c070" access="rw" />
+      <register name="LPC_GPIO3_FIOMASK0" description="" address="0x2009c070" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIOMASK1" description="" address="0x2009c071" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIOMASK2" description="" address="0x2009c072" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIOMASK3" description="" address="0x2009c073" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIOMASKL" description="" address="0x2009c070" access="rw" size="2" />
+      <register name="LPC_GPIO3_FIOMASKU" description="" address="0x2009c072" access="rw" size="2" />
+      <register name="LPC_GPIO3_FIOPIN" description="" address="0x2009c074" access="rw" />
+      <register name="LPC_GPIO3_FIOPIN0" description="" address="0x2009c074" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIOPIN1" description="" address="0x2009c075" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIOPIN2" description="" address="0x2009c076" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIOPIN3" description="" address="0x2009c077" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIOPINL" description="" address="0x2009c074" access="rw" size="2" />
+      <register name="LPC_GPIO3_FIOPINU" description="" address="0x2009c076" access="rw" size="2" />
+      <register name="LPC_GPIO3_FIOSET" description="" address="0x2009c078" access="rw" />
+      <register name="LPC_GPIO3_FIOSET0" description="" address="0x2009c078" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIOSET1" description="" address="0x2009c079" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIOSET2" description="" address="0x2009c07a" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIOSET3" description="" address="0x2009c07b" access="rw" size="1" />
+      <register name="LPC_GPIO3_FIOSETL" description="" address="0x2009c078" access="rw" size="2" />
+      <register name="LPC_GPIO3_FIOSETU" description="" address="0x2009c07a" access="rw" size="2" />
+      <register name="LPC_GPIO3_FIOCLR" description="" address="0x2009c07c" access="wo" />
+      <register name="LPC_GPIO3_FIOCLR0" description="" address="0x2009c07c" access="wo" size="1" />
+      <register name="LPC_GPIO3_FIOCLR1" description="" address="0x2009c07d" access="wo" size="1" />
+      <register name="LPC_GPIO3_FIOCLR2" description="" address="0x2009c07e" access="wo" size="1" />
+      <register name="LPC_GPIO3_FIOCLR3" description="" address="0x2009c07f" access="wo" size="1" />
+      <register name="LPC_GPIO3_FIOCLRL" description="" address="0x2009c07c" access="wo" size="2" />
+      <register name="LPC_GPIO3_FIOCLRU" description="" address="0x2009c07e" access="wo" size="2" />
+    </registergroup>
+    <registergroup name="LPC_GPIO4" description="">
+      <register name="LPC_GPIO4_FIODIR" description="" address="0x2009c080" access="rw" />
+      <register name="LPC_GPIO4_FIODIR0" description="" address="0x2009c080" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIODIR1" description="" address="0x2009c081" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIODIR2" description="" address="0x2009c082" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIODIR3" description="" address="0x2009c083" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIODIRL" description="" address="0x2009c080" access="rw" size="2" />
+      <register name="LPC_GPIO4_FIODIRU" description="" address="0x2009c082" access="rw" size="2" />
+      <register name="LPC_GPIO4_FIOMASK" description="" address="0x2009c090" access="rw" />
+      <register name="LPC_GPIO4_FIOMASK0" description="" address="0x2009c090" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIOMASK1" description="" address="0x2009c091" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIOMASK2" description="" address="0x2009c092" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIOMASK3" description="" address="0x2009c093" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIOMASKL" description="" address="0x2009c090" access="rw" size="2" />
+      <register name="LPC_GPIO4_FIOMASKU" description="" address="0x2009c092" access="rw" size="2" />
+      <register name="LPC_GPIO4_FIOPIN" description="" address="0x2009c094" access="rw" />
+      <register name="LPC_GPIO4_FIOPIN0" description="" address="0x2009c094" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIOPIN1" description="" address="0x2009c095" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIOPIN2" description="" address="0x2009c096" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIOPIN3" description="" address="0x2009c097" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIOPINL" description="" address="0x2009c094" access="rw" size="2" />
+      <register name="LPC_GPIO4_FIOPINU" description="" address="0x2009c096" access="rw" size="2" />
+      <register name="LPC_GPIO4_FIOSET" description="" address="0x2009c098" access="rw" />
+      <register name="LPC_GPIO4_FIOSET0" description="" address="0x2009c098" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIOSET1" description="" address="0x2009c099" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIOSET2" description="" address="0x2009c09a" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIOSET3" description="" address="0x2009c09b" access="rw" size="1" />
+      <register name="LPC_GPIO4_FIOSETL" description="" address="0x2009c098" access="rw" size="2" />
+      <register name="LPC_GPIO4_FIOSETU" description="" address="0x2009c09a" access="rw" size="2" />
+      <register name="LPC_GPIO4_FIOCLR" description="" address="0x2009c09c" access="wo" />
+      <register name="LPC_GPIO4_FIOCLR0" description="" address="0x2009c09c" access="wo" size="1" />
+      <register name="LPC_GPIO4_FIOCLR1" description="" address="0x2009c09d" access="wo" size="1" />
+      <register name="LPC_GPIO4_FIOCLR2" description="" address="0x2009c09e" access="wo" size="1" />
+      <register name="LPC_GPIO4_FIOCLR3" description="" address="0x2009c09f" access="wo" size="1" />
+      <register name="LPC_GPIO4_FIOCLRL" description="" address="0x2009c09c" access="wo" size="2" />
+      <register name="LPC_GPIO4_FIOCLRU" description="" address="0x2009c09e" access="wo" size="2" />
+    </registergroup>
+  </group>
+  <group name="LPC_GPIOINT" description="">
+    <registergroup name="LPC_GPIOINT" description="">
+      <register name="LPC_GPIOINT_IntStatus" description="" address="0x40028080" access="ro" />
+      <register name="LPC_GPIOINT_IO0IntStatR" description="" address="0x40028084" access="ro" />
+      <register name="LPC_GPIOINT_IO0IntStatF" description="" address="0x40028088" access="ro" />
+      <register name="LPC_GPIOINT_IO0IntClr" description="" address="0x4002808c" access="wo" />
+      <register name="LPC_GPIOINT_IO0IntEnR" description="" address="0x40028090" access="rw" />
+      <register name="LPC_GPIOINT_IO0IntEnF" description="" address="0x40028094" access="rw" />
+      <register name="LPC_GPIOINT_IO2IntStatR" description="" address="0x400280a4" access="ro" />
+      <register name="LPC_GPIOINT_IO2IntStatF" description="" address="0x400280a8" access="ro" />
+      <register name="LPC_GPIOINT_IO2IntClr" description="" address="0x400280ac" access="wo" />
+      <register name="LPC_GPIOINT_IO2IntEnR" description="" address="0x400280b0" access="rw" />
+      <register name="LPC_GPIOINT_IO2IntEnF" description="" address="0x400280b4" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_TIM" description="">
+    <registergroup name="LPC_TIM0" description="">
+      <register name="LPC_TIM0_IR" description="" address="0x40004000" access="rw" />
+      <register name="LPC_TIM0_TCR" description="" address="0x40004004" access="rw" />
+      <register name="LPC_TIM0_TC" description="" address="0x40004008" access="rw" />
+      <register name="LPC_TIM0_PR" description="" address="0x4000400c" access="rw" />
+      <register name="LPC_TIM0_PC" description="" address="0x40004010" access="rw" />
+      <register name="LPC_TIM0_MCR" description="" address="0x40004014" access="rw" />
+      <register name="LPC_TIM0_MR0" description="" address="0x40004018" access="rw" />
+      <register name="LPC_TIM0_MR1" description="" address="0x4000401c" access="rw" />
+      <register name="LPC_TIM0_MR2" description="" address="0x40004020" access="rw" />
+      <register name="LPC_TIM0_MR3" description="" address="0x40004024" access="rw" />
+      <register name="LPC_TIM0_CCR" description="" address="0x40004028" access="rw" />
+      <register name="LPC_TIM0_CR0" description="" address="0x4000402c" access="ro" />
+      <register name="LPC_TIM0_CR1" description="" address="0x40004030" access="ro" />
+      <register name="LPC_TIM0_EMR" description="" address="0x4000403c" access="rw" />
+      <register name="LPC_TIM0_CTCR" description="" address="0x40004070" access="rw" />
+    </registergroup>
+    <registergroup name="LPC_TIM1" description="">
+      <register name="LPC_TIM1_IR" description="" address="0x40008000" access="rw" />
+      <register name="LPC_TIM1_TCR" description="" address="0x40008004" access="rw" />
+      <register name="LPC_TIM1_TC" description="" address="0x40008008" access="rw" />
+      <register name="LPC_TIM1_PR" description="" address="0x4000800c" access="rw" />
+      <register name="LPC_TIM1_PC" description="" address="0x40008010" access="rw" />
+      <register name="LPC_TIM1_MCR" description="" address="0x40008014" access="rw" />
+      <register name="LPC_TIM1_MR0" description="" address="0x40008018" access="rw" />
+      <register name="LPC_TIM1_MR1" description="" address="0x4000801c" access="rw" />
+      <register name="LPC_TIM1_MR2" description="" address="0x40008020" access="rw" />
+      <register name="LPC_TIM1_MR3" description="" address="0x40008024" access="rw" />
+      <register name="LPC_TIM1_CCR" description="" address="0x40008028" access="rw" />
+      <register name="LPC_TIM1_CR0" description="" address="0x4000802c" access="ro" />
+      <register name="LPC_TIM1_CR1" description="" address="0x40008030" access="ro" />
+      <register name="LPC_TIM1_EMR" description="" address="0x4000803c" access="rw" />
+      <register name="LPC_TIM1_CTCR" description="" address="0x40008070" access="rw" />
+    </registergroup>
+    <registergroup name="LPC_TIM2" description="">
+      <register name="LPC_TIM2_IR" description="" address="0x40090000" access="rw" />
+      <register name="LPC_TIM2_TCR" description="" address="0x40090004" access="rw" />
+      <register name="LPC_TIM2_TC" description="" address="0x40090008" access="rw" />
+      <register name="LPC_TIM2_PR" description="" address="0x4009000c" access="rw" />
+      <register name="LPC_TIM2_PC" description="" address="0x40090010" access="rw" />
+      <register name="LPC_TIM2_MCR" description="" address="0x40090014" access="rw" />
+      <register name="LPC_TIM2_MR0" description="" address="0x40090018" access="rw" />
+      <register name="LPC_TIM2_MR1" description="" address="0x4009001c" access="rw" />
+      <register name="LPC_TIM2_MR2" description="" address="0x40090020" access="rw" />
+      <register name="LPC_TIM2_MR3" description="" address="0x40090024" access="rw" />
+      <register name="LPC_TIM2_CCR" description="" address="0x40090028" access="rw" />
+      <register name="LPC_TIM2_CR0" description="" address="0x4009002c" access="ro" />
+      <register name="LPC_TIM2_CR1" description="" address="0x40090030" access="ro" />
+      <register name="LPC_TIM2_EMR" description="" address="0x4009003c" access="rw" />
+      <register name="LPC_TIM2_CTCR" description="" address="0x40090070" access="rw" />
+    </registergroup>
+    <registergroup name="LPC_TIM3" description="">
+      <register name="LPC_TIM3_IR" description="" address="0x40094000" access="rw" />
+      <register name="LPC_TIM3_TCR" description="" address="0x40094004" access="rw" />
+      <register name="LPC_TIM3_TC" description="" address="0x40094008" access="rw" />
+      <register name="LPC_TIM3_PR" description="" address="0x4009400c" access="rw" />
+      <register name="LPC_TIM3_PC" description="" address="0x40094010" access="rw" />
+      <register name="LPC_TIM3_MCR" description="" address="0x40094014" access="rw" />
+      <register name="LPC_TIM3_MR0" description="" address="0x40094018" access="rw" />
+      <register name="LPC_TIM3_MR1" description="" address="0x4009401c" access="rw" />
+      <register name="LPC_TIM3_MR2" description="" address="0x40094020" access="rw" />
+      <register name="LPC_TIM3_MR3" description="" address="0x40094024" access="rw" />
+      <register name="LPC_TIM3_CCR" description="" address="0x40094028" access="rw" />
+      <register name="LPC_TIM3_CR0" description="" address="0x4009402c" access="ro" />
+      <register name="LPC_TIM3_CR1" description="" address="0x40094030" access="ro" />
+      <register name="LPC_TIM3_EMR" description="" address="0x4009403c" access="rw" />
+      <register name="LPC_TIM3_CTCR" description="" address="0x40094070" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_PWM" description="">
+    <registergroup name="LPC_PWM1" description="">
+      <register name="LPC_PWM1_IR" description="" address="0x40018000" access="rw" />
+      <register name="LPC_PWM1_TCR" description="" address="0x40018004" access="rw" />
+      <register name="LPC_PWM1_TC" description="" address="0x40018008" access="rw" />
+      <register name="LPC_PWM1_PR" description="" address="0x4001800c" access="rw" />
+      <register name="LPC_PWM1_PC" description="" address="0x40018010" access="rw" />
+      <register name="LPC_PWM1_MCR" description="" address="0x40018014" access="rw" />
+      <register name="LPC_PWM1_MR0" description="" address="0x40018018" access="rw" />
+      <register name="LPC_PWM1_MR1" description="" address="0x4001801c" access="rw" />
+      <register name="LPC_PWM1_MR2" description="" address="0x40018020" access="rw" />
+      <register name="LPC_PWM1_MR3" description="" address="0x40018024" access="rw" />
+      <register name="LPC_PWM1_CCR" description="" address="0x40018028" access="rw" />
+      <register name="LPC_PWM1_CR0" description="" address="0x4001802c" access="ro" />
+      <register name="LPC_PWM1_CR1" description="" address="0x40018030" access="ro" />
+      <register name="LPC_PWM1_CR2" description="" address="0x40018034" access="ro" />
+      <register name="LPC_PWM1_CR3" description="" address="0x40018038" access="ro" />
+      <register name="LPC_PWM1_MR4" description="" address="0x40018040" access="rw" />
+      <register name="LPC_PWM1_MR5" description="" address="0x40018044" access="rw" />
+      <register name="LPC_PWM1_MR6" description="" address="0x40018048" access="rw" />
+      <register name="LPC_PWM1_PCR" description="" address="0x4001804c" access="rw" />
+      <register name="LPC_PWM1_LER" description="" address="0x40018050" access="rw" />
+      <register name="LPC_PWM1_CTCR" description="" address="0x40018070" access="rw" />
+    </registergroup>
+    <registergroup name="LPC_MCPWM" description="">
+      <register name="LPC_MCPWM_MCCON" description="PWM Control read address" access="RO" resetvalue="0x0" address="0x400B8000" />
+      <register name="LPC_MCPWM_MCCON_SET" description="PWM Control set address" access="WO" resetvalue="" address="0x400B8004" />
+      <register name="LPC_MCPWM_MCCON_CLR" description="PWM Control clear address" access="WO" resetvalue="" address="0x400B8008" />
+      <register name="LPC_MCPWM_MCCAPCON" description="Capture Control read address" access="RO" resetvalue="0x0" address="0x400B800C" />
+      <register name="LPC_MCPWM_MCCAPCON_SET" description="Capture Control set address" access="WO" resetvalue="" address="0x400B8010" />
+      <register name="LPC_MCPWM_MCCAPCON_CLR" description="Event Control clear address" access="WO" resetvalue="" address="0x400B8014" />
+      <register name="LPC_MCPWM_MCTC0" description="Timer Counter register, channel 0" access="RW" resetvalue="0x0" address="0x400B8018" />
+      <register name="LPC_MCPWM_MCTC1" description="Timer Counter register, channel 1" access="RW" resetvalue="0x0" address="0x400B801C" />
+      <register name="LPC_MCPWM_MCTC2" description="Timer Counter register, channel 2" access="RW" resetvalue="0x0" address="0x400B8020" />
+      <register name="LPC_MCPWM_MCLIM0" description="Limit register, channel 0" access="RW" resetvalue="0xFFFFFFFF" address="0x400B8024" />
+      <register name="LPC_MCPWM_MCLIM1" description="Limit register, channel 1" access="RW" resetvalue="0xFFFFFFFF" address="0x400B8028" />
+      <register name="LPC_MCPWM_MCLIM2" description="Limit register, channel 2" access="RW" resetvalue="0xFFFFFFFF" address="0x400B802C" />
+      <register name="LPC_MCPWM_MCMAT0" description="Match register, channel 0" access="RW" resetvalue="0xFFFFFFFF" address="0x400B8030" />
+      <register name="LPC_MCPWM_MCMAT1" description="Match register, channel 1" access="RW" resetvalue="0xFFFFFFFF" address="0x400B8034" />
+      <register name="LPC_MCPWM_MCMAT2" description="Match register, channel 2" access="RW" resetvalue="0xFFFFFFFF" address="0x400B8038" />
+      <register name="LPC_MCPWM_MCDT" description="Dead time register" access="RW" resetvalue="0x3FFFFFFF" address="0x400B803C" />
+      <register name="LPC_MCPWM_MCCP" description="Commutation Pattern register" access="RW" resetvalue="0x0" address="0x400B8040" />
+      <register name="LPC_MCPWM_MCCAP0" description="Capture register, channel 0" access="RO" resetvalue="0x0" address="0x400B8044" />
+      <register name="LPC_MCPWM_MCCAP1" description="Capture register, channel 1" access="RO" resetvalue="0x0" address="0x400B8048" />
+      <register name="LPC_MCPWM_MCCAP2" description="Capture register, channel 2" access="RO" resetvalue="0x0" address="0x400B804C" />
+      <register name="LPC_MCPWM_MCINTEN" description="Interrupt Enable read address" access="RO" resetvalue="0x0" address="0x400B8050" />
+      <register name="LPC_MCPWM_MCINTEN_SET" description="Interrupt Enable set address" access="WO" resetvalue="" address="0x400B8054" />
+      <register name="LPC_MCPWM_MCINTEN_CLR" description="Interrupt Enable clear address" access="WO" resetvalue="" address="0x400B8058" />
+      <register name="LPC_MCPWM_MCCNTCON" description="Count Control read address" access="RO" resetvalue="" address="0x400B805C" />
+      <register name="LPC_MCPWM_MCCNTCON_SET" description="Count Control set address" access="WO" resetvalue="" address="0x400B8060" />
+      <register name="LPC_MCPWM_MCCNTCON_CLR" description="Count Control clear address" access="WO" resetvalue="" address="0x400B8064" />
+      <register name="LPC_MCPWM_MCINTF" description="Interrupt flags read address" access="RO" resetvalue="0x0" address="0x400B8068" />
+      <register name="LPC_MCPWM_MCINTF_SET" description="Interrupt flags set address" access="WO" resetvalue="" address="0x400B806C" />
+      <register name="LPC_MCPWM_MCINTF_CLR" description="Interrupt flags clear address" access="WO" resetvalue="" address="0x400B8070" />
+      <register name="LPC_MCPWM_MCCAP_CLR" description="Capture clear address" access="WO" resetvalue="" address="0x400B8074" />
+    </registergroup>
+  </group>
+  <group name="LPC_UART" description="">
+    <registergroup name="LPC_UART0" description="">
+      <register name="LPC_UART0_RBR" description="" address="0x4000c000" access="ro" size="1" />
+      <register name="LPC_UART0_THR" description="" address="0x4000c000" access="wo" size="1" />
+      <register name="LPC_UART0_DLL" description="" address="0x4000c000" access="rw" size="1" />
+      <register name="LPC_UART0_DLM" description="" address="0x4000c004" access="rw" size="1" />
+      <register name="LPC_UART0_IER" description="" address="0x4000c004" access="rw" />
+      <register name="LPC_UART0_IIR" description="" address="0x4000c008" access="ro" />
+      <register name="LPC_UART0_FCR" description="" address="0x4000c008" access="wo" size="1" />
+      <register name="LPC_UART0_LCR" description="" address="0x4000c00c" access="rw" size="1" />
+      <register name="LPC_UART0_LSR" description="" address="0x4000c014" access="ro" size="1" />
+      <register name="LPC_UART0_SCR" description="" address="0x4000c01c" access="rw" size="1" />
+      <register name="LPC_UART0_ACR" description="" address="0x4000c020" access="rw" />
+      <register name="LPC_UART0_ICR" description="" address="0x4000c024" access="rw" size="1" />
+      <register name="LPC_UART0_FDR" description="" address="0x4000c028" access="rw" size="1" />
+      <register name="LPC_UART0_TER" description="" address="0x4000c030" access="rw" size="1" />
+    </registergroup>
+    <registergroup name="LPC_UART1" description="">
+      <register name="LPC_UART1_RBR" description="" address="0x40010000" access="ro" size="1" />
+      <register name="LPC_UART1_THR" description="" address="0x40010000" access="wo" size="1" />
+      <register name="LPC_UART1_DLL" description="" address="0x40010000" access="rw" size="1" />
+      <register name="LPC_UART1_DLM" description="" address="0x40010004" access="rw" size="1" />
+      <register name="LPC_UART1_IER" description="" address="0x40010004" access="rw" />
+      <register name="LPC_UART1_IIR" description="" address="0x40010008" access="ro" />
+      <register name="LPC_UART1_FCR" description="" address="0x40010008" access="wo" size="1" />
+      <register name="LPC_UART1_LCR" description="" address="0x4001000c" access="rw" size="1" />
+      <register name="LPC_UART1_MCR" description="" address="0x40010010" access="rw" size="1" />
+      <register name="LPC_UART1_LSR" description="" address="0x40010014" access="ro" size="1" />
+      <register name="LPC_UART1_MSR" description="" address="0x40010018" access="ro" size="1" />
+      <register name="LPC_UART1_SCR" description="" address="0x4001001c" access="rw" size="1" />
+      <register name="LPC_UART1_ACR" description="" address="0x40010020" access="rw" />
+      <register name="LPC_UART1_FDR" description="" address="0x40010028" access="rw" />
+      <register name="LPC_UART1_TER" description="" address="0x40010030" access="rw" size="1" />
+      <register name="LPC_UART1_RS485CTRL" description="" address="0x4001004c" access="rw" size="1" />
+      <register name="LPC_UART1_RS485MATCH" description="" address="0x40010050" access="rw" size="1" />
+      <register name="LPC_UART1_RS485DLY" description="" address="0x40010054" access="rw" size="1" />
+    </registergroup>
+    <registergroup name="LPC_UART2" description="">
+      <register name="LPC_UART2_RBR" description="" address="0x40098000" access="ro" size="1" />
+      <register name="LPC_UART2_THR" description="" address="0x40098000" access="wo" size="1" />
+      <register name="LPC_UART2_DLL" description="" address="0x40098000" access="rw" size="1" />
+      <register name="LPC_UART2_DLM" description="" address="0x40098004" access="rw" size="1" />
+      <register name="LPC_UART2_IER" description="" address="0x40098004" access="rw" />
+      <register name="LPC_UART2_IIR" description="" address="0x40098008" access="ro" />
+      <register name="LPC_UART2_FCR" description="" address="0x40098008" access="wo" size="1" />
+      <register name="LPC_UART2_LCR" description="" address="0x4009800c" access="rw" size="1" />
+      <register name="LPC_UART2_LSR" description="" address="0x40098014" access="ro" size="1" />
+      <register name="LPC_UART2_SCR" description="" address="0x4009801c" access="rw" size="1" />
+      <register name="LPC_UART2_ACR" description="" address="0x40098020" access="rw" />
+      <register name="LPC_UART2_ICR" description="" address="0x40098024" access="rw" size="1" />
+      <register name="LPC_UART2_FDR" description="" address="0x40098028" access="rw" size="1" />
+      <register name="LPC_UART2_TER" description="" address="0x40098030" access="rw" size="1" />
+    </registergroup>
+    <registergroup name="LPC_UART3" description="">
+      <register name="LPC_UART3_RBR" description="" address="0x4009c000" access="ro" size="1" />
+      <register name="LPC_UART3_THR" description="" address="0x4009c000" access="wo" size="1" />
+      <register name="LPC_UART3_DLL" description="" address="0x4009c000" access="rw" size="1" />
+      <register name="LPC_UART3_DLM" description="" address="0x4009c004" access="rw" size="1" />
+      <register name="LPC_UART3_IER" description="" address="0x4009c004" access="rw" />
+      <register name="LPC_UART3_IIR" description="" address="0x4009c008" access="ro" />
+      <register name="LPC_UART3_FCR" description="" address="0x4009c008" access="wo" size="1" />
+      <register name="LPC_UART3_LCR" description="" address="0x4009c00c" access="rw" size="1" />
+      <register name="LPC_UART3_LSR" description="" address="0x4009c014" access="ro" size="1" />
+      <register name="LPC_UART3_SCR" description="" address="0x4009c01c" access="rw" size="1" />
+      <register name="LPC_UART3_ACR" description="" address="0x4009c020" access="rw" />
+      <register name="LPC_UART3_ICR" description="" address="0x4009c024" access="rw" size="1" />
+      <register name="LPC_UART3_FDR" description="" address="0x4009c028" access="rw" size="1" />
+      <register name="LPC_UART3_TER" description="" address="0x4009c030" access="rw" size="1" />
+    </registergroup>
+  </group>
+  <group name="LPC_SPI" description="">
+    <registergroup name="LPC_SPI" description="">
+      <register name="LPC_SPI_SPCR" description="" address="0x40020000" access="rw" />
+      <register name="LPC_SPI_SPSR" description="" address="0x40020004" access="ro" />
+      <register name="LPC_SPI_SPDR" description="" address="0x40020008" access="rw" />
+      <register name="LPC_SPI_SPCCR" description="" address="0x4002000c" access="rw" />
+      <register name="LPC_SPI_SPINT" description="" address="0x4002001c" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_SSP" description="">
+    <registergroup name="LPC_SSP1" description="">
+      <register name="LPC_SSP1_CR0" description="" address="0x40030000" access="rw" />
+      <register name="LPC_SSP1_CR1" description="" address="0x40030004" access="rw" />
+      <register name="LPC_SSP1_DR" description="" address="0x40030008" access="rw" />
+      <register name="LPC_SSP1_SR" description="" address="0x4003000c" access="ro" />
+      <register name="LPC_SSP1_CPSR" description="" address="0x40030010" access="rw" />
+      <register name="LPC_SSP1_IMSC" description="" address="0x40030014" access="rw" />
+      <register name="LPC_SSP1_RIS" description="" address="0x40030018" access="rw" />
+      <register name="LPC_SSP1_MIS" description="" address="0x4003001c" access="rw" />
+      <register name="LPC_SSP1_ICR" description="" address="0x40030020" access="rw" />
+      <register name="LPC_SSP1_DMACR" description="" address="0x40030024" access="rw" />
+    </registergroup>
+    <registergroup name="LPC_SSP0" description="">
+      <register name="LPC_SSP0_CR0" description="" address="0x40088000" access="rw" />
+      <register name="LPC_SSP0_CR1" description="" address="0x40088004" access="rw" />
+      <register name="LPC_SSP0_DR" description="" address="0x40088008" access="rw" />
+      <register name="LPC_SSP0_SR" description="" address="0x4008800c" access="ro" />
+      <register name="LPC_SSP0_CPSR" description="" address="0x40088010" access="rw" />
+      <register name="LPC_SSP0_IMSC" description="" address="0x40088014" access="rw" />
+      <register name="LPC_SSP0_RIS" description="" address="0x40088018" access="rw" />
+      <register name="LPC_SSP0_MIS" description="" address="0x4008801c" access="rw" />
+      <register name="LPC_SSP0_ICR" description="" address="0x40088020" access="rw" />
+      <register name="LPC_SSP0_DMACR" description="" address="0x40088024" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_I2C" description="">
+    <registergroup name="LPC_I2C0" description="">
+      <register name="LPC_I2C0_I2CONSET" description="" address="0x4001c000" access="rw" />
+      <register name="LPC_I2C0_I2STAT" description="" address="0x4001c004" access="ro" />
+      <register name="LPC_I2C0_I2DAT" description="" address="0x4001c008" access="rw" />
+      <register name="LPC_I2C0_I2ADR0" description="" address="0x4001c00c" access="rw" />
+      <register name="LPC_I2C0_I2SCLH" description="" address="0x4001c010" access="rw" />
+      <register name="LPC_I2C0_I2SCLL" description="" address="0x4001c014" access="rw" />
+      <register name="LPC_I2C0_I2CONCLR" description="" address="0x4001c018" access="wo" />
+      <register name="LPC_I2C0_MMCTRL" description="" address="0x4001c01c" access="rw" />
+      <register name="LPC_I2C0_I2ADR1" description="" address="0x4001c020" access="rw" />
+      <register name="LPC_I2C0_I2ADR2" description="" address="0x4001c024" access="rw" />
+      <register name="LPC_I2C0_I2ADR3" description="" address="0x4001c028" access="rw" />
+      <register name="LPC_I2C0_I2DATA_BUFFER" description="" address="0x4001c02c" access="ro" />
+      <register name="LPC_I2C0_I2MASK0" description="" address="0x4001c030" access="rw" />
+      <register name="LPC_I2C0_I2MASK1" description="" address="0x4001c034" access="rw" />
+      <register name="LPC_I2C0_I2MASK2" description="" address="0x4001c038" access="rw" />
+      <register name="LPC_I2C0_I2MASK3" description="" address="0x4001c03c" access="rw" />
+    </registergroup>
+    <registergroup name="LPC_I2C1" description="">
+      <register name="LPC_I2C1_I2CONSET" description="" address="0x4005c000" access="rw" />
+      <register name="LPC_I2C1_I2STAT" description="" address="0x4005c004" access="ro" />
+      <register name="LPC_I2C1_I2DAT" description="" address="0x4005c008" access="rw" />
+      <register name="LPC_I2C1_I2ADR0" description="" address="0x4005c00c" access="rw" />
+      <register name="LPC_I2C1_I2SCLH" description="" address="0x4005c010" access="rw" />
+      <register name="LPC_I2C1_I2SCLL" description="" address="0x4005c014" access="rw" />
+      <register name="LPC_I2C1_I2CONCLR" description="" address="0x4005c018" access="wo" />
+      <register name="LPC_I2C1_MMCTRL" description="" address="0x4005c01c" access="rw" />
+      <register name="LPC_I2C1_I2ADR1" description="" address="0x4005c020" access="rw" />
+      <register name="LPC_I2C1_I2ADR2" description="" address="0x4005c024" access="rw" />
+      <register name="LPC_I2C1_I2ADR3" description="" address="0x4005c028" access="rw" />
+      <register name="LPC_I2C1_I2DATA_BUFFER" description="" address="0x4005c02c" access="ro" />
+      <register name="LPC_I2C1_I2MASK0" description="" address="0x4005c030" access="rw" />
+      <register name="LPC_I2C1_I2MASK1" description="" address="0x4005c034" access="rw" />
+      <register name="LPC_I2C1_I2MASK2" description="" address="0x4005c038" access="rw" />
+      <register name="LPC_I2C1_I2MASK3" description="" address="0x4005c03c" access="rw" />
+    </registergroup>
+    <registergroup name="LPC_I2C2" description="">
+      <register name="LPC_I2C2_I2CONSET" description="" address="0x400a0000" access="rw" />
+      <register name="LPC_I2C2_I2STAT" description="" address="0x400a0004" access="ro" />
+      <register name="LPC_I2C2_I2DAT" description="" address="0x400a0008" access="rw" />
+      <register name="LPC_I2C2_I2ADR0" description="" address="0x400a000c" access="rw" />
+      <register name="LPC_I2C2_I2SCLH" description="" address="0x400a0010" access="rw" />
+      <register name="LPC_I2C2_I2SCLL" description="" address="0x400a0014" access="rw" />
+      <register name="LPC_I2C2_I2CONCLR" description="" address="0x400a0018" access="wo" />
+      <register name="LPC_I2C2_MMCTRL" description="" address="0x400a001c" access="rw" />
+      <register name="LPC_I2C2_I2ADR1" description="" address="0x400a0020" access="rw" />
+      <register name="LPC_I2C2_I2ADR2" description="" address="0x400a0024" access="rw" />
+      <register name="LPC_I2C2_I2ADR3" description="" address="0x400a0028" access="rw" />
+      <register name="LPC_I2C2_I2DATA_BUFFER" description="" address="0x400a002c" access="ro" />
+      <register name="LPC_I2C2_I2MASK0" description="" address="0x400a0030" access="rw" />
+      <register name="LPC_I2C2_I2MASK1" description="" address="0x400a0034" access="rw" />
+      <register name="LPC_I2C2_I2MASK2" description="" address="0x400a0038" access="rw" />
+      <register name="LPC_I2C2_I2MASK3" description="" address="0x400a003c" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_I2S" description="">
+    <registergroup name="LPC_I2S" description="">
+      <register name="LPC_I2S_I2SDAO" description="" address="0x400a8000" access="rw" />
+      <register name="LPC_I2S_I2SDAI" description="" address="0x400a8004" access="rw" />
+      <register name="LPC_I2S_I2STXFIFO" description="" address="0x400a8008" access="wo" />
+      <register name="LPC_I2S_I2SRXFIFO" description="" address="0x400a800c" access="ro" />
+      <register name="LPC_I2S_I2SSTATE" description="" address="0x400a8010" access="ro" />
+      <register name="LPC_I2S_I2SDMA1" description="" address="0x400a8014" access="rw" />
+      <register name="LPC_I2S_I2SDMA2" description="" address="0x400a8018" access="rw" />
+      <register name="LPC_I2S_I2SIRQ" description="" address="0x400a801c" access="rw" />
+      <register name="LPC_I2S_I2STXRATE" description="" address="0x400a8020" access="rw" />
+      <register name="LPC_I2S_I2SRXRATE" description="" address="0x400a8024" access="rw" />
+      <register name="LPC_I2S_I2STXBITRATE" description="" address="0x400a8028" access="rw" />
+      <register name="LPC_I2S_I2SRXBITRATE" description="" address="0x400a802c" access="rw" />
+      <register name="LPC_I2S_I2STXMODE" description="" address="0x400a8030" access="rw" />
+      <register name="LPC_I2S_I2SRXMODE" description="" address="0x400a8034" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_RIT" description="">
+    <registergroup name="LPC_RIT" description="">
+      <register name="LPC_RIT_RICOMPVAL" description="" address="0x400b0000" access="rw" />
+      <register name="LPC_RIT_RIMASK" description="" address="0x400b0004" access="rw" />
+      <register name="LPC_RIT_RICTRL" description="" address="0x400b0008" access="rw" size="1" />
+      <register name="LPC_RIT_RICOUNTER" description="" address="0x400b000c" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_RTC" description="">
+    <registergroup name="LPC_RTC" description="">
+      <register name="LPC_RTC_ILR" description="" address="0x40024000" access="rw" size="1" />
+      <register name="LPC_RTC_CCR" description="" address="0x40024008" access="rw" size="1" />
+      <register name="LPC_RTC_CIIR" description="" address="0x4002400c" access="rw" size="1" />
+      <register name="LPC_RTC_AMR" description="" address="0x40024010" access="rw" size="1" />
+      <register name="LPC_RTC_CTIME0" description="" address="0x40024014" access="ro" />
+      <register name="LPC_RTC_CTIME1" description="" address="0x40024018" access="ro" />
+      <register name="LPC_RTC_CTIME2" description="" address="0x4002401c" access="ro" />
+      <register name="LPC_RTC_SEC" description="" address="0x40024020" access="rw" size="1" />
+      <register name="LPC_RTC_MIN" description="" address="0x40024024" access="rw" size="1" />
+      <register name="LPC_RTC_HOUR" description="" address="0x40024028" access="rw" size="1" />
+      <register name="LPC_RTC_DOM" description="" address="0x4002402c" access="rw" size="1" />
+      <register name="LPC_RTC_DOW" description="" address="0x40024030" access="rw" size="1" />
+      <register name="LPC_RTC_DOY" description="" address="0x40024034" access="rw" size="2" />
+      <register name="LPC_RTC_MONTH" description="" address="0x40024038" access="rw" size="1" />
+      <register name="LPC_RTC_YEAR" description="" address="0x4002403c" access="rw" size="2" />
+      <register name="LPC_RTC_CALIBRATION" description="" address="0x40024040" access="rw" />
+      <register name="LPC_RTC_GPREG0" description="" address="0x40024044" access="rw" />
+      <register name="LPC_RTC_GPREG1" description="" address="0x40024048" access="rw" />
+      <register name="LPC_RTC_GPREG2" description="" address="0x4002404c" access="rw" />
+      <register name="LPC_RTC_GPREG3" description="" address="0x40024050" access="rw" />
+      <register name="LPC_RTC_GPREG4" description="" address="0x40024054" access="rw" />
+      <register name="LPC_RTC_RTC_AUXEN" description="" address="0x40024058" access="rw" size="1" />
+      <register name="LPC_RTC_RTC_AUX" description="" address="0x4002405c" access="rw" size="1" />
+      <register name="LPC_RTC_ALSEC" description="" address="0x40024060" access="rw" size="1" />
+      <register name="LPC_RTC_ALMIN" description="" address="0x40024064" access="rw" size="1" />
+      <register name="LPC_RTC_ALHOUR" description="" address="0x40024068" access="rw" size="1" />
+      <register name="LPC_RTC_ALDOM" description="" address="0x4002406c" access="rw" size="1" />
+      <register name="LPC_RTC_ALDOW" description="" address="0x40024070" access="rw" size="1" />
+      <register name="LPC_RTC_ALDOY" description="" address="0x40024074" access="rw" size="2" />
+      <register name="LPC_RTC_ALMON" description="" address="0x40024078" access="rw" size="1" />
+      <register name="LPC_RTC_ALYEAR" description="" address="0x4002407c" access="rw" size="2" />
+    </registergroup>
+  </group>
+  <group name="LPC_WDT" description="">
+    <registergroup name="LPC_WDT" description="">
+      <register name="LPC_WDT_WDMOD" description="" address="0x40000000" access="rw" size="1" />
+      <register name="LPC_WDT_WDTC" description="" address="0x40000004" access="rw" />
+      <register name="LPC_WDT_WDFEED" description="" address="0x40000008" access="wo" size="1" />
+      <register name="LPC_WDT_WDTV" description="" address="0x4000000c" access="ro" />
+      <register name="LPC_WDT_WDCLKSEL" description="" address="0x40000010" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_ADC" description="">
+    <registergroup name="LPC_ADC" description="">
+      <register name="LPC_ADC_ADCR" description="" address="0x40034000" access="rw" />
+      <register name="LPC_ADC_ADGDR" description="" address="0x40034004" access="rw" />
+      <register name="LPC_ADC_ADINTEN" description="" address="0x4003400c" access="rw" />
+      <register name="LPC_ADC_ADDR0" description="" address="0x40034010" access="ro" />
+      <register name="LPC_ADC_ADDR1" description="" address="0x40034014" access="ro" />
+      <register name="LPC_ADC_ADDR2" description="" address="0x40034018" access="ro" />
+      <register name="LPC_ADC_ADDR3" description="" address="0x4003401c" access="ro" />
+      <register name="LPC_ADC_ADDR4" description="" address="0x40034020" access="ro" />
+      <register name="LPC_ADC_ADDR5" description="" address="0x40034024" access="ro" />
+      <register name="LPC_ADC_ADDR6" description="" address="0x40034028" access="ro" />
+      <register name="LPC_ADC_ADDR7" description="" address="0x4003402c" access="ro" />
+      <register name="LPC_ADC_ADSTAT" description="" address="0x40034030" access="ro" />
+      <register name="LPC_ADC_ADTRM" description="" address="0x40034034" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_DAC" description="">
+    <registergroup name="LPC_DAC" description="">
+      <register name="LPC_DAC_DACR" description="" address="0x4008c000" access="rw" />
+      <register name="LPC_DAC_DACCTRL" description="" address="0x4008c004" access="rw" />
+      <register name="LPC_DAC_DACCNTVAL" description="" address="0x4008c008" access="rw" size="2" />
+    </registergroup>
+  </group>
+  <group name="LPC_QEI" description="">
+    <registergroup name="LPC_QEI" description="">
+      <register name="LPC_QEI_QEICON" description="" address="0x400bc000" access="wo" />
+      <register name="LPC_QEI_QEISTAT" description="" address="0x400bc004" access="ro" />
+      <register name="LPC_QEI_QEICONF" description="" address="0x400bc008" access="rw" />
+      <register name="LPC_QEI_QEIPOS" description="" address="0x400bc00c" access="ro" />
+      <register name="LPC_QEI_QEIMAXPOS" description="" address="0x400bc010" access="rw" />
+      <register name="LPC_QEI_CMPOS0" description="" address="0x400bc014" access="rw" />
+      <register name="LPC_QEI_CMPOS1" description="" address="0x400bc018" access="rw" />
+      <register name="LPC_QEI_CMPOS2" description="" address="0x400bc01c" access="rw" />
+      <register name="LPC_QEI_INXCNT" description="" address="0x400bc020" access="ro" />
+      <register name="LPC_QEI_INXCMP" description="" address="0x400bc024" access="rw" />
+      <register name="LPC_QEI_QEILOAD" description="" address="0x400bc028" access="rw" />
+      <register name="LPC_QEI_QEITIME" description="" address="0x400bc02c" access="ro" />
+      <register name="LPC_QEI_QEIVEL" description="" address="0x400bc030" access="ro" />
+      <register name="LPC_QEI_QEICAP" description="" address="0x400bc034" access="ro" />
+      <register name="LPC_QEI_VELCOMP" description="" address="0x400bc038" access="rw" />
+      <register name="LPC_QEI_FILTER" description="" address="0x400bc03c" access="rw" />
+      <register name="LPC_QEI_QEIIEC" description="" address="0x400bcfd8" access="wo" />
+      <register name="LPC_QEI_QEIIES" description="" address="0x400bcfdc" access="wo" />
+      <register name="LPC_QEI_QEIINTSTAT" description="" address="0x400bcfe0" access="ro" />
+      <register name="LPC_QEI_QEIIE" description="" address="0x400bcfe4" access="ro" />
+      <register name="LPC_QEI_QEICLR" description="" address="0x400bcfe8" access="wo" />
+      <register name="LPC_QEI_QEISET" description="" address="0x400bcfec" access="wo" />
+    </registergroup>
+  </group>
+  <group name="LPC_CANAF_RAM" description="">
+    <registergroup name="LPC_CANAF_RAM" description="">
+      <register name="LPC_CANAF_RAM_mask" description="" address="0x40038000" access="rw" />
+    </registergroup>
+  </group>
+  <group name="LPC_CAN" description="">
+    <registergroup name="LPC_CANAF" description="">
+      <register name="LPC_CANAF_AFMR" description="Acceptance Filter Register" access="RW" resetvalue="0x1" address="0x4003C000" />
+      <register name="LPC_CANAF_SFF_sa" description="Standard Frame Individual Start Address Register" access="RW" resetvalue="0x0" address="0x4003C004" />
+      <register name="LPC_CANAF_SFF_GRP_sa" description="Standard Frame Group Start Address Register" access="RW" resetvalue="0x0" address="0x4003C008" />
+      <register name="LPC_CANAF_EFF_sa" description="Extended Frame Start Address Register" access="RW" resetvalue="0x0" address="0x4003C00C" />
+      <register name="LPC_CANAF_EFF_GRP_sa" description="Extended Frame Group Start Address Register" access="RW" resetvalue="0x0" address="0x4003C010" />
+      <register name="LPC_CANAF_ENDofTable" description="End of AF Tables register" access="RW" resetvalue="0x0" address="0x4003C014" />
+      <register name="LPC_CANAF_LUTerrAd" description="LUT Error Address register" access="RO" resetvalue="0x0" address="0x4003C018" />
+      <register name="LPC_CANAF_LUTerr" description="LUT Error Register" access="RO" resetvalue="0x0" address="0x4003C01C" />
+      <register name="LPC_CANAF_FCANIE" description="Global FullCANInterrupt Enable register" access="RW" resetvalue="0x0" address="0x4003C020" />
+      <register name="LPC_CANAF_FCANIC0" description="FullCAN Interrupt and Capture register 0" access="RW" resetvalue="0x0" address="0x4003C024" />
+      <register name="LPC_CANAF_FCANIC1" description="FullCAN Interrupt and Capture register 1" access="RW" resetvalue="0x0" address="0x4003C028" />
+    </registergroup>
+    <registergroup name="LPC_CANCR" description="">
+      <register name="LPC_CANAF_CANTxSR" description="CAN Central Transmit Status Register" access="RO" resetvalue="0x00030300" address="0x40040000" />
+      <register name="LPC_CANAF_CANRxSR" description="CAN Central Receive Status Register" access="RO" resetvalue="0x0" address="0x40040004" />
+      <register name="LPC_CANAF_CANMSR" description="CAN Central Miscellaneous Register" access="RO" resetvalue="0x0" address="0x40040008" />
+    </registergroup>
+    <registergroup name="LPC_CAN1" description="">
+      <register name="LPC_CAN1_MOD Controls the operating mode of the CAN Controller" access="rw" resetvalue="0x1" address="0x40044000" />
+      <register name="LPC_CAN1_CMR Command bits that affect the state of the CAN Controller" access="wo" resetvalue="0x0" address="0x40044004" />
+      <register name="LPC_CAN1_GSR Global Controller Status and Error Counters" access="ro" resetvalue="0x3C" address="0x40044008" />
+      <register name="LPC_CAN1_ICR Interrupt status, Arbitration Lost Capture, Error Code Capture" access="ro" resetvalue="0x0" address="0x4004400C" />
+      <register name="LPC_CAN1_IER Interrupt Enable" access="rw" resetvalue="0x0" address="0x40044010" />
+      <register name="LPC_CAN1_BTR Bus Timing" access="rw" resetvalue="0x1C0000" address="0x40044014" />
+      <register name="LPC_CAN1_EWL Error Warning Limit" access="rw" resetvalue="0x60" address="0x40044018" />
+      <register name="LPC_CAN1_SR Status Register" access="ro" resetvalue="0x3C3C3C" address="0x4004401C" />
+      <register name="LPC_CAN1_RFS Receive frame status" access="rw" resetvalue="0x0" address="0x40044020" />
+      <register name="LPC_CAN1_RID Received Identifier" access="rw" resetvalue="0x0" address="0x40044024" />
+      <register name="LPC_CAN1_RDA Received data bytes 1-4" access="rw" resetvalue="0x0" address="0x40044028" />
+      <register name="LPC_CAN1_RDB Received data bytes 5-8" access="rw" resetvalue="0x0" address="0x4004402C" />
+      <register name="LPC_CAN1_TFI1 Transmit frame info (Tx Buffer 1)" access="rw" resetvalue="0x0" address="0x40044030" />
+      <register name="LPC_CAN1_TID1 Transmit Identifier (Tx Buffer 1)" access="rw" resetvalue="0x0" address="0x40044034" />
+      <register name="LPC_CAN1_TDA1 Transmit data bytes 1-4 (Tx Buffer 1)" access="rw" resetvalue="0x0" address="0x40044038" />
+      <register name="LPC_CAN1_TDB1 Transmit data bytes 5-8 (Tx Buffer 1)" access="rw" resetvalue="0x0" address="0x4004403C" />
+      <register name="LPC_CAN1_TFI2 Transmit frame info (Tx Buffer 2)" access="rw" resetvalue="0x0" address="0x40044040" />
+      <register name="LPC_CAN1_TID2 Transmit Identifier (Tx Buffer 2)" access="rw" resetvalue="0x0" address="0x40044044" />
+      <register name="LPC_CAN1_TDA2 Transmit data bytes 1-4 (Tx Buffer 2)" access="rw" resetvalue="0x0" address="0x40044048" />
+      <register name="LPC_CAN1_TDB2 Transmit data bytes 5-8 (Tx Buffer 2)" access="rw" resetvalue="0x0" address="0x4004404C" />
+      <register name="LPC_CAN1_TFI3 Transmit frame info (Tx Buffer 3)" access="rw" resetvalue="0x0" address="0x40044050" />
+      <register name="LPC_CAN1_TID3 Transmit Identifier (Tx Buffer 3)" access="rw" resetvalue="0x0" address="0x40044054" />
+      <register name="LPC_CAN1_TDA3 Transmit data bytes 1-4 (Tx Buffer 3)" access="rw" resetvalue="0x0" address="0x40044058" />
+      <register name="LPC_CAN1_TDB3 Transmit data bytes 5-8 (Tx Buffer 3)" access="rw" resetvalue="0x0" address="0x4004405C" />
+    </registergroup>
+    <registergroup name="LPC_CAN2" description="">
+      <register name="LPC_CAN2_MOD Controls the operating mode of the CAN Controller" access="rw" resetvalue="0x1" address="0x40048000" />
+      <register name="LPC_CAN2_CMR Command bits that affect the state of the CAN Controller" access="wo" resetvalue="0x0" address="0x40048004" />
+      <register name="LPC_CAN2_GSR Global Controller Status and Error Counters" access="ro" resetvalue="0x3C" address="0x40048008" />
+      <register name="LPC_CAN2_ICR Interrupt status, Arbitration Lost Capture, Error Code Capture" access="ro" resetvalue="0x0" address="0x4004800C" />
+      <register name="LPC_CAN2_IER Interrupt Enable" access="rw" resetvalue="0x0" address="0x40048010" />
+      <register name="LPC_CAN2_BTR Bus Timing" access="rw" resetvalue="0x1C0000" address="0x40048014" />
+      <register name="LPC_CAN2_EWL Error Warning Limit" access="rw" resetvalue="0x60" address="0x40048018" />
+      <register name="LPC_CAN2_SR Status Register" access="ro" resetvalue="0x3C3C3C" address="0x4004801C" />
+      <register name="LPC_CAN2_RFS Receive frame status" access="rw" resetvalue="0x0" address="0x40048020" />
+      <register name="LPC_CAN2_RID Received Identifier" access="rw" resetvalue="0x0" address="0x40048024" />
+      <register name="LPC_CAN2_RDA Received data bytes 1-4" access="rw" resetvalue="0x0" address="0x40048028" />
+      <register name="LPC_CAN2_RDB Received data bytes 5-8" access="rw" resetvalue="0x0" address="0x4004802C" />
+      <register name="LPC_CAN2_TFI1 Transmit frame info (Tx Buffer 1)" access="rw" resetvalue="0x0" address="0x40048030" />
+      <register name="LPC_CAN2_TID1 Transmit Identifier (Tx Buffer 1)" access="rw" resetvalue="0x0" address="0x40048034" />
+      <register name="LPC_CAN2_TDA1 Transmit data bytes 1-4 (Tx Buffer 1)" access="rw" resetvalue="0x0" address="0x40048038" />
+      <register name="LPC_CAN2_TDB1 Transmit data bytes 5-8 (Tx Buffer 1)" access="rw" resetvalue="0x0" address="0x4004803C" />
+      <register name="LPC_CAN2_TFI2 Transmit frame info (Tx Buffer 2)" access="rw" resetvalue="0x0" address="0x40048040" />
+      <register name="LPC_CAN2_TID2 Transmit Identifier (Tx Buffer 2)" access="rw" resetvalue="0x0" address="0x40048044" />
+      <register name="LPC_CAN2_TDA2 Transmit data bytes 1-4 (Tx Buffer 2)" access="rw" resetvalue="0x0" address="0x40048048" />
+      <register name="LPC_CAN2_TDB2 Transmit data bytes 5-8 (Tx Buffer 2)" access="rw" resetvalue="0x0" address="0x4004804C" />
+      <register name="LPC_CAN2_TFI3 Transmit frame info (Tx Buffer 3)" access="rw" resetvalue="0x0" address="0x40048050" />
+      <register name="LPC_CAN2_TID3 Transmit Identifier (Tx Buffer 3)" access="rw" resetvalue="0x0" address="0x40048054" />
+      <register name="LPC_CAN2_TDA3 Transmit data bytes 1-4 (Tx Buffer 3)" access="rw" resetvalue="0x0" address="0x40048058" />
+      <register name="LPC_CAN2_TDB3 Transmit data bytes 5-8 (Tx Buffer 3)" access="rw" resetvalue="0x0" address="0x4004805C" />
+    </registergroup>
+  </group>
+  <group name="LPC_GPDMA" description="">
+    <registergroup name="LPC_GPDMA" description="">
+      <register name="LPC_GPDMA_DMACIntStat" description="" address="0x50004000" access="ro" />
+      <register name="LPC_GPDMA_DMACIntTCStat" description="" address="0x50004004" access="ro" />
+      <register name="LPC_GPDMA_DMACIntTCClear" description="" address="0x50004008" access="wo" />
+      <register name="LPC_GPDMA_DMACIntErrStat" description="" address="0x5000400c" access="ro" />
+      <register name="LPC_GPDMA_DMACIntErrClr" description="" address="0x50004010" access="wo" />
+      <register name="LPC_GPDMA_DMACRawIntTCStat" description="" address="0x50004014" access="ro" />
+      <register name="LPC_GPDMA_DMACRawIntErrStat" description="" address="0x50004018" access="ro" />
+      <register name="LPC_GPDMA_DMACEnbldChns" description="" address="0x5000401c" access="ro" />
+      <register name="LPC_GPDMA_DMACSoftBReq" description="" address="0x50004020" access="rw" />
+      <register name="LPC_GPDMA_DMACSoftSReq" description="" address="0x50004024" access="rw" />
+      <register name="LPC_GPDMA_DMACSoftLBReq" description="" address="0x50004028" access="rw" />
+      <register name="LPC_GPDMA_DMACSoftLSReq" description="" address="0x5000402c" access="rw" />
+      <register name="LPC_GPDMA_DMACConfig" description="" address="0x50004030" access="rw" />
+      <register name="LPC_GPDMA_DMACSync" description="" address="0x50004034" access="rw" />
+    </registergroup>
+    <registergroup name="LPC_GPDMACH0" description="">
+      <register name="LPC_GPDMACH0_DMACC0SrcAddr" description="DMA Channel 0 Source Address Register" access="RW" resetvalue="0x0" address="0x50004100" />
+      <register name="LPC_GPDMACH0_DMACC0DestAddr" description="DMA Channel 0 Destination Address Register" access="RW" resetvalue="0x0" address="0x50004104" />
+      <register name="LPC_GPDMACH0_DMACC0LLI" description="DMA Channel 0 Linked List Item Register" access="RW" resetvalue="0x0" address="0x50004108" />
+      <register name="LPC_GPDMACH0_DMACC0Control" description="DMA Channel 0 Control Register" access="RW" resetvalue="0x0" address="0x5000410C" />
+      <register name="LPC_GPDMACH0_DMACC0Config" description="DMA Channel 0 Configuration Register" access="RW" resetvalue="0x0" address="0x50004110" />
+    </registergroup>
+    <registergroup name="LPC_GPDMACH1" description="">
+      <register name="LPC_GPDMACH1_DMACC1SrcAddr" description="DMA Channel 1 Source Address Register" access="RW" resetvalue="0x0" address="0x50004120" />
+      <register name="LPC_GPDMACH1_DMACC1DestAddr" description="DMA Channel 1 Destination Address Register" access="RW" resetvalue="0x0" address="0x50004124" />
+      <register name="LPC_GPDMACH1_DMACC1LLI" description="DMA Channel 1 Linked List Item Register" access="RW" resetvalue="0x0" address="0x50004128" />
+      <register name="LPC_GPDMACH1_DMACC1Control" description="DMA Channel 1 Control Register" access="RW" resetvalue="0x0" address="0x5000412C" />
+      <register name="LPC_GPDMACH1_DMACC1Config" description="DMA Channel 1 Configuration Register" access="RW" resetvalue="0x0" address="0x50004130" />
+    </registergroup>
+    <registergroup name="LPC_GPDMACH2" description="">
+      <register name="LPC_GPDMACH2_DMACC2SrcAddr" description="DMA Channel 2 Source Address Register" access="RW" resetvalue="0x0" address="0x50004140" />
+      <register name="LPC_GPDMACH2_DMACC2DestAddr" description="DMA Channel 2 Destination Address Register" access="RW" resetvalue="0x0" address="0x50004144" />
+      <register name="LPC_GPDMACH2_DMACC2LLI" description="DMA Channel 2 Linked List Item Register" access="RW" resetvalue="0x0" address="0x50004148" />
+      <register name="LPC_GPDMACH2_DMACC2Control" description="DMA Channel 2 Control Register" access="RW" resetvalue="0x0" address="0x5000414C" />
+      <register name="LPC_GPDMACH2_DMACC2Config" description="DMA Channel 2 Configuration Register" access="RW" resetvalue="0x0" address="0x50004150" />
+    </registergroup>
+    <registergroup name="LPC_GPDMACH3" description="">
+      <register name="LPC_GPDMACH3_DMACC3SrcAddr" description="DMA Channel 3 Source Address Register" access="RW" resetvalue="0x0" address="0x50004160" />
+      <register name="LPC_GPDMACH3_DMACC3DestAddr" description="DMA Channel 3 Destination Address Register" access="RW" resetvalue="0x0" address="0x50004164" />
+      <register name="LPC_GPDMACH3_DMACC3LLI" description="DMA Channel 3 Linked List Item Register" access="RW" resetvalue="0x0" address="0x50004168" />
+      <register name="LPC_GPDMACH3_DMACC3Control" description="DMA Channel 3 Control Register" access="RW" resetvalue="0x0" address="0x5000416C" />
+      <register name="LPC_GPDMACH3_DMACC3Config" description="DMA Channel 3 Configuration Register" access="RW" resetvalue="0x0" address="0x50004170" />
+    </registergroup>
+    <registergroup name="LPC_GPDMACH4" description="">
+      <register name="LPC_GPDMACH4_DMACC4SrcAddr" description="DMA Channel 4 Source Address Register" access="RW" resetvalue="0x0" address="0x50004180" />
+      <register name="LPC_GPDMACH4_DMACC4DestAddr" description="DMA Channel 4 Destination Address Register" access="RW" resetvalue="0x0" address="0x50004184" />
+      <register name="LPC_GPDMACH4_DMACC4LLI" description="DMA Channel 4 Linked List Item Register" access="RW" resetvalue="0x0" address="0x50004188" />
+      <register name="LPC_GPDMACH4_DMACC4Control" description="DMA Channel 4 Control Register" access="RW" resetvalue="0x0" address="0x5000418C" />
+      <register name="LPC_GPDMACH4_DMACC4Config" description="DMA Channel 4 Configuration Register" access="RW" resetvalue="0x0" address="0x50004190" />
+    </registergroup>
+    <registergroup name="LPC_GPDMACH5" description="">
+      <register name="LPC_GPDMACH5_DMACC5SrcAddr" description="DMA Channel 5 Source Address Register" access="RW" resetvalue="0x0" address="0x500041a0" />
+      <register name="LPC_GPDMACH5_DMACC5DestAddr" description="DMA Channel 5 Destination Address Register" access="RW" resetvalue="0x0" address="0x500041a4" />
+      <register name="LPC_GPDMACH5_DMACC5LLI" description="DMA Channel 5 Linked List Item Register" access="RW" resetvalue="0x0" address="0x500041a8" />
+      <register name="LPC_GPDMACH5_DMACC5Control" description="DMA Channel 5 Control Register" access="RW" resetvalue="0x0" address="0x500041aC" />
+      <register name="LPC_GPDMACH5_DMACC5Config" description="DMA Channel 5 Configuration Register" access="RW" resetvalue="0x0" address="0x500041b0" />
+    </registergroup>
+    <registergroup name="LPC_GPDMACH6" description="">
+      <register name="LPC_GPDMACH6_DMACC6SrcAddr" description="DMA Channel 6 Source Address Register" access="RW" resetvalue="0x0" address="0x500041c0" />
+      <register name="LPC_GPDMACH6_DMACC6DestAddr" description="DMA Channel 6 Destination Address Register" access="RW" resetvalue="0x0" address="0x500041c4" />
+      <register name="LPC_GPDMACH6_DMACC6LLI" description="DMA Channel 6 Linked List Item Register" access="RW" resetvalue="0x0" address="0x500041c8" />
+      <register name="LPC_GPDMACH6_DMACC6Control" description="DMA Channel 6 Control Register" access="RW" resetvalue="0x0" address="0x500041cC" />
+      <register name="LPC_GPDMACH6_DMACC6Config" description="DMA Channel 6 Configuration Register" access="RW" resetvalue="0x0" address="0x500041d0" />
+    </registergroup>
+    <registergroup name="LPC_GPDMACH7" description="">
+      <register name="LPC_GPDMACH7_DMACC7SrcAddr" description="DMA Channel 7 Source Address Register" access="RW" resetvalue="0x0" address="0x500041e0" />
+      <register name="LPC_GPDMACH7_DMACC7DestAddr" description="DMA Channel 7 Destination Address Register" access="RW" resetvalue="0x0" address="0x500041e4" />
+      <register name="LPC_GPDMACH7_DMACC7LLI" description="DMA Channel 7 Linked List Item Register" access="RW" resetvalue="0x0" address="0x500041e8" />
+      <register name="LPC_GPDMACH7_DMACC7Control" description="DMA Channel 7 Control Register" access="RW" resetvalue="0x0" address="0x500041eC" />
+      <register name="LPC_GPDMACH7_DMACC7Config" description="DMA Channel 7 Configuration Register" access="RW" resetvalue="0x0" address="0x500041f0" />
+    </registergroup>
+  </group>
+  <group name="LPC_USB" description="">
+    <registergroup name="LPC_USB" description="">
+      <register name="LPC_USB_HcRevision" description="BCD representation of the version of the HCI specification that is implemented by the Host Controller" address="0x5000c000" access="ro" />
+      <register name="LPC_USB_HcControl" description="Defines the operating modes of the HC" address="0x5000c004" access="rw" />
+      <register name="LPC_USB_HcCommandStatus" description="This register is used to receive the commands from the Host Controller Driver (HCD). It also indicates the status of the HC" address="0x5000c008" access="rw" />
+      <register name="LPC_USB_HcInterruptStatus" description="Indicates the status on various events that cause hardware interrupts by setting the appropriate bits" address="0x5000c00c" access="rw" />
+      <register name="LPC_USB_HcInterruptEnable" description="Controls the bits in the HcInterruptStatus register and indicates which events will generate a hardware interrupt" address="0x5000c010" access="rw" />
+      <register name="LPC_USB_HcInterruptDisable" description="The bits in this register are used to disable corresponding bits in the HCInterruptStatus register and in turn disable that event leading to hardware interrupt" address="0x5000c014" access="rw" />
+      <register name="LPC_USB_HcHCCA" description="Contains the physical address of the host controller communication area" address="0x5000c018" access="rw" />
+      <register name="LPC_USB_HcPeriodCurrentED" description="Contains the physical address of the current isochronous or interrupt endpoint descriptor" address="0x5000c01c" access="ro" />
+      <register name="LPC_USB_HcControlHeadED" description="Contains the physical address of the first endpoint descriptor of the control list" address="0x5000c020" access="rw" />
+      <register name="LPC_USB_HcControlCurrentED" description="Contains the physical address of the current endpoint descriptor of the control list" address="0x5000c024" access="rw" />
+      <register name="LPC_USB_HcBulkHeadED" description="Contains the physical address of the first endpoint descriptor of the bulk list" address="0x5000c028" access="rw" />
+      <register name="LPC_USB_HcBulkCurrentED" description="Contains the physical address of the current endpoint descriptor of the bulk list" address="0x5000c02c" access="rw" />
+      <register name="LPC_USB_HcDoneHead" description="Contains the physical address of the last transfer descriptor added to the Done queue" address="0x5000c030" access="ro" />
+      <register name="LPC_USB_HcFmInterval" description="Defines the bit time interval in a frame and the full speed maximum packet size which would not cause an overrun" address="0x5000c034" access="rw" />
+      <register name="LPC_USB_HcFmRemaining" description="A 14-bit counter showing the bit time remaining in the current frame" address="0x5000c038" access="ro" />
+      <register name="LPC_USB_HcFmNumber" description="Contains a 16-bit counter and provides the timing reference among events happening in the HC and the HCD" address="0x5000c03c" access="ro" />
+      <register name="LPC_USB_HcPeriodicStart" description="Contains a programmable 14-bit value which determines the earliest time HC should start processing a periodic list" address="0x5000c040" access="rw" />
+      <register name="LPC_USB_HcLSTreshold" description="Contains 11-bit value which is used by the HC to determine whether to commit to transfer a maximum of 8-byte LS packet before EOF" address="0x5000c044" access="rw" />
+      <register name="LPC_USB_HcRhDescriptorA" description="First of the two registers which describes the characteristics of the root hub" address="0x5000c048" access="rw" />
+      <register name="LPC_USB_HcRhDescriptorB" description="Second of the two registers which describes the characteristics of the Root Hub" address="0x5000c04c" access="rw" />
+      <register name="LPC_USB_HcRhStatus" description="This register is divided into two parts. The lower D-word represents the hub status field and the upper word represents the hub status change field" address="0x5000c050" access="rw" />
+      <register name="LPC_USB_HcRhPortStatus1" description="Controls and reports the port events on a per-port basis" address="0x5000c054" access="rw" />
+      <register name="LPC_USB_HcRhPortStatus2" description="Controls and reports the port events on a per port basis" address="0x5000c058" access="rw" />
+      <register name="LPC_USB_Module_ID" description="IP number, where yy (0x00) is unique version number and zz (0x00) is a unique revision number" address="0x5000c0fc" access="ro" />
+      <register name="LPC_USB_OTGIntSt" description="OTG Interrupt Status" address="0x5000c100" access="ro" />
+      <register name="LPC_USB_OTGIntEn" description="OTG Interrupt Enable" address="0x5000c104" access="rw" />
+      <register name="LPC_USB_OTGIntSet" description="OTG Interrupt Set" address="0x5000c108" access="wo" />
+      <register name="LPC_USB_OTGIntClr" description="OTG Interrupt Clear" address="0x5000c10c" access="wo" />
+      <register name="LPC_USB_OTGStCtrl" description="OTG Status and Control" address="0x5000c110" access="rw" />
+      <register name="LPC_USB_OTGTmr" description="OTG Timer" address="0x5000c114" access="rw" />
+      <register name="LPC_USB_USBDevIntSt" description="USB Device Interrupt Status" address="0x5000c200" access="ro" />
+      <register name="LPC_USB_USBDevIntEn" description="USB Device Interrupt Enable" address="0x5000c204" access="rw" />
+      <register name="LPC_USB_USBDevIntClr" description="USB Device Interrupt Clear" address="0x5000c208" access="wo" />
+      <register name="LPC_USB_USBDevIntSet" description="USB Device Interrupt Set" address="0x5000c20c" access="wo" />
+      <register name="LPC_USB_USBCmdCode" description="USB Command Code" address="0x5000c210" access="wo" />
+      <register name="LPC_USB_USBCmdData" description="USB Command Data" address="0x5000c214" access="ro" />
+      <register name="LPC_USB_USBRxData" description="USB Receive Data" address="0x5000c218" access="ro" />
+      <register name="LPC_USB_USBTxData" description="USB Transmit Data" address="0x5000c21c" access="wo" />
+      <register name="LPC_USB_USBRxPLen" description="USB Receive Packet Length" address="0x5000c220" access="ro" />
+      <register name="LPC_USB_USBTxPLen" description="USB Transmit Packet Length" address="0x5000c224" access="wo" />
+      <register name="LPC_USB_USBCtrl" description="USB Control" address="0x5000c228" access="rw" />
+      <register name="LPC_USB_USBDevIntPri" description="USB Device Interrupt Priority" address="0x5000c22c" access="wo" />
+      <register name="LPC_USB_USBEpIntSt" description="USB Endpoint Interrupt Status" address="0x5000c230" access="ro" />
+      <register name="LPC_USB_USBEpIntEn" description="USB Endpoint Interrupt Enable" address="0x5000c234" access="rw" />
+      <register name="LPC_USB_USBEpIntClr" description="USB Endpoint Interrupt Clear" address="0x5000c238" access="wo" />
+      <register name="LPC_USB_USBEpIntSet" description="USB Endpoint Interrupt Set" address="0x5000c23c" access="wo" />
+      <register name="LPC_USB_USBEpIntPri" description="USB Endpoint Interrupt Priority" address="0x5000c240" access="wo" />
+      <register name="LPC_USB_USBReEp" description="USB Realize Endpoint" address="0x5000c244" access="rw" />
+      <register name="LPC_USB_USBEpInd" description="USB Endpoint Index" address="0x5000c248" access="wo" />
+      <register name="LPC_USB_USBMaxPSize" description="USB MaxPacketSize" address="0x5000c24c" access="rw" />
+      <register name="LPC_USB_USBDMARSt" description="USB DMA Request Status" address="0x5000c250" access="ro" />
+      <register name="LPC_USB_USBDMARClr" description="USB DMA Request Clear" address="0x5000c254" access="wo" />
+      <register name="LPC_USB_USBDMARSet" description="USB DMA Request Set" address="0x5000c258" access="wo" />
+      <register name="LPC_USB_USBUDCAH" description="USB UDCA Head" address="0x5000c280" access="rw" />
+      <register name="LPC_USB_USBEpDMASt" description="USB Endpoint DMA Status" address="0x5000c284" access="ro" />
+      <register name="LPC_USB_USBEpDMAEn" description="USB Endpoint DMA Enable" address="0x5000c288" access="wo" />
+      <register name="LPC_USB_USBEpDMADis" description="USB Endpoint DMA Disable" address="0x5000c28c" access="wo" />
+      <register name="LPC_USB_USBDMAIntSt" description="USB DMA Interrupt Status" address="0x5000c290" access="ro" />
+      <register name="LPC_USB_USBDMAIntEn" description="USB DMA Interrupt Enable" address="0x5000c294" access="rw" />
+      <register name="LPC_USB_USBEoTIntSt" description="USB End of Transfer Interrupt Status" address="0x5000c2a0" access="ro" />
+      <register name="LPC_USB_USBEoTIntClr" description="USB End of Transfer Interrupt Clear" address="0x5000c2a4" access="wo" />
+      <register name="LPC_USB_USBEoTIntSet" description="USB End of Transfer Interrupt Set" address="0x5000c2a8" access="wo" />
+      <register name="LPC_USB_USBNDDRIntSt" description="USB New DD Request Interrupt Status" address="0x5000c2ac" access="ro" />
+      <register name="LPC_USB_USBNDDRIntClr" description="USB New DD Request Interrupt Clear" address="0x5000c2b0" access="wo" />
+      <register name="LPC_USB_USBNDDRIntSet" description="USB New DD Request Interrupt Set" address="0x5000c2b4" access="wo" />
+      <register name="LPC_USB_USBSysErrIntSt" description="USB System Error Interrupt Status" address="0x5000c2b8" access="ro" />
+      <register name="LPC_USB_USBSysErrIntClr" description="USB System Error Interrupt Clear" address="0x5000c2bc" access="wo" />
+      <register name="LPC_USB_USBSysErrIntSet" description="USB System Error Interrupt Set" address="0x5000c2c0" access="wo" />
+      <register name="LPC_USB_I2C_RX" description="I2C Receive" address="0x5000c300" access="ro" />
+      <register name="LPC_USB_I2C_TX" description="I2C Transmit" address="0x5000c300" access="wo" />
+      <register name="LPC_USB_I2C_STS" description="I2C Status" address="0x5000c304" access="ro" />
+      <register name="LPC_USB_I2C_CTL" description="I2C Control" address="0x5000c308" access="rw" />
+      <register name="LPC_USB_I2C_CLKHI" description="I2C Clock High" address="0x5000c30c" access="rw" />
+      <register name="LPC_USB_I2C_CLKLO" description="I2C Clock Low" address="0x5000c310" access="wo" />
+      <register name="LPC_USB_USBClkCtrl" description="USB Clock Control" address="0x5000cff4" access="rw" />
+      <register name="LPC_USB_OTGClkCtrl" description="OTG clock controller" address="0x5000cff4" access="rw" />
+      <register name="LPC_USB_USBClkSt" description="USB Clock Status" address="0x5000cff8" access="ro" />
+      <register name="LPC_USB_OTGClkSt" description="OTG clock status" address="0x5000cff8" access="ro" />
+    </registergroup>
+  </group>
+  <group name="LPC_EMAC" description="">
+    <registergroup name="LPC_EMAC" description="">
+      <register name="LPC_EMAC_MAC1" description="MAC configuration register 1" access="R/W" resetvalue="0x8000" address="0x50000000" />
+      <register name="LPC_EMAC_MAC2" description="MAC configuration register 2" access="R/W" resetvalue="0x0" address="0x50000004" />
+      <register name="LPC_EMAC_IPGT" description="Back-to-Back Inter-Packet-Gap register" access="R/W" resetvalue="0x0" address="0x50000008" />
+      <register name="LPC_EMAC_IPGR" description="Non Back-to-Back Inter-Packet-Gap register" access="R/W" resetvalue="0x0" address="0x5000000C" />
+      <register name="LPC_EMAC_CLRT" description="Collision window / Retry register" access="R/W" resetvalue="0x370F" address="0x50000010" />
+      <register name="LPC_EMAC_MAXF" description="Maximum Frame register" access="R/W" resetvalue="0x0600" address="0x50000014" />
+      <register name="LPC_EMAC_SUPP" description="PHY Support register" access="R/W" resetvalue="0x0" address="0x50000018" />
+      <register name="LPC_EMAC_TEST" description="Test register" access="R/W " resetvalue="0x0" address="0x5000001C" />
+      <register name="LPC_EMAC_MCFG" description="MII Mgmt Configuration register" access="R/W" resetvalue="0x0" address="0x50000020" />
+      <register name="LPC_EMAC_MCMD" description="MII Mgmt Command register" access="R/W" resetvalue="0x0" address="0x50000024" />
+      <register name="LPC_EMAC_MADR" description="MII Mgmt Address register" access="R/W" resetvalue="0x0" address="0x50000028" />
+      <register name="LPC_EMAC_MWTD" description="MII Mgmt Write Data register" access="WO" resetvalue="0x0" address="0x5000002C" />
+      <register name="LPC_EMAC_MRDD" description="MII Mgmt Read Data register" access="RO" resetvalue="0x0" address="0x50000030" />
+      <register name="LPC_EMAC_MIND" description="MII Mgmt Indicators register" access="RO" resetvalue="0x0" address="0x50000034" />
+      <register name="LPC_EMAC_SA0" description="Station Address 0 register" access="R/W" resetvalue="0x0" address="0x50000040" />
+      <register name="LPC_EMAC_SA1" description="Station Address 1 register" access="R/W" resetvalue="0x0" address="0x50000044" />
+      <register name="LPC_EMAC_SA2" description="Station Address 2 register" access="R/W" resetvalue="0x0" address="0x50000048" />
+      <register name="LPC_EMAC_Command" description="Command register" access="R/W" resetvalue="0x0" address="0x50000100" />
+      <register name="LPC_EMAC_Status" description="Status register" access="RO" resetvalue="0x0" address="0x50000104" />
+      <register name="LPC_EMAC_RxDescriptor" description="Receive descriptor base address register" access="R/W" resetvalue="0x0" address="0x50000108" />
+      <register name="LPC_EMAC_RxStatus" description="Receive status base address register" access="R/W" resetvalue="0x0" address="0x5000010C" />
+      <register name="LPC_EMAC_RxDescriptorNumber" description="Receive number of descriptors register" access="R/W" resetvalue="0x0" address="0x50000110" />
+      <register name="LPC_EMAC_RxProduceIndex" description="Receive produce index register" access="RO" resetvalue="" address="0x50000114" />
+      <register name="LPC_EMAC_RxConsumeIndex" description="Receive consume index register" access="R/W" resetvalue="0x0" address="0x50000118" />
+      <register name="LPC_EMAC_TxDescriptor" description="Transmit descriptor base address register" access="R/W" resetvalue="0x0" address="0x5000011C" />
+      <register name="LPC_EMAC_TxStatus" description="Transmit status base address register" access="R/W" resetvalue="0x0" address="0x50000120" />
+      <register name="LPC_EMAC_TxDescriptorNumber" description="Transmit number of descriptors register" access="R/W" resetvalue="0x0" address="0x50000124" />
+      <register name="LPC_EMAC_TxProduceIndex" description="Transmit produce index register" access="R/W" resetvalue="0x0" address="0x50000128" />
+      <register name="LPC_EMAC_TxConsumeIndex" description="Transmit consume index register" access="RO" resetvalue="0x0" address="0x5000012C" />
+      <register name="LPC_EMAC_TSV0" description="Transmit status vector 0 register" access="RO" resetvalue="0x0" address="0x50000158" />
+      <register name="LPC_EMAC_TSV1" description="Transmit status vector 1 register" access="RO" resetvalue="0x0" address="0x5000015C" />
+      <register name="LPC_EMAC_RSV" description="Receive status vector register" access="RO" resetvalue="0x0" address="0x50000160" />
+      <register name="LPC_EMAC_FlowControlCounter" description="Flow control counter register" access="R/W" resetvalue="0x0" address="0x50000170" />
+      <register name="LPC_EMAC_FlowControlStatus" description="Flow control status register" access="RO" resetvalue="0x0" address="0x50000174" />
+      <register name="LPC_EMAC_RxFilterCtrl" description="Receive filter control register" access="R/W" resetvalue="0x0" address="0x50000200" />
+      <register name="LPC_EMAC_RxFilterWoLStatus" description="Receive filter WoL status register" access="R/W" resetvalue="0x0" address="0x50000204" />
+      <register name="LPC_EMAC_RxFilterWoLClear" description="Receive filter WoL clear register" access="R/W" resetvalue="0x0" address="0x50000208" />
+      <register name="LPC_EMAC_HashFilterL" description="Hash filter table LSBs register" access="R/W" resetvalue="0x0" address="0x50000210" />
+      <register name="LPC_EMAC_HashFilterH" description="Hash filter table MSBs register" access="R/W" resetvalue="0x0" address="0x50000214" />
+      <register name="LPC_EMAC_IntStatus" description="Interrupt status register" access="RO" resetvalue="0x0" address="0x50000FE0" />
+      <register name="LPC_EMAC_IntEnable" description="Interrupt enable register" access="R/W" resetvalue="0x0" address="0x50000FE4" />
+      <register name="LPC_EMAC_IntClear" description="Interrupt clear register" access="WO" resetvalue="0x0" address="0x50000FE8" />
+      <register name="LPC_EMAC_IntSet" description="Interrupt set register" access="WO" resetvalue="0x0" address="0x50000FEC" />
+      <register name="LPC_EMAC_PowerDown" description="Power-down register" access="R/W" resetvalue="0x0" address="0x50000FF4" />
+    </registergroup>
+  </group>
+</model>
