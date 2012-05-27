@@ -407,7 +407,9 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 						((TreeField)obj).setValue(value);
 					
 				}
-					
+				
+				if (((TreeRegister)obj.getParent()).isWriteOnly())
+					updateTreeFields(invisibleRoot);
 				viewer.refresh();
 				
 			}
@@ -442,6 +444,8 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 					
 				}
 					
+				if (((TreeRegister)obj.getParent()).isWriteOnly())
+					updateTreeFields(invisibleRoot);
 				viewer.refresh();
 			}
 
@@ -470,7 +474,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 			
 			@Override
 			protected CellEditor getCellEditor(Object element) {
-				if (element instanceof TreeField && ((TreeField)element).hasInterpretation())
+				if (element instanceof TreeField && ((TreeField)element).hasInterpretations())
 				{
 					comboBoxCellEditor.setItems(((TreeField)element).getInterpretations().getInterpretations());
 					IPreferenceStore store = Activator.getDefault().getPreferenceStore();
@@ -486,8 +490,9 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 
 			@Override
 			protected Object getValue(Object element) {
-				if (element instanceof TreeField && ((TreeField)element).hasInterpretation())
+				if (element instanceof TreeField && ((TreeField)element).hasInterpretations())
 				{
+					// TODO: check if the Integer is for index in the combobox
 					return new Integer((int) ((TreeField)element).getValue()); // TODO: what to do on large bitfield ?
 				}
 				else
@@ -516,6 +521,8 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 						{
 							// Update Value on device
 							treeRegister.setAndWriteValue(lvalue);
+							if (((TreeRegister)element).isWriteOnly())
+								updateTreeFields(invisibleRoot);
 							viewer.refresh();
 						}
 					}
@@ -544,11 +551,14 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 							
 							// Update Value in Target
 							treeRegister.setAndWriteValue(rvalue);
+							if ( ((TreeRegister)(((TreeField) element).getParent())).isWriteOnly() )
+								updateTreeFields(invisibleRoot);
 							viewer.refresh(treeRegister);
 						}	
 					}
 				}
-				viewer.refresh(element);
+				//TODO: why...what for...
+				//viewer.refresh(element);
 			}
 		}); 
 		

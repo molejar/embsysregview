@@ -7,6 +7,8 @@ bugfixing:
 
 *) ERROR: org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Target is not suspended[]
 
+*) TODO: update all registers ...if the edited Register affects others
+   + update all activated fields if changed field is WriteOnly
 
 enhancements:
 =============
@@ -14,11 +16,6 @@ enhancements:
    * with or without set button ...without ... bitbuttons have direct effect
 
 *) DSF-GDB interface -> implement GDBInterfaceDSF 
-
-+) SVD Support 
-   + add SVD Support
-   - change everything to SVD
-   - write SVD converter
 
 *) Merge shipped xml with xml in home dir
    * to extend existing xml
@@ -45,3 +42,8 @@ enhancements:
       * adds to bottom of list
       * (rearange via drag & drop -> complex & requires separate edit mode)
    * possibility to send in created files (direct/link/mail)
+   
++) SVD Support 
+   + add SVD Support
+   - change everything to SVD
+   - write SVD converter

@@ -77,10 +77,20 @@ public class TreeField extends TreeElement {
 			return "";
 	}
 	
+	/*
+	 * Check if Field has an actual interpretation for the current value
+	 */
 	public boolean hasInterpretation() {
 		if(this.getInterpretation().equals(""))
 			return false;
 		else
 			return true;
+	}
+
+	/*
+	 * Check if Field has interpretations at all
+	 */
+	public boolean hasInterpretations() {
+		return interpretations.hasInterpretations();
 	}
 }

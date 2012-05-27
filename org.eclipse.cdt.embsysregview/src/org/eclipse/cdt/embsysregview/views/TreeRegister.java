@@ -109,10 +109,15 @@ public class TreeRegister extends TreeParent{
 	 * Sets the Registers value and writes it to the device
 	 */
 	public void setAndWriteValue(long lvalue)
-	{
-		old_value=value;
-		setValue(lvalue);
-		writeValue();
+	{ 
+		if(isWriteOnly())
+			writeValue(lvalue);
+		else
+		{
+			old_value=value;
+			setValue(lvalue);
+			writeValue();
+		}
 	}
 	
 	/**
@@ -121,6 +126,16 @@ public class TreeRegister extends TreeParent{
 	private void writeValue()
 	{
 		EmbSysRegView.GDBi.writeMemory(getRegisterAddress(), getValue(), getByteSize());
+	}
+	
+	/**
+	 * Write value to the device 
+	 * 
+	 * (needed for WriteOnly Registers... they ever return 0x00000000 on getValue()) 
+	 */
+	private void writeValue(long value)
+	{
+		EmbSysRegView.GDBi.writeMemory(getRegisterAddress(), value, getByteSize()); 
 	}
 	
 	/**
