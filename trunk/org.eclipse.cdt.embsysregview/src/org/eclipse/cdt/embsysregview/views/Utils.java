@@ -1,5 +1,6 @@
 package org.eclipse.cdt.embsysregview.views;
 
+import java.math.BigInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -99,5 +100,52 @@ public class Utils {
 			hex.append('0');
 		hex.append(x.toUpperCase());
 		return hex.toString();
+	}
+	
+	// Maximum values for signed data types of the marked bit length.
+	public static final BigInteger Max8Bit  = BigInteger.valueOf(Byte.MAX_VALUE).add(BigInteger.ONE);
+	public static final BigInteger Max16Bit = BigInteger.valueOf(Short.MAX_VALUE).add(BigInteger.ONE);
+	public static final BigInteger Max32Bit = BigInteger.valueOf(Integer.MAX_VALUE).add(BigInteger.ONE);
+	public static final BigInteger Max64Bit = BigInteger.valueOf(Long.MAX_VALUE).add(BigInteger.ONE);
+	
+	// Constants for the architecture bit depth.
+	public static final int Arch8Bit  = 8;
+	public static final int Arch16Bit = 16;
+	public static final int Arch32Bit = 32;
+	public static final int Arch64Bit = 64;
+	
+	/**
+	 * Convert a signed value of bitdepth to its unsigned equivilent.
+	 * @param signed Signed value.
+	 * @param bitdepth Target bit depth.
+	 * @return Returns the unsigned value for the signed parameter.
+	 */
+	public static BigInteger makeUnsigned(BigInteger signed, int bitdepth) {
+		BigInteger unsigned  = signed;
+		BigInteger MaxSignedValue;
+		if(null == signed) return unsigned;
+		if(signed.compareTo(BigInteger.ZERO) < 0) {
+			switch(bitdepth)
+			{
+				case Arch8Bit:
+					MaxSignedValue = Max8Bit;
+					break;
+				case Arch16Bit:
+					MaxSignedValue = Max16Bit;
+					break;
+				case Arch32Bit:
+					MaxSignedValue = Max32Bit;
+					break;
+				case Arch64Bit:
+					MaxSignedValue = Max64Bit;
+					break;
+				default:
+					MaxSignedValue = Max32Bit;
+					break;
+			}
+			unsigned = MaxSignedValue.add(MaxSignedValue.add(signed));
+		}
+		
+		return unsigned;
 	}
 }

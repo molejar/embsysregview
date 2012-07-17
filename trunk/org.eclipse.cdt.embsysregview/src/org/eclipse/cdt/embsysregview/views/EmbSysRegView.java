@@ -151,8 +151,7 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 	 * The constructor.
 	 */
 	public EmbSysRegView() {
-		GDBi = new GDBInterfaceStandard();
-		//GDBi = new GDBInterfaceDSF();
+		GDBi = new GDBEventListener();
 		GDBi.addSuspendListener(this);
 		GDBi.addterminateListener(this);
 	}
