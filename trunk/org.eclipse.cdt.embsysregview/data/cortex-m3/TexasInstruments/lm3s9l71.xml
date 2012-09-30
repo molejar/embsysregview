@@ -2,49 +2,48 @@
 <!DOCTYPE model SYSTEM "embsysregview.dtd">
 
 <model chipname="LM3S9L71">
-  <chip_description>Flash (KB)                        128
-RAM (KB)                          48
-StellarisWare in ROM              Yes
-Boot Loader in ROM                1
-DMA                               32
-SafeRTOS                          0
+  <chip_description>CPU                               ARM Cortex M3
 Max Speed (MHz)                   80
-Precision Oscillators             Yes
-Memory Protection Unit (MPU)      Yes
-Timers                            5
-RTC                               Yes
-Watchdog Timers                   2
+SRAM (kB)                         96
 Motion PWM                        6
-PWM Faults                        4
-Dead-Band Generator               Yes
-Capture Pins                      8
 QEI                               2
-EPI/EMIF                          No
-Ethernet                          MAC/MII
-IEEE 1588                         Yes
-CAN                               2
+GPIOs                             72
+Operating Temperature Range (C)   -40 to 85
 USB D, H/D, or OTG                O/H/D
-UART                              3
-UART Modem Status                 Yes
-I2C                               2
 SSI/SPI                           2
-I2S                               Yes
-ADC Units                         2
+I2C                               2
+UART                              3
 ADC Channels                      16
 ADC Resolution (Bits)             10
-ADC Sample Rate (kSPS)            1000
-ADC Ext Reference                 Yes
-Internal Temp Sensor              1
-Analog Comparators                2
+SysTick                           Yes
+Watchdog Timers                   2
+EPI/EMIF                          No
+Ethernet (10/100 MAC+PHY)         No
+10/100 MAC with MII Interface     Yes
+I2S                               Yes
+RTC                               Yes
+ADC Units                         2
 Maximum 5-V Tolerant GPIOs        72
-Dedicated 5-V Tolerant GPIOs      0
-Digital Comparators               16
+ADC Sample Rate (kSPS)            1000
+ROM Software Libraries            Yes
 Battery-Backed Hibernation Module No
+Internal Temp Sensor              1
 Internal LDO Voltage Regulator    Yes
-Active Current (mA) /MHz          pending
-Standby Current (uA)              pending
+Memory Protection Unit (MPU)      Yes
+UART Modem Signalling             1
+Analog Comparators                2
+Digital Comparators               16
+IEEE 1588                         Yes
+Boot Loader in ROM                1
+CAN MAC                           2
+16 MHz Precision Oscillators      Yes
+Capture Pins                      8
+Timers                            5
+ADC Ext Reference                 Yes
+Interrupts (Count)                51
 Pin/Package                       100LQFP, 108NFBGA
-Package Area (mm2)                100,196
+Flash (KB)                        128
+Sample &amp; Buy
 
 
 Copyright Texas Instruments Incorporated. All rights reserved.</chip_description>

@@ -2,49 +2,42 @@
 <!DOCTYPE model SYSTEM "embsysregview.dtd">
 
 <model chipname="LM4F232H5QD">
-  <chip_description>Flash (KB)                        256
-RAM (KB)                          32
-StellarisWare in ROM              Yes
-Boot Loader in ROM                1
-DMA                               32
-SafeRTOS                          0
-Max Speed (MHz)                   80
-Precision Oscillators             Yes
-Memory Protection Unit (MPU)      Yes
-Timers                            13
-RTC                               Yes
-Watchdog Timers                   2
-Motion PWM                        16
-PWM Faults                        8
-Dead-Band Generator               Yes
-Capture Pins                      24
-QEI                               2
-EPI/EMIF                          No
-Ethernet                          No
-IEEE 1588                         No
-CAN                               2
-USB D, H/D, or OTG                O/H/D
-UART                              8
-UART Modem Status                 Yes
+  <chip_description>Pin/Package                       144LQFP
 I2C                               6
-SSI/SPI                           4
-I2S                               No
-ADC Units                         2
-ADC Channels                      24
+CPU                               ARM Cortex M4F
 ADC Resolution (Bits)             12
-ADC Sample Rate (kSPS)            1000
-ADC Ext Reference                 Yes
-Internal Temp Sensor              1
-Analog Comparators                3
-Maximum 5-V Tolerant GPIOs        105
-Dedicated 5-V Tolerant GPIOs      0
-Digital Comparators               16
+ADC Channels                      24
+Flash (KB)                        256
+RTC                               Yes
+Max Speed (MHz)                   80
+QEI                               2
+I2S                               No
 Battery-Backed Hibernation Module Yes
 Internal LDO Voltage Regulator    Yes
-Active Current (mA) /MHz          pending
-Standby Current (uA)              pending
-Pin/Package                       144LQFP
-Package Area (mm2)                400
+EPI/EMIF                          No
+Ethernet (10/100 MAC+PHY)         No
+IEEE 1588                         No
+USB D, H/D, or OTG                OTG
+Memory Protection Unit (MPU)      Yes
+Motion PWM                        16
+Boot Loader in ROM                Yes
+Watchdog Timers                   2
+ADC Sample Rate (kSPS)            1000
+Analog Comparators                3
+SSI/SPI                           4
+Digital Comparators               16
+Maximum 5-V Tolerant GPIOs        105
+ADC Units                         2
+Internal Temp Sensor              1
+CAN MAC                           2
+16 MHz Precision Oscillators      Yes
+UART                              8
+GPIOs                             105
+ROM Software Libraries            Yes
+SysTick                           Yes
+10/100 MAC with MII Interface     No
+SRAM (kB)                         32
+Sample &amp; Buy
 
 
 Copyright Texas Instruments Incorporated. All rights reserved.</chip_description>
@@ -1919,6 +1912,29 @@ Copyright Texas Instruments Incorporated. All rights reserved.</chip_description
       <register name="USB0_PP_R" description="" address="0x40050FC0" access="rw" />
     </registergroup>
   </group>
+  <group name="EEPROM" description="EEPROM registers">
+    <registergroup name="EEPROM" description="">
+      <register name="EEPROM_EESIZE_R" description="" address="0x400AF000" access="rw" />
+      <register name="EEPROM_EEBLOCK_R" description="" address="0x400AF004" access="rw" />
+      <register name="EEPROM_EEOFFSET_R" description="" address="0x400AF008" access="rw" />
+      <register name="EEPROM_EERDWR_R" description="" address="0x400AF010" access="rw" />
+      <register name="EEPROM_EERDWRINC_R" description="" address="0x400AF014" access="rw" />
+      <register name="EEPROM_EEDONE_R" description="" address="0x400AF018" access="rw" />
+      <register name="EEPROM_EESUPP_R" description="" address="0x400AF01C" access="rw" />
+      <register name="EEPROM_EEUNLOCK_R" description="" address="0x400AF020" access="rw" />
+      <register name="EEPROM_EEPROT_R" description="" address="0x400AF030" access="rw" />
+      <register name="EEPROM_EEPASS0_R" description="" address="0x400AF034" access="rw" />
+      <register name="EEPROM_EEPASS1_R" description="" address="0x400AF038" access="rw" />
+      <register name="EEPROM_EEPASS2_R" description="" address="0x400AF03C" access="rw" />
+      <register name="EEPROM_EEINT_R" description="" address="0x400AF040" access="rw" />
+      <register name="EEPROM_EEHIDE_R" description="" address="0x400AF050" access="rw" />
+      <register name="EEPROM_EEDBGME_R" description="" address="0x400AF080" access="rw" />
+      <register name="EEPROM_PP_R" description="" address="0x400AFFC0" access="rw" />
+    </registergroup>
+    <registergroup name="NVIC" description="">
+      <register name="EEPROM_EEPROMPP_R" description="" address="0x400AFFC0" access="rw" />
+    </registergroup>
+  </group>
   <group name="SYSEXC" description="System Exception Module registers">
     <registergroup name="SYSEXC" description="">
       <register name="SYSEXC_RIS_R" description="" address="0x400F9000" access="rw" />
@@ -2222,6 +2238,8 @@ Copyright Texas Instruments Incorporated. All rights reserved.</chip_description
       <register name="NVIC_PRI30_R" description="" address="0xE000E478" access="rw" />
       <register name="NVIC_PRI31_R" description="" address="0xE000E47C" access="rw" />
       <register name="NVIC_PRI32_R" description="" address="0xE000E480" access="rw" />
+      <register name="NVIC_PRI33_R" description="" address="0xE000E484" access="rw" />
+      <register name="NVIC_PRI34_R" description="" address="0xE000E488" access="rw" />
       <register name="NVIC_CPUID_R" description="" address="0xE000ED00" access="rw" />
       <register name="NVIC_INT_CTRL_R" description="" address="0xE000ED04" access="rw" />
       <register name="NVIC_VTABLE_R" description="" address="0xE000ED08" access="rw" />
