@@ -1562,31 +1562,6 @@
       <register name="LPC0_PP_R" description="" address="0x40080FC0" access="rw" />
     </registergroup>
   </group>
-  <group name="PECI" description="PECI registers">
-    <registergroup name="PECI0" description="">
-      <register name="PECI0_CTL_R" description="" address="0x400B0000" access="rw" />
-      <register name="PECI0_DIV_R" description="" address="0x400B0004" access="rw" />
-      <register name="PECI0_CMP_R" description="" address="0x400B0008" access="rw" />
-      <register name="PECI0_M0D0C_R" description="" address="0x400B0010" access="rw" />
-      <register name="PECI0_M0D1C_R" description="" address="0x400B0014" access="rw" />
-      <register name="PECI0_M1D0C_R" description="" address="0x400B0018" access="rw" />
-      <register name="PECI0_M1D1C_R" description="" address="0x400B001C" access="rw" />
-      <register name="PECI0_M0D0_R" description="" address="0x400B0040" access="rw" />
-      <register name="PECI0_M0D1_R" description="" address="0x400B0044" access="rw" />
-      <register name="PECI0_M1D0_R" description="" address="0x400B0048" access="rw" />
-      <register name="PECI0_M1D1_R" description="" address="0x400B004C" access="rw" />
-      <register name="PECI0_IM_R" description="" address="0x400B0080" access="rw" />
-      <register name="PECI0_RIS_R" description="" address="0x400B0084" access="rw" />
-      <register name="PECI0_MIS_R" description="" address="0x400B0088" access="rw" />
-      <register name="PECI0_IC_R" description="" address="0x400B008C" access="rw" />
-      <register name="PECI0_ACADDR_R" description="" address="0x400B0100" access="rw" />
-      <register name="PECI0_ACARG_R" description="" address="0x400B0104" access="rw" />
-      <register name="PECI0_ACRDWR0_R" description="" address="0x400B0108" access="rw" />
-      <register name="PECI0_ACRDWR1_R" description="" address="0x400B010C" access="rw" />
-      <register name="PECI0_ACCMD_R" description="" address="0x400B0110" access="rw" />
-      <register name="PECI0_ACCODE_R" description="" address="0x400B0114" access="rw" />
-    </registergroup>
-  </group>
   <group name="FAN" description="Fan Control registers">
     <registergroup name="FAN0" description="">
       <register name="FAN0_STS_R" description="" address="0x40084000" access="rw" />
@@ -1614,6 +1589,53 @@
       <register name="FAN0_MIS_R" description="" address="0x40084098" access="rw" />
       <register name="FAN0_IC_R" description="" address="0x4008409C" access="rw" />
       <register name="FAN0_PP_R" description="" address="0x40084FC0" access="rw" />
+    </registergroup>
+  </group>
+  <group name="EEPROM" description="EEPROM registers">
+    <registergroup name="EEPROM" description="">
+      <register name="EEPROM_EESIZE_R" description="" address="0x400AF000" access="rw" />
+      <register name="EEPROM_EEBLOCK_R" description="" address="0x400AF004" access="rw" />
+      <register name="EEPROM_EEOFFSET_R" description="" address="0x400AF008" access="rw" />
+      <register name="EEPROM_EERDWR_R" description="" address="0x400AF010" access="rw" />
+      <register name="EEPROM_EERDWRINC_R" description="" address="0x400AF014" access="rw" />
+      <register name="EEPROM_EEDONE_R" description="" address="0x400AF018" access="rw" />
+      <register name="EEPROM_EESUPP_R" description="" address="0x400AF01C" access="rw" />
+      <register name="EEPROM_EEUNLOCK_R" description="" address="0x400AF020" access="rw" />
+      <register name="EEPROM_EEPROT_R" description="" address="0x400AF030" access="rw" />
+      <register name="EEPROM_EEPASS0_R" description="" address="0x400AF034" access="rw" />
+      <register name="EEPROM_EEPASS1_R" description="" address="0x400AF038" access="rw" />
+      <register name="EEPROM_EEPASS2_R" description="" address="0x400AF03C" access="rw" />
+      <register name="EEPROM_EEINT_R" description="" address="0x400AF040" access="rw" />
+      <register name="EEPROM_EEHIDE_R" description="" address="0x400AF050" access="rw" />
+      <register name="EEPROM_EEDBGME_R" description="" address="0x400AF080" access="rw" />
+      <register name="EEPROM_PP_R" description="" address="0x400AFFC0" access="rw" />
+    </registergroup>
+    <registergroup name="NVIC" description="">
+      <register name="EEPROM_EEPROMPP_R" description="" address="0x400AFFC0" access="rw" />
+    </registergroup>
+  </group>
+  <group name="PECI" description="PECI registers">
+    <registergroup name="PECI0" description="">
+      <register name="PECI0_CTL_R" description="" address="0x400B0000" access="rw" />
+      <register name="PECI0_DIV_R" description="" address="0x400B0004" access="rw" />
+      <register name="PECI0_M0D0C_R" description="" address="0x400B0010" access="rw" />
+      <register name="PECI0_M0D1C_R" description="" address="0x400B0014" access="rw" />
+      <register name="PECI0_M1D0C_R" description="" address="0x400B0018" access="rw" />
+      <register name="PECI0_M1D1C_R" description="" address="0x400B001C" access="rw" />
+      <register name="PECI0_M0D0_R" description="" address="0x400B0040" access="rw" />
+      <register name="PECI0_M0D1_R" description="" address="0x400B0044" access="rw" />
+      <register name="PECI0_M1D0_R" description="" address="0x400B0048" access="rw" />
+      <register name="PECI0_M1D1_R" description="" address="0x400B004C" access="rw" />
+      <register name="PECI0_IM_R" description="" address="0x400B0080" access="rw" />
+      <register name="PECI0_RIS_R" description="" address="0x400B0084" access="rw" />
+      <register name="PECI0_MIS_R" description="" address="0x400B0088" access="rw" />
+      <register name="PECI0_IC_R" description="" address="0x400B008C" access="rw" />
+      <register name="PECI0_ACADDR_R" description="" address="0x400B0100" access="rw" />
+      <register name="PECI0_ACARG_R" description="" address="0x400B0104" access="rw" />
+      <register name="PECI0_ACRDWR0_R" description="" address="0x400B0108" access="rw" />
+      <register name="PECI0_ACRDWR1_R" description="" address="0x400B010C" access="rw" />
+      <register name="PECI0_ACCMD_R" description="" address="0x400B0110" access="rw" />
+      <register name="PECI0_ACCODE_R" description="" address="0x400B0114" access="rw" />
     </registergroup>
   </group>
   <group name="SYSEXC" description="System Exception Module registers">
@@ -1923,6 +1945,8 @@
       <register name="NVIC_PRI30_R" description="" address="0xE000E478" access="rw" />
       <register name="NVIC_PRI31_R" description="" address="0xE000E47C" access="rw" />
       <register name="NVIC_PRI32_R" description="" address="0xE000E480" access="rw" />
+      <register name="NVIC_PRI33_R" description="" address="0xE000E484" access="rw" />
+      <register name="NVIC_PRI34_R" description="" address="0xE000E488" access="rw" />
       <register name="NVIC_CPUID_R" description="" address="0xE000ED00" access="rw" />
       <register name="NVIC_INT_CTRL_R" description="" address="0xE000ED04" access="rw" />
       <register name="NVIC_VTABLE_R" description="" address="0xE000ED08" access="rw" />

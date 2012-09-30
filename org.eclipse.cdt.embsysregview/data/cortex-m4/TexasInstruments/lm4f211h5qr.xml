@@ -2,56 +2,42 @@
 <!DOCTYPE model SYSTEM "embsysregview.dtd">
 
 <model chipname="LM4F211H5QR">
-  <chip_description>Flash (KB)                        256
-SRAM (KB)                         32
-StellarisWare in ROM              Yes
-DMA                               32
-SafeRTOS                          0
-CPU                               LM4F
-Max Speed (MHz)                   80
-Precision Oscillators             Yes
-Memory Protection Unit (MPU)      Yes
-SysTick                           Yes
-GPIOs                             12
-RTC                               Yes
-Watchdog Timers                   2
-PWM (Ch)                          16
-PWM Faults                        6
-Dead-Band Generator               Yes
-Capture Pins                      24
-QEI                               2
-Ethernet (10/100 MAC+PHY)         No
-10/100 MAC with MII Interface     No
-IEEE 1588                         No
-CAN                               2
-USB D, H/D, or OTG                O/H/D
-UART                              8
+  <chip_description>Pin/Package                       64LQFP
 I2C                               6
-SSI/SPI                           4
-I2S                               No
-ADC Units                         2
+CPU                               ARM Cortex M4F
 ADC Resolution (Bits)             12
 ADC Channels                      12
-ADC Sample Rate (kSPS)            1000
-Internal Temp Sensor              1
-ADC                               2/16
-Maximum 5-V Tolerant GPIOs        49
+Flash (KB)                        256
+RTC                               Yes
+Max Speed (MHz)                   80
+QEI                               2
+I2S                               No
 Battery-Backed Hibernation Module No
 Internal LDO Voltage Regulator    Yes
-Max GPIOs                         49
-Min GPIOs                         0
+EPI/EMIF                          No
+Ethernet (10/100 MAC+PHY)         No
+IEEE 1588                         No
+USB D, H/D, or OTG                No
+Memory Protection Unit (MPU)      Yes
+Motion PWM                        16
 Boot Loader in ROM                Yes
-ROM AES/CRC Tables                Yes
-ROM Ethernet Bootloader           No
-ADC Ext Reference                 No
-PWM Extended Fault                No
-PWM Extended Sync                 No
-Interrupts (Count)                66
+Watchdog Timers                   2
+ADC Sample Rate (kSPS)            1000
 Analog Comparators                2
-Analog Comparator Outputs         2
+SSI/SPI                           4
 Digital Comparators               16
-Package Area (mm2)                100
-Inventory Not Available
+Maximum 5-V Tolerant GPIOs        49
+ADC Units                         2
+Internal Temp Sensor              1
+CAN MAC                           2
+16 MHz Precision Oscillators      Yes
+UART                              8
+GPIOs                             49
+ROM Software Libraries            Yes
+SysTick                           Yes
+10/100 MAC with MII Interface     No
+SRAM (kB)                         32
+Sample &amp; Buy
 
 
 Copyright Texas Instruments Incorporated. All rights reserved.</chip_description>
@@ -1621,6 +1607,29 @@ Copyright Texas Instruments Incorporated. All rights reserved.</chip_description
       <register name="CAN1_MSG2VAL_R" description="" address="0x40041164" access="rw" />
     </registergroup>
   </group>
+  <group name="EEPROM" description="EEPROM registers">
+    <registergroup name="EEPROM" description="">
+      <register name="EEPROM_EESIZE_R" description="" address="0x400AF000" access="rw" />
+      <register name="EEPROM_EEBLOCK_R" description="" address="0x400AF004" access="rw" />
+      <register name="EEPROM_EEOFFSET_R" description="" address="0x400AF008" access="rw" />
+      <register name="EEPROM_EERDWR_R" description="" address="0x400AF010" access="rw" />
+      <register name="EEPROM_EERDWRINC_R" description="" address="0x400AF014" access="rw" />
+      <register name="EEPROM_EEDONE_R" description="" address="0x400AF018" access="rw" />
+      <register name="EEPROM_EESUPP_R" description="" address="0x400AF01C" access="rw" />
+      <register name="EEPROM_EEUNLOCK_R" description="" address="0x400AF020" access="rw" />
+      <register name="EEPROM_EEPROT_R" description="" address="0x400AF030" access="rw" />
+      <register name="EEPROM_EEPASS0_R" description="" address="0x400AF034" access="rw" />
+      <register name="EEPROM_EEPASS1_R" description="" address="0x400AF038" access="rw" />
+      <register name="EEPROM_EEPASS2_R" description="" address="0x400AF03C" access="rw" />
+      <register name="EEPROM_EEINT_R" description="" address="0x400AF040" access="rw" />
+      <register name="EEPROM_EEHIDE_R" description="" address="0x400AF050" access="rw" />
+      <register name="EEPROM_EEDBGME_R" description="" address="0x400AF080" access="rw" />
+      <register name="EEPROM_PP_R" description="" address="0x400AFFC0" access="rw" />
+    </registergroup>
+    <registergroup name="NVIC" description="">
+      <register name="EEPROM_EEPROMPP_R" description="" address="0x400AFFC0" access="rw" />
+    </registergroup>
+  </group>
   <group name="SYSEXC" description="System Exception Module registers">
     <registergroup name="SYSEXC" description="">
       <register name="SYSEXC_RIS_R" description="" address="0x400F9000" access="rw" />
@@ -1896,6 +1905,8 @@ Copyright Texas Instruments Incorporated. All rights reserved.</chip_description
       <register name="NVIC_PRI30_R" description="" address="0xE000E478" access="rw" />
       <register name="NVIC_PRI31_R" description="" address="0xE000E47C" access="rw" />
       <register name="NVIC_PRI32_R" description="" address="0xE000E480" access="rw" />
+      <register name="NVIC_PRI33_R" description="" address="0xE000E484" access="rw" />
+      <register name="NVIC_PRI34_R" description="" address="0xE000E488" access="rw" />
       <register name="NVIC_CPUID_R" description="" address="0xE000ED00" access="rw" />
       <register name="NVIC_INT_CTRL_R" description="" address="0xE000ED04" access="rw" />
       <register name="NVIC_VTABLE_R" description="" address="0xE000ED08" access="rw" />
