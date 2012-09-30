@@ -14091,6 +14091,18 @@
         <field name="CH7USEBURSTC" bitoffset="7" bitlength="1">
           <description>Channel 7 Useburst Clear</description>
         </field>
+        <field name="CH08SEBURSTC" bitoffset="8" bitlength="1">
+          <description>Channel 8 Useburst Clear</description>
+        </field>
+        <field name="CH9USEBURSTC" bitoffset="9" bitlength="1">
+          <description>Channel 9 Useburst Clear</description>
+        </field>
+        <field name="CH10USEBURSTC" bitoffset="10" bitlength="1">
+          <description>Channel 10 Useburst Clear</description>
+        </field>
+        <field name="CH11USEBURSTC" bitoffset="11" bitlength="1">
+          <description>Channel 11 Useburst Clear</description>
+        </field>
       </register>
       <register name="CHREQMASKS" address="0x400c2020" access="WO" resetvalue="0x00000000">
         <description>Channel Request Mask Set Register</description>
@@ -14118,6 +14130,18 @@
         <field name="CH7REQMASKS" bitoffset="7" bitlength="1">
           <description>Channel 7 Request Mask Set</description>
         </field>
+        <field name="CH8REQMASKS" bitoffset="8" bitlength="1">
+          <description>Channel 8 Request Mask Set</description>
+        </field>
+        <field name="CH9REQMASKS" bitoffset="9" bitlength="1">
+          <description>Channel 9 Request Mask Set</description>
+        </field>
+        <field name="CH10REQMASKS" bitoffset="10" bitlength="1">
+          <description>Channel 10 Request Mask Set</description>
+        </field>
+        <field name="CH11REQMASKS" bitoffset="11" bitlength="1">
+          <description>Channel 11 Request Mask Set</description>
+        </field>
       </register>
       <register name="CHREQMASKC" address="0x400c2024" access="WO" resetvalue="0x00000000">
         <description>Channel Request Mask Clear Register</description>
@@ -14144,6 +14168,18 @@
         </field>
         <field name="CH7REQMASKC" bitoffset="7" bitlength="1">
           <description>Channel 7 Request Mask Clear</description>
+        </field>
+        <field name="CH8REQMASKC" bitoffset="8" bitlength="1">
+          <description>Channel 8 Request Mask Clear</description>
+        </field>
+        <field name="CH9REQMASKC" bitoffset="9" bitlength="1">
+          <description>Channel 9 Request Mask Clear</description>
+        </field>
+        <field name="CH10REQMASKC" bitoffset="10" bitlength="1">
+          <description>Channel 10 Request Mask Clear</description>
+        </field>
+        <field name="CH11REQMASKC" bitoffset="11" bitlength="1">
+          <description>Channel 11 Request Mask Clear</description>
         </field>
       </register>
       <register name="CHENS" address="0x400c2028" access="WO" resetvalue="0x00000000">
@@ -14211,6 +14247,18 @@
         <field name="CH7ENC" bitoffset="7" bitlength="1">
           <description>Channel 7 Enable Clear</description>
         </field>
+        <field name="CH8ENC" bitoffset="8" bitlength="1">
+          <description>Channel 8 Enable Clear</description>
+        </field>
+        <field name="CH9ENC" bitoffset="9" bitlength="1">
+          <description>Channel 9 Enable Clear</description>
+        </field>
+        <field name="CH10ENC" bitoffset="10" bitlength="1">
+          <description>Channel 10 Enable Clear</description>
+        </field>
+        <field name="CH11ENC" bitoffset="11" bitlength="1">
+          <description>Channel 11 Enable Clear</description>
+        </field>
       </register>
       <register name="CHALTS" address="0x400c2030" access="WO" resetvalue="0x00000000">
         <description>Channel Alternate Set Register</description>
@@ -14238,6 +14286,18 @@
         <field name="CH7ALTS" bitoffset="7" bitlength="1">
           <description>Channel 7 Alternate Structure Set</description>
         </field>
+        <field name="CH8ALTS" bitoffset="8" bitlength="1">
+          <description>Channel 8 Alternate Structure Set</description>
+        </field>
+        <field name="CH9ALTS" bitoffset="9" bitlength="1">
+          <description>Channel 9 Alternate Structure Set</description>
+        </field>
+        <field name="CH10ALTS" bitoffset="10" bitlength="1">
+          <description>Channel 10 Alternate Structure Set</description>
+        </field>
+        <field name="CH11ALTS" bitoffset="11" bitlength="1">
+          <description>Channel 11 Alternate Structure Set</description>
+        </field>
       </register>
       <register name="CHALTC" address="0x400c2034" access="WO" resetvalue="0x00000000">
         <description>Channel Alternate Clear Register</description>
@@ -14264,6 +14324,18 @@
         </field>
         <field name="CH7ALTC" bitoffset="7" bitlength="1">
           <description>Channel 7 Alternate Clear</description>
+        </field>
+        <field name="CH8ALTC" bitoffset="8" bitlength="1">
+          <description>Channel 8 Alternate Clear</description>
+        </field>
+        <field name="CH9ALTC" bitoffset="9" bitlength="1">
+          <description>Channel 9 Alternate Clear</description>
+        </field>
+        <field name="CH10ALTC" bitoffset="10" bitlength="1">
+          <description>Channel 10 Alternate Clear</description>
+        </field>
+        <field name="CH11ALTC" bitoffset="11" bitlength="1">
+          <description>Channel 11 Alternate Clear</description>
         </field>
       </register>
       <register name="CHPRIS" address="0x400c2038" access="WO" resetvalue="0x00000000">
