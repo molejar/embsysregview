@@ -205,7 +205,10 @@ public class RegisterXMLParser {
 						Element attr_rsize = register.getChild("size");
 						int rsize;
 						if (attr_rsize != null)
-							rsize = Integer.parseInt(attr_rsize.getValue()) / 8;
+							if (attr_rsize.getValue().startsWith("0x"))
+								rsize = Integer.parseInt(attr_rsize.getValue().substring(2), 16) / 8;
+							else
+								rsize = Integer.parseInt(attr_rsize.getValue()) / 8;
 						else
 							rsize = 4;
 
@@ -257,14 +260,27 @@ public class RegisterXMLParser {
 								} else {
 									Element attr_fbitrange = field.getChild("bitRange");
 
-									String range_string = attr_fbitrange.getValue();
-									String range = range_string.substring(1, range_string.length() - 1);
-
-									String[] rangeArray = range.split(":");
-
-									// so 0:0 means offset 0 ...length 1
-									fbitoffset = Byte.valueOf(rangeArray[0]);
-									fbitlength = (byte) (Byte.valueOf(rangeArray[0]) - Byte.valueOf(rangeArray[1]) + 1);
+									if(attr_fbitrange != null)
+									{
+										String range_string = attr_fbitrange.getValue();
+										String range = range_string.substring(1, range_string.length() - 1);
+	
+										String[] rangeArray = range.split(":");
+	
+										// so 0:0 means offset 0 ...length 1
+										fbitoffset = Byte.valueOf(rangeArray[0]);
+										fbitlength = (byte) (Byte.valueOf(rangeArray[0]) - Byte.valueOf(rangeArray[1]) + 1);
+									} else {
+										Element element_lsb = field.getChild("lsb");
+										Element element_msb = field.getChild("msb");
+										if(element_lsb != null && element_msb != null)
+										{
+											fbitoffset = Byte.valueOf(element_lsb.getValue());
+											fbitlength = (byte) (Byte.valueOf(element_msb.getValue()) - Byte.valueOf(element_lsb.getValue()));
+										} else
+											throw new ParseException("field requires some sort of start-end bit marker", 1);
+									}
+										
 								}
 
 								Interpretations interpretations = new Interpretations();
@@ -284,14 +300,6 @@ public class RegisterXMLParser {
 										else
 											throw new ParseException("enumeratedValue requires value", 1);
 
-										// Mandatory attribute description
-										Element attr_text = interpretation.getChild("description");
-										String text;
-										if (attr_text != null)
-											text = attr_text.getValue();
-										else
-											throw new ParseException("enumeratedValue requires description", 1);
-
 										// Mandatory attribute name
 										Element attr_name = interpretation.getChild("name");
 										String name;
@@ -299,6 +307,18 @@ public class RegisterXMLParser {
 											name = attr_name.getValue();
 										else
 											throw new ParseException("enumeratedValue requires name", 1);
+										
+										// Mandatory/Optional attribute description
+										// Optional for SiliconLabortories SVD Files .. they sometimes miss descriptions
+										Element attr_text = interpretation.getChild("description");
+										String text;
+										if (attr_text != null)
+											text = attr_text.getValue();
+										else
+											text = name;
+											//throw new ParseException("enumeratedValue requires description", 1);
+
+										
 
 										interpretations.addInterpretation(key, name + ": " + text);
 									}

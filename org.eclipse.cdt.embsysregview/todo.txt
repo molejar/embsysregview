@@ -12,11 +12,6 @@ bugfixing:
 
 enhancements:
 =============
-*) Binary column input "Set" button Preference Setting
-   * with or without set button ...without ... bitbuttons have direct effect
-
-*) DSF-GDB interface -> implement GDBInterfaceDSF 
-
 *) Merge shipped xml with xml in home dir
    * to extend existing xml
    * to correct xml
@@ -42,7 +37,12 @@ enhancements:
       * adds to bottom of list
       * (rearange via drag & drop -> complex & requires separate edit mode)
    * possibility to send in created files (direct/link/mail)
-   
+
++) Binary column input "Set" button Preference Setting
+   + with or without set button ...without ... bitbuttons have direct effect
+
++) DSF-GDB interface -> implement GDBInterfaceDSF
+   + contributed via patch "#5 DSF Framework Integration" by "edubec"
 +) SVD Support 
    + add SVD Support
    - change everything to SVD
