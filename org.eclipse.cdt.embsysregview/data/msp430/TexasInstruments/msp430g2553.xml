@@ -1,7 +1,7 @@
-<!--  Created by Aleksander Miera, July 2012 -->
-<!--  Should you find any mistakes, please email me: mmiera at poczta dot fm -->
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE model SYSTEM "embsysregview.dtd">
+<!--  Created by Aleksander Miera, July 2012 -->
+<!--  Should you find any mistakes, please email me: mmiera at poczta dot fm -->
 
 <model chipname="msp430: MSP430G2553">
   <chip_description>
