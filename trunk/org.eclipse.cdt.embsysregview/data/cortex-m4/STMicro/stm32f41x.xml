@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE model SYSTEM "embsysregview.dtd">
 <model chipname="STM32F41x">
 	<chip_description>Based on (RM0090 rel.1, PM0081 rel.1, PM0214 rel.1, 
@@ -225,14 +225,6 @@ AHB cycles after PPRE2 write.</description>
 					<interpretation key="6" text="AHB divided by 8"/>
 					<interpretation key="7" text="AHB divided by 16"/>
 				</field>
-				<field bitoffset="16" bitlength="1" name="PLLSRC" description="PLL entry clock source">
-					<interpretation key="0" text="HSI clock divided by 2 selected as PLL entry clock source"/>
-					<interpretation key="1" text="PREDIV1 clock selected as PLL entry clock source"/>
-				</field>
-				<field bitoffset="17" bitlength="1" name="PLLXTPRE" description="HSE divider for PLL entry">
-					<interpretation key="0" text="PREDIV1 clock not divided for PLL entry"/>
-					<interpretation key="1" text="PREDIV1 clock divided by 2 for PLL entry"/>
-				</field>
 				<field bitoffset="16" bitlength="5" name="RTCPRE" description="PLLMUL[4:0] bits (HSE division factor for RTC clock)">
 					<description>HSE division factor for RTC clock bits
 The software has to set these bits correctly to ensure that the clock
@@ -443,7 +435,6 @@ before selecting the RTC clock source.
 				<field bitoffset="16" bitlength="1" name="SRAM1LPEN" description="SRAM 1 interface clock enable during Sleep mode"/>
 				<field bitoffset="17" bitlength="1" name="SRAM2LPEN" description="SRAM 2 interface clock enable during Sleep mode"/>
 				<field bitoffset="18" bitlength="1" name="BKPSRAMLPEN" description="Backup SRAM interface clock enable during Sleep mode"/>
-				<field bitoffset="20" bitlength="1" name="CCMDATARAMLPEN" description="CCM data RAM cloc enable during Sleep mode"/>
 				<field bitoffset="21" bitlength="1" name="DMA1LPEN" description="DMA1 clock enable"/>
 				<field bitoffset="22" bitlength="1" name="DMA2LPEN" description="DMA2 clock enable during Sleep mode"/>
 				<field bitoffset="25" bitlength="1" name="ETHMACLPEN" description="Ethernet MAC clock enable during Sleep mode"/>
@@ -7558,6 +7549,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -7646,6 +7638,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -7734,6 +7727,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -7822,6 +7816,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -7910,6 +7905,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -7998,6 +7994,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -8086,6 +8083,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -8174,6 +8172,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -8354,6 +8353,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -8442,6 +8442,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -8530,6 +8531,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -8618,6 +8620,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -8706,6 +8709,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -8794,6 +8798,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -8882,6 +8887,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
@@ -8970,6 +8976,7 @@ programmed to the same value:
 					<interpretation key="1" text="Memory-to-peripheral"/>
 					<interpretation key="2" text="Memory-to-memory"/>
 				</field>
+				<field bitoffset="8" bitlength="1" name="CIRC" description="Circular mode"/>
 				<field bitoffset="9" bitlength="1" name="PINC" description="Peripheral increment mode"/>
 				<field bitoffset="10" bitlength="1" name="MINC" description="Memory increment mode"/>
 				<field bitoffset="11" bitlength="2" name="PSIZE" description="PSIZE[1:0] bits (Peripheral data size)">
