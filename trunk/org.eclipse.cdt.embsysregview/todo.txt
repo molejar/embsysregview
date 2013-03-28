@@ -12,6 +12,11 @@ bugfixing:
 
 enhancements:
 =============
+*) Project specific settings vs. Workspace settings
+   * on a project basis would mean the view has to switch 
+     to the other chip on the fly if you select the other project 
+     (and remember all the opened/selected registers).
+     
 *) Merge shipped xml with xml in home dir
    * to extend existing xml
    * to correct xml
