@@ -78,11 +78,11 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Read Mode
  -
  Value, Description
- 0x00, WS0 - Zero wait-states inserted in fetch or read transfers
+ 0x00, WS0 - Zero wait-states inserted in fetch or read transfers.
  0x01, WS1 - One wait-state inserted for each fetch or read transfer. This mode is required for a core frequency above 16 MHz.
- 0x02, WS0SCBTP - Zero wait-states inserted with the Suppressed Conditional Branch Target Prefetch (SCBTP) function enabled. SCBTP saves energy by delaying Cortex-M3 conditional branch target prefetches until the conditional branch instruction is in the execute stage. When the instruction reaches this stage, the evaluation of the branch condition is completed and the core does not perform a speculative prefetch of both the branch target address and the next sequential address. With the SCBTP function enabled, one instruction fetch is saved for each branch not taken, with a negligible performance penalty.
+ 0x02, WS0SCBTP - Zero wait-states inserted with the Suppressed Conditional Branch Target Prefetch (SCBTP) function enabled. SCBTP saves energy by delaying the Cortex' conditional branch target prefetches until the conditional branch instruction is in the execute stage. When the instruction reaches this stage, the evaluation of the branch condition is completed and the core does not perform a speculative prefetch of both the branch target address and the next sequential address. With the SCBTP function enabled, one instruction fetch is saved for each branch not taken, with a negligible performance penalty.
  0x03, WS1SCBTP - One wait-state access with SCBTP enabled.
- 0x04, WS2 - Two wait-states inserted for eatch fetch or read transfer. This mode is required for a core frequency above 32 MHz
+ 0x04, WS2 - Two wait-states inserted for each fetch or read transfer. This mode is required for a core frequency above 32 MHz.
  0x05, WS2SCBTP - Two wait-state access with SCBTP enabled.
           </description>
         </field>
@@ -360,26 +360,26 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
       <register name="EM4CONF" address="0x400c602c" access="RW" resetvalue="0x00000000">
         <description>Energy mode 4 configuration register</description>
         <field name="VREGEN" bitoffset="0" bitlength="1">
-          <description>EM4 voltage regulator enable.</description>
+          <description>EM4 voltage regulator enable</description>
         </field>
         <field name="BURTCWU" bitoffset="1" bitlength="1">
-          <description>Backup RTC EM4 wakeup enable.</description>
+          <description>Backup RTC EM4 wakeup enable</description>
         </field>
         <field name="OSC" bitoffset="2" bitlength="2">
           <description>
  Select EM4 duty oscillator
  -
  Value, Description
- 0x00, ULFRCO - ULFRCO is available
- 0x01, LFRCO - LFRCO is available. Can only be set if LFRCO is running before EM4/backup entry
- 0x02, LFXO - LFXO is available. Can only be set if LFXO is available before EM4/backup entry
+ 0x00, ULFRCO - ULFRCO is available.
+ 0x01, LFRCO - LFRCO is available. Can only be set if LFRCO is running before EM4/backup entry.
+ 0x02, LFXO - LFXO is available. Can only be set if LFXO is available before EM4/backup entry.
           </description>
         </field>
         <field name="BUBODRSTDIS" bitoffset="4" bitlength="1">
-          <description>Disable reset from Backup BOD in EM4.</description>
+          <description>Disable reset from Backup BOD in EM4</description>
         </field>
         <field name="LOCKCONF" bitoffset="16" bitlength="1">
-          <description>EM4 configuration lock enable.</description>
+          <description>EM4 configuration lock enable</description>
         </field>
       </register>
       <register name="BUCTRL" address="0x400c6030" access="RW" resetvalue="0x00000000">
@@ -388,7 +388,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
           <description>Enable backup mode</description>
         </field>
         <field name="STATEN" bitoffset="1" bitlength="1">
-          <description>Enable backup mode status export.</description>
+          <description>Enable backup mode status export</description>
         </field>
         <field name="BODCAL" bitoffset="2" bitlength="1">
           <description>Enable BOD calibration mode</description>
@@ -401,23 +401,23 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Voltage probe select
  -
  Value, Description
- 0x00, DISABLE - Disable voltage probe
- 0x01, VDDDREG - Connect probe to VDD_DREG
- 0x02, BUIN - Connect probe to BU_IN
- 0x03, BUOUT - Connect probe to BU_OUT
+ 0x00, DISABLE - Disable voltage probe.
+ 0x01, VDDDREG - Connect probe to VDD_DREG.
+ 0x02, BUIN - Connect probe to BU_IN.
+ 0x03, BUOUT - Connect probe to BU_OUT.
           </description>
         </field>
       </register>
       <register name="PWRCONF" address="0x400c6034" access="RW" resetvalue="0x00000000">
-        <description>Power connection configuration register.</description>
+        <description>Power connection configuration register</description>
         <field name="VOUTWEAK" bitoffset="0" bitlength="1">
-          <description>BU_VOUT weak enable.</description>
+          <description>BU_VOUT weak enable</description>
         </field>
         <field name="VOUTMED" bitoffset="1" bitlength="1">
-          <description>BU_VOUT medium enable.</description>
+          <description>BU_VOUT medium enable</description>
         </field>
         <field name="VOUTSTRONG" bitoffset="2" bitlength="1">
-          <description>BU_VOUT strong enable.</description>
+          <description>BU_VOUT strong enable</description>
         </field>
         <field name="PWRRES" bitoffset="3" bitlength="2">
           <description>
@@ -432,7 +432,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="BUINACT" address="0x400c6038" access="RW" resetvalue="0x00000000">
-        <description>Backup mode inactive configuration register.</description>
+        <description>Backup mode inactive configuration register</description>
         <field name="BUENTHRES" bitoffset="0" bitlength="3">
           <description>
  -
@@ -458,7 +458,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="BUACT" address="0x400c603c" access="RW" resetvalue="0x00000000">
-        <description>Backup mode active configuration register.</description>
+        <description>Backup mode active configuration register</description>
         <field name="BUEXTHRES" bitoffset="0" bitlength="3">
           <description>
  -
@@ -473,7 +473,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="PWRCON" bitoffset="5" bitlength="2">
           <description>
- Power connection configuration when in Backup mode.
+ Power connection configuration when in Backup mode
  -
  Value, Description
  0x00, NONE - No connection.
@@ -484,9 +484,9 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="STATUS" address="0x400c6040" access="RO" resetvalue="0x00000000">
-        <description>status register</description>
+        <description>Status register</description>
         <field name="BURDY" bitoffset="0" bitlength="1">
-          <description>Backup mode ready.</description>
+          <description>Backup mode ready</description>
         </field>
       </register>
       <register name="ROUTE" address="0x400c6044" access="RW" resetvalue="0x00000001">
@@ -498,7 +498,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
       <register name="IF" address="0x400c6048" access="RO" resetvalue="0x00000000">
         <description>Interrupt Flag Register</description>
         <field name="BURDY" bitoffset="0" bitlength="1">
-          <description>Backup functionality ready Interrupt Flag.</description>
+          <description>Backup functionality ready Interrupt Flag</description>
         </field>
       </register>
       <register name="IFS" address="0x400c604c" access="WO" resetvalue="0x00000000">
@@ -559,7 +559,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
           <description>Lockup Reset Disable</description>
         </field>
         <field name="BURSTEN" bitoffset="1" bitlength="1">
-          <description>Backup domain reset enable.</description>
+          <description>Backup domain reset enable</description>
         </field>
       </register>
       <register name="RSTCAUSE" address="0x400ca004" access="RO" resetvalue="0x00000000">
@@ -592,10 +592,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
           <description>EM4 Wake-up Reset</description>
         </field>
         <field name="BODAVDD0" bitoffset="9" bitlength="1">
-          <description>AVDD0 Bod Reset.</description>
+          <description>AVDD0 Bod Reset</description>
         </field>
         <field name="BODAVDD1" bitoffset="10" bitlength="1">
-          <description>AVDD1 Bod Reset.</description>
+          <description>AVDD1 Bod Reset</description>
         </field>
         <field name="BUBODVDDDREG" bitoffset="11" bitlength="1">
           <description>Backup Brown Out Detector, VDD_DREG</description>
@@ -630,8 +630,8 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  HFXO Mode
  -
  Value, Description
- 0x00, XTAL - 4-32 MHz crystal oscillator
- 0x01, BUFEXTCLK - An AC coupled buffer is coupled in series with HFXTAL_N, suitable for external sine wave (4-32 MHz). The sine wave should have a minimum of 200mV peak to peak.
+ 0x00, XTAL - 4-32 MHz crystal oscillator.
+ 0x01, BUFEXTCLK - An AC coupled buffer is coupled in series with HFXTAL_N, suitable for external sine wave (4-32 MHz). The sine wave should have a minimum of 200 mV peak to peak.
  0x02, DIGEXTCLK - Digital external clock on HFXTAL_N pin. Oscillator is effectively bypassed.
           </description>
         </field>
@@ -640,10 +640,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  HFXO Start-up Boost Current
  -
  Value, Description
- 0x00, 50PCENT - 50 %
- 0x01, 70PCENT - 70 %
- 0x02, 80PCENT - 80 %
- 0x03, 100PCENT - 100 % (default)
+ 0x00, 50PCENT - 50 %.
+ 0x01, 70PCENT - 70 %.
+ 0x02, 80PCENT - 80 %.
+ 0x03, 100PCENT - 100 % (default).
           </description>
         </field>
         <field name="HFXOBUFCUR" bitoffset="5" bitlength="2">
@@ -651,8 +651,8 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  HFXO Boost Buffer Current
  -
  Value, Description
- 0x01, BOOSTUPTO32MHZ - Boost Buffer Current level when HFXO is below or equal to 32 MHz
- 0x03, BOOSTABOVE32MHZ - Boost Buffer Current Level when HFXO is above 32 MHz
+ 0x01, BOOSTUPTO32MHZ - Boost Buffer Current level when HFXO is below or equal to 32 MHz.
+ 0x03, BOOSTABOVE32MHZ - Boost Buffer Current Level when HFXO is above 32 MHz.
           </description>
         </field>
         <field name="HFXOGLITCHDETEN" bitoffset="7" bitlength="1">
@@ -663,10 +663,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  HFXO Timeout
  -
  Value, Description
- 0x00, 8CYCLES - Timeout period of 8 cycles
- 0x01, 256CYCLES - Timeout period of 256 cycles
- 0x02, 1KCYCLES - Timeout period of 1024 cycles
- 0x03, 16KCYCLES - Timeout period of 16384 cycles
+ 0x00, 8CYCLES - Timeout period of 8 cycles.
+ 0x01, 256CYCLES - Timeout period of 256 cycles.
+ 0x02, 1KCYCLES - Timeout period of 1024 cycles.
+ 0x03, 16KCYCLES - Timeout period of 16384 cycles.
           </description>
         </field>
         <field name="LFXOMODE" bitoffset="11" bitlength="2">
@@ -674,7 +674,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  LFXO Mode
  -
  Value, Description
- 0x00, XTAL - 32.768 kHz crystal oscillator
+ 0x00, XTAL - 32.768 kHz crystal oscillator.
  0x01, BUFEXTCLK - An AC coupled buffer is coupled in series with LFXTAL_N pin, suitable for external sinus wave (32.768 kHz).
  0x02, DIGEXTCLK - Digital external clock on LFXTAL_N pin. Oscillator is effectively bypassed.
           </description>
@@ -695,10 +695,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  LFXO Timeout
  -
  Value, Description
- 0x00, 8CYCLES - Timeout period of 8 cycles
- 0x01, 1KCYCLES - Timeout period of 1024 cycles
- 0x02, 16KCYCLES - Timeout period of 16384 cycles
- 0x03, 32KCYCLES - Timeout period of 32768 cycles
+ 0x00, 8CYCLES - Timeout period of 8 cycles.
+ 0x01, 1KCYCLES - Timeout period of 1024 cycles.
+ 0x02, 16KCYCLES - Timeout period of 16384 cycles.
+ 0x03, 32KCYCLES - Timeout period of 32768 cycles.
           </description>
         </field>
         <field name="CLKOUTSEL0" bitoffset="20" bitlength="3">
@@ -706,14 +706,14 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Clock Output Select 0
  -
  Value, Description
- 0x00, HFRCO - HFRCO (directly from oscillator)
- 0x01, HFXO - HFXO (directly from oscillator)
- 0x02, HFCLK2 - HFCLK/2
- 0x03, HFCLK4 - HFCLK/4
- 0x04, HFCLK8 - HFCLK/8
- 0x05, HFCLK16 - HFCLK/16
- 0x06, ULFRCO - ULFRCO (directly from oscillator)
- 0x07, AUXHFRCO - AUXHFRCO (directly from oscillator)
+ 0x00, HFRCO - HFRCO (directly from oscillator).
+ 0x01, HFXO - HFXO (directly from oscillator).
+ 0x02, HFCLK2 - HFCLK/2.
+ 0x03, HFCLK4 - HFCLK/4.
+ 0x04, HFCLK8 - HFCLK/8.
+ 0x05, HFCLK16 - HFCLK/16.
+ 0x06, ULFRCO - ULFRCO (directly from oscillator).
+ 0x07, AUXHFRCO - AUXHFRCO (directly from oscillator).
           </description>
         </field>
         <field name="CLKOUTSEL1" bitoffset="23" bitlength="3">
@@ -721,14 +721,14 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Clock Output Select 1
  -
  Value, Description
- 0x00, LFRCO - LFRCO (directly from oscillator)
- 0x01, LFXO - LFXO (directly from oscillator)
- 0x02, HFCLK - HFCLK
- 0x03, LFXOQ - LFXO (qualified)
- 0x04, HFXOQ - HFXO (qualified)
- 0x05, LFRCOQ - LFRCO (qualified)
- 0x06, HFRCOQ - HFRCO (qualified)
- 0x07, AUXHFRCOQ - AUXHFRCO (qualified)
+ 0x00, LFRCO - LFRCO (directly from oscillator).
+ 0x01, LFXO - LFXO (directly from oscillator).
+ 0x02, HFCLK - HFCLK.
+ 0x03, LFXOQ - LFXO (qualified).
+ 0x04, HFXOQ - HFXO (qualified).
+ 0x05, LFRCOQ - LFRCO (qualified).
+ 0x06, HFRCOQ - HFRCO (qualified).
+ 0x07, AUXHFRCOQ - AUXHFRCO (qualified).
           </description>
         </field>
         <field name="DBGCLK" bitoffset="28" bitlength="1">
@@ -745,20 +745,20 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  HFCORECLK Divider
  -
  Value, Description
- 0x00, HFCLK - HFCORECLK = HFCLK
- 0x01, HFCLK2 - HFCORECLK = HFCLK/2
- 0x02, HFCLK4 - HFCORECLK = HFCLK/4
- 0x03, HFCLK8 - HFCORECLK = HFCLK/8
- 0x04, HFCLK16 - HFCORECLK = HFCLK/16
- 0x05, HFCLK32 - HFCORECLK = HFCLK/32
- 0x06, HFCLK64 - HFCORECLK = HFCLK/64
- 0x07, HFCLK128 - HFCORECLK = HFCLK/128
- 0x08, HFCLK256 - HFCORECLK = HFCLK/256
- 0x09, HFCLK512 - HFCORECLK = HFCLK/512
+ 0x00, HFCLK - HFCORECLK = HFCLK.
+ 0x01, HFCLK2 - HFCORECLK = HFCLK/2.
+ 0x02, HFCLK4 - HFCORECLK = HFCLK/4.
+ 0x03, HFCLK8 - HFCORECLK = HFCLK/8.
+ 0x04, HFCLK16 - HFCORECLK = HFCLK/16.
+ 0x05, HFCLK32 - HFCORECLK = HFCLK/32.
+ 0x06, HFCLK64 - HFCORECLK = HFCLK/64.
+ 0x07, HFCLK128 - HFCORECLK = HFCLK/128.
+ 0x08, HFCLK256 - HFCORECLK = HFCLK/256.
+ 0x09, HFCLK512 - HFCORECLK = HFCLK/512.
           </description>
         </field>
         <field name="HFCORECLKLEDIV" bitoffset="8" bitlength="1">
-          <description>Additional Division Factor For HFCORECLKLEDIV2</description>
+          <description>Additional Division Factor For HFCORECLKLE</description>
         </field>
       </register>
       <register name="HFPERCLKDIV" address="0x400c8008" access="RW" resetvalue="0x00000100">
@@ -768,16 +768,16 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  HFPERCLK Divider
  -
  Value, Description
- 0x00, HFCLK - HFPERCLK = HFCLK
- 0x01, HFCLK2 - HFPERCLK = HFCLK/2
- 0x02, HFCLK4 - HFPERCLK = HFCLK/4
- 0x03, HFCLK8 - HFPERCLK = HFCLK/8
- 0x04, HFCLK16 - HFPERCLK = HFCLK/16
- 0x05, HFCLK32 - HFPERCLK = HFCLK/32
- 0x06, HFCLK64 - HFPERCLK = HFCLK/64
- 0x07, HFCLK128 - HFPERCLK = HFCLK/128
- 0x08, HFCLK256 - HFPERCLK = HFCLK/256
- 0x09, HFCLK512 - HFPERCLK = HFCLK/512
+ 0x00, HFCLK - HFPERCLK = HFCLK.
+ 0x01, HFCLK2 - HFPERCLK = HFCLK/2.
+ 0x02, HFCLK4 - HFPERCLK = HFCLK/4.
+ 0x03, HFCLK8 - HFPERCLK = HFCLK/8.
+ 0x04, HFCLK16 - HFPERCLK = HFCLK/16.
+ 0x05, HFCLK32 - HFPERCLK = HFCLK/32.
+ 0x06, HFCLK64 - HFPERCLK = HFCLK/64.
+ 0x07, HFCLK128 - HFPERCLK = HFCLK/128.
+ 0x08, HFCLK256 - HFPERCLK = HFCLK/256.
+ 0x09, HFCLK512 - HFPERCLK = HFCLK/512.
           </description>
         </field>
         <field name="HFPERCLKEN" bitoffset="8" bitlength="1">
@@ -846,11 +846,11 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Calibration Up-counter Select
  -
  Value, Description
- 0x00, HFXO - Select HFXO as up-counter
- 0x01, LFXO - Select LFXO as up-counter
- 0x02, HFRCO - Select HFRCO as up-counter
- 0x03, LFRCO - Select LFRCO as up-counter
- 0x04, AUXHFRCO - Select AUXHFRCO as up-counter
+ 0x00, HFXO - Select HFXO as up-counter.
+ 0x01, LFXO - Select LFXO as up-counter.
+ 0x02, HFRCO - Select HFRCO as up-counter.
+ 0x03, LFRCO - Select LFRCO as up-counter.
+ 0x04, AUXHFRCO - Select AUXHFRCO as up-counter.
           </description>
         </field>
         <field name="DOWNSEL" bitoffset="3" bitlength="3">
@@ -858,12 +858,12 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Calibration Down-counter Select
  -
  Value, Description
- 0x00, HFCLK - Select HFCLK for down-counter
- 0x01, HFXO - Select HFXO for down-counter
- 0x02, LFXO - Select LFXO for down-counter
- 0x03, HFRCO - Select HFRCO for down-counter
- 0x04, LFRCO - Select LFRCO for down-counter
- 0x05, AUXHFRCO - Select AUXHFRCO for down-counter
+ 0x00, HFCLK - Select HFCLK for down-counter.
+ 0x01, HFXO - Select HFXO for down-counter.
+ 0x02, LFXO - Select LFXO for down-counter.
+ 0x03, HFRCO - Select HFRCO for down-counter.
+ 0x04, LFRCO - Select LFRCO for down-counter.
+ 0x05, AUXHFRCO - Select AUXHFRCO for down-counter.
           </description>
         </field>
         <field name="CONT" bitoffset="6" bitlength="1">
@@ -918,10 +918,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  HFCLK Select
  -
  Value, Description
- 0x01, HFRCO - Select HFRCO as HFCLK
- 0x02, HFXO - Select HFXO as HFCLK
- 0x03, LFRCO - Select LFRCO as HFCLK
- 0x04, LFXO - Select LFXO as HFCLK
+ 0x01, HFRCO - Select HFRCO as HFCLK.
+ 0x02, HFXO - Select HFXO as HFCLK.
+ 0x03, LFRCO - Select LFRCO as HFCLK.
+ 0x04, LFXO - Select LFXO as HFCLK.
           </description>
         </field>
         <field name="CALSTART" bitoffset="3" bitlength="1">
@@ -935,9 +935,9 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  USB Core Clock Select
  -
  Value, Description
- 0x01, HFCLKNODIV - Select HFCLKNODIV as HFCORECLKUSBC
- 0x02, LFXO - Select LFXO as HFCORECLKUSBC
- 0x03, LFRCO - Select LFRCO as HFCORECLKUSBC
+ 0x01, HFCLKNODIV - Select HFCLKNODIV as HFCORECLKUSBC.
+ 0x02, LFXO - Select LFXO as HFCORECLKUSBC.
+ 0x03, LFRCO - Select LFRCO as HFCORECLKUSBC.
           </description>
         </field>
       </register>
@@ -951,7 +951,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  0x00, DISABLED - LFACLK is disabled
  0x01, LFRCO - LFRCO selected as LFACLK
  0x02, LFXO - LFXO selected as LFACLK
- 0x03, HFCORECLKLEDIV2 - HFCORECLKLE divided by two is selected as LFACLK
+ 0x03, HFCORECLKLEDIV2 - HFCORECLKLE divided by two or four is selected as LFACLK. The division factor is determined by CMU_CTRL_HFLE and CMU_HFCORECLKDIV_HFCORECLKLEDIV.
           </description>
         </field>
         <field name="LFB" bitoffset="2" bitlength="2">
@@ -962,7 +962,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  0x00, DISABLED - LFBCLK is disabled
  0x01, LFRCO - LFRCO selected as LFBCLK
  0x02, LFXO - LFXO selected as LFBCLK
- 0x03, HFCORECLKLEDIV2 - HFCORECLKLE divided by two is selected as LFBCLK
+ 0x03, HFCORECLKLEDIV2 - HFCORECLKLE divided by two or four is selected as LFACLK. The division factor is determined by CMU_CTRL_HFLE and CMU_HFCORECLKDIV_HFCORECLKLEDIV.
           </description>
         </field>
         <field name="LFAE" bitoffset="16" bitlength="1">
@@ -1600,12 +1600,12 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="DMAWU" bitoffset="20" bitlength="2">
           <description>
- DMA wakeup from EM2
+ DMA wake-up from EM2
  -
  Value, Description
- 0x00, DISABLE - No DMA wakeup from EM2
- 0x01, BUFDATAV - DMA wakeup from EM2 when data is valid in the result buffer
- 0x02, BUFLEVEL - DMA wakeup from EM2 when the result buffer is full/halffull depending on BUFIDL configuration
+ 0x00, DISABLE - No DMA wake-up from EM2
+ 0x01, BUFDATAV - DMA wake-up from EM2 when data is valid in the result buffer
+ 0x02, BUFLEVEL - DMA wake-up from EM2 when the result buffer is full/half-full depending on BUFIDL configuration
           </description>
         </field>
         <field name="DEBUGRUN" bitoffset="22" bitlength="1">
@@ -1971,10 +1971,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="IDLECONF" address="0x4008c038" access="RW" resetvalue="0x00000000">
-        <description>GPIO Idlephase configuration</description>
+        <description>GPIO Idle phase configuration</description>
         <field name="CH0" bitoffset="0" bitlength="2">
           <description>
- Channel 0 idlephase configuration
+ Channel 0 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH0 output is disabled in idle phase
@@ -1985,7 +1985,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH1" bitoffset="2" bitlength="2">
           <description>
- Channel 1 idlephase configuration
+ Channel 1 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH1 output is disabled in idle phase
@@ -1996,7 +1996,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH2" bitoffset="4" bitlength="2">
           <description>
- Channel 2 idlephase configuration
+ Channel 2 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH2 output is disabled in idle phase
@@ -2007,7 +2007,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH3" bitoffset="6" bitlength="2">
           <description>
- Channel 3 idlephase configuration
+ Channel 3 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH3 output is disabled in idle phase
@@ -2018,7 +2018,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH4" bitoffset="8" bitlength="2">
           <description>
- Channel 4 idlephase configuration
+ Channel 4 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH4 output is disabled in idle phase
@@ -2028,7 +2028,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH5" bitoffset="10" bitlength="2">
           <description>
- Channel 5 idlephase configuration
+ Channel 5 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH5 output is disabled in idle phase
@@ -2038,7 +2038,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH6" bitoffset="12" bitlength="2">
           <description>
- Channel 6 idlephase configuration
+ Channel 6 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH6 output is disabled in idle phase
@@ -2048,7 +2048,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH7" bitoffset="14" bitlength="2">
           <description>
- Channel 7 idlephase configuration
+ Channel 7 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH7 output is disabled in idle phase
@@ -2058,7 +2058,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH8" bitoffset="16" bitlength="2">
           <description>
- Channel 8 idlephase configuration
+ Channel 8 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH8 output is disabled in idle phase
@@ -2068,7 +2068,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH9" bitoffset="18" bitlength="2">
           <description>
- Channel 9 idlephase configuration
+ Channel 9 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH9 output is disabled in idle phase
@@ -2078,7 +2078,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH10" bitoffset="20" bitlength="2">
           <description>
- Channel 10 idlephase configuration
+ Channel 10 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH10 output is disabled in idle phase
@@ -2088,7 +2088,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH11" bitoffset="22" bitlength="2">
           <description>
- Channel 11 idlephase configuration
+ Channel 11 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH11 output is disabled in idle phase
@@ -2098,7 +2098,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH12" bitoffset="24" bitlength="2">
           <description>
- Channel 12 idlephase configuration
+ Channel 12 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH12 output is disabled in idle phase
@@ -2109,7 +2109,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH13" bitoffset="26" bitlength="2">
           <description>
- Channel 13 idlephase configuration
+ Channel 13 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH13 output is disabled in idle phase
@@ -2120,7 +2120,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH14" bitoffset="28" bitlength="2">
           <description>
- Channel 14 idlephase configuration
+ Channel 14 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH14 output is disabled in idle phase
@@ -2131,7 +2131,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="CH15" bitoffset="30" bitlength="2">
           <description>
- Channel 15 idlephase configuration
+ Channel 15 idle phase configuration
  -
  Value, Description
  0x00, DISABLE - CH15 output is disabled in idle phase
@@ -2687,7 +2687,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="POWERDOWN" address="0x4008c058" access="RW" resetvalue="0x00000000">
-        <description>LESENSE RAM power-down resgister</description>
+        <description>LESENSE RAM power-down register</description>
         <field name="RAM" bitoffset="0" bitlength="1">
           <description>LESENSE RAM power-down</description>
         </field>
@@ -10321,7 +10321,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         <field name="CH7USEBURSTC" bitoffset="7" bitlength="1">
           <description>Channel 7 Useburst Clear</description>
         </field>
-        <field name="CH08SEBURSTC" bitoffset="8" bitlength="1">
+        <field name="CH08USEBURSTC" bitoffset="8" bitlength="1">
           <description>Channel 8 Useburst Clear</description>
         </field>
         <field name="CH9USEBURSTC" bitoffset="9" bitlength="1">
@@ -11987,24 +11987,24 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
   <group name="FPUEH" description="">
     <registergroup name="FPUEH" description="">
       <register name="IF" address="0x400c1c00" access="RO" resetvalue="0x00000000">
-        <description>FPU Interrupt Flags</description>
+        <description>Interrupt Flag Register</description>
         <field name="FPIOC" bitoffset="0" bitlength="1">
-          <description>FPU Invalid operation.</description>
+          <description>FPU invalid operation</description>
         </field>
         <field name="FPDZC" bitoffset="1" bitlength="1">
-          <description>FPU divide-by-zero exception.</description>
+          <description>FPU divide-by-zero exception</description>
         </field>
         <field name="FPUFC" bitoffset="2" bitlength="1">
-          <description>FPU underflow exception.</description>
+          <description>FPU underflow exception</description>
         </field>
         <field name="FPOFC" bitoffset="3" bitlength="1">
-          <description>FPU overflow exception.</description>
+          <description>FPU overflow exception</description>
         </field>
         <field name="FPIDC" bitoffset="4" bitlength="1">
-          <description>FPU input denormal exception.</description>
+          <description>FPU input denormal exception</description>
         </field>
         <field name="FPIXC" bitoffset="5" bitlength="1">
-          <description>FPU inexact exception.</description>
+          <description>FPU inexact exception</description>
         </field>
       </register>
       <register name="IFS" address="0x400c1c04" access="WO" resetvalue="0x00000000">
@@ -15688,7 +15688,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
       </register>
       <register name="TRIGCTRL" address="0x4000c008" access="RW" resetvalue="0x00000000">
         <description>USART Trigger Control register</description>
-        <field name="TSEL" bitoffset="0" bitlength="3">
+        <field name="TSEL" bitoffset="0" bitlength="4">
           <description>
  Trigger PRS Channel Select
  -
@@ -15701,6 +15701,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  0x05, PRSCH5 - PRS Channel 5 selected
  0x06, PRSCH6 - PRS Channel 6 selected
  0x07, PRSCH7 - PRS Channel 7 selected
+ 0x08, PRSCH8 - PRS Channel 8 selected
+ 0x09, PRSCH9 - PRS Channel 9 selected
+ 0x0A, PRSCH10 - PRS Channel 10 selected
+ 0x0B, PRSCH11 - PRS Channel 11 selected
           </description>
         </field>
         <field name="RXTEN" bitoffset="4" bitlength="1">
@@ -16422,7 +16426,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
       </register>
       <register name="TRIGCTRL" address="0x4000c408" access="RW" resetvalue="0x00000000">
         <description>USART Trigger Control register</description>
-        <field name="TSEL" bitoffset="0" bitlength="3">
+        <field name="TSEL" bitoffset="0" bitlength="4">
           <description>
  Trigger PRS Channel Select
  -
@@ -16435,6 +16439,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  0x05, PRSCH5 - PRS Channel 5 selected
  0x06, PRSCH6 - PRS Channel 6 selected
  0x07, PRSCH7 - PRS Channel 7 selected
+ 0x08, PRSCH8 - PRS Channel 8 selected
+ 0x09, PRSCH9 - PRS Channel 9 selected
+ 0x0A, PRSCH10 - PRS Channel 10 selected
+ 0x0B, PRSCH11 - PRS Channel 11 selected
           </description>
         </field>
         <field name="RXTEN" bitoffset="4" bitlength="1">
@@ -17156,7 +17164,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
       </register>
       <register name="TRIGCTRL" address="0x4000c808" access="RW" resetvalue="0x00000000">
         <description>USART Trigger Control register</description>
-        <field name="TSEL" bitoffset="0" bitlength="3">
+        <field name="TSEL" bitoffset="0" bitlength="4">
           <description>
  Trigger PRS Channel Select
  -
@@ -17169,6 +17177,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  0x05, PRSCH5 - PRS Channel 5 selected
  0x06, PRSCH6 - PRS Channel 6 selected
  0x07, PRSCH7 - PRS Channel 7 selected
+ 0x08, PRSCH8 - PRS Channel 8 selected
+ 0x09, PRSCH9 - PRS Channel 9 selected
+ 0x0A, PRSCH10 - PRS Channel 10 selected
+ 0x0B, PRSCH11 - PRS Channel 11 selected
           </description>
         </field>
         <field name="RXTEN" bitoffset="4" bitlength="1">
@@ -18833,10 +18845,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Mode Select
  -
  Value, Description
- 0x00, DISABLE - The module is disabled
- 0x01, OVSSINGLE - Single input LFACLK oversampling mode (available in EM0-EM2)
- 0x02, EXTCLKSINGLE - Externally clocked single input counter mode (available in EM0-EM3)
- 0x03, EXTCLKQUAD - Externally clocked quadrature decoder mode (available in EM0-EM3)
+ 0x00, DISABLE - The module is disabled.
+ 0x01, OVSSINGLE - Single input LFACLK oversampling mode (available in EM0-EM2).
+ 0x02, EXTCLKSINGLE - Externally clocked single input counter mode (available in EM0-EM3).
+ 0x03, EXTCLKQUAD - Externally clocked quadrature decoder mode (available in EM0-EM3).
           </description>
         </field>
         <field name="CNTDIR" bitoffset="2" bitlength="1">
@@ -18862,21 +18874,21 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Controls when the counter counts
  -
  Value, Description
- 0x00, BOTH - Counts up on up-count and down on down-count events
- 0x01, UP - Only counts up on up-count events
- 0x02, DOWN - Only counts down on down-count events
- 0x03, NONE - Never counts
+ 0x00, BOTH - Counts up on up-count and down on down-count events.
+ 0x01, UP - Only counts up on up-count events.
+ 0x02, DOWN - Only counts down on down-count events.
+ 0x03, NONE - Never counts.
           </description>
         </field>
         <field name="AUXCNTEV" bitoffset="14" bitlength="2">
           <description>
- Controls when the auxillary counter counts
+ Controls when the auxiliary counter counts
  -
  Value, Description
- 0x00, NONE - Never counts
- 0x01, UP - Counts up on up-count events
- 0x02, DOWN - Counts up on down-count events
- 0x03, BOTH - Counts up on both up-count and down-count events
+ 0x00, NONE - Never counts.
+ 0x01, UP - Counts up on up-count events.
+ 0x02, DOWN - Counts up on down-count events.
+ 0x03, BOTH - Counts up on both up-count and down-count events.
           </description>
         </field>
       </register>
@@ -18946,7 +18958,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
           <description>Direction Change Detect Interrupt Set</description>
         </field>
         <field name="AUXOF" bitoffset="3" bitlength="1">
-          <description>Auxillary Overflow Interrupt Set</description>
+          <description>Auxiliary Overflow Interrupt Set</description>
         </field>
       </register>
       <register name="IFC" address="0x40086020" access="WO" resetvalue="0x00000000">
@@ -18961,7 +18973,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
           <description>Direction Change Detect Interrupt Clear</description>
         </field>
         <field name="AUXOF" bitoffset="3" bitlength="1">
-          <description>Auxillary Overflow Interrupt Clear</description>
+          <description>Auxiliary Overflow Interrupt Clear</description>
         </field>
       </register>
       <register name="IEN" address="0x40086024" access="RW" resetvalue="0x00000000">
@@ -18976,7 +18988,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
           <description>Direction Change Detect Interrupt Enable</description>
         </field>
         <field name="AUXOF" bitoffset="3" bitlength="1">
-          <description>Auxillary Overflow Interrupt Enable</description>
+          <description>Auxiliary Overflow Interrupt Enable</description>
         </field>
       </register>
       <register name="ROUTE" address="0x40086028" access="RW" resetvalue="0x00000000">
@@ -19012,10 +19024,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="AUXCNT" address="0x40086038" access="RW" resetvalue="0x00000000">
-        <description>Auxillary Counter Value Register</description>
+        <description>Auxiliary Counter Value Register</description>
         <field name="AUXCNT" bitoffset="0" bitlength="16">
           <description>
-        Auxillary Counter Value
+        Auxiliary Counter Value
           </description>
         </field>
       </register>
@@ -19026,18 +19038,18 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  S0IN PRS Channel Select
  -
  Value, Description
- 0x00, PRSCH0 - PRS Channel 0 selected
- 0x01, PRSCH1 - PRS Channel 1 selected
- 0x02, PRSCH2 - PRS Channel 2 selected
- 0x03, PRSCH3 - PRS Channel 3 selected
- 0x04, PRSCH4 - PRS Channel 4 selected
- 0x05, PRSCH5 - PRS Channel 5 selected
- 0x06, PRSCH6 - PRS Channel 6 selected
- 0x07, PRSCH7 - PRS Channel 7 selected
- 0x08, PRSCH8 - PRS Channel 8 selected
- 0x09, PRSCH9 - PRS Channel 9 selected
- 0x0A, PRSCH10 - PRS Channel 10 selected
- 0x0B, PRSCH11 - PRS Channel 11 selected
+ 0x00, PRSCH0 - PRS Channel 0 selected.
+ 0x01, PRSCH1 - PRS Channel 1 selected.
+ 0x02, PRSCH2 - PRS Channel 2 selected.
+ 0x03, PRSCH3 - PRS Channel 3 selected.
+ 0x04, PRSCH4 - PRS Channel 4 selected.
+ 0x05, PRSCH5 - PRS Channel 5 selected.
+ 0x06, PRSCH6 - PRS Channel 6 selected.
+ 0x07, PRSCH7 - PRS Channel 7 selected.
+ 0x08, PRSCH8 - PRS Channel 8 selected.
+ 0x09, PRSCH9 - PRS Channel 9 selected.
+ 0x0A, PRSCH10 - PRS Channel 10 selected.
+ 0x0B, PRSCH11 - PRS Channel 11 selected.
           </description>
         </field>
         <field name="S0PRSEN" bitoffset="4" bitlength="1">
@@ -19048,18 +19060,18 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  S1IN PRS Channel Select
  -
  Value, Description
- 0x00, PRSCH0 - PRS Channel 0 selected
- 0x01, PRSCH1 - PRS Channel 1 selected
- 0x02, PRSCH2 - PRS Channel 2 selected
- 0x03, PRSCH3 - PRS Channel 3 selected
- 0x04, PRSCH4 - PRS Channel 4 selected
- 0x05, PRSCH5 - PRS Channel 5 selected
- 0x06, PRSCH6 - PRS Channel 6 selected
- 0x07, PRSCH7 - PRS Channel 7 selected
- 0x08, PRSCH8 - PRS Channel 8 selected
- 0x09, PRSCH9 - PRS Channel 9 selected
- 0x0A, PRSCH10 - PRS Channel 10 selected
- 0x0B, PRSCH11 - PRS Channel 11 selected
+ 0x00, PRSCH0 - PRS Channel 0 selected.
+ 0x01, PRSCH1 - PRS Channel 1 selected.
+ 0x02, PRSCH2 - PRS Channel 2 selected.
+ 0x03, PRSCH3 - PRS Channel 3 selected.
+ 0x04, PRSCH4 - PRS Channel 4 selected.
+ 0x05, PRSCH5 - PRS Channel 5 selected.
+ 0x06, PRSCH6 - PRS Channel 6 selected.
+ 0x07, PRSCH7 - PRS Channel 7 selected.
+ 0x08, PRSCH8 - PRS Channel 8 selected.
+ 0x09, PRSCH9 - PRS Channel 9 selected.
+ 0x0A, PRSCH10 - PRS Channel 10 selected.
+ 0x0B, PRSCH11 - PRS Channel 11 selected.
           </description>
         </field>
         <field name="S1PRSEN" bitoffset="10" bitlength="1">
@@ -19075,10 +19087,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Mode Select
  -
  Value, Description
- 0x00, DISABLE - The module is disabled
- 0x01, OVSSINGLE - Single input LFACLK oversampling mode (available in EM0-EM2)
- 0x02, EXTCLKSINGLE - Externally clocked single input counter mode (available in EM0-EM3)
- 0x03, EXTCLKQUAD - Externally clocked quadrature decoder mode (available in EM0-EM3)
+ 0x00, DISABLE - The module is disabled.
+ 0x01, OVSSINGLE - Single input LFACLK oversampling mode (available in EM0-EM2).
+ 0x02, EXTCLKSINGLE - Externally clocked single input counter mode (available in EM0-EM3).
+ 0x03, EXTCLKQUAD - Externally clocked quadrature decoder mode (available in EM0-EM3).
           </description>
         </field>
         <field name="CNTDIR" bitoffset="2" bitlength="1">
@@ -19104,21 +19116,21 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Controls when the counter counts
  -
  Value, Description
- 0x00, BOTH - Counts up on up-count and down on down-count events
- 0x01, UP - Only counts up on up-count events
- 0x02, DOWN - Only counts down on down-count events
- 0x03, NONE - Never counts
+ 0x00, BOTH - Counts up on up-count and down on down-count events.
+ 0x01, UP - Only counts up on up-count events.
+ 0x02, DOWN - Only counts down on down-count events.
+ 0x03, NONE - Never counts.
           </description>
         </field>
         <field name="AUXCNTEV" bitoffset="14" bitlength="2">
           <description>
- Controls when the auxillary counter counts
+ Controls when the auxiliary counter counts
  -
  Value, Description
- 0x00, NONE - Never counts
- 0x01, UP - Counts up on up-count events
- 0x02, DOWN - Counts up on down-count events
- 0x03, BOTH - Counts up on both up-count and down-count events
+ 0x00, NONE - Never counts.
+ 0x01, UP - Counts up on up-count events.
+ 0x02, DOWN - Counts up on down-count events.
+ 0x03, BOTH - Counts up on both up-count and down-count events.
           </description>
         </field>
       </register>
@@ -19188,7 +19200,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
           <description>Direction Change Detect Interrupt Set</description>
         </field>
         <field name="AUXOF" bitoffset="3" bitlength="1">
-          <description>Auxillary Overflow Interrupt Set</description>
+          <description>Auxiliary Overflow Interrupt Set</description>
         </field>
       </register>
       <register name="IFC" address="0x40086420" access="WO" resetvalue="0x00000000">
@@ -19203,7 +19215,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
           <description>Direction Change Detect Interrupt Clear</description>
         </field>
         <field name="AUXOF" bitoffset="3" bitlength="1">
-          <description>Auxillary Overflow Interrupt Clear</description>
+          <description>Auxiliary Overflow Interrupt Clear</description>
         </field>
       </register>
       <register name="IEN" address="0x40086424" access="RW" resetvalue="0x00000000">
@@ -19218,7 +19230,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
           <description>Direction Change Detect Interrupt Enable</description>
         </field>
         <field name="AUXOF" bitoffset="3" bitlength="1">
-          <description>Auxillary Overflow Interrupt Enable</description>
+          <description>Auxiliary Overflow Interrupt Enable</description>
         </field>
       </register>
       <register name="ROUTE" address="0x40086428" access="RW" resetvalue="0x00000000">
@@ -19254,10 +19266,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="AUXCNT" address="0x40086438" access="RW" resetvalue="0x00000000">
-        <description>Auxillary Counter Value Register</description>
+        <description>Auxiliary Counter Value Register</description>
         <field name="AUXCNT" bitoffset="0" bitlength="16">
           <description>
-        Auxillary Counter Value
+        Auxiliary Counter Value
           </description>
         </field>
       </register>
@@ -19268,18 +19280,18 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  S0IN PRS Channel Select
  -
  Value, Description
- 0x00, PRSCH0 - PRS Channel 0 selected
- 0x01, PRSCH1 - PRS Channel 1 selected
- 0x02, PRSCH2 - PRS Channel 2 selected
- 0x03, PRSCH3 - PRS Channel 3 selected
- 0x04, PRSCH4 - PRS Channel 4 selected
- 0x05, PRSCH5 - PRS Channel 5 selected
- 0x06, PRSCH6 - PRS Channel 6 selected
- 0x07, PRSCH7 - PRS Channel 7 selected
- 0x08, PRSCH8 - PRS Channel 8 selected
- 0x09, PRSCH9 - PRS Channel 9 selected
- 0x0A, PRSCH10 - PRS Channel 10 selected
- 0x0B, PRSCH11 - PRS Channel 11 selected
+ 0x00, PRSCH0 - PRS Channel 0 selected.
+ 0x01, PRSCH1 - PRS Channel 1 selected.
+ 0x02, PRSCH2 - PRS Channel 2 selected.
+ 0x03, PRSCH3 - PRS Channel 3 selected.
+ 0x04, PRSCH4 - PRS Channel 4 selected.
+ 0x05, PRSCH5 - PRS Channel 5 selected.
+ 0x06, PRSCH6 - PRS Channel 6 selected.
+ 0x07, PRSCH7 - PRS Channel 7 selected.
+ 0x08, PRSCH8 - PRS Channel 8 selected.
+ 0x09, PRSCH9 - PRS Channel 9 selected.
+ 0x0A, PRSCH10 - PRS Channel 10 selected.
+ 0x0B, PRSCH11 - PRS Channel 11 selected.
           </description>
         </field>
         <field name="S0PRSEN" bitoffset="4" bitlength="1">
@@ -19290,18 +19302,18 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  S1IN PRS Channel Select
  -
  Value, Description
- 0x00, PRSCH0 - PRS Channel 0 selected
- 0x01, PRSCH1 - PRS Channel 1 selected
- 0x02, PRSCH2 - PRS Channel 2 selected
- 0x03, PRSCH3 - PRS Channel 3 selected
- 0x04, PRSCH4 - PRS Channel 4 selected
- 0x05, PRSCH5 - PRS Channel 5 selected
- 0x06, PRSCH6 - PRS Channel 6 selected
- 0x07, PRSCH7 - PRS Channel 7 selected
- 0x08, PRSCH8 - PRS Channel 8 selected
- 0x09, PRSCH9 - PRS Channel 9 selected
- 0x0A, PRSCH10 - PRS Channel 10 selected
- 0x0B, PRSCH11 - PRS Channel 11 selected
+ 0x00, PRSCH0 - PRS Channel 0 selected.
+ 0x01, PRSCH1 - PRS Channel 1 selected.
+ 0x02, PRSCH2 - PRS Channel 2 selected.
+ 0x03, PRSCH3 - PRS Channel 3 selected.
+ 0x04, PRSCH4 - PRS Channel 4 selected.
+ 0x05, PRSCH5 - PRS Channel 5 selected.
+ 0x06, PRSCH6 - PRS Channel 6 selected.
+ 0x07, PRSCH7 - PRS Channel 7 selected.
+ 0x08, PRSCH8 - PRS Channel 8 selected.
+ 0x09, PRSCH9 - PRS Channel 9 selected.
+ 0x0A, PRSCH10 - PRS Channel 10 selected.
+ 0x0B, PRSCH11 - PRS Channel 11 selected.
           </description>
         </field>
         <field name="S1PRSEN" bitoffset="10" bitlength="1">
@@ -19317,10 +19329,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Mode Select
  -
  Value, Description
- 0x00, DISABLE - The module is disabled
- 0x01, OVSSINGLE - Single input LFACLK oversampling mode (available in EM0-EM2)
- 0x02, EXTCLKSINGLE - Externally clocked single input counter mode (available in EM0-EM3)
- 0x03, EXTCLKQUAD - Externally clocked quadrature decoder mode (available in EM0-EM3)
+ 0x00, DISABLE - The module is disabled.
+ 0x01, OVSSINGLE - Single input LFACLK oversampling mode (available in EM0-EM2).
+ 0x02, EXTCLKSINGLE - Externally clocked single input counter mode (available in EM0-EM3).
+ 0x03, EXTCLKQUAD - Externally clocked quadrature decoder mode (available in EM0-EM3).
           </description>
         </field>
         <field name="CNTDIR" bitoffset="2" bitlength="1">
@@ -19346,21 +19358,21 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Controls when the counter counts
  -
  Value, Description
- 0x00, BOTH - Counts up on up-count and down on down-count events
- 0x01, UP - Only counts up on up-count events
- 0x02, DOWN - Only counts down on down-count events
- 0x03, NONE - Never counts
+ 0x00, BOTH - Counts up on up-count and down on down-count events.
+ 0x01, UP - Only counts up on up-count events.
+ 0x02, DOWN - Only counts down on down-count events.
+ 0x03, NONE - Never counts.
           </description>
         </field>
         <field name="AUXCNTEV" bitoffset="14" bitlength="2">
           <description>
- Controls when the auxillary counter counts
+ Controls when the auxiliary counter counts
  -
  Value, Description
- 0x00, NONE - Never counts
- 0x01, UP - Counts up on up-count events
- 0x02, DOWN - Counts up on down-count events
- 0x03, BOTH - Counts up on both up-count and down-count events
+ 0x00, NONE - Never counts.
+ 0x01, UP - Counts up on up-count events.
+ 0x02, DOWN - Counts up on down-count events.
+ 0x03, BOTH - Counts up on both up-count and down-count events.
           </description>
         </field>
       </register>
@@ -19430,7 +19442,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
           <description>Direction Change Detect Interrupt Set</description>
         </field>
         <field name="AUXOF" bitoffset="3" bitlength="1">
-          <description>Auxillary Overflow Interrupt Set</description>
+          <description>Auxiliary Overflow Interrupt Set</description>
         </field>
       </register>
       <register name="IFC" address="0x40086820" access="WO" resetvalue="0x00000000">
@@ -19445,7 +19457,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
           <description>Direction Change Detect Interrupt Clear</description>
         </field>
         <field name="AUXOF" bitoffset="3" bitlength="1">
-          <description>Auxillary Overflow Interrupt Clear</description>
+          <description>Auxiliary Overflow Interrupt Clear</description>
         </field>
       </register>
       <register name="IEN" address="0x40086824" access="RW" resetvalue="0x00000000">
@@ -19460,7 +19472,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
           <description>Direction Change Detect Interrupt Enable</description>
         </field>
         <field name="AUXOF" bitoffset="3" bitlength="1">
-          <description>Auxillary Overflow Interrupt Enable</description>
+          <description>Auxiliary Overflow Interrupt Enable</description>
         </field>
       </register>
       <register name="ROUTE" address="0x40086828" access="RW" resetvalue="0x00000000">
@@ -19496,10 +19508,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="AUXCNT" address="0x40086838" access="RW" resetvalue="0x00000000">
-        <description>Auxillary Counter Value Register</description>
+        <description>Auxiliary Counter Value Register</description>
         <field name="AUXCNT" bitoffset="0" bitlength="16">
           <description>
-        Auxillary Counter Value
+        Auxiliary Counter Value
           </description>
         </field>
       </register>
@@ -19510,18 +19522,18 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  S0IN PRS Channel Select
  -
  Value, Description
- 0x00, PRSCH0 - PRS Channel 0 selected
- 0x01, PRSCH1 - PRS Channel 1 selected
- 0x02, PRSCH2 - PRS Channel 2 selected
- 0x03, PRSCH3 - PRS Channel 3 selected
- 0x04, PRSCH4 - PRS Channel 4 selected
- 0x05, PRSCH5 - PRS Channel 5 selected
- 0x06, PRSCH6 - PRS Channel 6 selected
- 0x07, PRSCH7 - PRS Channel 7 selected
- 0x08, PRSCH8 - PRS Channel 8 selected
- 0x09, PRSCH9 - PRS Channel 9 selected
- 0x0A, PRSCH10 - PRS Channel 10 selected
- 0x0B, PRSCH11 - PRS Channel 11 selected
+ 0x00, PRSCH0 - PRS Channel 0 selected.
+ 0x01, PRSCH1 - PRS Channel 1 selected.
+ 0x02, PRSCH2 - PRS Channel 2 selected.
+ 0x03, PRSCH3 - PRS Channel 3 selected.
+ 0x04, PRSCH4 - PRS Channel 4 selected.
+ 0x05, PRSCH5 - PRS Channel 5 selected.
+ 0x06, PRSCH6 - PRS Channel 6 selected.
+ 0x07, PRSCH7 - PRS Channel 7 selected.
+ 0x08, PRSCH8 - PRS Channel 8 selected.
+ 0x09, PRSCH9 - PRS Channel 9 selected.
+ 0x0A, PRSCH10 - PRS Channel 10 selected.
+ 0x0B, PRSCH11 - PRS Channel 11 selected.
           </description>
         </field>
         <field name="S0PRSEN" bitoffset="4" bitlength="1">
@@ -19532,18 +19544,18 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  S1IN PRS Channel Select
  -
  Value, Description
- 0x00, PRSCH0 - PRS Channel 0 selected
- 0x01, PRSCH1 - PRS Channel 1 selected
- 0x02, PRSCH2 - PRS Channel 2 selected
- 0x03, PRSCH3 - PRS Channel 3 selected
- 0x04, PRSCH4 - PRS Channel 4 selected
- 0x05, PRSCH5 - PRS Channel 5 selected
- 0x06, PRSCH6 - PRS Channel 6 selected
- 0x07, PRSCH7 - PRS Channel 7 selected
- 0x08, PRSCH8 - PRS Channel 8 selected
- 0x09, PRSCH9 - PRS Channel 9 selected
- 0x0A, PRSCH10 - PRS Channel 10 selected
- 0x0B, PRSCH11 - PRS Channel 11 selected
+ 0x00, PRSCH0 - PRS Channel 0 selected.
+ 0x01, PRSCH1 - PRS Channel 1 selected.
+ 0x02, PRSCH2 - PRS Channel 2 selected.
+ 0x03, PRSCH3 - PRS Channel 3 selected.
+ 0x04, PRSCH4 - PRS Channel 4 selected.
+ 0x05, PRSCH5 - PRS Channel 5 selected.
+ 0x06, PRSCH6 - PRS Channel 6 selected.
+ 0x07, PRSCH7 - PRS Channel 7 selected.
+ 0x08, PRSCH8 - PRS Channel 8 selected.
+ 0x09, PRSCH9 - PRS Channel 9 selected.
+ 0x0A, PRSCH10 - PRS Channel 10 selected.
+ 0x0B, PRSCH11 - PRS Channel 11 selected.
           </description>
         </field>
         <field name="S1PRSEN" bitoffset="10" bitlength="1">
@@ -19582,9 +19594,9 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Clock Low High Ratio
  -
  Value, Description
- 0x00, STANDARD - The ratio is 4:4. Both low and high periods lasts 4 prescaled clock cycles
- 0x01, ASYMMETRIC - The ratio is 6:3. Low period lasts 6 and high period lasts 4 prescaled clock cycles
- 0x02, FAST - The ratio is 14:9. Low period lasts 16 and high period lasts 9 prescaled clock cycles
+ 0x00, STANDARD - The ratio between low period and high period counters (Nlow:Nhigh) is 4:4
+ 0x01, ASYMMETRIC - The ratio between low period and high period counters (Nlow:Nhigh) is 6:3
+ 0x02, FAST - The ratio between low period and high period counters (Nlow:Nhigh) is 11:6
           </description>
         </field>
         <field name="BITO" bitoffset="12" bitlength="2">
@@ -20011,9 +20023,9 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Clock Low High Ratio
  -
  Value, Description
- 0x00, STANDARD - The ratio is 4:4. Both low and high periods lasts 4 prescaled clock cycles
- 0x01, ASYMMETRIC - The ratio is 6:3. Low period lasts 6 and high period lasts 4 prescaled clock cycles
- 0x02, FAST - The ratio is 14:9. Low period lasts 16 and high period lasts 9 prescaled clock cycles
+ 0x00, STANDARD - The ratio between low period and high period counters (Nlow:Nhigh) is 4:4
+ 0x01, ASYMMETRIC - The ratio between low period and high period counters (Nlow:Nhigh) is 6:3
+ 0x02, FAST - The ratio between low period and high period counters (Nlow:Nhigh) is 11:6
           </description>
         </field>
         <field name="BITO" bitoffset="12" bitlength="2">
@@ -21166,13 +21178,13 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
           </description>
         </field>
         <field name="OPA0SHORT" bitoffset="22" bitlength="1">
-          <description>Short the non-inverting and Invering Input.</description>
+          <description>Short the non-inverting and inverting input.</description>
         </field>
         <field name="OPA1SHORT" bitoffset="23" bitlength="1">
-          <description>Short the non-inverting and Invering Input.</description>
+          <description>Short the non-inverting and inverting input.</description>
         </field>
         <field name="OPA2SHORT" bitoffset="24" bitlength="1">
-          <description>Short the non-inverting and Invering Input.</description>
+          <description>Short the non-inverting and inverting input.</description>
         </field>
       </register>
       <register name="OPAOFFSET" address="0x40004058" access="RW" resetvalue="0x00000000">
@@ -21449,14 +21461,14 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Hysteresis Select
  -
  Value, Description
- 0x00, HYST0 - No hysteresis
- 0x01, HYST1 - ~15 mV hysteresis
- 0x02, HYST2 - ~22 mV hysteresis
- 0x03, HYST3 - ~29 mV hysteresis
- 0x04, HYST4 - ~36 mV hysteresis
- 0x05, HYST5 - ~43 mV hysteresis
- 0x06, HYST6 - ~50 mV hysteresis
- 0x07, HYST7 - ~57 mV hysteresis
+ 0x00, HYST0 - No hysteresis.
+ 0x01, HYST1 - ~15 mV hysteresis.
+ 0x02, HYST2 - ~22 mV hysteresis.
+ 0x03, HYST3 - ~29 mV hysteresis.
+ 0x04, HYST4 - ~36 mV hysteresis.
+ 0x05, HYST5 - ~43 mV hysteresis.
+ 0x06, HYST6 - ~50 mV hysteresis.
+ 0x07, HYST7 - ~57 mV hysteresis.
           </description>
         </field>
         <field name="WARMTIME" bitoffset="8" bitlength="3">
@@ -21464,14 +21476,14 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Warm-up Time
  -
  Value, Description
- 0x00, 4CYCLES - 4 HFPERCLK cycles
- 0x01, 8CYCLES - 8 HFPERCLK cycles
- 0x02, 16CYCLES - 16 HFPERCLK cycles
- 0x03, 32CYCLES - 32 HFPERCLK cycles
- 0x04, 64CYCLES - 64 HFPERCLK cycles
- 0x05, 128CYCLES - 128 HFPERCLK cycles
- 0x06, 256CYCLES - 256 HFPERCLK cycles
- 0x07, 512CYCLES - 512 HFPERCLK cycles
+ 0x00, 4CYCLES - 4 HFPERCLK cycles.
+ 0x01, 8CYCLES - 8 HFPERCLK cycles.
+ 0x02, 16CYCLES - 16 HFPERCLK cycles.
+ 0x03, 32CYCLES - 32 HFPERCLK cycles.
+ 0x04, 64CYCLES - 64 HFPERCLK cycles.
+ 0x05, 128CYCLES - 128 HFPERCLK cycles.
+ 0x06, 256CYCLES - 256 HFPERCLK cycles.
+ 0x07, 512CYCLES - 512 HFPERCLK cycles.
           </description>
         </field>
         <field name="IRISE" bitoffset="16" bitlength="1">
@@ -21499,14 +21511,14 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Positive Input Select
  -
  Value, Description
- 0x00, CH0 - Channel 0 as positive input
- 0x01, CH1 - Channel 1 as positive input
- 0x02, CH2 - Channel 2 as positive input
- 0x03, CH3 - Channel 3 as positive input
- 0x04, CH4 - Channel 4 as positive input
- 0x05, CH5 - Channel 5 as positive input
- 0x06, CH6 - Channel 6 as positive input
- 0x07, CH7 - Channel 7 as positive input
+ 0x00, CH0 - Channel 0 as positive input.
+ 0x01, CH1 - Channel 1 as positive input.
+ 0x02, CH2 - Channel 2 as positive input.
+ 0x03, CH3 - Channel 3 as positive input.
+ 0x04, CH4 - Channel 4 as positive input.
+ 0x05, CH5 - Channel 5 as positive input.
+ 0x06, CH6 - Channel 6 as positive input.
+ 0x07, CH7 - Channel 7 as positive input.
           </description>
         </field>
         <field name="NEGSEL" bitoffset="4" bitlength="4">
@@ -21514,20 +21526,20 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Negative Input Select
  -
  Value, Description
- 0x00, CH0 - Channel 0 as negative input
- 0x01, CH1 - Channel 1 as negative input
- 0x02, CH2 - Channel 2 as negative input
- 0x03, CH3 - Channel 3 as negative input
- 0x04, CH4 - Channel 4 as negative input
- 0x05, CH5 - Channel 5 as negative input
- 0x06, CH6 - Channel 6 as negative input
- 0x07, CH7 - Channel 7 as negative input
- 0x08, 1V25 - 1.25 V as negative input
- 0x09, 2V5 - 2.5 V as negative input
- 0x0A, VDD - Scaled VDD as negative input
- 0x0B, CAPSENSE - Capacitive sense mode
- 0x0C, DAC0CH0 - DAC0 channel 0
- 0x0D, DAC0CH1 - DAC0 channel 1
+ 0x00, CH0 - Channel 0 as negative input.
+ 0x01, CH1 - Channel 1 as negative input.
+ 0x02, CH2 - Channel 2 as negative input.
+ 0x03, CH3 - Channel 3 as negative input.
+ 0x04, CH4 - Channel 4 as negative input.
+ 0x05, CH5 - Channel 5 as negative input.
+ 0x06, CH6 - Channel 6 as negative input.
+ 0x07, CH7 - Channel 7 as negative input.
+ 0x08, 1V25 - 1.25 V as negative input.
+ 0x09, 2V5 - 2.5 V as negative input.
+ 0x0A, VDD - Scaled VDD as negative input.
+ 0x0B, CAPSENSE - Capacitive sense mode.
+ 0x0C, DAC0CH0 - DAC0 channel 0.
+ 0x0D, DAC0CH1 - DAC0 channel 1.
           </description>
         </field>
         <field name="VDDLEVEL" bitoffset="8" bitlength="6">
@@ -21546,10 +21558,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Capacitive Sense Mode Internal Resistor Select
  -
  Value, Description
- 0x00, RES0 - Internal capacitive sense resistor value 0
- 0x01, RES1 - Internal capacitive sense resistor value 1
- 0x02, RES2 - Internal capacitive sense resistor value 2
- 0x03, RES3 - Internal capacitive sense resistor value 3
+ 0x00, RES0 - Internal capacitive sense resistor value 0.
+ 0x01, RES1 - Internal capacitive sense resistor value 1.
+ 0x02, RES2 - Internal capacitive sense resistor value 2.
+ 0x03, RES3 - Internal capacitive sense resistor value 3.
           </description>
         </field>
       </register>
@@ -21635,14 +21647,14 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Hysteresis Select
  -
  Value, Description
- 0x00, HYST0 - No hysteresis
- 0x01, HYST1 - ~15 mV hysteresis
- 0x02, HYST2 - ~22 mV hysteresis
- 0x03, HYST3 - ~29 mV hysteresis
- 0x04, HYST4 - ~36 mV hysteresis
- 0x05, HYST5 - ~43 mV hysteresis
- 0x06, HYST6 - ~50 mV hysteresis
- 0x07, HYST7 - ~57 mV hysteresis
+ 0x00, HYST0 - No hysteresis.
+ 0x01, HYST1 - ~15 mV hysteresis.
+ 0x02, HYST2 - ~22 mV hysteresis.
+ 0x03, HYST3 - ~29 mV hysteresis.
+ 0x04, HYST4 - ~36 mV hysteresis.
+ 0x05, HYST5 - ~43 mV hysteresis.
+ 0x06, HYST6 - ~50 mV hysteresis.
+ 0x07, HYST7 - ~57 mV hysteresis.
           </description>
         </field>
         <field name="WARMTIME" bitoffset="8" bitlength="3">
@@ -21650,14 +21662,14 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Warm-up Time
  -
  Value, Description
- 0x00, 4CYCLES - 4 HFPERCLK cycles
- 0x01, 8CYCLES - 8 HFPERCLK cycles
- 0x02, 16CYCLES - 16 HFPERCLK cycles
- 0x03, 32CYCLES - 32 HFPERCLK cycles
- 0x04, 64CYCLES - 64 HFPERCLK cycles
- 0x05, 128CYCLES - 128 HFPERCLK cycles
- 0x06, 256CYCLES - 256 HFPERCLK cycles
- 0x07, 512CYCLES - 512 HFPERCLK cycles
+ 0x00, 4CYCLES - 4 HFPERCLK cycles.
+ 0x01, 8CYCLES - 8 HFPERCLK cycles.
+ 0x02, 16CYCLES - 16 HFPERCLK cycles.
+ 0x03, 32CYCLES - 32 HFPERCLK cycles.
+ 0x04, 64CYCLES - 64 HFPERCLK cycles.
+ 0x05, 128CYCLES - 128 HFPERCLK cycles.
+ 0x06, 256CYCLES - 256 HFPERCLK cycles.
+ 0x07, 512CYCLES - 512 HFPERCLK cycles.
           </description>
         </field>
         <field name="IRISE" bitoffset="16" bitlength="1">
@@ -21685,14 +21697,14 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Positive Input Select
  -
  Value, Description
- 0x00, CH0 - Channel 0 as positive input
- 0x01, CH1 - Channel 1 as positive input
- 0x02, CH2 - Channel 2 as positive input
- 0x03, CH3 - Channel 3 as positive input
- 0x04, CH4 - Channel 4 as positive input
- 0x05, CH5 - Channel 5 as positive input
- 0x06, CH6 - Channel 6 as positive input
- 0x07, CH7 - Channel 7 as positive input
+ 0x00, CH0 - Channel 0 as positive input.
+ 0x01, CH1 - Channel 1 as positive input.
+ 0x02, CH2 - Channel 2 as positive input.
+ 0x03, CH3 - Channel 3 as positive input.
+ 0x04, CH4 - Channel 4 as positive input.
+ 0x05, CH5 - Channel 5 as positive input.
+ 0x06, CH6 - Channel 6 as positive input.
+ 0x07, CH7 - Channel 7 as positive input.
           </description>
         </field>
         <field name="NEGSEL" bitoffset="4" bitlength="4">
@@ -21700,20 +21712,20 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Negative Input Select
  -
  Value, Description
- 0x00, CH0 - Channel 0 as negative input
- 0x01, CH1 - Channel 1 as negative input
- 0x02, CH2 - Channel 2 as negative input
- 0x03, CH3 - Channel 3 as negative input
- 0x04, CH4 - Channel 4 as negative input
- 0x05, CH5 - Channel 5 as negative input
- 0x06, CH6 - Channel 6 as negative input
- 0x07, CH7 - Channel 7 as negative input
- 0x08, 1V25 - 1.25 V as negative input
- 0x09, 2V5 - 2.5 V as negative input
- 0x0A, VDD - Scaled VDD as negative input
- 0x0B, CAPSENSE - Capacitive sense mode
- 0x0C, DAC0CH0 - DAC0 channel 0
- 0x0D, DAC0CH1 - DAC0 channel 1
+ 0x00, CH0 - Channel 0 as negative input.
+ 0x01, CH1 - Channel 1 as negative input.
+ 0x02, CH2 - Channel 2 as negative input.
+ 0x03, CH3 - Channel 3 as negative input.
+ 0x04, CH4 - Channel 4 as negative input.
+ 0x05, CH5 - Channel 5 as negative input.
+ 0x06, CH6 - Channel 6 as negative input.
+ 0x07, CH7 - Channel 7 as negative input.
+ 0x08, 1V25 - 1.25 V as negative input.
+ 0x09, 2V5 - 2.5 V as negative input.
+ 0x0A, VDD - Scaled VDD as negative input.
+ 0x0B, CAPSENSE - Capacitive sense mode.
+ 0x0C, DAC0CH0 - DAC0 channel 0.
+ 0x0D, DAC0CH1 - DAC0 channel 1.
           </description>
         </field>
         <field name="VDDLEVEL" bitoffset="8" bitlength="6">
@@ -21732,10 +21744,10 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
  Capacitive Sense Mode Internal Resistor Select
  -
  Value, Description
- 0x00, RES0 - Internal capacitive sense resistor value 0
- 0x01, RES1 - Internal capacitive sense resistor value 1
- 0x02, RES2 - Internal capacitive sense resistor value 2
- 0x03, RES3 - Internal capacitive sense resistor value 3
+ 0x00, RES0 - Internal capacitive sense resistor value 0.
+ 0x01, RES1 - Internal capacitive sense resistor value 1.
+ 0x02, RES2 - Internal capacitive sense resistor value 2.
+ 0x03, RES3 - Internal capacitive sense resistor value 3.
           </description>
         </field>
       </register>
@@ -21835,7 +21847,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
           <description>VREGO Sense Output</description>
         </field>
       </register>
-      <register name="IF" address="0x400c4008" access="RO" resetvalue="0x00000000">
+      <register name="IF" address="0x400c4008" access="RO" resetvalue="0x00000003">
         <description>Interrupt Flag Register</description>
         <field name="VREGOSH" bitoffset="0" bitlength="1">
           <description>VREGO Sense High Interrupt Flag</description>
@@ -26906,7 +26918,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="STATUS" address="0x40081018" access="RO" resetvalue="0x00000000">
-        <description>Status register</description>
+        <description>Status Register</description>
         <field name="LPMODEACT" bitoffset="0" bitlength="1">
           <description>Low power mode active</description>
         </field>
@@ -26924,7 +26936,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="POWERDOWN" address="0x40081020" access="RW" resetvalue="0x00000000">
-        <description>Retention RAM power-down register</description>
+        <description>Retention RAM power-down Register</description>
         <field name="RAM" bitoffset="0" bitlength="1">
           <description>Retention RAM power-down</description>
         </field>
@@ -27007,7 +27019,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET0_REG" address="0x40081100" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27015,7 +27027,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET1_REG" address="0x40081104" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27023,7 +27035,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET2_REG" address="0x40081108" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27031,7 +27043,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET3_REG" address="0x4008110c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27039,7 +27051,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET4_REG" address="0x40081110" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27047,7 +27059,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET5_REG" address="0x40081114" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27055,7 +27067,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET6_REG" address="0x40081118" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27063,7 +27075,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET7_REG" address="0x4008111c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27071,7 +27083,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET8_REG" address="0x40081120" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27079,7 +27091,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET9_REG" address="0x40081124" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27087,7 +27099,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET10_REG" address="0x40081128" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27095,7 +27107,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET11_REG" address="0x4008112c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27103,7 +27115,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET12_REG" address="0x40081130" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27111,7 +27123,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET13_REG" address="0x40081134" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27119,7 +27131,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET14_REG" address="0x40081138" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27127,7 +27139,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET15_REG" address="0x4008113c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27135,7 +27147,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET16_REG" address="0x40081140" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27143,7 +27155,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET17_REG" address="0x40081144" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27151,7 +27163,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET18_REG" address="0x40081148" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27159,7 +27171,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET19_REG" address="0x4008114c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27167,7 +27179,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET20_REG" address="0x40081150" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27175,7 +27187,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET21_REG" address="0x40081154" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27183,7 +27195,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET22_REG" address="0x40081158" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27191,7 +27203,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET23_REG" address="0x4008115c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27199,7 +27211,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET24_REG" address="0x40081160" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27207,7 +27219,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET25_REG" address="0x40081164" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27215,7 +27227,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET26_REG" address="0x40081168" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27223,7 +27235,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET27_REG" address="0x4008116c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27231,7 +27243,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET28_REG" address="0x40081170" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27239,7 +27251,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET29_REG" address="0x40081174" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27247,7 +27259,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET30_REG" address="0x40081178" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27255,7 +27267,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET31_REG" address="0x4008117c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27263,7 +27275,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET32_REG" address="0x40081180" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27271,7 +27283,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET33_REG" address="0x40081184" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27279,7 +27291,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET34_REG" address="0x40081188" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27287,7 +27299,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET35_REG" address="0x4008118c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27295,7 +27307,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET36_REG" address="0x40081190" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27303,7 +27315,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET37_REG" address="0x40081194" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27311,7 +27323,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET38_REG" address="0x40081198" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27319,7 +27331,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET39_REG" address="0x4008119c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27327,7 +27339,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET40_REG" address="0x400811a0" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27335,7 +27347,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET41_REG" address="0x400811a4" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27343,7 +27355,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET42_REG" address="0x400811a8" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27351,7 +27363,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET43_REG" address="0x400811ac" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27359,7 +27371,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET44_REG" address="0x400811b0" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27367,7 +27379,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET45_REG" address="0x400811b4" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27375,7 +27387,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET46_REG" address="0x400811b8" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27383,7 +27395,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET47_REG" address="0x400811bc" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27391,7 +27403,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET48_REG" address="0x400811c0" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27399,7 +27411,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET49_REG" address="0x400811c4" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27407,7 +27419,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET50_REG" address="0x400811c8" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27415,7 +27427,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET51_REG" address="0x400811cc" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27423,7 +27435,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET52_REG" address="0x400811d0" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27431,7 +27443,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET53_REG" address="0x400811d4" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27439,7 +27451,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET54_REG" address="0x400811d8" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27447,7 +27459,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET55_REG" address="0x400811dc" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27455,7 +27467,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET56_REG" address="0x400811e0" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27463,7 +27475,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET57_REG" address="0x400811e4" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27471,7 +27483,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET58_REG" address="0x400811e8" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27479,7 +27491,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET59_REG" address="0x400811ec" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27487,7 +27499,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET60_REG" address="0x400811f0" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27495,7 +27507,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET61_REG" address="0x400811f4" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27503,7 +27515,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET62_REG" address="0x400811f8" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27511,7 +27523,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET63_REG" address="0x400811fc" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27519,7 +27531,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET64_REG" address="0x40081200" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27527,7 +27539,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET65_REG" address="0x40081204" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27535,7 +27547,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET66_REG" address="0x40081208" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27543,7 +27555,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET67_REG" address="0x4008120c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27551,7 +27563,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET68_REG" address="0x40081210" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27559,7 +27571,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET69_REG" address="0x40081214" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27567,7 +27579,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET70_REG" address="0x40081218" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27575,7 +27587,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET71_REG" address="0x4008121c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27583,7 +27595,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET72_REG" address="0x40081220" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27591,7 +27603,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET73_REG" address="0x40081224" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27599,7 +27611,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET74_REG" address="0x40081228" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27607,7 +27619,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET75_REG" address="0x4008122c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27615,7 +27627,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET76_REG" address="0x40081230" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27623,7 +27635,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET77_REG" address="0x40081234" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27631,7 +27643,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET78_REG" address="0x40081238" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27639,7 +27651,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET79_REG" address="0x4008123c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27647,7 +27659,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET80_REG" address="0x40081240" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27655,7 +27667,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET81_REG" address="0x40081244" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27663,7 +27675,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET82_REG" address="0x40081248" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27671,7 +27683,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET83_REG" address="0x4008124c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27679,7 +27691,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET84_REG" address="0x40081250" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27687,7 +27699,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET85_REG" address="0x40081254" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27695,7 +27707,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET86_REG" address="0x40081258" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27703,7 +27715,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET87_REG" address="0x4008125c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27711,7 +27723,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET88_REG" address="0x40081260" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27719,7 +27731,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET89_REG" address="0x40081264" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27727,7 +27739,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET90_REG" address="0x40081268" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27735,7 +27747,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET91_REG" address="0x4008126c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27743,7 +27755,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET92_REG" address="0x40081270" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27751,7 +27763,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET93_REG" address="0x40081274" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27759,7 +27771,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET94_REG" address="0x40081278" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27767,7 +27779,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET95_REG" address="0x4008127c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27775,7 +27787,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET96_REG" address="0x40081280" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27783,7 +27795,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET97_REG" address="0x40081284" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27791,7 +27803,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET98_REG" address="0x40081288" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27799,7 +27811,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET99_REG" address="0x4008128c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27807,7 +27819,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET100_REG" address="0x40081290" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27815,7 +27827,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET101_REG" address="0x40081294" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27823,7 +27835,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET102_REG" address="0x40081298" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27831,7 +27843,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET103_REG" address="0x4008129c" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27839,7 +27851,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET104_REG" address="0x400812a0" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27847,7 +27859,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET105_REG" address="0x400812a4" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27855,7 +27867,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET106_REG" address="0x400812a8" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27863,7 +27875,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET107_REG" address="0x400812ac" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27871,7 +27883,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET108_REG" address="0x400812b0" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27879,7 +27891,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET109_REG" address="0x400812b4" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27887,7 +27899,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET110_REG" address="0x400812b8" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27895,7 +27907,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET111_REG" address="0x400812bc" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27903,7 +27915,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET112_REG" address="0x400812c0" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27911,7 +27923,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET113_REG" address="0x400812c4" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27919,7 +27931,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET114_REG" address="0x400812c8" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27927,7 +27939,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET115_REG" address="0x400812cc" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27935,7 +27947,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET116_REG" address="0x400812d0" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27943,7 +27955,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET117_REG" address="0x400812d4" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27951,7 +27963,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET118_REG" address="0x400812d8" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27959,7 +27971,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET119_REG" address="0x400812dc" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27967,7 +27979,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET120_REG" address="0x400812e0" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27975,7 +27987,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET121_REG" address="0x400812e4" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27983,7 +27995,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET122_REG" address="0x400812e8" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27991,7 +28003,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET123_REG" address="0x400812ec" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -27999,7 +28011,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET124_REG" address="0x400812f0" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -28007,7 +28019,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET125_REG" address="0x400812f4" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -28015,7 +28027,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET126_REG" address="0x400812f8" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -28023,7 +28035,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
       </register>
       <register name="RET127_REG" address="0x400812fc" access="RW" resetvalue="0x00000000">
-        <description>Retention register</description>
+        <description>Retention Register</description>
         <field name="REG" bitoffset="0" bitlength="32">
           <description>
         General Purpose Retention Register
@@ -28059,7 +28071,7 @@ Copyright © 2012 Energy Micro AS. All rights reserved.
         </field>
         <field name="PERSEL" bitoffset="8" bitlength="4">
           <description>
-        Watchdog Timeout Period Select.
+        Watchdog Timeout Period Select
           </description>
         </field>
         <field name="CLKSEL" bitoffset="12" bitlength="2">
