@@ -1,35 +1,26 @@
-# executed in the data dir it generates the chip pages for the website
-nr=1;for i in $(find . -name "*.[sx][vm][dl]"|cut -d'/' -f 2-3|uniq);do echo "<h1>"$(echo $i|sed -e"s/\// /g")"</h1><ul>">chip${nr}.html;for j in $(find $i -name "*.[sx][vm][dl]");do grep CMSIS $j >/dev/null;if [ $? -eq 0 ]; then xmllint --xpath /device/name $j|sed -e"s/^<name>/  <li>/g;s/<\/name>$/<\/li>/g">>chip${nr}.html;else grep -H chipname $j|cut -d'"' -f 2 |sed -e"s/^/  <li>/g;s/$/<\/li>/g;s/INC\///g">>chip${nr}.html;fi; done;echo "</ul>">>chip${nr}.html;let nr=nr+1; done;
-
-# executed in the data dir it generates the chip menu page for the website
-nr=1; echo "<ul>">chip_menu.html;for i in $(find . -name "*.xml"|cut -d'/' -f 2-3|uniq);do echo "<li><a href=\"javascript:void();\" title=\"$(echo $i|sed -e"s/\// /g")\" onclick=\"dynloadcontent('chip','$nr')\">"$(echo $i|sed -e"s/\// /g")"</a></li>";let nr=nr+1;done>>chip_menu.html; echo "</ul>" >>chip_menu.html
+# executed in the data dir it generates the chip menu, sub menu and chip pages for the website
+nr=1; echo "<ul>">chip_menu.html;for i in $(find . -name "*.[sx][vm][dl]"|cut -d'/' -f 2|uniq);do echo "<li><a href=\"javascript:void();\" title=\"$(echo $i|sed -e"s/\// /g")\" onclick=\"dynloadcontent('chip$nr','0')\">"$(echo $i|sed -e"s/\// /g")"</a></li>";let nr=nr+1;done>>chip_menu.html; echo "</ul>" >>chip_menu.html
 
 
+nr=1
+for i in $(find . -name "*.xml"|cut -d'/' -f 2|uniq);do
+        subnr=1
+        echo "<br/><b>$i</b> <a href=\"javascript:void();\" title=\"back\" onclick=\"dynloadcontent('chip','0')\">up</a> <ul>">chip${nr}_menu.html
+        for j in $(find $i -name "*.[sx][vm][dl]"|cut -d'/' -f 2|uniq);do
+                echo "<li><a href=\"javascript:void();\" title=\"$(echo $i|sed -e"s/\// /g")\" onclick=\"dynloadcontent('chip$nr','$subnr')\">"$(echo $j)"</a></li>">>chip${nr}_menu.html
+                echo "<h1>$j</h1><ul>">chip${nr}${subnr}.html
+		        for k in $(find $i/$j -name "*.[sx][vm][dl]");do 
+					grep CMSIS $k >/dev/null
+					if [ $? -eq 0 ]; then 
+						xmllint --xpath /device/name $k|sed -e"s/^<name>/  <li>/g;s/<\/name>$/<\/li>/g">>chip${nr}${subnr}.html
+					else 
+						grep -H chipname $k|cut -d'"' -f 2 |sed -e"s/^/  <li>/g;s/$/<\/li>/g;s/INC\///g">>chip${nr}${subnr}.html
+					fi
+				done  
+				echo "</ul>" >>chip${nr}${subnr}.html      
+                let subnr=subnr+1
+        done
+        echo "</ul>">>chip${nr}_menu.html
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        let nr=nr+1
+done
