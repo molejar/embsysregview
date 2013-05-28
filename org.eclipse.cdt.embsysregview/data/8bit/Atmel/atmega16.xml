@@ -1,0 +1,911 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE model SYSTEM "embsysregview.dtd">
+<!-- Ver. 1.25. Brutte. -->
+<model chipname="ATMega16">
+	<chip_description>Based on [8154B–AVR–07/09]
+Chip features :
+- Core: AVR 8-bit avr5 CPU, frequency up to 16 MHz,
+- Memories:
+  16 kiB of Flash,
+  1 kiB of SRAM,
+  512 B of EEPROM 
+- Clock, reset and supply management:
+  2.7 V to 5.5 V supply,
+  POR and 2-level BOR,
+  0.4-to-16 MHz crystal oscillator,
+  Low-Swing or Full-Swing crystal option,
+  External RC oscillator option,
+  32 kHz oscillator for RTC,
+  Internal 1, 2, 4 and 8 MHz RC with calibration,
+- RTC:
+  asynchronous with IRQs,
+  clocked with independent 32kHz crystal option
+- Low power:
+  Idle, ADC NRM, Power-Down, Power-Save, Standby and Extended-Standby
+- ADC 10-bit:
+  up to 15ksps,
+  up to 8 single-ended channels,
+  up to 7 differential channels,
+  up to 2 differential channels with 10x and 200x gain
+- 32 I/O ports, some with interrupt capability
+- Debug mode:
+  JTAG (IEEE 1149.1 compliant)
+- Programming mode:
+  JTAG, ISP, HVPP
+- 3 timers/counters:
+  One 16-bit 2-channel PWM outputs with 1-channel input capture
+  Two 8-bit 2-channel PWM outputs
+- Communication interfaces:
+  One I2C interface (up to 1MHz),
+  One USART (up to 2 Mbits/s),
+  One SPI (up to ~8 Mbits/s)
+	</chip_description>
+	<boards>
+	</boards>
+	<group name="SYSTEM" description="System Management">
+		<registergroup name="Core Registers" description="Internal registers of AVR core">
+			<register name="SREG" description="Status Register" address="0x80005F"  resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="SREG_C" description="Previous operation ended with carry">
+					<interpretation key="0x0" text="No carry"/>
+					<interpretation key="0x1" text="Carry taken"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="SREG_Z" description="Previous operation ended with zero result">
+					<interpretation key="0x0" text="Non-zero result"/>
+					<interpretation key="0x1" text="Zero result"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="SREG_N" description="Previous operation ended with bit 7 set">
+					<interpretation key="0x0" text="Positive signed"/>
+					<interpretation key="0x1" text="Negative signed"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="SREG_V" description="Previous operation ended crossing signed range">
+					<interpretation key="0x0" text="No signed under/overflow"/>
+					<interpretation key="0x1" text="Signed under/overflow"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="SREG_S" description="V eor N">
+					<interpretation key="0x0" text="Signed overflow"/>
+					<interpretation key="0x1" text="Signed underflow"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="SREG_H" description="Previous operation ended with half-carry">
+					<interpretation key="0x0" text="No halfcarry"/>
+					<interpretation key="0x1" text="Halfcarry taken"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="SREG_T" description="Bit copy storage">
+					<interpretation key="0x0" text="SREG_T cleared"/>
+					<interpretation key="0x1" text="SREG_T set"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="SREG_I" description="Global interrupt enable">
+					<interpretation key="0x0" text="Interrupts disabled"/>
+					<interpretation key="0x1" text="Interrupts acive"/>
+				</field>
+			</register>
+			<register name="SP" description="Stack pointer" address="0x80005D" resetvalue="0x0000" access="rw" size="2">
+			</register>
+			<!--
+			<register name="PC" description="Program counter" address="unknown location" resetvalue="depends on fusebits" access="rw" size="2">
+			</register>
+			-->
+			<register name="MCUCSR" description="Control and Status Register" address="0x800054" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="PORF" description="Power-on reset flag">
+					<interpretation key="0x0" text="No power-on reset activity"/>
+					<interpretation key="0x1" text="Voltage dropped below V_pot"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="EXTRF" description="External reset flag">
+					<interpretation key="0x0" text="No reset pin activity"/>
+					<interpretation key="0x1" text="Reset pin pulled low"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="BORF" description="Brown-out reset flag">
+					<interpretation key="0x0" text="No brown-out reset activity"/>
+					<interpretation key="0x1" text="Voltage edropped below V_bot"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="WDRF" description="Watchdog reset flag">
+					<interpretation key="0x0" text="No watchdog reset activity"/>
+					<interpretation key="0x1" text="Watchdog reset"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="JTRF" description="JTAG reset flag">
+					<interpretation key="0x0" text="No JTAG reset activity"/>
+					<interpretation key="0x1" text="JTAG reset"/>
+				</field>
+			</register>
+			<register name="OSCCAL" description="Oscillator Calibration Register" address="0x800051" access="rw" size="1">
+			</register>
+			<register name="OCDR" description="On-chip Debug Register" address="0x800051" access="rw" size="1">
+				<field bitoffset="7" bitlength="1" name="IDRD" description="IDR dirty">
+					<interpretation key="0x0" text="Filled"/>
+					<interpretation key="0x1" text="Empty"/>
+				</field>
+			</register>
+		</registergroup>
+	</group>
+
+	<group name="GPIOs" description="General Purpose Inputs-Outputs">
+		<registergroup name="GPIOA" description="Port A">
+			<register name="PINA" description="Input Register" address="0x800039" access="r" size="1">
+				<field bitoffset="0" bitlength="1" name="PINA0" description="Logic level on PA.0 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="PINA1" description="Logic level on PA.1 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="PINA2" description="Logic level on PA.2 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="PINA3" description="Logic level on PA.3 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="PINA4" description="Logic level on PA.4 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="PINA5" description="Logic level on PA.5 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="PINA6" description="Logic level on PA.6 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="PINA7" description="Logic level on PA.7 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+			</register>
+			<register name="DDRA" description="Direction Register" address="0x80003A" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="DDRA0" description="Direction of PA.0 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="DDRA1" description="Direction of PA.1 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="DDRA2" description="Direction of PA.2 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="DDRA3" description="Direction of PA.3 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="DDRA4" description="Direction of PA.4 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="DDRA5" description="Direction of PA.5 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="DDRA6" description="Direction of PA.6 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="DDRA7" description="Direction of PA.7 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+			</register>
+			<register name="PORTA" description="Drive Control Register" address="0x80003B" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="PORTA0" description="Drive or pullup on PA.0 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="PORTA1" description="Drive or pullup on PA.1 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="PORTA2" description="Drive or pullup on PA.2 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="PORTA3" description="Drive or pullup on PA.3 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="PORTA4" description="Drive or pullup on PA.4 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="PORTA5" description="Drive or pullup on PA.5 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="PORTA6" description="Drive or pullup on PA.6 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="PORTA7" description="Drive or pullup on PA.7 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+			</register>
+		</registergroup>
+		<registergroup name="GPIOB" description="Port B">
+			<register name="PINB" description="Input Register" address="0x800036" access="r" size="1">
+				<field bitoffset="0" bitlength="1" name="PINB0" description="Logic level on PB.0 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="PINB1" description="Logic level on PB.1 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="PINB2" description="Logic level on PB.2 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="PINB3" description="Logic level on PB.3 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="PINB4" description="Logic level on PB.4 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="PINB5" description="Logic level on PB.5 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="PINB6" description="Logic level on PB.6 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="PINB7" description="Logic level on PB.7 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+			</register>
+			<register name="DDRB" description="Direction Register" address="0x800037" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="DDRB0" description="Direction of PB.0 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="DDRB1" description="Direction of PB.1 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="DDRB2" description="Direction of PB.2 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="DDRB3" description="Direction of PB.3 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="DDRB4" description="Direction of PB.4 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="DDRB5" description="Direction of PB.5 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="DDRB6" description="Direction of PB.6 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="DDRB7" description="Direction of PB.7 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+			</register>
+			<register name="PORTB" description="Drive Control Register" address="0x800038" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="PORTB0" description="Drive or pullup on PB.0 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="PORTB1" description="Drive or pullup on PB.1 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="PORTB2" description="Drive or pullup on PB.2 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="PORTB3" description="Drive or pullup on PB.3 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="PORTB4" description="Drive or pullup on PB.4 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="PORTB5" description="Drive or pullup on PB.5 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="PORTB6" description="Drive or pullup on PB.6 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="PORTB7" description="Drive or pullup on PB.7 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+			</register>
+		</registergroup>
+		<registergroup name="GPIOC" description="Port C">
+			<register name="PINC" description="Input Register" address="0x800033" access="r" size="1">
+				<field bitoffset="0" bitlength="1" name="PINC0" description="Logic level on PC.0 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="PINC1" description="Logic level on PC.1 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="PINC2" description="Logic level on PC.2 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="PINC3" description="Logic level on PC.3 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="PINC4" description="Logic level on PC.4 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="PINC5" description="Logic level on PC.5 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="PINC6" description="Logic level on PC.6 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="PINC7" description="Logic level on PC.7 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+			</register>
+			<register name="DDRC" description="Direction Register" address="0x800034" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="DDRC0" description="Direction of PC.0 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="DDRC1" description="Direction of PC.1 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="DDRC2" description="Direction of PC.2 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="DDRC3" description="Direction of PC.3 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="DDRC4" description="Direction of PC.4 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="DDRC5" description="Direction of PC.5 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="DDRC6" description="Direction of PC.6 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="DDRC7" description="Direction of PC.7 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+			</register>
+			<register name="PORTC" description="Drive Control Register" address="0x800035" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="PORTC0" description="Drive or pullup on PC.0 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="PORTC1" description="Drive or pullup on PC.1 pin">
+					<interpretation key="0x0" text="drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="PORTC2" description="Drive or pullup on PC.2 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="PORTC3" description="Drive or pullup on PC.3 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="PORTC4" description="Drive or pullup on PC.4 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="PORTC5" description="Drive or pullup on PC.5 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="PORTC6" description="Drive or pullup on PC.6 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="PORTC7" description="Drive or pullup on PC.7 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+			</register>
+		</registergroup>
+		<registergroup name="GPIOD" description="Port D">
+			<register name="PIND" description="Input Register" address="0x800030" access="r" size="1">
+				<field bitoffset="0" bitlength="1" name="PIND0" description="Logic level on PD.0 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="PIND1" description="Logic level on PD.1 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="PIND2" description="Logic level on PD.2 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="PIND3" description="Logic level on PD.3 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="PIND4" description="Logic level on PD.4 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="PIND5" description="Logic level on PD.5 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+
+				<field bitoffset="6" bitlength="1" name="PIND6" description="Logic level on PD.6 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="PIND7" description="Logic level on PD.7 pin">
+					<interpretation key="0x0" text="IO low"/>
+					<interpretation key="0x1" text="IO high"/>
+				</field>
+			</register>
+			<register name="DDRD" description="Direction Register" address="0x800031" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="DDRD0" description="Direction of PD.0 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="DDRD1" description="Direction of PD.1 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="DDRD2" description="Direction of PD.2 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="DDRD3" description="Direction of PD.3 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="DDRD4" description="Direction of PD.4 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="DDRD5" description="Direction of PD.5 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="DDRD6" description="Direction of PD.6 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="DDRD7" description="Direction of PD.7 pin">
+					<interpretation key="0x0" text="Drive disabled"/>
+					<interpretation key="0x1" text="Drive enabled"/>
+				</field>
+			</register>
+			<register name="PORTD" description="Drive Control Register" address="0x800032" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="PORTD0" description="Drive or pullup on PD.0 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="PORTD1" description="Drive or pullup on PD.1 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="PORTD2" description="Drive or pullup on PD.2 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="PORTD3" description="Drive or pullup on PD.3 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="PORTD4" description="Drive or pullup on PD.4 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="PORTD5" description="Drive or pullup on PD.5 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="PORTD6" description="Drive or pullup on PD.6 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="PORTD7" description="Drive or pullup on PD.7 pin">
+					<interpretation key="0x0" text="Drive low or High-Z"/>
+					<interpretation key="0x1" text="Drive high or pull-up"/>
+				</field>
+			</register>
+		</registergroup>
+	</group>
+	<group name="TIMERs" description="Timer-Counters">
+		<registergroup name="TIMER0" description="8-bit Timer-Counter 0">
+			<register name="TIMSK" description="Timers IRQs Masks Register" address="0x800059" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="TOIE0" description="Timer0 overflow interrupt enable">
+					<interpretation key="0x0" text="Overflow IRQ disabled"/>
+					<interpretation key="0x1" text="Overflow IRQ enabled"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="OCIE0" description="Timer0 output compare match enable">
+					<interpretation key="0x0" text="Overflow IRQ disabled"/>
+					<interpretation key="0x1" text="Overflow IRQ enabled"/>
+				</field>
+			</register>
+			<register name="TIFR" description="Timers IRQs Flags Register" address="0x800058" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="TOV0" description="Timer0 overflow pending flag">
+					<interpretation key="0x0" text="Overflow IRQ not pending"/>
+					<interpretation key="0x1" text="Overflow IRQ pending"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="OCF0" description="Timer0 output compare pending flag">
+					<interpretation key="0x0" text="Overflow IRQ not pending"/>
+					<interpretation key="0x1" text="Overflow IRQ pending"/>
+				</field>
+			</register>
+		</registergroup>
+		<registergroup name="TIMER1" description="16-bit Timer-Counter 1 with two PWMs and input capture">
+			<register name="TCNT1" description="Timer1 register" address="0x80004C" resetvalue="0x0000" access="rw" size="2">
+			</register>
+			<register name="OCR1A !JTAG cannot write!" description="Timer1 capture compare A register" address="0x80004A" resetvalue="0x0000" access="rw" size="2">
+			</register>
+			<register name="OCR1B !JTAG cannot write!" description="Timer1 capture compare B register" address="0x800048" resetvalue="0x0000" access="rw" size="2">
+			</register>
+			<register name="ICR1" description="Timer1 input capture register" address="0x800046" resetvalue="0x0000" access="rw" size="2">
+			</register>
+			<register name="TCCR1A" description="Timer1 control register A" address="0x80004F" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="WGM10" description="Timer1 waveform generation mode, bit 0">
+					<interpretation key="0x0" text="Cleared"/>
+					<interpretation key="0x1" text="Set"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="WGM11" description="Timer1 waveform generation mode, bit 1">
+					<interpretation key="0x0" text="Cleared"/>
+					<interpretation key="0x1" text="Set"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="FOC1B" description="Timer1 force output compare for channel B">
+					<interpretation key="0x0" text="Ignore"/>
+					<interpretation key="0x1" text="Force compare"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="FOC1A" description="Timer1 force output compare for channel A">
+					<interpretation key="0x0" text="Ignore"/>
+					<interpretation key="0x1" text="Force compare"/>
+				</field>
+				<field bitoffset="4" bitlength="2" name="COM1B" description="Timer1 compare output mode for channel B, bits 0-1">
+					<interpretation key="0x0" text="OC1B disconnected"/>
+					<interpretation key="0x1" text="Toggle OC1B on match"/>
+					<interpretation key="0x2" text="Clear OC1B on match"/>
+					<interpretation key="0x3" text="Set OC1B on match"/>
+				</field>
+				<field bitoffset="6" bitlength="2" name="COM1A" description="Timer1 compare output mode for channel A, bits 0-1">
+					<interpretation key="0x0" text="OC1A disconnected"/>
+					<interpretation key="0x1" text="Toggle OC1A on match"/>
+					<interpretation key="0x2" text="Clear OC1A on match"/>
+					<interpretation key="0x3" text="Set OC1A on match"/>
+				</field>
+			</register>
+			<register name="TCCR1B" description="Timer1 control register B" address="0x80004E" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="3" name="CS1" description="Timer1 clock select, bits 0-2">
+					<interpretation key="0x0" text="Timer stopped"/>
+					<interpretation key="0x1" text="F_CPU/1"/>
+					<interpretation key="0x2" text="F_CPU/8"/>
+					<interpretation key="0x3" text="F_CPU/64"/>
+					<interpretation key="0x4" text="F_CPU/256"/>
+					<interpretation key="0x5" text="F_CPU/1024"/>
+					<interpretation key="0x6" text="External clock on T1 pin, clock on falling edge"/>
+					<interpretation key="0x7" text="External clock on T1 pin, clock on rising edge"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="WGM12" description="Timer1 waveform generation mode, bit 3">
+					<interpretation key="0x0" text="Cleared"/>
+					<interpretation key="0x1" text="Set"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="WGM13" description="Timer1 waveform generation mode, bit 4">
+					<interpretation key="0x0" text="Cleared"/>
+					<interpretation key="0x1" text="Set"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="ICES1" description="Timer1 input capture edge select">
+					<interpretation key="0x0" text="Falling"/>
+					<interpretation key="0x1" text="Rising"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="ICNC1" description="Timer1 input capture noise canceler">
+					<interpretation key="0x0" text="Disabled"/>
+					<interpretation key="0x1" text="4 samples"/>
+				</field>
+			</register>
+			<register name="TIMSK" description="Timers IRQs Masks Register" address="0x800059" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="2" bitlength="1" name="TOIE1" description="Timer1 overflow interrupt enable">
+					<interpretation key="0x0" text="Overflow IRQ disabled"/>
+					<interpretation key="0x1" text="Overflow IRQ enabled"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="OCIE1B" description="Timer1 output compare B match enable">
+					<interpretation key="0x0" text="Compare match B IRQ disabled"/>
+					<interpretation key="0x1" text="Compare match B IRQ enabled"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="OCIE1A" description="Timer1 output compare A match enable">
+					<interpretation key="0x0" text="Compare match A IRQ disabled"/>
+					<interpretation key="0x1" text="Compare match A IRQ enabled"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="TICIE1" description="Timer1 input capture enable">
+					<interpretation key="0x0" text="Input capture IRQ disabled"/>
+					<interpretation key="0x1" text="Input capture IRQ enabled"/>
+				</field>
+			</register>
+			<register name="TIFR" description="Timers IRQs Flags Register" address="0x800058" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="2" bitlength="1" name="TOV1" description="Timer1 overflow pending flag">
+					<interpretation key="0x0" text="Overflow IRQ not pending"/>
+					<interpretation key="0x1" text="Overflow IRQ pending"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="OCF1B" description="Timer1 output compare B pending flag">
+					<interpretation key="0x0" text="Compare match B IRQ not pending"/>
+					<interpretation key="0x1" text="Compare match B IRQ pending"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="OCF1A" description="Timer1 output compare A pending flag">
+					<interpretation key="0x0" text="Compare match A IRQ not pending"/>
+					<interpretation key="0x1" text="Compare match A IRQ pending"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="ICF1" description="Timer1 input capture pending flag">
+					<interpretation key="0x0" text="Input capture IRQ disabled"/>
+					<interpretation key="0x1" text="Input capture IRQ enabled"/>
+				</field>
+			</register>
+		</registergroup>
+		<registergroup name="TIMER2" description="8-bit Timer-Counter 2">
+			<register name="TIMSK" description="Timers IRQs Masks Register" address="0x800059" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="6" bitlength="1" name="TOIE2" description="Timer2 overflow interrupt enable">
+					<interpretation key="0x0" text="Overflow IRQ disabled"/>
+					<interpretation key="0x1" text="Overflow IRQ enabled"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="OCIE2" description="Timer2 output compare match enable">
+					<interpretation key="0x0" text="Overflow IRQ disabled"/>
+					<interpretation key="0x1" text="Overflow IRQ enabled"/>
+				</field>
+			</register>
+			<register name="TIFR" description="Timers IRQs Flags Register" address="0x800058" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="6" bitlength="1" name="TOV2" description="Timer2 overflow pending flag">
+					<interpretation key="0x0" text="Overflow IRQ not pending"/>
+					<interpretation key="0x1" text="Overflow IRQ pending"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="OCF2" description="Timer2 output compare pending flag">
+					<interpretation key="0x0" text="Overflow IRQ not pending"/>
+					<interpretation key="0x1" text="Overflow IRQ pending"/>
+				</field>
+			</register>
+		</registergroup>
+	</group>
+	<group name="ADCs" description="Analog to digital converters">
+		<registergroup name="ADC" description="10-bit analog to digital converter">
+			<register name="ADMUX" description="ADC Multiplexer Selection Register" address="0x800027" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="5" name="MUX" description="Analog Channel and Gain Selection, bits 0-5">
+					<interpretation key="0x00" text="ADC0"/>
+					<interpretation key="0x01" text="ADC1"/>
+					<interpretation key="0x02" text="ADC2"/>
+					<interpretation key="0x03" text="ADC3"/>
+					<interpretation key="0x04" text="ADC4"/>
+					<interpretation key="0x05" text="ADC5"/>
+					<interpretation key="0x06" text="ADC6"/>
+					<interpretation key="0x07" text="ADC7"/>
+					<interpretation key="0x08" text="(+ADC0 -ADC0)*10"/>
+					<interpretation key="0x09" text="(+ADC1 -ADC0)*10"/>
+					<interpretation key="0x0A" text="(+ADC0 -ADC0)*200"/>
+					<interpretation key="0x0B" text="(+ADC1 -ADC0)*200"/>
+					<interpretation key="0x0C" text="(+ADC2 -ADC2)*10"/>
+					<interpretation key="0x0D" text="(+ADC3 -ADC2)*10"/>
+					<interpretation key="0x0E" text="(+ADC2 -ADC2*200"/>
+					<interpretation key="0x0F" text="(+ADC3 -ADC2)*200"/>
+					<interpretation key="0x10" text="+ADC0 -ADC1"/>
+					<interpretation key="0x11" text="+ADC1 -ADC1"/>
+					<interpretation key="0x12" text="+ADC2 -ADC1"/>
+					<interpretation key="0x13" text="+ADC3 -ADC1"/>
+					<interpretation key="0x14" text="+ADC4 -ADC1"/>
+					<interpretation key="0x15" text="+ADC5 -ADC1"/>
+					<interpretation key="0x16" text="+ADC6 -ADC1"/>
+					<interpretation key="0x17" text="+ADC7 -ADC1"/>
+					<interpretation key="0x18" text="+ADC0 -ADC2"/>
+					<interpretation key="0x19" text="+ADC1 -ADC2"/>
+					<interpretation key="0x1A" text="+ADC2 -ADC2"/>
+					<interpretation key="0x1B" text="+ADC3 -ADC2"/>
+					<interpretation key="0x1C" text="+ADC4 -ADC2"/>
+					<interpretation key="0x1D" text="+ADC5 -ADC2"/>
+					<interpretation key="0x1E" text="1.22V Bandgap"/>
+					<interpretation key="0x1F" text="0V GND"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="ADLAR" description="ADC Left Adjust Result">
+					<interpretation key="0x0" text="Right adjusted for 10-bit content"/>
+					<interpretation key="0x1" text="Left adjusted for 8-bit content"/>
+				</field>
+				<field bitoffset="6" bitlength="2" name="REFS" description="Reference Selection, bits 0-1">
+					<interpretation key="0x0" text="AREF, Internal Vref turned off"/>
+					<interpretation key="0x1" text="AVCC with external capacitor at AREF pin"/>
+					<interpretation key="0x2" text="Reserved"/>
+					<interpretation key="0x3" text="Internal 2.56V Voltage Refrence"/>
+				</field>
+			</register>
+			<register name="ADCSRA" description="ADC Control and Status Register A" address="0x800026" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="3" name="ADPS" description="ADC Prescaler Selection, bits 0-2">
+					<interpretation key="0x0" text="F_CPU/2"/>
+					<interpretation key="0x1" text="F_CPU/2"/>
+					<interpretation key="0x2" text="F_CPU/4"/>
+					<interpretation key="0x3" text="F_CPU/8"/>
+					<interpretation key="0x4" text="F_CPU/16"/>
+					<interpretation key="0x5" text="F_CPU/32"/>
+					<interpretation key="0x6" text="F_CPU/64"/>
+					<interpretation key="0x7" text="F_CPU/128"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="ADIE" description="ADC Interrupt Enable">
+					<interpretation key="0x0" text="ADC IRQ disabled"/>
+					<interpretation key="0x1" text="ADC IRQ enabled"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="ADIF" description="ADC Interrupt Flag">
+					<interpretation key="0x0" text="ADC IRQ not pending"/>
+					<interpretation key="0x1" text="ADC IRQ pending"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="ADATE" description="ADC Auto Trigger Enable">
+					<interpretation key="0x0" text="Auto trigger disabled"/>
+					<interpretation key="0x1" text="Auto trigger enabled"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="ADSC" description="ADC Start Conversion">
+					<interpretation key="0x0" text="Conversion complete"/>
+					<interpretation key="0x1" text="Conversion in progress"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="ADEN" description="ADC Enable">
+					<interpretation key="0x0" text="ADC disabled"/>
+					<interpretation key="0x1" text="ADC enabled"/>
+				</field>
+			</register>
+			<register name="ADC !JTAG cannot read!" description="ADC Data Register" address="0x800024" resetvalue="0x0000" access="r" size="2">
+			</register>
+			<register name="SFIOR" description="Special Function IO Register" address="0x800050" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="5" bitlength="3" name="ADTS" description="ADC Auto Trigger Source, bits 0-2">
+					<interpretation key="0x0" text="Free Running Mode"/>
+					<interpretation key="0x1" text="Analog Comparator"/>
+					<interpretation key="0x2" text="External Interrupt Request 0"/>
+					<interpretation key="0x3" text="Timer/Counter0 Compare Match"/>
+					<interpretation key="0x4" text="Timer/Counter0 Overflow"/>
+					<interpretation key="0x5" text="Timer/Counter1 Compare Match B"/>
+					<interpretation key="0x6" text="Timer/Counter1 Overflow"/>
+					<interpretation key="0x7" text="Timer/Counter1 Capture Event"/>
+				</field>
+			</register>
+		</registergroup>
+	</group>
+	<group name="I2Cs" description="I2C serial interfaces">
+		<registergroup name="I2C" description="I2C interface (TWI)">
+			<register name="TWBR" description="TWI Bit Rate Register" address="0x800020" resetvalue="0x00" access="rw" size="1">
+			</register>
+			<register name="TWCR" description="TWI Control Register" address="0x800056" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="TWIE" description="TWI interrupt enable">
+					<interpretation key="0x0" text="TWI IRQ disabled"/>
+					<interpretation key="0x1" text="TWI IRQ enabled"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="TWEN" description="TWI enable">
+					<interpretation key="0x0" text="TWI disabled"/>
+					<interpretation key="0x1" text="TWI enabled"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="TWWC" description="TWI write collision">
+					<interpretation key="0x0" text="No collision"/>
+					<interpretation key="0x1" text="Collision"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="TWSTO" description="TWI send stop condition">
+					<interpretation key="0x0" text="No stop"/>
+					<interpretation key="0x1" text="Send stop"/>
+				</field>
+				<field bitoffset="5" bitlength="1" name="TWSTA" description="TWI send start condition">
+					<interpretation key="0x0" text="No start"/>
+					<interpretation key="0x1" text="Send start"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="TWEA" description="TWI enable acknowledge bit">
+					<interpretation key="0x0" text="No ACK"/>
+					<interpretation key="0x1" text="Generate ACK"/>
+				</field>
+				<field bitoffset="7" bitlength="1" name="TWINT" description="TWI interrupt flag">
+					<interpretation key="0x0" text="Idle"/>
+					<interpretation key="0x1" text="Busy"/>
+				</field>
+			</register>
+			<register name="TWDR" description="TWI Data Register" address="0x800023" resetvalue="0xFF" access="rw" size="1">
+			</register>
+			<register name="TWAR" description="TWI Slave Address Register" address="0x800022" resetvalue="0xFE" access="rw" size="1">
+			</register>
+			<register name="TWSR" description="TWI Status Register(and prescaller)" address="0x800021" resetvalue="0xF8" access="rw" size="1">
+				<field bitoffset="0" bitlength="2" name="TWPS" description="TWI prescaller, bits 0-1">
+					<interpretation key="0x0" text="Divide by 1"/>
+					<interpretation key="0x1" text="Divide by 4"/>
+					<interpretation key="0x2" text="Divide by 16"/>
+					<interpretation key="0x3" text="Divide by 64"/>
+				</field>
+				<field bitoffset="3" bitlength="5" name="TWS" description="TWI status, bits 3-7">
+					<interpretation key="0x00" text="Bus error"/>
+					<interpretation key="0x01" text="START transmitted"/>
+					<interpretation key="0x02" text="Repeated START transmitted"/>
+					<interpretation key="0x03" text="SLA+W transmitted with ACK received"/>
+					<interpretation key="0x04" text="SLA+W transmitted with NACK received"/>
+					<interpretation key="0x05" text="Data transmitted with ACK received"/>
+					<interpretation key="0x06" text="Data transmitted with NACK received"/>
+					<interpretation key="0x07" text="Arbitration lost in SLA+W or data in Master transmitter mode"/>
+					<interpretation key="0x08" text="SLA+R transmitted with ACK received"/>
+					<interpretation key="0x09" text="SLA+R transmitted with NACK received"/>
+					<interpretation key="0x0A" text="Data received with ACK returned"/>
+					<interpretation key="0x0B" text="Data received with NACK returned"/>
+					<interpretation key="0x0C" text="Own SLA+W received with ACK returned"/>
+					<interpretation key="0x0D" text="Arbitration lost in SLA+R/W as Master, own SLA+W received, ACK returned"/>
+					<interpretation key="0x0E" text="General call address received, ACK returned"/>
+					<interpretation key="0x0F" text="Arbitration lost in SLA+R/W as Master, General call address received, ACK returned"/>
+					<interpretation key="0x10" text="Previously addressed with own SLA+W, data received, ACK returned"/>
+					<interpretation key="0x11" text="Previously addressed with own SLA+W, data received, NACK returned"/>
+					<interpretation key="0x12" text="Previously addressed with general call, data received, ACK returned"/>
+					<interpretation key="0x13" text="Previously addressed with general call, data received, NACK returned"/>
+					<interpretation key="0x14" text="A STOP or repeated START received while still addressed as slave"/>
+					<interpretation key="0x15" text="Own SLA+R received with ACK returned"/>
+					<interpretation key="0x16" text="Arbitration lost in SLA+R/W as Master, own SLA+R received, ACK returned"/>
+					<interpretation key="0x17" text="Data in TWDR transmitted with ACK received"/>
+					<interpretation key="0x18" text="Data in TWDR transmitted with NACK received"/>
+					<interpretation key="0x19" text="Last data byte in TWDR transmitted (TWEA=0) with ACK received"/>
+					<interpretation key="0x1A" text="Unknown"/>
+					<interpretation key="0x1B" text="Unknown"/>
+					<interpretation key="0x1C" text="Unknown"/>
+					<interpretation key="0x1D" text="Unknown"/>
+					<interpretation key="0x1E" text="Unknown"/>
+					<interpretation key="0x1F" text="No relevalnt state information"/>
+				</field>
+			</register>
+		</registergroup>
+	</group>
+
+
+
+
+
+
+
+
+<!--
+	Coarse example (~guideline) for creating regsister entries.
+	-Use original manucaturer's names and descriptions if these do not collide with convention or unique regsiter names.
+	-Descriptions start from capitals.
+	-Group/Registergroup/Register/field names in CAPITALS.
+	-Descriptions (not names) of multibit field should include bits' numbers used in original documentation.
+		This sometimes does not match physical location (like ",bits 0-2" below, even though this bitfield is located at bits 1-3 in this register).
+	-Interpretation key hould be in hex, not decimal.
+	-All interpretation keys should be included
+	-Use TABs not SPACEs for indentation
+
+
+
+
+
+	<group name="EXAMPLE" description="Template Group Name">
+		<registergroup name="Template register group name" description="Register group description">
+			<register name="SOMEREG" description="Controls some internals" address="0x80005F" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="0" bitlength="1" name="ENABLE" description="Rightmost location">
+					<interpretation key="0x0" text="Not active"/>
+					<interpretation key="0x1" text="Active"/>
+				</field>
+				<field bitoffset="1" bitlength="3" name="ROUND" description="Rounding arithmetics, bits 0-2">
+					<interpretation key="0x0" text="Half up"/>
+					<interpretation key="0x1" text="Half down"/>
+					<interpretation key="0x2" text="Half away from zero"/>
+					<interpretation key="0x3" text="Half towards zero"/>
+					<interpretation key="0x4" text="Stochastic"/>
+				</field>
+			</register>
+		</registergroup>
+	</group>
+
+
+-->
+
+</model>
