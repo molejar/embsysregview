@@ -266,10 +266,9 @@ public class RegisterXMLParser {
 										String range = range_string.substring(1, range_string.length() - 1);
 	
 										String[] rangeArray = range.split(":");
-	
 										// so 0:0 means [endoffset:startoffset] -> offset=startoffset  length=endoffset-startoffset+1 -> offset 0 ...length 1
-										fbitoffset = Byte.valueOf(rangeArray[0]);
-										fbitlength = (byte) (Byte.valueOf(rangeArray[1]) - Byte.valueOf(rangeArray[0]) + 1);
+										fbitoffset = Byte.valueOf(rangeArray[1]);
+										fbitlength = (byte) (Byte.valueOf(rangeArray[0]) - Byte.valueOf(rangeArray[1]) + 1);
 									} else {
 										Element element_lsb = field.getChild("lsb");
 										Element element_msb = field.getChild("msb");

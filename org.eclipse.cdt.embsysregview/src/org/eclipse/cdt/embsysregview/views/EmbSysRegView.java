@@ -294,9 +294,9 @@ public class EmbSysRegView extends ViewPart implements IGDBInterfaceSuspendListe
 					else						
 						return element.toString()
 								+ " (bits "
-								+ String.valueOf(bitOffset)
+								+ String.valueOf(bitOffset + bitLength - 1)
 								+ "-"
-								+ String.valueOf(bitOffset + bitLength - 1) + ")";
+								+ String.valueOf(bitOffset) + ")";
 				}
 				else
 					return element.toString();
