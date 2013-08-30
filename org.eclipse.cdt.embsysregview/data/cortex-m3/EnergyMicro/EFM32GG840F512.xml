@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE model SYSTEM "embsysregview.dtd">
+<!DOCTYPE model SYSTEM "../../embsysregview.dtd">
 <model chipname="INC/EFM32GG840F512">
   <chip_description>
    Energy Micro Giant/Leopard Gecko, ARM Cortex-M3 CPU platform,
