@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE model SYSTEM "embsysregview.dtd">
+<!DOCTYPE model SYSTEM "../../embsysregview.dtd">
 <!-- Ver. 1.25. Brutte. -->
 <model chipname="ATMega16">
 	<chip_description>Based on [8154B–AVR–07/09]

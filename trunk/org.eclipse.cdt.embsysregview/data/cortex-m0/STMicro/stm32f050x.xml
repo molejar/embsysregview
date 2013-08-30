@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE model SYSTEM "embsysregview.dtd">
+<!DOCTYPE model SYSTEM "../../embsysregview.dtd">
 <model chipname="STM32F050x">
 	<chip_description>Based on (RM0091 rel.1, PM0215 rel.1,
 STM32F05yx Errata rel.1)

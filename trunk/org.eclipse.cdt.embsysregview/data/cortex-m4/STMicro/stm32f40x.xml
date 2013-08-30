@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE model SYSTEM "embsysregview.dtd">
+<!DOCTYPE model SYSTEM "../../embsysregview.dtd">
 <model chipname="STM32F40x">
 	<chip_description>Based on (RM0090 rel.1, PM0081 rel.1, PM0214 rel.1, 
 STM32F4yx Errata rel.2)
