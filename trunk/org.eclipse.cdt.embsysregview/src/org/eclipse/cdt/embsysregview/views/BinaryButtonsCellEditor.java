@@ -30,6 +30,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
 
 public class BinaryButtonsCellEditor extends CellEditor {
 
@@ -168,15 +169,41 @@ public class BinaryButtonsCellEditor extends CellEditor {
 				});
 
 				b[i].setText("-");
-				if (element instanceof TreeRegister)
+				if (element instanceof TreeRegister) {
 					b[i].setText(String.valueOf(org.eclipse.cdt.embsysregview.views.Utils
 							.getBitFromValue(i,
 									((TreeRegister) element).getValue())));
-				if (element instanceof TreeField)
+					// add tooltip
+					b[i].setToolTipText("Bit " + i);
+					TreeElement[] children = ((TreeRegister) element).getChildren();
+					for (TreeElement child : children) {
+						if (child instanceof TreeField) {
+							TreeField tf = (TreeField)child;
+							if (0<=i-tf.getBitOffset() &&
+									i-tf.getBitOffset()<=tf.getBitLength()-1)
+								b[i].setToolTipText("Bit " + i + ": " + tf.getName());
+						}
+					}
+				}
+				if (element instanceof TreeField) {
 					b[i].setText(String
 							.valueOf(org.eclipse.cdt.embsysregview.views.Utils
 									.getBitFromValue(i,
 											((TreeField) element).getValue())));
+					// add tooltip
+					b[i].setToolTipText("Bit " +
+							(i+((TreeField) element).getBitOffset()));
+				}
+				
+				// add separator between each nibble
+				if ((i>0)&&(i<bitsize-1)&&((i%4)==0)) {
+					RowData ldata = new RowData();
+				    ldata.width = 3;
+				    ldata.height = 19;
+				    Label l = new Label(composite, SWT.SEPARATOR | SWT.VERTICAL);
+				    l.setLayoutData(ldata);
+				}
+					
 			}
 
 			
