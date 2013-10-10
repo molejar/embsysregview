@@ -64,6 +64,7 @@ public class PreferencePageEmbSys extends PreferencePage implements
 		IWorkbenchPreferencePage {
 	Combo architecture;
 	Combo vendor;
+	//ImageCombo chip;
 	Combo chip;
 	Combo board;
 	Text descriptionText;
@@ -123,7 +124,7 @@ public class PreferencePageEmbSys extends PreferencePage implements
 	{
 		List<String> dirList = new ArrayList<String>();
 		
-		Enumeration<URL> entries = Platform.getBundle("org.eclipse.cdt.embsysregview").findEntries(path, pattern, false);
+		Enumeration<URL> entries = Platform.getBundle("org.eclipse.cdt.embsysregview.data").findEntries(path, pattern, false);
 
 		if (entries != null) {
 			while (entries.hasMoreElements()) {
@@ -184,7 +185,8 @@ public class PreferencePageEmbSys extends PreferencePage implements
 	private void fillArchitecture ()
 	{
 		for(String entry:getDirList("data", "*"))
-			architecture.add(entry);
+			if(!entry.equals("embsysregview.dtd"))
+				architecture.add(entry);
 
 		restoreStoredSettings();
 	}
@@ -216,6 +218,7 @@ public class PreferencePageEmbSys extends PreferencePage implements
 		board.removeAll();
 
 		for(String entry:getDirList("data/"	+ selectedArchitecture +"/"+ selectedVendor, "*.xml"))
+			
 			chip.add(entry.substring(0, entry.length()-4));
 		
 		chip.setText("");
@@ -230,7 +233,7 @@ public class PreferencePageEmbSys extends PreferencePage implements
 		// Check if boards are listed ...
 		SAXBuilder builder = new SAXBuilder();
 		builder.setValidation(false);
-		Bundle bundle = Platform.getBundle("org.eclipse.cdt.embsysregview");
+		Bundle bundle = Platform.getBundle("org.eclipse.cdt.embsysregview.data");
 		URL fileURL = bundle.getEntry("data/"	+ selectedArchitecture +"/"+ selectedVendor+"/"+selectedChip+".xml");
 		Document doc;
 		boolean containsBoards=false;
