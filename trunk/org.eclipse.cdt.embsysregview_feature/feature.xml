@@ -2,9 +2,9 @@
 <feature
       id="org.eclipse.cdt.embsysregview_feature"
       label="Embedded Systems Register View (SFR)"
-      version="0.2.3">
+      version="0.2.3.90">
 
-   <description url="http://sourceforge.net/projects/embsysregview/">
+   <description url="http://embsysregview.sourceforge.net/">
       This Plugin provides a Embedded Systems Peripherals Register
 View
    </description>
@@ -22,10 +22,25 @@ You should have received a copy of the GNU General Public License
 along with EmbSysRegView.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
    </license>
 
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="org.eclipse.cdt.debug.core"/>
+      <import plugin="org.eclipse.cdt.debug.mi.core" version="5.0.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.cdt.launch"/>
+      <import plugin="org.eclipse.cdt.dsf.ui"/>
+      <import plugin="org.eclipse.cdt.dsf.gdb"/>
+      <import plugin="org.eclipse.cdt.dsf"/>
+      <import plugin="org.eclipse.ui.forms"/>
+      <import plugin="org.eclipse.cdt.embsysregview.data" version="0.2.3" match="greaterOrEqual"/>
+   </requires>
+
    <plugin
          id="org.eclipse.cdt.embsysregview"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
+         download-size="400"
+         install-size="500"
+         version="0.2.3.90"
+         unpack="false"/>
 
 </feature>
