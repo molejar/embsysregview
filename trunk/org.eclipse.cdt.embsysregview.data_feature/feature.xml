@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.cdt.embsysregview.data_feature"
       label="EmbSysRegView Data"
-      version="0.2.3.r117">
+      version="0.2.3.r141">
 
    <description url="http://embsysregview.sourceforge.net/">
       This Plugin provides a Embedded Systems Peripherals Register
@@ -30,6 +30,6 @@ along with EmbSysRegView.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;
          id="org.eclipse.cdt.embsysregview.data"
          download-size="25610"
          install-size="490000"
-         version="0.2.3.r117"/>
+         version="0.0.0"/>
 
 </feature>
