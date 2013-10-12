@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.cdt.embsysregview_feature"
       label="Embedded Systems Register View (SFR)"
-      version="0.2.3.90">
+      version="0.2.3.91">
 
    <description url="http://embsysregview.sourceforge.net/">
       This Plugin provides a Embedded Systems Peripherals Register
@@ -40,7 +40,7 @@ along with EmbSysRegView.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;
          id="org.eclipse.cdt.embsysregview"
          download-size="400"
          install-size="500"
-         version="0.2.3.90"
+         version="0.0.0"
          unpack="false"/>
 
 </feature>
