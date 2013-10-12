@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE model SYSTEM "../../embsysregview.dtd">
-<!-- Ver. 1.25. Brutte. -->
+<!DOCTYPE model SYSTEM "embsysregview.dtd">
 <model chipname="ATMega16">
 	<chip_description>Based on [8154B–AVR–07/09]
+	Ver. 1.26. Brutte.
 Chip features :
 - Core: AVR 8-bit avr5 CPU, frequency up to 16 MHz,
 - Memories:
@@ -43,7 +43,7 @@ Chip features :
 	<boards>
 	</boards>
 	<group name="SYSTEM" description="System Management">
-		<registergroup name="Core Registers" description="Internal registers of AVR core">
+		<registergroup name="System Control" description="Control registers">
 			<register name="SREG" description="Status Register" address="0x80005F"  resetvalue="0x00" access="rw" size="1">
 				<field bitoffset="0" bitlength="1" name="SREG_C" description="Previous operation ended with carry">
 					<interpretation key="0x0" text="No carry"/>
@@ -84,7 +84,7 @@ Chip features :
 			<register name="PC" description="Program counter" address="unknown location" resetvalue="depends on fusebits" access="rw" size="2">
 			</register>
 			-->
-			<register name="MCUCSR" description="Control and Status Register" address="0x800054" access="rw" size="1">
+			<register name="MCUCSR" description="Control and Status Register" address="0x800054" access="rcw0" size="1">
 				<field bitoffset="0" bitlength="1" name="PORF" description="Power-on reset flag">
 					<interpretation key="0x0" text="No power-on reset activity"/>
 					<interpretation key="0x1" text="Voltage dropped below V_pot"/>
@@ -113,6 +113,16 @@ Chip features :
 					<interpretation key="0x0" text="Filled"/>
 					<interpretation key="0x1" text="Empty"/>
 				</field>
+			</register>
+		</registergroup>
+		<registergroup name="GP Registers" description="Register File">
+			<register name="W" description="Halfword register W" address="0x800018" access="rw" size="2">
+			</register>
+			<register name="X" description="Halfword register X" address="0x80001A" access="rw" size="2">
+			</register>
+			<register name="Y" description="Halfword register Y" address="0x80001C" access="rw" size="2">
+			</register>
+			<register name="Z" description="Halfword register Z" address="0x80001E" access="rw" size="2">
 			</register>
 		</registergroup>
 	</group>
@@ -548,7 +558,7 @@ Chip features :
 					<interpretation key="0x1" text="Overflow IRQ enabled"/>
 				</field>
 			</register>
-			<register name="TIFR" description="Timers IRQs Flags Register" address="0x800058" resetvalue="0x00" access="rw" size="1">
+			<register name="TIFR" description="Timers IRQs Flags Register" address="0x800058" resetvalue="0x00" access="rw1c" size="1">
 				<field bitoffset="0" bitlength="1" name="TOV0" description="Timer0 overflow pending flag">
 					<interpretation key="0x0" text="Overflow IRQ not pending"/>
 					<interpretation key="0x1" text="Overflow IRQ pending"/>
@@ -644,7 +654,7 @@ Chip features :
 					<interpretation key="0x1" text="Input capture IRQ enabled"/>
 				</field>
 			</register>
-			<register name="TIFR" description="Timers IRQs Flags Register" address="0x800058" resetvalue="0x00" access="rw" size="1">
+			<register name="TIFR" description="Timers IRQs Flags Register" address="0x800058" resetvalue="0x00" access="rw1c" size="1">
 				<field bitoffset="2" bitlength="1" name="TOV1" description="Timer1 overflow pending flag">
 					<interpretation key="0x0" text="Overflow IRQ not pending"/>
 					<interpretation key="0x1" text="Overflow IRQ pending"/>
@@ -674,7 +684,7 @@ Chip features :
 					<interpretation key="0x1" text="Overflow IRQ enabled"/>
 				</field>
 			</register>
-			<register name="TIFR" description="Timers IRQs Flags Register" address="0x800058" resetvalue="0x00" access="rw" size="1">
+			<register name="TIFR" description="Timers IRQs Flags Register" address="0x800058" resetvalue="0x00" access="rw1c" size="1">
 				<field bitoffset="6" bitlength="1" name="TOV2" description="Timer2 overflow pending flag">
 					<interpretation key="0x0" text="Overflow IRQ not pending"/>
 					<interpretation key="0x1" text="Overflow IRQ pending"/>
@@ -864,6 +874,64 @@ Chip features :
 			</register>
 		</registergroup>
 	</group>
+	<group name="NV MEMORY" description="Embedded non-volatile memories">
+		<registergroup name="EEPROM" description="EEPROM data memory">
+			<register name="EEAR" description="EEPROM Address Register" address="0x80003E" resetvalue="0x0000" access="rw" size="2">
+			</register>
+			<register name="EEDR" description="EEPROM Data Register" address="0x80003D" resetvalue="0x00" access="rw" size="1">
+			</register>		
+			<register name="EECR" description="EEPROM Control Register" address="0x80003C" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="3" bitlength="1" name="EERIE" description="EEPROM Ready Interrupt Enable">
+					<interpretation key="0x0" text="IRQ disabled"/>
+					<interpretation key="0x1" text="IRQ enabled"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="EEMWE" description="EEPROM Master Write Enable to EEWE">
+					<interpretation key="0x0" text="Do not enable"/>
+					<interpretation key="0x1" text="Enable"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="EEWE" description="EEPROM Write Enable">
+					<interpretation key="0x0" text="Do not write EEPROM"/>
+					<interpretation key="0x1" text="Write to EEPROM"/>
+				</field>
+				<field bitoffset="0" bitlength="1" name="EERE" description="EEPROM Read Enable">
+					<interpretation key="0x0" text="Do not read EEPROM"/>
+					<interpretation key="0x1" text="Read EEPROM"/>
+				</field>
+			</register>		
+		</registergroup>
+		<registergroup name="FLASH" description="Flash program and data memory">
+			<register name="SPMCR" description="Store Program Memory Control Register" address="0x800057" resetvalue="0x00" access="rw" size="1">
+				<field bitoffset="7" bitlength="1" name="SPMIE" description="SPM Interrupt Enable">
+					<interpretation key="0x0" text="IRQ disabled"/>
+					<interpretation key="0x1" text="IRQ enabled"/>
+				</field>
+				<field bitoffset="6" bitlength="1" name="RWWSB" description="Read-While-Write Section Busy">
+					<interpretation key="0x0" text="RWW can be accessed"/>
+					<interpretation key="0x1" text="RWW cannot be accessed"/>
+				</field>
+				<field bitoffset="4" bitlength="1" name="RWWSRE" description="Read-While-Write Section Read Enable">
+					<interpretation key="0x0" text="No action"/>
+					<interpretation key="0x1" text="Enable access to RWW or abort load if busy"/>
+				</field>
+				<field bitoffset="3" bitlength="1" name="BLBSET" description="Boot Lock Bit Set">
+					<interpretation key="0x0" text="No action"/>
+					<interpretation key="0x1" text="Set Boot Lock bits"/>
+				</field>
+				<field bitoffset="2" bitlength="1" name="PGWRT" description="Page Write">
+					<interpretation key="0x0" text="No action"/>
+					<interpretation key="0x1" text="Write the page"/>
+				</field>
+				<field bitoffset="1" bitlength="1" name="PGERS" description="Page Erase">
+					<interpretation key="0x0" text="No action"/>
+					<interpretation key="0x1" text="Erase the page"/>
+				</field>
+				<field bitoffset="0" bitlength="1" name="SPMEN" description="Store Program Memory Enable">
+					<interpretation key="0x0" text="No action"/>
+					<interpretation key="0x1" text="Enable the SPM instruction for the next four clock cycles"/>
+				</field>											
+			</register>			
+		</registergroup>
+	</group>
 
 
 
@@ -876,11 +944,10 @@ Chip features :
 	Coarse example (~guideline) for creating regsister entries.
 	-Use original manucaturer's names and descriptions if these do not collide with convention or unique regsiter names.
 	-Descriptions start from capitals.
-	-Group/Registergroup/Register/field names in CAPITALS.
+	-Group/Registergroup/Register/field names in CAPITALS?
 	-Descriptions (not names) of multibit field should include bits' numbers used in original documentation.
 		This sometimes does not match physical location (like ",bits 0-2" below, even though this bitfield is located at bits 1-3 in this register).
 	-Interpretation key hould be in hex, not decimal.
-	-All interpretation keys should be included
 	-Use TABs not SPACEs for indentation
 
 
