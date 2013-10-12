@@ -13,6 +13,7 @@ import org.eclipse.cdt.embsysregview.views.TreeGroup;
 import org.eclipse.cdt.embsysregview.views.TreeParent;
 import org.eclipse.cdt.embsysregview.views.TreeRegister;
 import org.eclipse.cdt.embsysregview.views.TreeRegisterGroup;
+import org.eclipse.cdt.embsysregview.views.TreeElement;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.jdom.Attribute;
@@ -60,6 +61,14 @@ public class RegisterXMLParser {
 			return ParseXML(root, tempRoot);
 		}
 	}
+	
+	 /* Tree Hierarchy (Base Class TreeElement):
+	  * TreeParant
+	  *   TreeGroup
+	  *     TreeRegisterGroup
+	  *        TreeRegister
+	  *          TreeField
+	  */
 
 	/*
 	 * Parse an SVD xml file
@@ -75,17 +84,15 @@ public class RegisterXMLParser {
 			for (Element group : grouplist) {
 
 				// Mandatory attribute name
-				Element attr_gname = group.getChild("name");
-				// Attribute attr_gname = group.getAttribute("name");
-				String gname;
-				if (attr_gname != null)
-					gname = attr_gname.getValue();
+				Element attr_rgname = group.getChild("name");
+				String rgname;
+				if (attr_rgname != null)
+					rgname = attr_rgname.getValue();
 				else
 					throw new ParseException("peripheral requires name", 1);
 
 				// Mandatory attribute baseAddress
 				Element element_baseAddress = group.getChild("baseAddress");
-				// Attribute attr_gname = group.getAttribute("name");
 				String baseAddress;
 				if (element_baseAddress != null)
 					baseAddress = element_baseAddress.getValue();
@@ -96,46 +103,85 @@ public class RegisterXMLParser {
 				Element attr_gdescription = group.getChild("description");
 				String gdescription;
 				if (attr_gdescription != null)
-					gdescription = attr_gdescription.getValue();
+					gdescription = attr_gdescription.getValue().replaceAll("( )+", " ");
 				else
 					gdescription = "";
-
-				String expression = "_?[0-9]+$";
-				String uniqgroup = gname.replaceAll(expression, "");
-				TreeGroup obj_group;
 				
-				if(oldTreeGroup!=null && oldTreeGroup.getName().equals(uniqgroup))
-					obj_group = oldTreeGroup;
-				else {
-					obj_group = new TreeGroup(uniqgroup, gdescription);
-					tempRoot.addChild(obj_group);
-					oldTreeGroup = obj_group;
-				}
-
-				TreeRegisterGroup obj_registergroup = new TreeRegisterGroup(gname, gdescription);
-				obj_group.addChild(obj_registergroup);
-				
-				
-				// Optional attribute description
+				// Handle derivedFrom
 				Attribute attr_derivedFrom = group.getAttribute("derivedFrom");
 				String derivedFrom;
-				if (attr_derivedFrom != null)
-				{
+				if (attr_derivedFrom != null) {
 					derivedFrom = attr_derivedFrom.getValue();
-					
-					Element linkedperipherals = root.getChild("peripherals");
-					if (linkedperipherals != null) {
-						List<Element> linkedgrouplist = linkedperipherals.getChildren("peripheral");
 
-						for (Element linkedgroup : linkedgrouplist) {
-							// Mandatory attribute name
-							Element attr_lname = linkedgroup.getChild("name");
-							String lname;
-							if (attr_lname != null && attr_lname.getValue().equals(derivedFrom))
-								group = linkedgroup;
+					for (Element linkedgroup : grouplist) {
+						// Mandatory attribute name
+						Element attr_lname = linkedgroup.getChild("name");
+						String lname;
+						if (attr_lname != null)
+							lname = attr_lname.getValue();
+						else
+							throw new ParseException("derived peripheral requires name of super peripheral", 1);
+						if (lname.equals(derivedFrom)) {
+							group = linkedgroup;
+							Element attr_lgdescription = linkedgroup.getChild("description");
+							if (attr_lgdescription != null && gdescription.isEmpty()) {
+								gdescription = attr_lgdescription.getValue().replaceAll("( )+", " ");
+								// TODO: add better description cleanup because Vendors often don't provide
+								// description Element for derived Register groups
+								String expression = ".*[0-9]$";
+								if(gdescription.matches(expression)&&
+										gdescription.charAt(gdescription.length()-1)==lname.charAt(lname.length()-1)) {
+									gdescription = gdescription.substring(0, gdescription.length()-1) + 
+											rgname.charAt(rgname.length()-1);
+								}
+							}
+							break;
 						}
 					}
 				}
+
+				// Group similar peripherals in TreeGroup
+				TreeGroup obj_group = null;
+				// Optional attribute groupName
+				Element attr_gname = group.getChild("groupName");
+				String gname;
+				if (attr_gname != null) {
+					gname = attr_gname.getValue();
+					for(TreeElement te: tempRoot.getChildren()) {
+						if(te.getName().equals(gname) && (te instanceof TreeGroup)) {
+							obj_group = (TreeGroup)te;
+							break;
+						}
+					}
+					if(obj_group==null) {
+						// TODO: add better description cleanup
+						String expression = ".*[0-9]$";
+						String tmpgdescription;
+						if(gdescription.matches(expression)&&
+								gdescription.charAt(gdescription.length()-1)==rgname.charAt(rgname.length()-1)) {
+							tmpgdescription = gdescription.substring(0, gdescription.length()-1).trim();
+						} else
+							tmpgdescription = gdescription;
+						
+						obj_group = new TreeGroup(gname, tmpgdescription);
+						tempRoot.addChild(obj_group);
+					}
+					oldTreeGroup = obj_group;
+				} else {
+					String expression = "_?[0-9]+$";
+					String uniqgroup = rgname.replaceAll(expression, "");
+					
+					if(oldTreeGroup!=null && oldTreeGroup.getName().equals(uniqgroup))
+						obj_group = oldTreeGroup;
+					else {
+						obj_group = new TreeGroup(uniqgroup, gdescription);
+						tempRoot.addChild(obj_group);
+						oldTreeGroup = obj_group;
+					}
+				}
+
+				TreeRegisterGroup obj_registergroup = new TreeRegisterGroup(rgname, gdescription);
+				obj_group.addChild(obj_registergroup);
 				
 
 				Element registers = group.getChild("registers");
