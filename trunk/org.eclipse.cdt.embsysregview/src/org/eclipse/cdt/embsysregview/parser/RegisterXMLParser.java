@@ -28,7 +28,7 @@ public class RegisterXMLParser {
 	private String store_board;
 
 	private Document OpenXML() throws JDOMException, IOException {
-		Bundle bundle = Platform.getBundle("org.eclipse.cdt.embsysregview");
+		Bundle bundle = Platform.getBundle("org.eclipse.cdt.embsysregview.data");
 		IPreferenceStore store = Activator.getDefault().getPreferenceStore();
 		String store_architecture = store.getString("architecture");
 		String store_vendor = store.getString("vendor");
