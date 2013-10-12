@@ -1,0 +1,30 @@
+Things to do for a new FULL release:
+====================================
+* check for open patches
+* check for open bugs
+* update LM data files (last check 20131012)
+* switch version in:
+  * embsysregview -> META-INF/MANIFEST.MF
+  * embsysregview_feature -> feature.xml
+  * embsysregview.data -> META-INF/MANIFEST.MF
+  * embsysregview.data_feature -> feature.xml
+* update site.xml with new feature versions for view/data and compile
+* upload features/plugins jar files to sourceforge
+* update site.xml on sf webspace with new version numbers
+* update website
+  * list new features
+  * list all changes
+* post news article on sf
+
+  
+  
+Things to do for a new DATA release:
+====================================
+* switch version in:
+  * embsysregview.data -> META-INF/MANIFEST.MF
+  * embsysregview.data_feature -> feature.xml
+* update site.xml with new feature versions for data and compile
+* upload features/plugins jar files to sourceforge
+* update site.xml on sf webspace with new version numbers
+
+
