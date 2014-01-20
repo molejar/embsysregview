@@ -2854,7 +2854,7 @@ All pins are write only</description>
 				<field bitoffset="4" bitlength="1" name="ADSTP" description="ADC stop conversion command"/>
 				<field bitoffset="31" bitlength="1" name="ADCAL" description="ADC calibration"/>
 			</register>
-			<register name="ADC_CFGR1" description="Configuration register 1" address="0x4001200C" access="rw">
+			<register name="ADC_CFGR1" description="Configuration register 1" address="0x4001240C" access="rw">
 				<field bitoffset="0" bitlength="1" name="DMAEN" description="Direct memory access enable"/>
 				<field bitoffset="1" bitlength="1" name="DMACFG" description="Direct memory access configuration"/>
 				<field bitoffset="2" bitlength="1" name="SCANDIR" description="Scan sequence direction"/>
