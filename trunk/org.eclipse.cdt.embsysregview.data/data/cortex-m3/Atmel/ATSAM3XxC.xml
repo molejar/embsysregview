@@ -1,0 +1,1147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE model SYSTEM "../../embsysregview.dtd">
+
+<model chipname="ATSAM3XxC Series">
+	<chip_description>
+Atmel ATSAM3XxC series 100 pin Cortex-M3 MCUs
+http://www.atmel.com/products/microcontrollers/arm/sam3x.aspx
+Added by Matt Wood - mattwood2000(at)gmail.com
+	</chip_description>
+	<group name="Peripherals" description="On-chip peripherals">
+		<registergroup name="ADC" description= "ADC peripheral" >
+			<register name="ADC_CR" description="Control Register" address="0x400C0000" access="w" />
+			<register name="ADC_MR" description="Mode Register" address="0x400C0004" access="rw" />
+			<register name="ADC_SEQR" description="Channel Sequence Register" address="0x400C0008" access="rw" />
+			<register name="ADC_CHER" description="Channel Enable Register" address="0x400C0010" access="w" />
+			<register name="ADC_CHDR" description="Channel Disable Register" address="0x400C0014" access="w" />
+			<register name="ADC_CHSR" description="Channel Status Register" address="0x400C0018" access="r" />
+			<register name="ADC_LCDR" description="Last Converted Data Register" address="0x400C0020" access="r" />
+			<register name="ADC_IER" description="Interrupt Enable Register" address="0x400C0024" access="w" />
+			<register name="ADC_IDR" description="Interrupt Disable Register" address="0x400C0028" access="w" />
+			<register name="ADC_IMR" description="Interrupt Mask Register" address="0x400C002C" access="r" />
+			<register name="ADC_ISR" description="Interrupt Status Register" address="0x400C0030" access="r" />
+			<register name="ADC_OVER" description="Overrun Status Register" address="0x400C003C" access="r" />
+			<register name="ADC_EMR" description="Extended Mode Register" address="0x400C0040" access="rw" />
+			<register name="ADC_CWR" description="Compare Window Register" address="0x400C0044" access="rw" />
+			<register name="ADC_CGR" description="Channel Gain Register" address="0x400C0048" access="rw" />
+			<register name="ADC_COR" description="Channel Offset Register" address="0x400C004C" access="rw" />
+			<register name="ADC_CDR" description="Channel Data Register" address="0x400C0050" access="r" />
+			<register name="ADC_ACR" description="Analog Control Register" address="0x400C0094" access="rw" />
+			<register name="ADC_WPMR" description="Write Protect Mode Register" address="0x400C00E4" access="rw" />
+			<register name="ADC_WPSR" description="Write Protect Status Register" address="0x400C00E8" access="r" />
+			<register name="ADC_RPR" description="Receive Pointer Register" address="0x400C0100" access="rw" />
+			<register name="ADC_RCR" description="Receive Counter Register" address="0x400C0104" access="rw" />
+			<register name="ADC_RNPR" description="Receive Next Pointer Register" address="0x400C0110" access="rw" />
+			<register name="ADC_RNCR" description="Receive Next Counter Register" address="0x400C0114" access="rw" />
+			<register name="ADC_PTCR" description="Transfer Control Register" address="0x400C0120" access="w" />
+			<register name="ADC_PTSR" description="Transfer Status Register" address="0x400C0124" access="r" />
+		</registergroup>
+		<registergroup name="CAN0" description= "CAN0 peripheral" >
+			<register name="CAN0_MR" description="Mode Register" address="0x400B4000" access="rw" />
+			<register name="CAN0_IER" description="Interrupt Enable Register" address="0x400B4004" access="w" />
+			<register name="CAN0_IDR" description="Interrupt Disable Register" address="0x400B4008" access="w" />
+			<register name="CAN0_IMR" description="Interrupt Mask Register" address="0x400B400C" access="r" />
+			<register name="CAN0_SR" description="Status Register" address="0x400B4010" access="r" />
+			<register name="CAN0_BR" description="Baudrate Register" address="0x400B4014" access="rw" />
+			<register name="CAN0_TIM" description="Timer Register" address="0x400B4018" access="r" />
+			<register name="CAN0_TIMESTP" description="Timestamp Register" address="0x400B401C" access="r" />
+			<register name="CAN0_ECR" description="Error Counter Register" address="0x400B4020" access="r" />
+			<register name="CAN0_TCR" description="Transfer Command Register" address="0x400B4024" access="w" />
+			<register name="CAN0_ACR" description="Abort Command Register" address="0x400B4028" access="w" />
+			<register name="CAN0_WPMR" description="Write Protect Mode Register" address="0x400B40E4" access="rw" />
+			<register name="CAN0_WPSR" description="Write Protect Status Register" address="0x400B40E8" access="r" />
+			<register name="CAN0_MMR0" description="Mailbox Mode Register (MB = 0)" address="0x400B4200" access="rw" />
+			<register name="CAN0_MAM0" description="Mailbox Acceptance Mask Register (MB = 0)" address="0x400B4204" access="rw" />
+			<register name="CAN0_MID0" description="Mailbox ID Register (MB = 0)" address="0x400B4208" access="rw" />
+			<register name="CAN0_MFID0" description="Mailbox Family ID Register (MB = 0)" address="0x400B420C" access="r" />
+			<register name="CAN0_MSR0" description="Mailbox Status Register (MB = 0)" address="0x400B4210" access="r" />
+			<register name="CAN0_MDL0" description="Mailbox Data Low Register (MB = 0)" address="0x400B4214" access="rw" />
+			<register name="CAN0_MDH0" description="Mailbox Data High Register (MB = 0)" address="0x400B4218" access="rw" />
+			<register name="CAN0_MCR0" description="Mailbox Control Register (MB = 0)" address="0x400B421C" access="w" />
+			<register name="CAN0_MMR1" description="Mailbox Mode Register (MB = 1)" address="0x400B4220" access="rw" />
+			<register name="CAN0_MAM1" description="Mailbox Acceptance Mask Register (MB = 1)" address="0x400B4224" access="rw" />
+			<register name="CAN0_MID1" description="Mailbox ID Register (MB = 1)" address="0x400B4228" access="rw" />
+			<register name="CAN0_MFID1" description="Mailbox Family ID Register (MB = 1)" address="0x400B422C" access="r" />
+			<register name="CAN0_MSR1" description="Mailbox Status Register (MB = 1)" address="0x400B4230" access="r" />
+			<register name="CAN0_MDL1" description="Mailbox Data Low Register (MB = 1)" address="0x400B4234" access="rw" />
+			<register name="CAN0_MDH1" description="Mailbox Data High Register (MB = 1)" address="0x400B4238" access="rw" />
+			<register name="CAN0_MCR1" description="Mailbox Control Register (MB = 1)" address="0x400B423C" access="w" />
+			<register name="CAN0_MMR2" description="Mailbox Mode Register (MB = 2)" address="0x400B4240" access="rw" />
+			<register name="CAN0_MAM2" description="Mailbox Acceptance Mask Register (MB = 2)" address="0x400B4244" access="rw" />
+			<register name="CAN0_MID2" description="Mailbox ID Register (MB = 2)" address="0x400B4248" access="rw" />
+			<register name="CAN0_MFID2" description="Mailbox Family ID Register (MB = 2)" address="0x400B424C" access="r" />
+			<register name="CAN0_MSR2" description="Mailbox Status Register (MB = 2)" address="0x400B4250" access="r" />
+			<register name="CAN0_MDL2" description="Mailbox Data Low Register (MB = 2)" address="0x400B4254" access="rw" />
+			<register name="CAN0_MDH2" description="Mailbox Data High Register (MB = 2)" address="0x400B4258" access="rw" />
+			<register name="CAN0_MCR2" description="Mailbox Control Register (MB = 2)" address="0x400B425C" access="w" />
+			<register name="CAN0_MMR3" description="Mailbox Mode Register (MB = 3)" address="0x400B4260" access="rw" />
+			<register name="CAN0_MAM3" description="Mailbox Acceptance Mask Register (MB = 3)" address="0x400B4264" access="rw" />
+			<register name="CAN0_MID3" description="Mailbox ID Register (MB = 3)" address="0x400B4268" access="rw" />
+			<register name="CAN0_MFID3" description="Mailbox Family ID Register (MB = 3)" address="0x400B426C" access="r" />
+			<register name="CAN0_MSR3" description="Mailbox Status Register (MB = 3)" address="0x400B4270" access="r" />
+			<register name="CAN0_MDL3" description="Mailbox Data Low Register (MB = 3)" address="0x400B4274" access="rw" />
+			<register name="CAN0_MDH3" description="Mailbox Data High Register (MB = 3)" address="0x400B4278" access="rw" />
+			<register name="CAN0_MCR3" description="Mailbox Control Register (MB = 3)" address="0x400B427C" access="w" />
+			<register name="CAN0_MMR4" description="Mailbox Mode Register (MB = 4)" address="0x400B4280" access="rw" />
+			<register name="CAN0_MAM4" description="Mailbox Acceptance Mask Register (MB = 4)" address="0x400B4284" access="rw" />
+			<register name="CAN0_MID4" description="Mailbox ID Register (MB = 4)" address="0x400B4288" access="rw" />
+			<register name="CAN0_MFID4" description="Mailbox Family ID Register (MB = 4)" address="0x400B428C" access="r" />
+			<register name="CAN0_MSR4" description="Mailbox Status Register (MB = 4)" address="0x400B4290" access="r" />
+			<register name="CAN0_MDL4" description="Mailbox Data Low Register (MB = 4)" address="0x400B4294" access="rw" />
+			<register name="CAN0_MDH4" description="Mailbox Data High Register (MB = 4)" address="0x400B4298" access="rw" />
+			<register name="CAN0_MCR4" description="Mailbox Control Register (MB = 4)" address="0x400B429C" access="w" />
+			<register name="CAN0_MMR5" description="Mailbox Mode Register (MB = 5)" address="0x400B42A0" access="rw" />
+			<register name="CAN0_MAM5" description="Mailbox Acceptance Mask Register (MB = 5)" address="0x400B42A4" access="rw" />
+			<register name="CAN0_MID5" description="Mailbox ID Register (MB = 5)" address="0x400B42A8" access="rw" />
+			<register name="CAN0_MFID5" description="Mailbox Family ID Register (MB = 5)" address="0x400B42AC" access="r" />
+			<register name="CAN0_MSR5" description="Mailbox Status Register (MB = 5)" address="0x400B42B0" access="r" />
+			<register name="CAN0_MDL5" description="Mailbox Data Low Register (MB = 5)" address="0x400B42B4" access="rw" />
+			<register name="CAN0_MDH5" description="Mailbox Data High Register (MB = 5)" address="0x400B42B8" access="rw" />
+			<register name="CAN0_MCR5" description="Mailbox Control Register (MB = 5)" address="0x400B42BC" access="w" />
+			<register name="CAN0_MMR6" description="Mailbox Mode Register (MB = 6)" address="0x400B42C0" access="rw" />
+			<register name="CAN0_MAM6" description="Mailbox Acceptance Mask Register (MB = 6)" address="0x400B42C4" access="rw" />
+			<register name="CAN0_MID6" description="Mailbox ID Register (MB = 6)" address="0x400B42C8" access="rw" />
+			<register name="CAN0_MFID6" description="Mailbox Family ID Register (MB = 6)" address="0x400B42CC" access="r" />
+			<register name="CAN0_MSR6" description="Mailbox Status Register (MB = 6)" address="0x400B42D0" access="r" />
+			<register name="CAN0_MDL6" description="Mailbox Data Low Register (MB = 6)" address="0x400B42D4" access="rw" />
+			<register name="CAN0_MDH6" description="Mailbox Data High Register (MB = 6)" address="0x400B42D8" access="rw" />
+			<register name="CAN0_MCR6" description="Mailbox Control Register (MB = 6)" address="0x400B42DC" access="w" />
+			<register name="CAN0_MMR7" description="Mailbox Mode Register (MB = 7)" address="0x400B42E0" access="rw" />
+			<register name="CAN0_MAM7" description="Mailbox Acceptance Mask Register (MB = 7)" address="0x400B42E4" access="rw" />
+			<register name="CAN0_MID7" description="Mailbox ID Register (MB = 7)" address="0x400B42E8" access="rw" />
+			<register name="CAN0_MFID7" description="Mailbox Family ID Register (MB = 7)" address="0x400B42EC" access="r" />
+			<register name="CAN0_MSR7" description="Mailbox Status Register (MB = 7)" address="0x400B42F0" access="r" />
+			<register name="CAN0_MDL7" description="Mailbox Data Low Register (MB = 7)" address="0x400B42F4" access="rw" />
+			<register name="CAN0_MDH7" description="Mailbox Data High Register (MB = 7)" address="0x400B42F8" access="rw" />
+			<register name="CAN0_MCR7" description="Mailbox Control Register (MB = 7)" address="0x400B42FC" access="w" />
+		</registergroup>
+		<registergroup name="CAN1" description= "CAN1 peripheral" >
+			<register name="CAN1_MR" description="Mode Register" address="0x400B8000" access="rw" />
+			<register name="CAN1_IER" description="Interrupt Enable Register" address="0x400B8004" access="w" />
+			<register name="CAN1_IDR" description="Interrupt Disable Register" address="0x400B8008" access="w" />
+			<register name="CAN1_IMR" description="Interrupt Mask Register" address="0x400B800C" access="r" />
+			<register name="CAN1_SR" description="Status Register" address="0x400B8010" access="r" />
+			<register name="CAN1_BR" description="Baudrate Register" address="0x400B8014" access="rw" />
+			<register name="CAN1_TIM" description="Timer Register" address="0x400B8018" access="r" />
+			<register name="CAN1_TIMESTP" description="Timestamp Register" address="0x400B801C" access="r" />
+			<register name="CAN1_ECR" description="Error Counter Register" address="0x400B8020" access="r" />
+			<register name="CAN1_TCR" description="Transfer Command Register" address="0x400B8024" access="w" />
+			<register name="CAN1_ACR" description="Abort Command Register" address="0x400B8028" access="w" />
+			<register name="CAN1_WPMR" description="Write Protect Mode Register" address="0x400B80E4" access="rw" />
+			<register name="CAN1_WPSR" description="Write Protect Status Register" address="0x400B80E8" access="r" />
+			<register name="CAN1_MMR0" description="Mailbox Mode Register (MB = 0)" address="0x400B8200" access="rw" />
+			<register name="CAN1_MAM0" description="Mailbox Acceptance Mask Register (MB = 0)" address="0x400B8204" access="rw" />
+			<register name="CAN1_MID0" description="Mailbox ID Register (MB = 0)" address="0x400B8208" access="rw" />
+			<register name="CAN1_MFID0" description="Mailbox Family ID Register (MB = 0)" address="0x400B820C" access="r" />
+			<register name="CAN1_MSR0" description="Mailbox Status Register (MB = 0)" address="0x400B8210" access="r" />
+			<register name="CAN1_MDL0" description="Mailbox Data Low Register (MB = 0)" address="0x400B8214" access="rw" />
+			<register name="CAN1_MDH0" description="Mailbox Data High Register (MB = 0)" address="0x400B8218" access="rw" />
+			<register name="CAN1_MCR0" description="Mailbox Control Register (MB = 0)" address="0x400B821C" access="w" />
+			<register name="CAN1_MMR1" description="Mailbox Mode Register (MB = 1)" address="0x400B8220" access="rw" />
+			<register name="CAN1_MAM1" description="Mailbox Acceptance Mask Register (MB = 1)" address="0x400B8224" access="rw" />
+			<register name="CAN1_MID1" description="Mailbox ID Register (MB = 1)" address="0x400B8228" access="rw" />
+			<register name="CAN1_MFID1" description="Mailbox Family ID Register (MB = 1)" address="0x400B822C" access="r" />
+			<register name="CAN1_MSR1" description="Mailbox Status Register (MB = 1)" address="0x400B8230" access="r" />
+			<register name="CAN1_MDL1" description="Mailbox Data Low Register (MB = 1)" address="0x400B8234" access="rw" />
+			<register name="CAN1_MDH1" description="Mailbox Data High Register (MB = 1)" address="0x400B8238" access="rw" />
+			<register name="CAN1_MCR1" description="Mailbox Control Register (MB = 1)" address="0x400B823C" access="w" />
+			<register name="CAN1_MMR2" description="Mailbox Mode Register (MB = 2)" address="0x400B8240" access="rw" />
+			<register name="CAN1_MAM2" description="Mailbox Acceptance Mask Register (MB = 2)" address="0x400B8244" access="rw" />
+			<register name="CAN1_MID2" description="Mailbox ID Register (MB = 2)" address="0x400B8248" access="rw" />
+			<register name="CAN1_MFID2" description="Mailbox Family ID Register (MB = 2)" address="0x400B824C" access="r" />
+			<register name="CAN1_MSR2" description="Mailbox Status Register (MB = 2)" address="0x400B8250" access="r" />
+			<register name="CAN1_MDL2" description="Mailbox Data Low Register (MB = 2)" address="0x400B8254" access="rw" />
+			<register name="CAN1_MDH2" description="Mailbox Data High Register (MB = 2)" address="0x400B8258" access="rw" />
+			<register name="CAN1_MCR2" description="Mailbox Control Register (MB = 2)" address="0x400B825C" access="w" />
+			<register name="CAN1_MMR3" description="Mailbox Mode Register (MB = 3)" address="0x400B8260" access="rw" />
+			<register name="CAN1_MAM3" description="Mailbox Acceptance Mask Register (MB = 3)" address="0x400B8264" access="rw" />
+			<register name="CAN1_MID3" description="Mailbox ID Register (MB = 3)" address="0x400B8268" access="rw" />
+			<register name="CAN1_MFID3" description="Mailbox Family ID Register (MB = 3)" address="0x400B826C" access="r" />
+			<register name="CAN1_MSR3" description="Mailbox Status Register (MB = 3)" address="0x400B8270" access="r" />
+			<register name="CAN1_MDL3" description="Mailbox Data Low Register (MB = 3)" address="0x400B8274" access="rw" />
+			<register name="CAN1_MDH3" description="Mailbox Data High Register (MB = 3)" address="0x400B8278" access="rw" />
+			<register name="CAN1_MCR3" description="Mailbox Control Register (MB = 3)" address="0x400B827C" access="w" />
+			<register name="CAN1_MMR4" description="Mailbox Mode Register (MB = 4)" address="0x400B8280" access="rw" />
+			<register name="CAN1_MAM4" description="Mailbox Acceptance Mask Register (MB = 4)" address="0x400B8284" access="rw" />
+			<register name="CAN1_MID4" description="Mailbox ID Register (MB = 4)" address="0x400B8288" access="rw" />
+			<register name="CAN1_MFID4" description="Mailbox Family ID Register (MB = 4)" address="0x400B828C" access="r" />
+			<register name="CAN1_MSR4" description="Mailbox Status Register (MB = 4)" address="0x400B8290" access="r" />
+			<register name="CAN1_MDL4" description="Mailbox Data Low Register (MB = 4)" address="0x400B8294" access="rw" />
+			<register name="CAN1_MDH4" description="Mailbox Data High Register (MB = 4)" address="0x400B8298" access="rw" />
+			<register name="CAN1_MCR4" description="Mailbox Control Register (MB = 4)" address="0x400B829C" access="w" />
+			<register name="CAN1_MMR5" description="Mailbox Mode Register (MB = 5)" address="0x400B82A0" access="rw" />
+			<register name="CAN1_MAM5" description="Mailbox Acceptance Mask Register (MB = 5)" address="0x400B82A4" access="rw" />
+			<register name="CAN1_MID5" description="Mailbox ID Register (MB = 5)" address="0x400B82A8" access="rw" />
+			<register name="CAN1_MFID5" description="Mailbox Family ID Register (MB = 5)" address="0x400B82AC" access="r" />
+			<register name="CAN1_MSR5" description="Mailbox Status Register (MB = 5)" address="0x400B82B0" access="r" />
+			<register name="CAN1_MDL5" description="Mailbox Data Low Register (MB = 5)" address="0x400B82B4" access="rw" />
+			<register name="CAN1_MDH5" description="Mailbox Data High Register (MB = 5)" address="0x400B82B8" access="rw" />
+			<register name="CAN1_MCR5" description="Mailbox Control Register (MB = 5)" address="0x400B82BC" access="w" />
+			<register name="CAN1_MMR6" description="Mailbox Mode Register (MB = 6)" address="0x400B82C0" access="rw" />
+			<register name="CAN1_MAM6" description="Mailbox Acceptance Mask Register (MB = 6)" address="0x400B82C4" access="rw" />
+			<register name="CAN1_MID6" description="Mailbox ID Register (MB = 6)" address="0x400B82C8" access="rw" />
+			<register name="CAN1_MFID6" description="Mailbox Family ID Register (MB = 6)" address="0x400B82CC" access="r" />
+			<register name="CAN1_MSR6" description="Mailbox Status Register (MB = 6)" address="0x400B82D0" access="r" />
+			<register name="CAN1_MDL6" description="Mailbox Data Low Register (MB = 6)" address="0x400B82D4" access="rw" />
+			<register name="CAN1_MDH6" description="Mailbox Data High Register (MB = 6)" address="0x400B82D8" access="rw" />
+			<register name="CAN1_MCR6" description="Mailbox Control Register (MB = 6)" address="0x400B82DC" access="w" />
+			<register name="CAN1_MMR7" description="Mailbox Mode Register (MB = 7)" address="0x400B82E0" access="rw" />
+			<register name="CAN1_MAM7" description="Mailbox Acceptance Mask Register (MB = 7)" address="0x400B82E4" access="rw" />
+			<register name="CAN1_MID7" description="Mailbox ID Register (MB = 7)" address="0x400B82E8" access="rw" />
+			<register name="CAN1_MFID7" description="Mailbox Family ID Register (MB = 7)" address="0x400B82EC" access="r" />
+			<register name="CAN1_MSR7" description="Mailbox Status Register (MB = 7)" address="0x400B82F0" access="r" />
+			<register name="CAN1_MDL7" description="Mailbox Data Low Register (MB = 7)" address="0x400B82F4" access="rw" />
+			<register name="CAN1_MDH7" description="Mailbox Data High Register (MB = 7)" address="0x400B82F8" access="rw" />
+			<register name="CAN1_MCR7" description="Mailbox Control Register (MB = 7)" address="0x400B82FC" access="w" />
+		</registergroup>
+		<registergroup name="CHIPID" description= "CHIPID peripheral" >
+			<register name="CHIPID_CIDR" description="Chip ID Register" address="0x400E0940" access="r" />
+			<register name="CHIPID_EXID" description="Chip ID Extension Register" address="0x400E0944" access="r" />
+		</registergroup>
+		<registergroup name="DACC" description= "DACC peripheral" >
+			<register name="DACC_CR" description="Control Register" address="0x400C8000" access="w" />
+			<register name="DACC_MR" description="Mode Register" address="0x400C8004" access="rw" />
+			<register name="DACC_CHER" description="Channel Enable Register" address="0x400C8010" access="w" />
+			<register name="DACC_CHDR" description="Channel Disable Register" address="0x400C8014" access="w" />
+			<register name="DACC_CHSR" description="Channel Status Register" address="0x400C8018" access="r" />
+			<register name="DACC_CDR" description="Conversion Data Register" address="0x400C8020" access="w" />
+			<register name="DACC_IER" description="Interrupt Enable Register" address="0x400C8024" access="w" />
+			<register name="DACC_IDR" description="Interrupt Disable Register" address="0x400C8028" access="w" />
+			<register name="DACC_IMR" description="Interrupt Mask Register" address="0x400C802C" access="r" />
+			<register name="DACC_ISR" description="Interrupt Status Register" address="0x400C8030" access="r" />
+			<register name="DACC_ACR" description="Analog Current Register" address="0x400C8094" access="rw" />
+			<register name="DACC_WPMR" description="Write Protect Mode register" address="0x400C80E4" access="rw" />
+			<register name="DACC_WPSR" description="Write Protect Status register" address="0x400C80E8" access="r" />
+			<register name="DACC_TPR" description="Transmit Pointer Register" address="0x400C8108" access="rw" />
+			<register name="DACC_TCR" description="Transmit Counter Register" address="0x400C810C" access="rw" />
+			<register name="DACC_TNPR" description="Transmit Next Pointer Register" address="0x400C8118" access="rw" />
+			<register name="DACC_TNCR" description="Transmit Next Counter Register" address="0x400C811C" access="rw" />
+			<register name="DACC_PTCR" description="Transfer Control Register" address="0x400C8120" access="w" />
+			<register name="DACC_PTSR" description="Transfer Status Register" address="0x400C8124" access="r" />
+		</registergroup>
+		<registergroup name="DMAC" description= "DMAC peripheral" >
+			<register name="DMAC_GCFG" description="DMAC Global Configuration Register" address="0x400C4000" access="rw" />
+			<register name="DMAC_EN" description="DMAC Enable Register" address="0x400C4004" access="rw" />
+			<register name="DMAC_SREQ" description="DMAC Software Single Request Register" address="0x400C4008" access="rw" />
+			<register name="DMAC_CREQ" description="DMAC Software Chunk Transfer Request Register" address="0x400C400C" access="rw" />
+			<register name="DMAC_LAST" description="DMAC Software Last Transfer Flag Register" address="0x400C4010" access="rw" />
+			<register name="DMAC_EBCIER" description="DMAC Error, Chained Buffer Transfer Completed Interrupt and Buffer Transfer Completed Interrupt Enable register." address="0x400C4018" access="w" />
+			<register name="DMAC_EBCIDR" description="DMAC Error, Chained Buffer Transfer Completed Interrupt and Buffer Transfer Completed Interrupt Disable register." address="0x400C401C" access="w" />
+			<register name="DMAC_EBCIMR" description="DMAC Error, Chained Buffer Transfer Completed Interrupt and Buffer transfer completed Mask Register." address="0x400C4020" access="r" />
+			<register name="DMAC_EBCISR" description="DMAC Error, Chained Buffer Transfer Completed Interrupt and Buffer transfer completed Status Register." address="0x400C4024" access="r" />
+			<register name="DMAC_CHER" description="DMAC Channel Handler Enable Register" address="0x400C4028" access="w" />
+			<register name="DMAC_CHDR" description="DMAC Channel Handler Disable Register" address="0x400C402C" access="w" />
+			<register name="DMAC_CHSR" description="DMAC Channel Handler Status Register" address="0x400C4030" access="r" />
+			<register name="DMAC_SADDR0" description="DMAC Channel Source Address Register (ch_num = 0)" address="0x400C403C" access="rw" />
+			<register name="DMAC_DADDR0" description="DMAC Channel Destination Address Register (ch_num = 0)" address="0x400C4040" access="rw" />
+			<register name="DMAC_DSCR0" description="DMAC Channel Descriptor Address Register (ch_num = 0)" address="0x400C4044" access="rw" />
+			<register name="DMAC_CTRLA0" description="DMAC Channel Control A Register (ch_num = 0)" address="0x400C4048" access="rw" />
+			<register name="DMAC_CTRLB0" description="DMAC Channel Control B Register (ch_num = 0)" address="0x400C404C" access="rw" />
+			<register name="DMAC_CFG0" description="DMAC Channel Configuration Register (ch_num = 0)" address="0x400C4050" access="rw" />
+			<register name="DMAC_SADDR1" description="DMAC Channel Source Address Register (ch_num = 1)" address="0x400C4064" access="rw" />
+			<register name="DMAC_DADDR1" description="DMAC Channel Destination Address Register (ch_num = 1)" address="0x400C4068" access="rw" />
+			<register name="DMAC_DSCR1" description="DMAC Channel Descriptor Address Register (ch_num = 1)" address="0x400C406C" access="rw" />
+			<register name="DMAC_CTRLA1" description="DMAC Channel Control A Register (ch_num = 1)" address="0x400C4070" access="rw" />
+			<register name="DMAC_CTRLB1" description="DMAC Channel Control B Register (ch_num = 1)" address="0x400C4074" access="rw" />
+			<register name="DMAC_CFG1" description="DMAC Channel Configuration Register (ch_num = 1)" address="0x400C4078" access="rw" />
+			<register name="DMAC_SADDR2" description="DMAC Channel Source Address Register (ch_num = 2)" address="0x400C408C" access="rw" />
+			<register name="DMAC_DADDR2" description="DMAC Channel Destination Address Register (ch_num = 2)" address="0x400C4090" access="rw" />
+			<register name="DMAC_DSCR2" description="DMAC Channel Descriptor Address Register (ch_num = 2)" address="0x400C4094" access="rw" />
+			<register name="DMAC_CTRLA2" description="DMAC Channel Control A Register (ch_num = 2)" address="0x400C4098" access="rw" />
+			<register name="DMAC_CTRLB2" description="DMAC Channel Control B Register (ch_num = 2)" address="0x400C409C" access="rw" />
+			<register name="DMAC_CFG2" description="DMAC Channel Configuration Register (ch_num = 2)" address="0x400C40A0" access="rw" />
+			<register name="DMAC_SADDR3" description="DMAC Channel Source Address Register (ch_num = 3)" address="0x400C40B4" access="rw" />
+			<register name="DMAC_DADDR3" description="DMAC Channel Destination Address Register (ch_num = 3)" address="0x400C40B8" access="rw" />
+			<register name="DMAC_DSCR3" description="DMAC Channel Descriptor Address Register (ch_num = 3)" address="0x400C40BC" access="rw" />
+			<register name="DMAC_CTRLA3" description="DMAC Channel Control A Register (ch_num = 3)" address="0x400C40C0" access="rw" />
+			<register name="DMAC_CTRLB3" description="DMAC Channel Control B Register (ch_num = 3)" address="0x400C40C4" access="rw" />
+			<register name="DMAC_CFG3" description="DMAC Channel Configuration Register (ch_num = 3)" address="0x400C40C8" access="rw" />
+			<register name="DMAC_SADDR4" description="DMAC Channel Source Address Register (ch_num = 4)" address="0x400C40DC" access="rw" />
+			<register name="DMAC_DADDR4" description="DMAC Channel Destination Address Register (ch_num = 4)" address="0x400C40E0" access="rw" />
+			<register name="DMAC_DSCR4" description="DMAC Channel Descriptor Address Register (ch_num = 4)" address="0x400C40E4" access="rw" />
+			<register name="DMAC_CTRLA4" description="DMAC Channel Control A Register (ch_num = 4)" address="0x400C40E8" access="rw" />
+			<register name="DMAC_CTRLB4" description="DMAC Channel Control B Register (ch_num = 4)" address="0x400C40EC" access="rw" />
+			<register name="DMAC_CFG4" description="DMAC Channel Configuration Register (ch_num = 4)" address="0x400C40F0" access="rw" />
+			<register name="DMAC_SADDR5" description="DMAC Channel Source Address Register (ch_num = 5)" address="0x400C4104" access="rw" />
+			<register name="DMAC_DADDR5" description="DMAC Channel Destination Address Register (ch_num = 5)" address="0x400C4108" access="rw" />
+			<register name="DMAC_DSCR5" description="DMAC Channel Descriptor Address Register (ch_num = 5)" address="0x400C410C" access="rw" />
+			<register name="DMAC_CTRLA5" description="DMAC Channel Control A Register (ch_num = 5)" address="0x400C4110" access="rw" />
+			<register name="DMAC_CTRLB5" description="DMAC Channel Control B Register (ch_num = 5)" address="0x400C4114" access="rw" />
+			<register name="DMAC_CFG5" description="DMAC Channel Configuration Register (ch_num = 5)" address="0x400C4118" access="rw" />
+			<register name="DMAC_WPMR" description="DMAC Write Protect Mode Register" address="0x400C41E4" access="rw" />
+			<register name="DMAC_WPSR" description="DMAC Write Protect Status Register" address="0x400C41E8" access="r" />
+		</registergroup>
+		<registergroup name="EFC0" description= "EFC0 peripheral" >
+			<register name="EFC0_FMR" description="EEFC Flash Mode Register" address="0x400E0A00" access="rw" />
+			<register name="EFC0_FCR" description="EEFC Flash Command Register" address="0x400E0A04" access="w" />
+			<register name="EFC0_FSR" description="EEFC Flash Status Register" address="0x400E0A08" access="r" />
+			<register name="EFC0_FRR" description="EEFC Flash Result Register" address="0x400E0A0C" access="r" />
+		</registergroup>
+		<registergroup name="EFC1" description= "EFC1 peripheral" >
+			<register name="EFC1_FMR" description="EEFC Flash Mode Register" address="0x400E0C00" access="rw" />
+			<register name="EFC1_FCR" description="EEFC Flash Command Register" address="0x400E0C04" access="w" />
+			<register name="EFC1_FSR" description="EEFC Flash Status Register" address="0x400E0C08" access="r" />
+			<register name="EFC1_FRR" description="EEFC Flash Result Register" address="0x400E0C0C" access="r" />
+		</registergroup>
+		<registergroup name="EMAC" description= "EMAC peripheral" >
+			<register name="EMAC_NCR" description="Network Control Register" address="0x400B0000" access="rw" />
+			<register name="EMAC_NCFGR" description="Network Configuration Register" address="0x400B0004" access="rw" />
+			<register name="EMAC_NSR" description="Network Status Register" address="0x400B0008" access="r" />
+			<register name="EMAC_TSR" description="Transmit Status Register" address="0x400B0014" access="rw" />
+			<register name="EMAC_RBQP" description="Receive Buffer Queue Pointer Register" address="0x400B0018" access="rw" />
+			<register name="EMAC_TBQP" description="Transmit Buffer Queue Pointer Register" address="0x400B001C" access="rw" />
+			<register name="EMAC_RSR" description="Receive Status Register" address="0x400B0020" access="rw" />
+			<register name="EMAC_ISR" description="Interrupt Status Register" address="0x400B0024" access="rw" />
+			<register name="EMAC_IER" description="Interrupt Enable Register" address="0x400B0028" access="w" />
+			<register name="EMAC_IDR" description="Interrupt Disable Register" address="0x400B002C" access="w" />
+			<register name="EMAC_IMR" description="Interrupt Mask Register" address="0x400B0030" access="r" />
+			<register name="EMAC_MAN" description="Phy Maintenance Register" address="0x400B0034" access="rw" />
+			<register name="EMAC_PTR" description="Pause Time Register" address="0x400B0038" access="rw" />
+			<register name="EMAC_PFR" description="Pause Frames Received Register" address="0x400B003C" access="rw" />
+			<register name="EMAC_FTO" description="Frames Transmitted Ok Register" address="0x400B0040" access="rw" />
+			<register name="EMAC_SCF" description="Single Collision Frames Register" address="0x400B0044" access="rw" />
+			<register name="EMAC_MCF" description="Multiple Collision Frames Register" address="0x400B0048" access="rw" />
+			<register name="EMAC_FRO" description="Frames Received Ok Register" address="0x400B004C" access="rw" />
+			<register name="EMAC_FCSE" description="Frame Check Sequence Errors Register" address="0x400B0050" access="rw" />
+			<register name="EMAC_ALE" description="Alignment Errors Register" address="0x400B0054" access="rw" />
+			<register name="EMAC_DTF" description="Deferred Transmission Frames Register" address="0x400B0058" access="rw" />
+			<register name="EMAC_LCOL" description="Late Collisions Register" address="0x400B005C" access="rw" />
+			<register name="EMAC_ECOL" description="Excessive Collisions Register" address="0x400B0060" access="rw" />
+			<register name="EMAC_TUND" description="Transmit Underrun Errors Register" address="0x400B0064" access="rw" />
+			<register name="EMAC_CSE" description="Carrier Sense Errors Register" address="0x400B0068" access="rw" />
+			<register name="EMAC_RRE" description="Receive Resource Errors Register" address="0x400B006C" access="rw" />
+			<register name="EMAC_ROV" description="Receive Overrun Errors Register" address="0x400B0070" access="rw" />
+			<register name="EMAC_RSE" description="Receive Symbol Errors Register" address="0x400B0074" access="rw" />
+			<register name="EMAC_ELE" description="Excessive Length Errors Register" address="0x400B0078" access="rw" />
+			<register name="EMAC_RJA" description="Receive Jabbers Register" address="0x400B007C" access="rw" />
+			<register name="EMAC_USF" description="Undersize Frames Register" address="0x400B0080" access="rw" />
+			<register name="EMAC_STE" description="SQE Test Errors Register" address="0x400B0084" access="rw" />
+			<register name="EMAC_RLE" description="Received Length Field Mismatch Register" address="0x400B0088" access="rw" />
+			<register name="EMAC_HRB" description="Hash Register Bottom [31:0] Register" address="0x400B0090" access="rw" />
+			<register name="EMAC_HRT" description="Hash Register Top [63:32] Register" address="0x400B0094" access="rw" />
+			<register name="EMAC_SA1B" description="Specific Address 1 Bottom Register" address="0x400B0098" access="rw" />
+			<register name="EMAC_SA1T" description="Specific Address 1 Top Register" address="0x400B009C" access="rw" />
+			<register name="EMAC_SA2B" description="Specific Address 2 Bottom Register" address="0x400B00A0" access="rw" />
+			<register name="EMAC_SA2T" description="Specific Address 2 Top Register" address="0x400B00A4" access="rw" />
+			<register name="EMAC_SA3B" description="Specific Address 3 Bottom Register" address="0x400B00A8" access="rw" />
+			<register name="EMAC_SA3T" description="Specific Address 3 Top Register" address="0x400B00AC" access="rw" />
+			<register name="EMAC_SA4B" description="Specific Address 4 Bottom Register" address="0x400B00B0" access="rw" />
+			<register name="EMAC_SA4T" description="Specific Address 4 Top Register" address="0x400B00B4" access="rw" />
+			<register name="EMAC_TID" description="Type ID Checking Register" address="0x400B00B8" access="rw" />
+			<register name="EMAC_USRIO" description="User Input/Output Register" address="0x400B00C0" access="rw" />
+		</registergroup>
+		<registergroup name="GPBR" description= "GPBR peripheral" >
+			<register name="GPBR_GPBR" description="General Purpose Backup Register" address="0x400E1A90" access="rw" />
+		</registergroup>
+		<registergroup name="HSMCI" description= "HSMCI peripheral" >
+			<register name="HSMCI_CR" description="Control Register" address="0x40000000" access="w" />
+			<register name="HSMCI_MR" description="Mode Register" address="0x40000004" access="rw" />
+			<register name="HSMCI_DTOR" description="Data Timeout Register" address="0x40000008" access="rw" />
+			<register name="HSMCI_SDCR" description="SD/SDIO Card Register" address="0x4000000C" access="rw" />
+			<register name="HSMCI_ARGR" description="Argument Register" address="0x40000010" access="rw" />
+			<register name="HSMCI_CMDR" description="Command Register" address="0x40000014" access="w" />
+			<register name="HSMCI_BLKR" description="Block Register" address="0x40000018" access="rw" />
+			<register name="HSMCI_CSTOR" description="Completion Signal Timeout Register" address="0x4000001C" access="rw" />
+			<register name="HSMCI_RSPR" description="Response Register" address="0x40000020" access="r" />
+			<register name="HSMCI_RDR" description="Receive Data Register" address="0x40000030" access="r" />
+			<register name="HSMCI_TDR" description="Transmit Data Register" address="0x40000034" access="w" />
+			<register name="HSMCI_SR" description="Status Register" address="0x40000040" access="r" />
+			<register name="HSMCI_IER" description="Interrupt Enable Register" address="0x40000044" access="w" />
+			<register name="HSMCI_IDR" description="Interrupt Disable Register" address="0x40000048" access="w" />
+			<register name="HSMCI_IMR" description="Interrupt Mask Register" address="0x4000004C" access="r" />
+			<register name="HSMCI_DMA" description="DMA Configuration Register" address="0x40000050" access="rw" />
+			<register name="HSMCI_CFG" description="Configuration Register" address="0x40000054" access="rw" />
+			<register name="HSMCI_WPMR" description="Write Protection Mode Register" address="0x400000E4" access="rw" />
+			<register name="HSMCI_WPSR" description="Write Protection Status Register" address="0x400000E8" access="r" />
+			<register name="HSMCI_FIFO" description="FIFO Memory Aperture0" address="0x40000200" access="rw" />
+		</registergroup>
+		<registergroup name="MATRIX" description= "MATRIX peripheral" >
+			<register name="MATRIX_MCFG" description="Master Configuration Register" address="0x400E0400" access="rw" />
+			<register name="MATRIX_SCFG" description="Slave Configuration Register" address="0x400E0440" access="rw" />
+			<register name="MATRIX_PRAS0" description="Priority Register A for Slave 0" address="0x400E0480" access="rw" />
+			<register name="MATRIX_PRAS1" description="Priority Register A for Slave 1" address="0x400E0488" access="rw" />
+			<register name="MATRIX_PRAS2" description="Priority Register A for Slave 2" address="0x400E0490" access="rw" />
+			<register name="MATRIX_PRAS3" description="Priority Register A for Slave 3" address="0x400E0498" access="rw" />
+			<register name="MATRIX_PRAS4" description="Priority Register A for Slave 4" address="0x400E04A0" access="rw" />
+			<register name="MATRIX_PRAS5" description="Priority Register A for Slave 5" address="0x400E04A8" access="rw" />
+			<register name="MATRIX_PRAS6" description="Priority Register A for Slave 6" address="0x400E04B0" access="rw" />
+			<register name="MATRIX_PRAS7" description="Priority Register A for Slave 7" address="0x400E04B8" access="rw" />
+			<register name="MATRIX_PRAS8" description="Priority Register A for Slave 8" address="0x400E04C0" access="rw" />
+			<register name="MATRIX_MRCR" description="Master Remap Control Register" address="0x400E0500" access="rw" />
+			<register name="CCFG_SYSIO" description="System I/O Configuration register" address="0x400E0514" access="rw" />
+			<register name="MATRIX_WPMR" description="Write Protect Mode Register" address="0x400E05E4" access="rw" />
+			<register name="MATRIX_WPSR" description="Write Protect Status Register" address="0x400E05E8" access="r" />
+		</registergroup>
+		<registergroup name="PIOA" description= "PIOA peripheral" >
+			<register name="PIOA_PER" description="PIO Enable Register" address="0x400E0E00" access="w" />
+			<register name="PIOA_PDR" description="PIO Disable Register" address="0x400E0E04" access="w" />
+			<register name="PIOA_PSR" description="PIO Status Register" address="0x400E0E08" access="r" />
+			<register name="PIOA_OER" description="Output Enable Register" address="0x400E0E10" access="w" />
+			<register name="PIOA_ODR" description="Output Disable Register" address="0x400E0E14" access="w" />
+			<register name="PIOA_OSR" description="Output Status Register" address="0x400E0E18" access="r" />
+			<register name="PIOA_IFER" description="Glitch Input Filter Enable Register" address="0x400E0E20" access="w" />
+			<register name="PIOA_IFDR" description="Glitch Input Filter Disable Register" address="0x400E0E24" access="w" />
+			<register name="PIOA_IFSR" description="Glitch Input Filter Status Register" address="0x400E0E28" access="r" />
+			<register name="PIOA_SODR" description="Set Output Data Register" address="0x400E0E30" access="w" />
+			<register name="PIOA_CODR" description="Clear Output Data Register" address="0x400E0E34" access="w" />
+			<register name="PIOA_ODSR" description="Output Data Status Register" address="0x400E0E38" access="rw" />
+			<register name="PIOA_PDSR" description="Pin Data Status Register" address="0x400E0E3C" access="r" />
+			<register name="PIOA_IER" description="Interrupt Enable Register" address="0x400E0E40" access="w" />
+			<register name="PIOA_IDR" description="Interrupt Disable Register" address="0x400E0E44" access="w" />
+			<register name="PIOA_IMR" description="Interrupt Mask Register" address="0x400E0E48" access="r" />
+			<register name="PIOA_ISR" description="Interrupt Status Register" address="0x400E0E4C" access="r" />
+			<register name="PIOA_MDER" description="Multi-driver Enable Register" address="0x400E0E50" access="w" />
+			<register name="PIOA_MDDR" description="Multi-driver Disable Register" address="0x400E0E54" access="w" />
+			<register name="PIOA_MDSR" description="Multi-driver Status Register" address="0x400E0E58" access="r" />
+			<register name="PIOA_PUDR" description="Pull-up Disable Register" address="0x400E0E60" access="w" />
+			<register name="PIOA_PUER" description="Pull-up Enable Register" address="0x400E0E64" access="w" />
+			<register name="PIOA_PUSR" description="Pad Pull-up Status Register" address="0x400E0E68" access="r" />
+			<register name="PIOA_ABSR" description="Peripheral AB Select Register" address="0x400E0E70" access="rw" />
+			<register name="PIOA_SCIFSR" description="System Clock Glitch Input Filter Select Register" address="0x400E0E80" access="w" />
+			<register name="PIOA_DIFSR" description="Debouncing Input Filter Select Register" address="0x400E0E84" access="w" />
+			<register name="PIOA_IFDGSR" description="Glitch or Debouncing Input Filter Clock Selection Status Register" address="0x400E0E88" access="r" />
+			<register name="PIOA_SCDR" description="Slow Clock Divider Debouncing Register" address="0x400E0E8C" access="rw" />
+			<register name="PIOA_OWER" description="Output Write Enable" address="0x400E0EA0" access="w" />
+			<register name="PIOA_OWDR" description="Output Write Disable" address="0x400E0EA4" access="w" />
+			<register name="PIOA_OWSR" description="Output Write Status Register" address="0x400E0EA8" access="r" />
+			<register name="PIOA_AIMER" description="Additional Interrupt Modes Enable Register" address="0x400E0EB0" access="w" />
+			<register name="PIOA_AIMDR" description="Additional Interrupt Modes Disables Register" address="0x400E0EB4" access="w" />
+			<register name="PIOA_AIMMR" description="Additional Interrupt Modes Mask Register" address="0x400E0EB8" access="r" />
+			<register name="PIOA_ESR" description="Edge Select Register" address="0x400E0EC0" access="w" />
+			<register name="PIOA_LSR" description="Level Select Register" address="0x400E0EC4" access="w" />
+			<register name="PIOA_ELSR" description="Edge/Level Status Register" address="0x400E0EC8" access="r" />
+			<register name="PIOA_FELLSR" description="Falling Edge/Low Level Select Register" address="0x400E0ED0" access="w" />
+			<register name="PIOA_REHLSR" description="Rising Edge/ High Level Select Register" address="0x400E0ED4" access="w" />
+			<register name="PIOA_FRLHSR" description="Fall/Rise - Low/High Status Register" address="0x400E0ED8" access="r" />
+			<register name="PIOA_LOCKSR" description="Lock Status" address="0x400E0EE0" access="r" />
+			<register name="PIOA_WPMR" description="Write Protect Mode Register" address="0x400E0EE4" access="rw" />
+			<register name="PIOA_WPSR" description="Write Protect Status Register" address="0x400E0EE8" access="r" />
+		</registergroup>
+		<registergroup name="PIOB" description= "PIOB peripheral" >
+			<register name="PIOB_PER" description="PIO Enable Register" address="0x400E1000" access="w" />
+			<register name="PIOB_PDR" description="PIO Disable Register" address="0x400E1004" access="w" />
+			<register name="PIOB_PSR" description="PIO Status Register" address="0x400E1008" access="r" />
+			<register name="PIOB_OER" description="Output Enable Register" address="0x400E1010" access="w" />
+			<register name="PIOB_ODR" description="Output Disable Register" address="0x400E1014" access="w" />
+			<register name="PIOB_OSR" description="Output Status Register" address="0x400E1018" access="r" />
+			<register name="PIOB_IFER" description="Glitch Input Filter Enable Register" address="0x400E1020" access="w" />
+			<register name="PIOB_IFDR" description="Glitch Input Filter Disable Register" address="0x400E1024" access="w" />
+			<register name="PIOB_IFSR" description="Glitch Input Filter Status Register" address="0x400E1028" access="r" />
+			<register name="PIOB_SODR" description="Set Output Data Register" address="0x400E1030" access="w" />
+			<register name="PIOB_CODR" description="Clear Output Data Register" address="0x400E1034" access="w" />
+			<register name="PIOB_ODSR" description="Output Data Status Register" address="0x400E1038" access="rw" />
+			<register name="PIOB_PDSR" description="Pin Data Status Register" address="0x400E103C" access="r" />
+			<register name="PIOB_IER" description="Interrupt Enable Register" address="0x400E1040" access="w" />
+			<register name="PIOB_IDR" description="Interrupt Disable Register" address="0x400E1044" access="w" />
+			<register name="PIOB_IMR" description="Interrupt Mask Register" address="0x400E1048" access="r" />
+			<register name="PIOB_ISR" description="Interrupt Status Register" address="0x400E104C" access="r" />
+			<register name="PIOB_MDER" description="Multi-driver Enable Register" address="0x400E1050" access="w" />
+			<register name="PIOB_MDDR" description="Multi-driver Disable Register" address="0x400E1054" access="w" />
+			<register name="PIOB_MDSR" description="Multi-driver Status Register" address="0x400E1058" access="r" />
+			<register name="PIOB_PUDR" description="Pull-up Disable Register" address="0x400E1060" access="w" />
+			<register name="PIOB_PUER" description="Pull-up Enable Register" address="0x400E1064" access="w" />
+			<register name="PIOB_PUSR" description="Pad Pull-up Status Register" address="0x400E1068" access="r" />
+			<register name="PIOB_ABSR" description="Peripheral AB Select Register" address="0x400E1070" access="rw" />
+			<register name="PIOB_SCIFSR" description="System Clock Glitch Input Filter Select Register" address="0x400E1080" access="w" />
+			<register name="PIOB_DIFSR" description="Debouncing Input Filter Select Register" address="0x400E1084" access="w" />
+			<register name="PIOB_IFDGSR" description="Glitch or Debouncing Input Filter Clock Selection Status Register" address="0x400E1088" access="r" />
+			<register name="PIOB_SCDR" description="Slow Clock Divider Debouncing Register" address="0x400E108C" access="rw" />
+			<register name="PIOB_OWER" description="Output Write Enable" address="0x400E10A0" access="w" />
+			<register name="PIOB_OWDR" description="Output Write Disable" address="0x400E10A4" access="w" />
+			<register name="PIOB_OWSR" description="Output Write Status Register" address="0x400E10A8" access="r" />
+			<register name="PIOB_AIMER" description="Additional Interrupt Modes Enable Register" address="0x400E10B0" access="w" />
+			<register name="PIOB_AIMDR" description="Additional Interrupt Modes Disables Register" address="0x400E10B4" access="w" />
+			<register name="PIOB_AIMMR" description="Additional Interrupt Modes Mask Register" address="0x400E10B8" access="r" />
+			<register name="PIOB_ESR" description="Edge Select Register" address="0x400E10C0" access="w" />
+			<register name="PIOB_LSR" description="Level Select Register" address="0x400E10C4" access="w" />
+			<register name="PIOB_ELSR" description="Edge/Level Status Register" address="0x400E10C8" access="r" />
+			<register name="PIOB_FELLSR" description="Falling Edge/Low Level Select Register" address="0x400E10D0" access="w" />
+			<register name="PIOB_REHLSR" description="Rising Edge/ High Level Select Register" address="0x400E10D4" access="w" />
+			<register name="PIOB_FRLHSR" description="Fall/Rise - Low/High Status Register" address="0x400E10D8" access="r" />
+			<register name="PIOB_LOCKSR" description="Lock Status" address="0x400E10E0" access="r" />
+			<register name="PIOB_WPMR" description="Write Protect Mode Register" address="0x400E10E4" access="rw" />
+			<register name="PIOB_WPSR" description="Write Protect Status Register" address="0x400E10E8" access="r" />
+		</registergroup>
+		<registergroup name="PMC" description= "PMC peripheral" >
+			<register name="PMC_SCER" description="System Clock Enable Register" address="0x400E0600" access="w" />
+			<register name="PMC_SCDR" description="System Clock Disable Register" address="0x400E0604" access="w" />
+			<register name="PMC_SCSR" description="System Clock Status Register" address="0x400E0608" access="r" />
+			<register name="PMC_PCER0" description="Peripheral Clock Enable Register 0" address="0x400E0610" access="w" />
+			<register name="PMC_PCDR0" description="Peripheral Clock Disable Register 0" address="0x400E0614" access="w" />
+			<register name="PMC_PCSR0" description="Peripheral Clock Status Register 0" address="0x400E0618" access="r" />
+			<register name="CKGR_UCKR" description="UTMI Clock Register" address="0x400E061C" access="rw" />
+			<register name="CKGR_MOR" description="Main Oscillator Register" address="0x400E0620" access="rw" />
+			<register name="CKGR_MCFR" description="Main Clock Frequency Register" address="0x400E0624" access="r" />
+			<register name="CKGR_PLLAR" description="PLLA Register" address="0x400E0628" access="rw" />
+			<register name="PMC_MCKR" description="Master Clock Register" address="0x400E0630" access="rw" />
+			<register name="PMC_USB" description="USB Clock Register" address="0x400E0638" access="rw" />
+			<register name="PMC_PCK" description="Programmable Clock 0 Register" address="0x400E0640" access="rw" />
+			<register name="PMC_IER" description="Interrupt Enable Register" address="0x400E0660" access="w" />
+			<register name="PMC_IDR" description="Interrupt Disable Register" address="0x400E0664" access="w" />
+			<register name="PMC_SR" description="Status Register" address="0x400E0668" access="r" />
+			<register name="PMC_IMR" description="Interrupt Mask Register" address="0x400E066C" access="r" />
+			<register name="PMC_FSMR" description="Fast Start-up Mode Register" address="0x400E0670" access="rw" />
+			<register name="PMC_FSPR" description="Fast Start-up Polarity Register" address="0x400E0674" access="rw" />
+			<register name="PMC_FOCR" description="Fault Output Clear Register" address="0x400E0678" access="w" />
+			<register name="PMC_WPMR" description="Write Protect Mode Register" address="0x400E06E4" access="rw" />
+			<register name="PMC_WPSR" description="Write Protect Status Register" address="0x400E06E8" access="r" />
+			<register name="PMC_PCER1" description="Peripheral Clock Enable Register 1" address="0x400E0700" access="w" />
+			<register name="PMC_PCDR1" description="Peripheral Clock Disable Register 1" address="0x400E0704" access="w" />
+			<register name="PMC_PCSR1" description="Peripheral Clock Status Register 1" address="0x400E0708" access="r" />
+			<register name="PMC_PCR" description="Peripheral Control Register" address="0x400E070C" access="rw" />
+		</registergroup>
+		<registergroup name="PWM" description= "PWM peripheral" >
+			<register name="PWM_CLK" description="PWM Clock Register" address="0x40094000" access="rw" />
+			<register name="PWM_ENA" description="PWM Enable Register" address="0x40094004" access="w" />
+			<register name="PWM_DIS" description="PWM Disable Register" address="0x40094008" access="w" />
+			<register name="PWM_SR" description="PWM Status Register" address="0x4009400C" access="r" />
+			<register name="PWM_IER1" description="PWM Interrupt Enable Register 1" address="0x40094010" access="w" />
+			<register name="PWM_IDR1" description="PWM Interrupt Disable Register 1" address="0x40094014" access="w" />
+			<register name="PWM_IMR1" description="PWM Interrupt Mask Register 1" address="0x40094018" access="r" />
+			<register name="PWM_ISR1" description="PWM Interrupt Status Register 1" address="0x4009401C" access="r" />
+			<register name="PWM_SCM" description="PWM Sync Channels Mode Register" address="0x40094020" access="rw" />
+			<register name="PWM_SCUC" description="PWM Sync Channels Update Control Register" address="0x40094028" access="rw" />
+			<register name="PWM_SCUP" description="PWM Sync Channels Update Period Register" address="0x4009402C" access="rw" />
+			<register name="PWM_SCUPUPD" description="PWM Sync Channels Update Period Update Register" address="0x40094030" access="w" />
+			<register name="PWM_IER2" description="PWM Interrupt Enable Register 2" address="0x40094034" access="w" />
+			<register name="PWM_IDR2" description="PWM Interrupt Disable Register 2" address="0x40094038" access="w" />
+			<register name="PWM_IMR2" description="PWM Interrupt Mask Register 2" address="0x4009403C" access="r" />
+			<register name="PWM_ISR2" description="PWM Interrupt Status Register 2" address="0x40094040" access="r" />
+			<register name="PWM_OOV" description="PWM Output Override Value Register" address="0x40094044" access="rw" />
+			<register name="PWM_OS" description="PWM Output Selection Register" address="0x40094048" access="rw" />
+			<register name="PWM_OSS" description="PWM Output Selection Set Register" address="0x4009404C" access="w" />
+			<register name="PWM_OSC" description="PWM Output Selection Clear Register" address="0x40094050" access="w" />
+			<register name="PWM_OSSUPD" description="PWM Output Selection Set Update Register" address="0x40094054" access="w" />
+			<register name="PWM_OSCUPD" description="PWM Output Selection Clear Update Register" address="0x40094058" access="w" />
+			<register name="PWM_FMR" description="PWM Fault Mode Register" address="0x4009405C" access="rw" />
+			<register name="PWM_FSR" description="PWM Fault Status Register" address="0x40094060" access="r" />
+			<register name="PWM_FCR" description="PWM Fault Clear Register" address="0x40094064" access="w" />
+			<register name="PWM_FPV" description="PWM Fault Protection Value Register" address="0x40094068" access="rw" />
+			<register name="PWM_FPE1" description="PWM Fault Protection Enable Register 1" address="0x4009406C" access="rw" />
+			<register name="PWM_FPE2" description="PWM Fault Protection Enable Register 2" address="0x40094070" access="rw" />
+			<register name="PWM_ELMR" description="PWM Event Line 0 Mode Register" address="0x4009407C" access="rw" />
+			<register name="PWM_SMMR" description="PWM Stepper Motor Mode Register" address="0x400940B0" access="rw" />
+			<register name="PWM_WPCR" description="PWM Write Protect Control Register" address="0x400940E4" access="w" />
+			<register name="PWM_WPSR" description="PWM Write Protect Status Register" address="0x400940E8" access="r" />
+			<register name="PWM_TPR" description="Transmit Pointer Register" address="0x40094108" access="rw" />
+			<register name="PWM_TCR" description="Transmit Counter Register" address="0x4009410C" access="rw" />
+			<register name="PWM_TNPR" description="Transmit Next Pointer Register" address="0x40094118" access="rw" />
+			<register name="PWM_TNCR" description="Transmit Next Counter Register" address="0x4009411C" access="rw" />
+			<register name="PWM_PTCR" description="Transfer Control Register" address="0x40094120" access="w" />
+			<register name="PWM_PTSR" description="Transfer Status Register" address="0x40094124" access="r" />
+			<register name="PWM_CMPV0" description="PWM Comparison 0 Value Register" address="0x40094130" access="rw" />
+			<register name="PWM_CMPVUPD0" description="PWM Comparison 0 Value Update Register" address="0x40094134" access="w" />
+			<register name="PWM_CMPM0" description="PWM Comparison 0 Mode Register" address="0x40094138" access="rw" />
+			<register name="PWM_CMPMUPD0" description="PWM Comparison 0 Mode Update Register" address="0x4009413C" access="w" />
+			<register name="PWM_CMPV1" description="PWM Comparison 1 Value Register" address="0x40094140" access="rw" />
+			<register name="PWM_CMPVUPD1" description="PWM Comparison 1 Value Update Register" address="0x40094144" access="w" />
+			<register name="PWM_CMPM1" description="PWM Comparison 1 Mode Register" address="0x40094148" access="rw" />
+			<register name="PWM_CMPMUPD1" description="PWM Comparison 1 Mode Update Register" address="0x4009414C" access="w" />
+			<register name="PWM_CMPV2" description="PWM Comparison 2 Value Register" address="0x40094150" access="rw" />
+			<register name="PWM_CMPVUPD2" description="PWM Comparison 2 Value Update Register" address="0x40094154" access="w" />
+			<register name="PWM_CMPM2" description="PWM Comparison 2 Mode Register" address="0x40094158" access="rw" />
+			<register name="PWM_CMPMUPD2" description="PWM Comparison 2 Mode Update Register" address="0x4009415C" access="w" />
+			<register name="PWM_CMPV3" description="PWM Comparison 3 Value Register" address="0x40094160" access="rw" />
+			<register name="PWM_CMPVUPD3" description="PWM Comparison 3 Value Update Register" address="0x40094164" access="w" />
+			<register name="PWM_CMPM3" description="PWM Comparison 3 Mode Register" address="0x40094168" access="rw" />
+			<register name="PWM_CMPMUPD3" description="PWM Comparison 3 Mode Update Register" address="0x4009416C" access="w" />
+			<register name="PWM_CMPV4" description="PWM Comparison 4 Value Register" address="0x40094170" access="rw" />
+			<register name="PWM_CMPVUPD4" description="PWM Comparison 4 Value Update Register" address="0x40094174" access="w" />
+			<register name="PWM_CMPM4" description="PWM Comparison 4 Mode Register" address="0x40094178" access="rw" />
+			<register name="PWM_CMPMUPD4" description="PWM Comparison 4 Mode Update Register" address="0x4009417C" access="w" />
+			<register name="PWM_CMPV5" description="PWM Comparison 5 Value Register" address="0x40094180" access="rw" />
+			<register name="PWM_CMPVUPD5" description="PWM Comparison 5 Value Update Register" address="0x40094184" access="w" />
+			<register name="PWM_CMPM5" description="PWM Comparison 5 Mode Register" address="0x40094188" access="rw" />
+			<register name="PWM_CMPMUPD5" description="PWM Comparison 5 Mode Update Register" address="0x4009418C" access="w" />
+			<register name="PWM_CMPV6" description="PWM Comparison 6 Value Register" address="0x40094190" access="rw" />
+			<register name="PWM_CMPVUPD6" description="PWM Comparison 6 Value Update Register" address="0x40094194" access="w" />
+			<register name="PWM_CMPM6" description="PWM Comparison 6 Mode Register" address="0x40094198" access="rw" />
+			<register name="PWM_CMPMUPD6" description="PWM Comparison 6 Mode Update Register" address="0x4009419C" access="w" />
+			<register name="PWM_CMPV7" description="PWM Comparison 7 Value Register" address="0x400941A0" access="rw" />
+			<register name="PWM_CMPVUPD7" description="PWM Comparison 7 Value Update Register" address="0x400941A4" access="w" />
+			<register name="PWM_CMPM7" description="PWM Comparison 7 Mode Register" address="0x400941A8" access="rw" />
+			<register name="PWM_CMPMUPD7" description="PWM Comparison 7 Mode Update Register" address="0x400941AC" access="w" />
+			<register name="PWM_CMR0" description="PWM Channel Mode Register (ch_num = 0)" address="0x40094200" access="rw" />
+			<register name="PWM_CDTY0" description="PWM Channel Duty Cycle Register (ch_num = 0)" address="0x40094204" access="rw" />
+			<register name="PWM_CDTYUPD0" description="PWM Channel Duty Cycle Update Register (ch_num = 0)" address="0x40094208" access="w" />
+			<register name="PWM_CPRD0" description="PWM Channel Period Register (ch_num = 0)" address="0x4009420C" access="rw" />
+			<register name="PWM_CPRDUPD0" description="PWM Channel Period Update Register (ch_num = 0)" address="0x40094210" access="w" />
+			<register name="PWM_CCNT0" description="PWM Channel Counter Register (ch_num = 0)" address="0x40094214" access="r" />
+			<register name="PWM_DT0" description="PWM Channel Dead Time Register (ch_num = 0)" address="0x40094218" access="rw" />
+			<register name="PWM_DTUPD0" description="PWM Channel Dead Time Update Register (ch_num = 0)" address="0x4009421C" access="w" />
+			<register name="PWM_CMR1" description="PWM Channel Mode Register (ch_num = 1)" address="0x40094220" access="rw" />
+			<register name="PWM_CDTY1" description="PWM Channel Duty Cycle Register (ch_num = 1)" address="0x40094224" access="rw" />
+			<register name="PWM_CDTYUPD1" description="PWM Channel Duty Cycle Update Register (ch_num = 1)" address="0x40094228" access="w" />
+			<register name="PWM_CPRD1" description="PWM Channel Period Register (ch_num = 1)" address="0x4009422C" access="rw" />
+			<register name="PWM_CPRDUPD1" description="PWM Channel Period Update Register (ch_num = 1)" address="0x40094230" access="w" />
+			<register name="PWM_CCNT1" description="PWM Channel Counter Register (ch_num = 1)" address="0x40094234" access="r" />
+			<register name="PWM_DT1" description="PWM Channel Dead Time Register (ch_num = 1)" address="0x40094238" access="rw" />
+			<register name="PWM_DTUPD1" description="PWM Channel Dead Time Update Register (ch_num = 1)" address="0x4009423C" access="w" />
+			<register name="PWM_CMR2" description="PWM Channel Mode Register (ch_num = 2)" address="0x40094240" access="rw" />
+			<register name="PWM_CDTY2" description="PWM Channel Duty Cycle Register (ch_num = 2)" address="0x40094244" access="rw" />
+			<register name="PWM_CDTYUPD2" description="PWM Channel Duty Cycle Update Register (ch_num = 2)" address="0x40094248" access="w" />
+			<register name="PWM_CPRD2" description="PWM Channel Period Register (ch_num = 2)" address="0x4009424C" access="rw" />
+			<register name="PWM_CPRDUPD2" description="PWM Channel Period Update Register (ch_num = 2)" address="0x40094250" access="w" />
+			<register name="PWM_CCNT2" description="PWM Channel Counter Register (ch_num = 2)" address="0x40094254" access="r" />
+			<register name="PWM_DT2" description="PWM Channel Dead Time Register (ch_num = 2)" address="0x40094258" access="rw" />
+			<register name="PWM_DTUPD2" description="PWM Channel Dead Time Update Register (ch_num = 2)" address="0x4009425C" access="w" />
+			<register name="PWM_CMR3" description="PWM Channel Mode Register (ch_num = 3)" address="0x40094260" access="rw" />
+			<register name="PWM_CDTY3" description="PWM Channel Duty Cycle Register (ch_num = 3)" address="0x40094264" access="rw" />
+			<register name="PWM_CDTYUPD3" description="PWM Channel Duty Cycle Update Register (ch_num = 3)" address="0x40094268" access="w" />
+			<register name="PWM_CPRD3" description="PWM Channel Period Register (ch_num = 3)" address="0x4009426C" access="rw" />
+			<register name="PWM_CPRDUPD3" description="PWM Channel Period Update Register (ch_num = 3)" address="0x40094270" access="w" />
+			<register name="PWM_CCNT3" description="PWM Channel Counter Register (ch_num = 3)" address="0x40094274" access="r" />
+			<register name="PWM_DT3" description="PWM Channel Dead Time Register (ch_num = 3)" address="0x40094278" access="rw" />
+			<register name="PWM_DTUPD3" description="PWM Channel Dead Time Update Register (ch_num = 3)" address="0x4009427C" access="w" />
+			<register name="PWM_CMR4" description="PWM Channel Mode Register (ch_num = 4)" address="0x40094280" access="rw" />
+			<register name="PWM_CDTY4" description="PWM Channel Duty Cycle Register (ch_num = 4)" address="0x40094284" access="rw" />
+			<register name="PWM_CDTYUPD4" description="PWM Channel Duty Cycle Update Register (ch_num = 4)" address="0x40094288" access="w" />
+			<register name="PWM_CPRD4" description="PWM Channel Period Register (ch_num = 4)" address="0x4009428C" access="rw" />
+			<register name="PWM_CPRDUPD4" description="PWM Channel Period Update Register (ch_num = 4)" address="0x40094290" access="w" />
+			<register name="PWM_CCNT4" description="PWM Channel Counter Register (ch_num = 4)" address="0x40094294" access="r" />
+			<register name="PWM_DT4" description="PWM Channel Dead Time Register (ch_num = 4)" address="0x40094298" access="rw" />
+			<register name="PWM_DTUPD4" description="PWM Channel Dead Time Update Register (ch_num = 4)" address="0x4009429C" access="w" />
+			<register name="PWM_CMR5" description="PWM Channel Mode Register (ch_num = 5)" address="0x400942A0" access="rw" />
+			<register name="PWM_CDTY5" description="PWM Channel Duty Cycle Register (ch_num = 5)" address="0x400942A4" access="rw" />
+			<register name="PWM_CDTYUPD5" description="PWM Channel Duty Cycle Update Register (ch_num = 5)" address="0x400942A8" access="w" />
+			<register name="PWM_CPRD5" description="PWM Channel Period Register (ch_num = 5)" address="0x400942AC" access="rw" />
+			<register name="PWM_CPRDUPD5" description="PWM Channel Period Update Register (ch_num = 5)" address="0x400942B0" access="w" />
+			<register name="PWM_CCNT5" description="PWM Channel Counter Register (ch_num = 5)" address="0x400942B4" access="r" />
+			<register name="PWM_DT5" description="PWM Channel Dead Time Register (ch_num = 5)" address="0x400942B8" access="rw" />
+			<register name="PWM_DTUPD5" description="PWM Channel Dead Time Update Register (ch_num = 5)" address="0x400942BC" access="w" />
+			<register name="PWM_CMR6" description="PWM Channel Mode Register (ch_num = 6)" address="0x400942C0" access="rw" />
+			<register name="PWM_CDTY6" description="PWM Channel Duty Cycle Register (ch_num = 6)" address="0x400942C4" access="rw" />
+			<register name="PWM_CDTYUPD6" description="PWM Channel Duty Cycle Update Register (ch_num = 6)" address="0x400942C8" access="w" />
+			<register name="PWM_CPRD6" description="PWM Channel Period Register (ch_num = 6)" address="0x400942CC" access="rw" />
+			<register name="PWM_CPRDUPD6" description="PWM Channel Period Update Register (ch_num = 6)" address="0x400942D0" access="w" />
+			<register name="PWM_CCNT6" description="PWM Channel Counter Register (ch_num = 6)" address="0x400942D4" access="r" />
+			<register name="PWM_DT6" description="PWM Channel Dead Time Register (ch_num = 6)" address="0x400942D8" access="rw" />
+			<register name="PWM_DTUPD6" description="PWM Channel Dead Time Update Register (ch_num = 6)" address="0x400942DC" access="w" />
+			<register name="PWM_CMR7" description="PWM Channel Mode Register (ch_num = 7)" address="0x400942E0" access="rw" />
+			<register name="PWM_CDTY7" description="PWM Channel Duty Cycle Register (ch_num = 7)" address="0x400942E4" access="rw" />
+			<register name="PWM_CDTYUPD7" description="PWM Channel Duty Cycle Update Register (ch_num = 7)" address="0x400942E8" access="w" />
+			<register name="PWM_CPRD7" description="PWM Channel Period Register (ch_num = 7)" address="0x400942EC" access="rw" />
+			<register name="PWM_CPRDUPD7" description="PWM Channel Period Update Register (ch_num = 7)" address="0x400942F0" access="w" />
+			<register name="PWM_CCNT7" description="PWM Channel Counter Register (ch_num = 7)" address="0x400942F4" access="r" />
+			<register name="PWM_DT7" description="PWM Channel Dead Time Register (ch_num = 7)" address="0x400942F8" access="rw" />
+			<register name="PWM_DTUPD7" description="PWM Channel Dead Time Update Register (ch_num = 7)" address="0x400942FC" access="w" />
+		</registergroup>
+		<registergroup name="RSTC" description= "RSTC peripheral" >
+			<register name="RSTC_CR" description="Control Register" address="0x400E1A00" access="w" />
+			<register name="RSTC_SR" description="Status Register" address="0x400E1A04" access="r" />
+			<register name="RSTC_MR" description="Mode Register" address="0x400E1A08" access="rw" />
+		</registergroup>
+		<registergroup name="RTC" description= "RTC peripheral" >
+			<register name="RTC_CR" description="Control Register" address="0x400E1A60" access="rw" />
+			<register name="RTC_MR" description="Mode Register" address="0x400E1A64" access="rw" />
+			<register name="RTC_TIMR" description="Time Register" address="0x400E1A68" access="rw" />
+			<register name="RTC_CALR" description="Calendar Register" address="0x400E1A6C" access="rw" />
+			<register name="RTC_TIMALR" description="Time Alarm Register" address="0x400E1A70" access="rw" />
+			<register name="RTC_CALALR" description="Calendar Alarm Register" address="0x400E1A74" access="rw" />
+			<register name="RTC_SR" description="Status Register" address="0x400E1A78" access="r" />
+			<register name="RTC_SCCR" description="Status Clear Command Register" address="0x400E1A7C" access="w" />
+			<register name="RTC_IER" description="Interrupt Enable Register" address="0x400E1A80" access="w" />
+			<register name="RTC_IDR" description="Interrupt Disable Register" address="0x400E1A84" access="w" />
+			<register name="RTC_IMR" description="Interrupt Mask Register" address="0x400E1A88" access="r" />
+			<register name="RTC_VER" description="Valid Entry Register" address="0x400E1A8C" access="r" />
+			<register name="RTC_WPMR" description="Write Protect Mode Register" address="0x400E1B44" access="rw" />
+		</registergroup>
+		<registergroup name="RTT" description= "RTT peripheral" >
+			<register name="RTT_MR" description="Mode Register" address="0x400E1A30" access="rw" />
+			<register name="RTT_AR" description="Alarm Register" address="0x400E1A34" access="rw" />
+			<register name="RTT_VR" description="Value Register" address="0x400E1A38" access="r" />
+			<register name="RTT_SR" description="Status Register" address="0x400E1A3C" access="r" />
+		</registergroup>
+		<registergroup name="SPI0" description= "SPI0 peripheral" >
+			<register name="SPI0_CR" description="Control Register" address="0x40008000" access="w" />
+			<register name="SPI0_MR" description="Mode Register" address="0x40008004" access="rw" />
+			<register name="SPI0_RDR" description="Receive Data Register" address="0x40008008" access="r" />
+			<register name="SPI0_TDR" description="Transmit Data Register" address="0x4000800C" access="w" />
+			<register name="SPI0_SR" description="Status Register" address="0x40008010" access="r" />
+			<register name="SPI0_IER" description="Interrupt Enable Register" address="0x40008014" access="w" />
+			<register name="SPI0_IDR" description="Interrupt Disable Register" address="0x40008018" access="w" />
+			<register name="SPI0_IMR" description="Interrupt Mask Register" address="0x4000801C" access="r" />
+			<register name="SPI0_CSR" description="Chip Select Register" address="0x40008030" access="rw" />
+			<register name="SPI0_WPMR" description="Write Protection Control Register" address="0x400080E4" access="rw" />
+			<register name="SPI0_WPSR" description="Write Protection Status Register" address="0x400080E8" access="r" />
+		</registergroup>
+		<registergroup name="SPI1" description= "SPI1 peripheral" >
+			<register name="SPI1_CR" description="Control Register" address="0x4000C000" access="w" />
+			<register name="SPI1_MR" description="Mode Register" address="0x4000C004" access="rw" />
+			<register name="SPI1_RDR" description="Receive Data Register" address="0x4000C008" access="r" />
+			<register name="SPI1_TDR" description="Transmit Data Register" address="0x4000C00C" access="w" />
+			<register name="SPI1_SR" description="Status Register" address="0x4000C010" access="r" />
+			<register name="SPI1_IER" description="Interrupt Enable Register" address="0x4000C014" access="w" />
+			<register name="SPI1_IDR" description="Interrupt Disable Register" address="0x4000C018" access="w" />
+			<register name="SPI1_IMR" description="Interrupt Mask Register" address="0x4000C01C" access="r" />
+			<register name="SPI1_CSR" description="Chip Select Register" address="0x4000C030" access="rw" />
+			<register name="SPI1_WPMR" description="Write Protection Control Register" address="0x4000C0E4" access="rw" />
+			<register name="SPI1_WPSR" description="Write Protection Status Register" address="0x4000C0E8" access="r" />
+		</registergroup>
+		<registergroup name="SSC" description= "SSC peripheral" >
+			<register name="SSC_CR" description="Control Register" address="0x40004000" access="w" />
+			<register name="SSC_CMR" description="Clock Mode Register" address="0x40004004" access="rw" />
+			<register name="SSC_RCMR" description="Receive Clock Mode Register" address="0x40004010" access="rw" />
+			<register name="SSC_RFMR" description="Receive Frame Mode Register" address="0x40004014" access="rw" />
+			<register name="SSC_TCMR" description="Transmit Clock Mode Register" address="0x40004018" access="rw" />
+			<register name="SSC_TFMR" description="Transmit Frame Mode Register" address="0x4000401C" access="rw" />
+			<register name="SSC_RHR" description="Receive Holding Register" address="0x40004020" access="r" />
+			<register name="SSC_THR" description="Transmit Holding Register" address="0x40004024" access="w" />
+			<register name="SSC_RSHR" description="Receive Sync. Holding Register" address="0x40004030" access="r" />
+			<register name="SSC_TSHR" description="Transmit Sync. Holding Register" address="0x40004034" access="rw" />
+			<register name="SSC_RC0R" description="Receive Compare 0 Register" address="0x40004038" access="rw" />
+			<register name="SSC_RC1R" description="Receive Compare 1 Register" address="0x4000403C" access="rw" />
+			<register name="SSC_SR" description="Status Register" address="0x40004040" access="r" />
+			<register name="SSC_IER" description="Interrupt Enable Register" address="0x40004044" access="w" />
+			<register name="SSC_IDR" description="Interrupt Disable Register" address="0x40004048" access="w" />
+			<register name="SSC_IMR" description="Interrupt Mask Register" address="0x4000404C" access="r" />
+			<register name="SSC_WPMR" description="Write Protect Mode Register" address="0x400040E4" access="rw" />
+			<register name="SSC_WPSR" description="Write Protect Status Register" address="0x400040E8" access="r" />
+		</registergroup>
+		<registergroup name="SUPC" description= "SUPC peripheral" >
+			<register name="SUPC_CR" description="Supply Controller Control Register" address="0x400E1A10" access="w" />
+			<register name="SUPC_SMMR" description="Supply Controller Supply Monitor Mode Register" address="0x400E1A14" access="rw" />
+			<register name="SUPC_MR" description="Supply Controller Mode Register" address="0x400E1A18" access="rw" />
+			<register name="SUPC_WUMR" description="Supply Controller Wake-up Mode Register" address="0x400E1A1C" access="rw" />
+			<register name="SUPC_WUIR" description="Supply Controller Wake-up Inputs Register" address="0x400E1A20" access="rw" />
+			<register name="SUPC_SR" description="Supply Controller Status Register" address="0x400E1A24" access="r" />
+		</registergroup>
+		<registergroup name="TC0" description= "TC0 peripheral" >
+			<register name="TC0_CCR0" description="Channel Control Register (channel = 0)" address="0x40080000" access="w" />
+			<register name="TC0_CMR0" description="Channel Mode Register (channel = 0)" address="0x40080004" access="rw" />
+			<register name="TC0_SMMR0" description="Stepper Motor Mode Register (channel = 0)" address="0x40080008" access="rw" />
+			<register name="TC0_CV0" description="Counter Value (channel = 0)" address="0x40080010" access="r" />
+			<register name="TC0_RA0" description="Register A (channel = 0)" address="0x40080014" access="rw" />
+			<register name="TC0_RB0" description="Register B (channel = 0)" address="0x40080018" access="rw" />
+			<register name="TC0_RC0" description="Register C (channel = 0)" address="0x4008001C" access="rw" />
+			<register name="TC0_SR0" description="Status Register (channel = 0)" address="0x40080020" access="r" />
+			<register name="TC0_IER0" description="Interrupt Enable Register (channel = 0)" address="0x40080024" access="w" />
+			<register name="TC0_IDR0" description="Interrupt Disable Register (channel = 0)" address="0x40080028" access="w" />
+			<register name="TC0_IMR0" description="Interrupt Mask Register (channel = 0)" address="0x4008002C" access="r" />
+			<register name="TC0_CCR1" description="Channel Control Register (channel = 1)" address="0x40080040" access="w" />
+			<register name="TC0_CMR1" description="Channel Mode Register (channel = 1)" address="0x40080044" access="rw" />
+			<register name="TC0_SMMR1" description="Stepper Motor Mode Register (channel = 1)" address="0x40080048" access="rw" />
+			<register name="TC0_CV1" description="Counter Value (channel = 1)" address="0x40080050" access="r" />
+			<register name="TC0_RA1" description="Register A (channel = 1)" address="0x40080054" access="rw" />
+			<register name="TC0_RB1" description="Register B (channel = 1)" address="0x40080058" access="rw" />
+			<register name="TC0_RC1" description="Register C (channel = 1)" address="0x4008005C" access="rw" />
+			<register name="TC0_SR1" description="Status Register (channel = 1)" address="0x40080060" access="r" />
+			<register name="TC0_IER1" description="Interrupt Enable Register (channel = 1)" address="0x40080064" access="w" />
+			<register name="TC0_IDR1" description="Interrupt Disable Register (channel = 1)" address="0x40080068" access="w" />
+			<register name="TC0_IMR1" description="Interrupt Mask Register (channel = 1)" address="0x4008006C" access="r" />
+			<register name="TC0_CCR2" description="Channel Control Register (channel = 2)" address="0x40080080" access="w" />
+			<register name="TC0_CMR2" description="Channel Mode Register (channel = 2)" address="0x40080084" access="rw" />
+			<register name="TC0_SMMR2" description="Stepper Motor Mode Register (channel = 2)" address="0x40080088" access="rw" />
+			<register name="TC0_CV2" description="Counter Value (channel = 2)" address="0x40080090" access="r" />
+			<register name="TC0_RA2" description="Register A (channel = 2)" address="0x40080094" access="rw" />
+			<register name="TC0_RB2" description="Register B (channel = 2)" address="0x40080098" access="rw" />
+			<register name="TC0_RC2" description="Register C (channel = 2)" address="0x4008009C" access="rw" />
+			<register name="TC0_SR2" description="Status Register (channel = 2)" address="0x400800A0" access="r" />
+			<register name="TC0_IER2" description="Interrupt Enable Register (channel = 2)" address="0x400800A4" access="w" />
+			<register name="TC0_IDR2" description="Interrupt Disable Register (channel = 2)" address="0x400800A8" access="w" />
+			<register name="TC0_IMR2" description="Interrupt Mask Register (channel = 2)" address="0x400800AC" access="r" />
+			<register name="TC0_BCR" description="Block Control Register" address="0x400800C0" access="w" />
+			<register name="TC0_BMR" description="Block Mode Register" address="0x400800C4" access="rw" />
+			<register name="TC0_QIER" description="QDEC Interrupt Enable Register" address="0x400800C8" access="w" />
+			<register name="TC0_QIDR" description="QDEC Interrupt Disable Register" address="0x400800CC" access="w" />
+			<register name="TC0_QIMR" description="QDEC Interrupt Mask Register" address="0x400800D0" access="r" />
+			<register name="TC0_QISR" description="QDEC Interrupt Status Register" address="0x400800D4" access="r" />
+			<register name="TC0_FMR" description="Fault Mode Register" address="0x400800D8" access="rw" />
+			<register name="TC0_WPMR" description="Write Protect Mode Register" address="0x400800E4" access="rw" />
+		</registergroup>
+		<registergroup name="TC1" description= "TC1 peripheral" >
+			<register name="TC1_CCR0" description="Channel Control Register (channel = 0)" address="0x40084000" access="w" />
+			<register name="TC1_CMR0" description="Channel Mode Register (channel = 0)" address="0x40084004" access="rw" />
+			<register name="TC1_SMMR0" description="Stepper Motor Mode Register (channel = 0)" address="0x40084008" access="rw" />
+			<register name="TC1_CV0" description="Counter Value (channel = 0)" address="0x40084010" access="r" />
+			<register name="TC1_RA0" description="Register A (channel = 0)" address="0x40084014" access="rw" />
+			<register name="TC1_RB0" description="Register B (channel = 0)" address="0x40084018" access="rw" />
+			<register name="TC1_RC0" description="Register C (channel = 0)" address="0x4008401C" access="rw" />
+			<register name="TC1_SR0" description="Status Register (channel = 0)" address="0x40084020" access="r" />
+			<register name="TC1_IER0" description="Interrupt Enable Register (channel = 0)" address="0x40084024" access="w" />
+			<register name="TC1_IDR0" description="Interrupt Disable Register (channel = 0)" address="0x40084028" access="w" />
+			<register name="TC1_IMR0" description="Interrupt Mask Register (channel = 0)" address="0x4008402C" access="r" />
+			<register name="TC1_CCR1" description="Channel Control Register (channel = 1)" address="0x40084040" access="w" />
+			<register name="TC1_CMR1" description="Channel Mode Register (channel = 1)" address="0x40084044" access="rw" />
+			<register name="TC1_SMMR1" description="Stepper Motor Mode Register (channel = 1)" address="0x40084048" access="rw" />
+			<register name="TC1_CV1" description="Counter Value (channel = 1)" address="0x40084050" access="r" />
+			<register name="TC1_RA1" description="Register A (channel = 1)" address="0x40084054" access="rw" />
+			<register name="TC1_RB1" description="Register B (channel = 1)" address="0x40084058" access="rw" />
+			<register name="TC1_RC1" description="Register C (channel = 1)" address="0x4008405C" access="rw" />
+			<register name="TC1_SR1" description="Status Register (channel = 1)" address="0x40084060" access="r" />
+			<register name="TC1_IER1" description="Interrupt Enable Register (channel = 1)" address="0x40084064" access="w" />
+			<register name="TC1_IDR1" description="Interrupt Disable Register (channel = 1)" address="0x40084068" access="w" />
+			<register name="TC1_IMR1" description="Interrupt Mask Register (channel = 1)" address="0x4008406C" access="r" />
+			<register name="TC1_CCR2" description="Channel Control Register (channel = 2)" address="0x40084080" access="w" />
+			<register name="TC1_CMR2" description="Channel Mode Register (channel = 2)" address="0x40084084" access="rw" />
+			<register name="TC1_SMMR2" description="Stepper Motor Mode Register (channel = 2)" address="0x40084088" access="rw" />
+			<register name="TC1_CV2" description="Counter Value (channel = 2)" address="0x40084090" access="r" />
+			<register name="TC1_RA2" description="Register A (channel = 2)" address="0x40084094" access="rw" />
+			<register name="TC1_RB2" description="Register B (channel = 2)" address="0x40084098" access="rw" />
+			<register name="TC1_RC2" description="Register C (channel = 2)" address="0x4008409C" access="rw" />
+			<register name="TC1_SR2" description="Status Register (channel = 2)" address="0x400840A0" access="r" />
+			<register name="TC1_IER2" description="Interrupt Enable Register (channel = 2)" address="0x400840A4" access="w" />
+			<register name="TC1_IDR2" description="Interrupt Disable Register (channel = 2)" address="0x400840A8" access="w" />
+			<register name="TC1_IMR2" description="Interrupt Mask Register (channel = 2)" address="0x400840AC" access="r" />
+			<register name="TC1_BCR" description="Block Control Register" address="0x400840C0" access="w" />
+			<register name="TC1_BMR" description="Block Mode Register" address="0x400840C4" access="rw" />
+			<register name="TC1_QIER" description="QDEC Interrupt Enable Register" address="0x400840C8" access="w" />
+			<register name="TC1_QIDR" description="QDEC Interrupt Disable Register" address="0x400840CC" access="w" />
+			<register name="TC1_QIMR" description="QDEC Interrupt Mask Register" address="0x400840D0" access="r" />
+			<register name="TC1_QISR" description="QDEC Interrupt Status Register" address="0x400840D4" access="r" />
+			<register name="TC1_FMR" description="Fault Mode Register" address="0x400840D8" access="rw" />
+			<register name="TC1_WPMR" description="Write Protect Mode Register" address="0x400840E4" access="rw" />
+		</registergroup>
+		<registergroup name="TC2" description= "TC2 peripheral" >
+			<register name="TC2_CCR0" description="Channel Control Register (channel = 0)" address="0x40088000" access="w" />
+			<register name="TC2_CMR0" description="Channel Mode Register (channel = 0)" address="0x40088004" access="rw" />
+			<register name="TC2_SMMR0" description="Stepper Motor Mode Register (channel = 0)" address="0x40088008" access="rw" />
+			<register name="TC2_CV0" description="Counter Value (channel = 0)" address="0x40088010" access="r" />
+			<register name="TC2_RA0" description="Register A (channel = 0)" address="0x40088014" access="rw" />
+			<register name="TC2_RB0" description="Register B (channel = 0)" address="0x40088018" access="rw" />
+			<register name="TC2_RC0" description="Register C (channel = 0)" address="0x4008801C" access="rw" />
+			<register name="TC2_SR0" description="Status Register (channel = 0)" address="0x40088020" access="r" />
+			<register name="TC2_IER0" description="Interrupt Enable Register (channel = 0)" address="0x40088024" access="w" />
+			<register name="TC2_IDR0" description="Interrupt Disable Register (channel = 0)" address="0x40088028" access="w" />
+			<register name="TC2_IMR0" description="Interrupt Mask Register (channel = 0)" address="0x4008802C" access="r" />
+			<register name="TC2_CCR1" description="Channel Control Register (channel = 1)" address="0x40088040" access="w" />
+			<register name="TC2_CMR1" description="Channel Mode Register (channel = 1)" address="0x40088044" access="rw" />
+			<register name="TC2_SMMR1" description="Stepper Motor Mode Register (channel = 1)" address="0x40088048" access="rw" />
+			<register name="TC2_CV1" description="Counter Value (channel = 1)" address="0x40088050" access="r" />
+			<register name="TC2_RA1" description="Register A (channel = 1)" address="0x40088054" access="rw" />
+			<register name="TC2_RB1" description="Register B (channel = 1)" address="0x40088058" access="rw" />
+			<register name="TC2_RC1" description="Register C (channel = 1)" address="0x4008805C" access="rw" />
+			<register name="TC2_SR1" description="Status Register (channel = 1)" address="0x40088060" access="r" />
+			<register name="TC2_IER1" description="Interrupt Enable Register (channel = 1)" address="0x40088064" access="w" />
+			<register name="TC2_IDR1" description="Interrupt Disable Register (channel = 1)" address="0x40088068" access="w" />
+			<register name="TC2_IMR1" description="Interrupt Mask Register (channel = 1)" address="0x4008806C" access="r" />
+			<register name="TC2_CCR2" description="Channel Control Register (channel = 2)" address="0x40088080" access="w" />
+			<register name="TC2_CMR2" description="Channel Mode Register (channel = 2)" address="0x40088084" access="rw" />
+			<register name="TC2_SMMR2" description="Stepper Motor Mode Register (channel = 2)" address="0x40088088" access="rw" />
+			<register name="TC2_CV2" description="Counter Value (channel = 2)" address="0x40088090" access="r" />
+			<register name="TC2_RA2" description="Register A (channel = 2)" address="0x40088094" access="rw" />
+			<register name="TC2_RB2" description="Register B (channel = 2)" address="0x40088098" access="rw" />
+			<register name="TC2_RC2" description="Register C (channel = 2)" address="0x4008809C" access="rw" />
+			<register name="TC2_SR2" description="Status Register (channel = 2)" address="0x400880A0" access="r" />
+			<register name="TC2_IER2" description="Interrupt Enable Register (channel = 2)" address="0x400880A4" access="w" />
+			<register name="TC2_IDR2" description="Interrupt Disable Register (channel = 2)" address="0x400880A8" access="w" />
+			<register name="TC2_IMR2" description="Interrupt Mask Register (channel = 2)" address="0x400880AC" access="r" />
+			<register name="TC2_BCR" description="Block Control Register" address="0x400880C0" access="w" />
+			<register name="TC2_BMR" description="Block Mode Register" address="0x400880C4" access="rw" />
+			<register name="TC2_QIER" description="QDEC Interrupt Enable Register" address="0x400880C8" access="w" />
+			<register name="TC2_QIDR" description="QDEC Interrupt Disable Register" address="0x400880CC" access="w" />
+			<register name="TC2_QIMR" description="QDEC Interrupt Mask Register" address="0x400880D0" access="r" />
+			<register name="TC2_QISR" description="QDEC Interrupt Status Register" address="0x400880D4" access="r" />
+			<register name="TC2_FMR" description="Fault Mode Register" address="0x400880D8" access="rw" />
+			<register name="TC2_WPMR" description="Write Protect Mode Register" address="0x400880E4" access="rw" />
+		</registergroup>
+		<registergroup name="TRNG" description= "TRNG peripheral" >
+			<register name="TRNG_CR" description="Control Register" address="0x400BC000" access="w" />
+			<register name="TRNG_IER" description="Interrupt Enable Register" address="0x400BC010" access="w" />
+			<register name="TRNG_IDR" description="Interrupt Disable Register" address="0x400BC014" access="w" />
+			<register name="TRNG_IMR" description="Interrupt Mask Register" address="0x400BC018" access="r" />
+			<register name="TRNG_ISR" description="Interrupt Status Register" address="0x400BC01C" access="r" />
+			<register name="TRNG_ODATA" description="Output Data Register" address="0x400BC050" access="r" />
+		</registergroup>
+		<registergroup name="TWI0" description= "TWI0 peripheral" >
+			<register name="TWI0_CR" description="Control Register" address="0x4008C000" access="w" />
+			<register name="TWI0_MMR" description="Master Mode Register" address="0x4008C004" access="rw" />
+			<register name="TWI0_SMR" description="Slave Mode Register" address="0x4008C008" access="rw" />
+			<register name="TWI0_IADR" description="Internal Address Register" address="0x4008C00C" access="rw" />
+			<register name="TWI0_CWGR" description="Clock Waveform Generator Register" address="0x4008C010" access="rw" />
+			<register name="TWI0_SR" description="Status Register" address="0x4008C020" access="r" />
+			<register name="TWI0_IER" description="Interrupt Enable Register" address="0x4008C024" access="w" />
+			<register name="TWI0_IDR" description="Interrupt Disable Register" address="0x4008C028" access="w" />
+			<register name="TWI0_IMR" description="Interrupt Mask Register" address="0x4008C02C" access="r" />
+			<register name="TWI0_RHR" description="Receive Holding Register" address="0x4008C030" access="r" />
+			<register name="TWI0_THR" description="Transmit Holding Register" address="0x4008C034" access="w" />
+			<register name="TWI0_RPR" description="Receive Pointer Register" address="0x4008C100" access="rw" />
+			<register name="TWI0_RCR" description="Receive Counter Register" address="0x4008C104" access="rw" />
+			<register name="TWI0_TPR" description="Transmit Pointer Register" address="0x4008C108" access="rw" />
+			<register name="TWI0_TCR" description="Transmit Counter Register" address="0x4008C10C" access="rw" />
+			<register name="TWI0_RNPR" description="Receive Next Pointer Register" address="0x4008C110" access="rw" />
+			<register name="TWI0_RNCR" description="Receive Next Counter Register" address="0x4008C114" access="rw" />
+			<register name="TWI0_TNPR" description="Transmit Next Pointer Register" address="0x4008C118" access="rw" />
+			<register name="TWI0_TNCR" description="Transmit Next Counter Register" address="0x4008C11C" access="rw" />
+			<register name="TWI0_PTCR" description="Transfer Control Register" address="0x4008C120" access="w" />
+			<register name="TWI0_PTSR" description="Transfer Status Register" address="0x4008C124" access="r" />
+		</registergroup>
+		<registergroup name="TWI1" description= "TWI1 peripheral" >
+			<register name="TWI1_CR" description="Control Register" address="0x40090000" access="w" />
+			<register name="TWI1_MMR" description="Master Mode Register" address="0x40090004" access="rw" />
+			<register name="TWI1_SMR" description="Slave Mode Register" address="0x40090008" access="rw" />
+			<register name="TWI1_IADR" description="Internal Address Register" address="0x4009000C" access="rw" />
+			<register name="TWI1_CWGR" description="Clock Waveform Generator Register" address="0x40090010" access="rw" />
+			<register name="TWI1_SR" description="Status Register" address="0x40090020" access="r" />
+			<register name="TWI1_IER" description="Interrupt Enable Register" address="0x40090024" access="w" />
+			<register name="TWI1_IDR" description="Interrupt Disable Register" address="0x40090028" access="w" />
+			<register name="TWI1_IMR" description="Interrupt Mask Register" address="0x4009002C" access="r" />
+			<register name="TWI1_RHR" description="Receive Holding Register" address="0x40090030" access="r" />
+			<register name="TWI1_THR" description="Transmit Holding Register" address="0x40090034" access="w" />
+			<register name="TWI1_RPR" description="Receive Pointer Register" address="0x40090100" access="rw" />
+			<register name="TWI1_RCR" description="Receive Counter Register" address="0x40090104" access="rw" />
+			<register name="TWI1_TPR" description="Transmit Pointer Register" address="0x40090108" access="rw" />
+			<register name="TWI1_TCR" description="Transmit Counter Register" address="0x4009010C" access="rw" />
+			<register name="TWI1_RNPR" description="Receive Next Pointer Register" address="0x40090110" access="rw" />
+			<register name="TWI1_RNCR" description="Receive Next Counter Register" address="0x40090114" access="rw" />
+			<register name="TWI1_TNPR" description="Transmit Next Pointer Register" address="0x40090118" access="rw" />
+			<register name="TWI1_TNCR" description="Transmit Next Counter Register" address="0x4009011C" access="rw" />
+			<register name="TWI1_PTCR" description="Transfer Control Register" address="0x40090120" access="w" />
+			<register name="TWI1_PTSR" description="Transfer Status Register" address="0x40090124" access="r" />
+		</registergroup>
+		<registergroup name="UART" description= "UART peripheral" >
+			<register name="UART_CR" description="Control Register" address="0x400E0800" access="w" />
+			<register name="UART_MR" description="Mode Register" address="0x400E0804" access="rw" />
+			<register name="UART_IER" description="Interrupt Enable Register" address="0x400E0808" access="w" />
+			<register name="UART_IDR" description="Interrupt Disable Register" address="0x400E080C" access="w" />
+			<register name="UART_IMR" description="Interrupt Mask Register" address="0x400E0810" access="r" />
+			<register name="UART_SR" description="Status Register" address="0x400E0814" access="r" />
+			<register name="UART_RHR" description="Receive Holding Register" address="0x400E0818" access="r" />
+			<register name="UART_THR" description="Transmit Holding Register" address="0x400E081C" access="w" />
+			<register name="UART_BRGR" description="Baud Rate Generator Register" address="0x400E0820" access="rw" />
+			<register name="UART_RPR" description="Receive Pointer Register" address="0x400E0900" access="rw" />
+			<register name="UART_RCR" description="Receive Counter Register" address="0x400E0904" access="rw" />
+			<register name="UART_TPR" description="Transmit Pointer Register" address="0x400E0908" access="rw" />
+			<register name="UART_TCR" description="Transmit Counter Register" address="0x400E090C" access="rw" />
+			<register name="UART_RNPR" description="Receive Next Pointer Register" address="0x400E0910" access="rw" />
+			<register name="UART_RNCR" description="Receive Next Counter Register" address="0x400E0914" access="rw" />
+			<register name="UART_TNPR" description="Transmit Next Pointer Register" address="0x400E0918" access="rw" />
+			<register name="UART_TNCR" description="Transmit Next Counter Register" address="0x400E091C" access="rw" />
+			<register name="UART_PTCR" description="Transfer Control Register" address="0x400E0920" access="w" />
+			<register name="UART_PTSR" description="Transfer Status Register" address="0x400E0924" access="r" />
+		</registergroup>
+		<registergroup name="UOTGHS" description= "UOTGHS peripheral" >
+			<register name="UOTGHS_DEVCTRL" description="Device General Control Register" address="0x400AC000" access="rw" />
+			<register name="UOTGHS_DEVISR" description="Device Global Interrupt Status Register" address="0x400AC004" access="r" />
+			<register name="UOTGHS_DEVICR" description="Device Global Interrupt Clear Register" address="0x400AC008" access="w" />
+			<register name="UOTGHS_DEVIFR" description="Device Global Interrupt Set Register" address="0x400AC00C" access="w" />
+			<register name="UOTGHS_DEVIMR" description="Device Global Interrupt Mask Register" address="0x400AC010" access="r" />
+			<register name="UOTGHS_DEVIDR" description="Device Global Interrupt Disable Register" address="0x400AC014" access="w" />
+			<register name="UOTGHS_DEVIER" description="Device Global Interrupt Enable Register" address="0x400AC018" access="w" />
+			<register name="UOTGHS_DEVEPT" description="Device Endpoint Register" address="0x400AC01C" access="rw" />
+			<register name="UOTGHS_DEVFNUM" description="Device Frame Number Register" address="0x400AC020" access="r" />
+			<register name="UOTGHS_DEVEPTCFG" description="Device Endpoint Configuration Register (n = 0)" address="0x400AC100" access="rw" />
+			<register name="UOTGHS_DEVEPTISR" description="Device Endpoint Status Register (n = 0)" address="0x400AC130" access="r" />
+			<register name="UOTGHS_DEVEPTICR" description="Device Endpoint Clear Register (n = 0)" address="0x400AC160" access="w" />
+			<register name="UOTGHS_DEVEPTIFR" description="Device Endpoint Set Register (n = 0)" address="0x400AC190" access="w" />
+			<register name="UOTGHS_DEVEPTIMR" description="Device Endpoint Mask Register (n = 0)" address="0x400AC1C0" access="r" />
+			<register name="UOTGHS_DEVEPTIER" description="Device Endpoint Enable Register (n = 0)" address="0x400AC1F0" access="w" />
+			<register name="UOTGHS_DEVEPTIDR" description="Device Endpoint Disable Register (n = 0)" address="0x400AC220" access="w" />
+			<register name="UOTGHS_DEVDMANXTDSC1" description="Device DMA Channel Next Descriptor Address Register (n = 1)" address="0x400AC310" access="rw" />
+			<register name="UOTGHS_DEVDMAADDRESS1" description="Device DMA Channel Address Register (n = 1)" address="0x400AC314" access="rw" />
+			<register name="UOTGHS_DEVDMACONTROL1" description="Device DMA Channel Control Register (n = 1)" address="0x400AC318" access="rw" />
+			<register name="UOTGHS_DEVDMASTATUS1" description="Device DMA Channel Status Register (n = 1)" address="0x400AC31C" access="rw" />
+			<register name="UOTGHS_DEVDMANXTDSC2" description="Device DMA Channel Next Descriptor Address Register (n = 2)" address="0x400AC320" access="rw" />
+			<register name="UOTGHS_DEVDMAADDRESS2" description="Device DMA Channel Address Register (n = 2)" address="0x400AC324" access="rw" />
+			<register name="UOTGHS_DEVDMACONTROL2" description="Device DMA Channel Control Register (n = 2)" address="0x400AC328" access="rw" />
+			<register name="UOTGHS_DEVDMASTATUS2" description="Device DMA Channel Status Register (n = 2)" address="0x400AC32C" access="rw" />
+			<register name="UOTGHS_DEVDMANXTDSC3" description="Device DMA Channel Next Descriptor Address Register (n = 3)" address="0x400AC330" access="rw" />
+			<register name="UOTGHS_DEVDMAADDRESS3" description="Device DMA Channel Address Register (n = 3)" address="0x400AC334" access="rw" />
+			<register name="UOTGHS_DEVDMACONTROL3" description="Device DMA Channel Control Register (n = 3)" address="0x400AC338" access="rw" />
+			<register name="UOTGHS_DEVDMASTATUS3" description="Device DMA Channel Status Register (n = 3)" address="0x400AC33C" access="rw" />
+			<register name="UOTGHS_DEVDMANXTDSC4" description="Device DMA Channel Next Descriptor Address Register (n = 4)" address="0x400AC340" access="rw" />
+			<register name="UOTGHS_DEVDMAADDRESS4" description="Device DMA Channel Address Register (n = 4)" address="0x400AC344" access="rw" />
+			<register name="UOTGHS_DEVDMACONTROL4" description="Device DMA Channel Control Register (n = 4)" address="0x400AC348" access="rw" />
+			<register name="UOTGHS_DEVDMASTATUS4" description="Device DMA Channel Status Register (n = 4)" address="0x400AC34C" access="rw" />
+			<register name="UOTGHS_DEVDMANXTDSC5" description="Device DMA Channel Next Descriptor Address Register (n = 5)" address="0x400AC350" access="rw" />
+			<register name="UOTGHS_DEVDMAADDRESS5" description="Device DMA Channel Address Register (n = 5)" address="0x400AC354" access="rw" />
+			<register name="UOTGHS_DEVDMACONTROL5" description="Device DMA Channel Control Register (n = 5)" address="0x400AC358" access="rw" />
+			<register name="UOTGHS_DEVDMASTATUS5" description="Device DMA Channel Status Register (n = 5)" address="0x400AC35C" access="rw" />
+			<register name="UOTGHS_DEVDMANXTDSC6" description="Device DMA Channel Next Descriptor Address Register (n = 6)" address="0x400AC360" access="rw" />
+			<register name="UOTGHS_DEVDMAADDRESS6" description="Device DMA Channel Address Register (n = 6)" address="0x400AC364" access="rw" />
+			<register name="UOTGHS_DEVDMACONTROL6" description="Device DMA Channel Control Register (n = 6)" address="0x400AC368" access="rw" />
+			<register name="UOTGHS_DEVDMASTATUS6" description="Device DMA Channel Status Register (n = 6)" address="0x400AC36C" access="rw" />
+			<register name="UOTGHS_DEVDMANXTDSC7" description="Device DMA Channel Next Descriptor Address Register (n = 7)" address="0x400AC370" access="rw" />
+			<register name="UOTGHS_DEVDMAADDRESS7" description="Device DMA Channel Address Register (n = 7)" address="0x400AC374" access="rw" />
+			<register name="UOTGHS_DEVDMACONTROL7" description="Device DMA Channel Control Register (n = 7)" address="0x400AC378" access="rw" />
+			<register name="UOTGHS_DEVDMASTATUS7" description="Device DMA Channel Status Register (n = 7)" address="0x400AC37C" access="rw" />
+			<register name="UOTGHS_HSTCTRL" description="Host General Control Register" address="0x400AC400" access="rw" />
+			<register name="UOTGHS_HSTISR" description="Host Global Interrupt Status Register" address="0x400AC404" access="r" />
+			<register name="UOTGHS_HSTICR" description="Host Global Interrupt Clear Register" address="0x400AC408" access="w" />
+			<register name="UOTGHS_HSTIFR" description="Host Global Interrupt Set Register" address="0x400AC40C" access="w" />
+			<register name="UOTGHS_HSTIMR" description="Host Global Interrupt Mask Register" address="0x400AC410" access="r" />
+			<register name="UOTGHS_HSTIDR" description="Host Global Interrupt Disable Register" address="0x400AC414" access="w" />
+			<register name="UOTGHS_HSTIER" description="Host Global Interrupt Enable Register" address="0x400AC418" access="w" />
+			<register name="UOTGHS_HSTPIP" description="Host Pipe Register" address="0x400AC41C" access="rw" />
+			<register name="UOTGHS_HSTFNUM" description="Host Frame Number Register" address="0x400AC420" access="rw" />
+			<register name="UOTGHS_HSTADDR1" description="Host Address 1 Register" address="0x400AC424" access="rw" />
+			<register name="UOTGHS_HSTADDR2" description="Host Address 2 Register" address="0x400AC428" access="rw" />
+			<register name="UOTGHS_HSTADDR3" description="Host Address 3 Register" address="0x400AC42C" access="rw" />
+			<register name="UOTGHS_HSTPIPCFG" description="Host Pipe Configuration Register (n = 0)" address="0x400AC500" access="rw" />
+			<register name="UOTGHS_HSTPIPISR" description="Host Pipe Status Register (n = 0)" address="0x400AC530" access="r" />
+			<register name="UOTGHS_HSTPIPICR" description="Host Pipe Clear Register (n = 0)" address="0x400AC560" access="w" />
+			<register name="UOTGHS_HSTPIPIFR" description="Host Pipe Set Register (n = 0)" address="0x400AC590" access="w" />
+			<register name="UOTGHS_HSTPIPIMR" description="Host Pipe Mask Register (n = 0)" address="0x400AC5C0" access="r" />
+			<register name="UOTGHS_HSTPIPIER" description="Host Pipe Enable Register (n = 0)" address="0x400AC5F0" access="w" />
+			<register name="UOTGHS_HSTPIPIDR" description="Host Pipe Disable Register (n = 0)" address="0x400AC620" access="w" />
+			<register name="UOTGHS_HSTPIPINRQ" description="Host Pipe IN Request Register (n = 0)" address="0x400AC650" access="rw" />
+			<register name="UOTGHS_HSTPIPERR" description="Host Pipe Error Register (n = 0)" address="0x400AC680" access="rw" />
+			<register name="UOTGHS_HSTDMANXTDSC1" description="Host DMA Channel Next Descriptor Address Register (n = 1)" address="0x400AC710" access="rw" />
+			<register name="UOTGHS_HSTDMAADDRESS1" description="Host DMA Channel Address Register (n = 1)" address="0x400AC714" access="rw" />
+			<register name="UOTGHS_HSTDMACONTROL1" description="Host DMA Channel Control Register (n = 1)" address="0x400AC718" access="rw" />
+			<register name="UOTGHS_HSTDMASTATUS1" description="Host DMA Channel Status Register (n = 1)" address="0x400AC71C" access="rw" />
+			<register name="UOTGHS_HSTDMANXTDSC2" description="Host DMA Channel Next Descriptor Address Register (n = 2)" address="0x400AC720" access="rw" />
+			<register name="UOTGHS_HSTDMAADDRESS2" description="Host DMA Channel Address Register (n = 2)" address="0x400AC724" access="rw" />
+			<register name="UOTGHS_HSTDMACONTROL2" description="Host DMA Channel Control Register (n = 2)" address="0x400AC728" access="rw" />
+			<register name="UOTGHS_HSTDMASTATUS2" description="Host DMA Channel Status Register (n = 2)" address="0x400AC72C" access="rw" />
+			<register name="UOTGHS_HSTDMANXTDSC3" description="Host DMA Channel Next Descriptor Address Register (n = 3)" address="0x400AC730" access="rw" />
+			<register name="UOTGHS_HSTDMAADDRESS3" description="Host DMA Channel Address Register (n = 3)" address="0x400AC734" access="rw" />
+			<register name="UOTGHS_HSTDMACONTROL3" description="Host DMA Channel Control Register (n = 3)" address="0x400AC738" access="rw" />
+			<register name="UOTGHS_HSTDMASTATUS3" description="Host DMA Channel Status Register (n = 3)" address="0x400AC73C" access="rw" />
+			<register name="UOTGHS_HSTDMANXTDSC4" description="Host DMA Channel Next Descriptor Address Register (n = 4)" address="0x400AC740" access="rw" />
+			<register name="UOTGHS_HSTDMAADDRESS4" description="Host DMA Channel Address Register (n = 4)" address="0x400AC744" access="rw" />
+			<register name="UOTGHS_HSTDMACONTROL4" description="Host DMA Channel Control Register (n = 4)" address="0x400AC748" access="rw" />
+			<register name="UOTGHS_HSTDMASTATUS4" description="Host DMA Channel Status Register (n = 4)" address="0x400AC74C" access="rw" />
+			<register name="UOTGHS_HSTDMANXTDSC5" description="Host DMA Channel Next Descriptor Address Register (n = 5)" address="0x400AC750" access="rw" />
+			<register name="UOTGHS_HSTDMAADDRESS5" description="Host DMA Channel Address Register (n = 5)" address="0x400AC754" access="rw" />
+			<register name="UOTGHS_HSTDMACONTROL5" description="Host DMA Channel Control Register (n = 5)" address="0x400AC758" access="rw" />
+			<register name="UOTGHS_HSTDMASTATUS5" description="Host DMA Channel Status Register (n = 5)" address="0x400AC75C" access="rw" />
+			<register name="UOTGHS_HSTDMANXTDSC6" description="Host DMA Channel Next Descriptor Address Register (n = 6)" address="0x400AC760" access="rw" />
+			<register name="UOTGHS_HSTDMAADDRESS6" description="Host DMA Channel Address Register (n = 6)" address="0x400AC764" access="rw" />
+			<register name="UOTGHS_HSTDMACONTROL6" description="Host DMA Channel Control Register (n = 6)" address="0x400AC768" access="rw" />
+			<register name="UOTGHS_HSTDMASTATUS6" description="Host DMA Channel Status Register (n = 6)" address="0x400AC76C" access="rw" />
+			<register name="UOTGHS_HSTDMANXTDSC7" description="Host DMA Channel Next Descriptor Address Register (n = 7)" address="0x400AC770" access="rw" />
+			<register name="UOTGHS_HSTDMAADDRESS7" description="Host DMA Channel Address Register (n = 7)" address="0x400AC774" access="rw" />
+			<register name="UOTGHS_HSTDMACONTROL7" description="Host DMA Channel Control Register (n = 7)" address="0x400AC778" access="rw" />
+			<register name="UOTGHS_HSTDMASTATUS7" description="Host DMA Channel Status Register (n = 7)" address="0x400AC77C" access="rw" />
+			<register name="UOTGHS_CTRL" description="General Control Register" address="0x400AC800" access="rw" />
+			<register name="UOTGHS_SR" description="General Status Register" address="0x400AC804" access="r" />
+			<register name="UOTGHS_SCR" description="General Status Clear Register" address="0x400AC808" access="w" />
+			<register name="UOTGHS_SFR" description="General Status Set Register" address="0x400AC80C" access="w" />
+			<register name="UOTGHS_FSM" description="General Finite State Machine Register" address="0x400AC82C" access="r" />
+		</registergroup>
+		<registergroup name="USART0" description= "USART0 peripheral" >
+			<register name="USART0_CR" description="Control Register" address="0x40098000" access="w" />
+			<register name="USART0_MR" description="Mode Register" address="0x40098004" access="rw" />
+			<register name="USART0_IER" description="Interrupt Enable Register" address="0x40098008" access="w" />
+			<register name="USART0_IDR" description="Interrupt Disable Register" address="0x4009800C" access="w" />
+			<register name="USART0_IMR" description="Interrupt Mask Register" address="0x40098010" access="r" />
+			<register name="USART0_CSR" description="Channel Status Register" address="0x40098014" access="r" />
+			<register name="USART0_RHR" description="Receiver Holding Register" address="0x40098018" access="r" />
+			<register name="USART0_THR" description="Transmitter Holding Register" address="0x4009801C" access="w" />
+			<register name="USART0_BRGR" description="Baud Rate Generator Register" address="0x40098020" access="rw" />
+			<register name="USART0_RTOR" description="Receiver Time-out Register" address="0x40098024" access="rw" />
+			<register name="USART0_TTGR" description="Transmitter Timeguard Register" address="0x40098028" access="rw" />
+			<register name="USART0_FIDI" description="FI DI Ratio Register" address="0x40098040" access="rw" />
+			<register name="USART0_NER" description="Number of Errors Register" address="0x40098044" access="r" />
+			<register name="USART0_IF" description="IrDA Filter Register" address="0x4009804C" access="rw" />
+			<register name="USART0_MAN" description="Manchester Encoder Decoder Register" address="0x40098050" access="rw" />
+			<register name="USART0_LINMR" description="LIN Mode Register" address="0x40098054" access="rw" />
+			<register name="USART0_LINIR" description="LIN Identifier Register" address="0x40098058" access="rw" />
+			<register name="USART0_LINBRR" description="LIN Baud Rate Register" address="0x4009805C" access="r" />
+			<register name="USART0_WPMR" description="Write Protect Mode Register" address="0x400980E4" access="rw" />
+			<register name="USART0_WPSR" description="Write Protect Status Register" address="0x400980E8" access="r" />
+			<register name="USART0_RPR" description="Receive Pointer Register" address="0x40098100" access="rw" />
+			<register name="USART0_RCR" description="Receive Counter Register" address="0x40098104" access="rw" />
+			<register name="USART0_TPR" description="Transmit Pointer Register" address="0x40098108" access="rw" />
+			<register name="USART0_TCR" description="Transmit Counter Register" address="0x4009810C" access="rw" />
+			<register name="USART0_RNPR" description="Receive Next Pointer Register" address="0x40098110" access="rw" />
+			<register name="USART0_RNCR" description="Receive Next Counter Register" address="0x40098114" access="rw" />
+			<register name="USART0_TNPR" description="Transmit Next Pointer Register" address="0x40098118" access="rw" />
+			<register name="USART0_TNCR" description="Transmit Next Counter Register" address="0x4009811C" access="rw" />
+			<register name="USART0_PTCR" description="Transfer Control Register" address="0x40098120" access="w" />
+			<register name="USART0_PTSR" description="Transfer Status Register" address="0x40098124" access="r" />
+		</registergroup>
+		<registergroup name="USART1" description= "USART1 peripheral" >
+			<register name="USART1_CR" description="Control Register" address="0x4009C000" access="w" />
+			<register name="USART1_MR" description="Mode Register" address="0x4009C004" access="rw" />
+			<register name="USART1_IER" description="Interrupt Enable Register" address="0x4009C008" access="w" />
+			<register name="USART1_IDR" description="Interrupt Disable Register" address="0x4009C00C" access="w" />
+			<register name="USART1_IMR" description="Interrupt Mask Register" address="0x4009C010" access="r" />
+			<register name="USART1_CSR" description="Channel Status Register" address="0x4009C014" access="r" />
+			<register name="USART1_RHR" description="Receiver Holding Register" address="0x4009C018" access="r" />
+			<register name="USART1_THR" description="Transmitter Holding Register" address="0x4009C01C" access="w" />
+			<register name="USART1_BRGR" description="Baud Rate Generator Register" address="0x4009C020" access="rw" />
+			<register name="USART1_RTOR" description="Receiver Time-out Register" address="0x4009C024" access="rw" />
+			<register name="USART1_TTGR" description="Transmitter Timeguard Register" address="0x4009C028" access="rw" />
+			<register name="USART1_FIDI" description="FI DI Ratio Register" address="0x4009C040" access="rw" />
+			<register name="USART1_NER" description="Number of Errors Register" address="0x4009C044" access="r" />
+			<register name="USART1_IF" description="IrDA Filter Register" address="0x4009C04C" access="rw" />
+			<register name="USART1_MAN" description="Manchester Encoder Decoder Register" address="0x4009C050" access="rw" />
+			<register name="USART1_LINMR" description="LIN Mode Register" address="0x4009C054" access="rw" />
+			<register name="USART1_LINIR" description="LIN Identifier Register" address="0x4009C058" access="rw" />
+			<register name="USART1_LINBRR" description="LIN Baud Rate Register" address="0x4009C05C" access="r" />
+			<register name="USART1_WPMR" description="Write Protect Mode Register" address="0x4009C0E4" access="rw" />
+			<register name="USART1_WPSR" description="Write Protect Status Register" address="0x4009C0E8" access="r" />
+			<register name="USART1_RPR" description="Receive Pointer Register" address="0x4009C100" access="rw" />
+			<register name="USART1_RCR" description="Receive Counter Register" address="0x4009C104" access="rw" />
+			<register name="USART1_TPR" description="Transmit Pointer Register" address="0x4009C108" access="rw" />
+			<register name="USART1_TCR" description="Transmit Counter Register" address="0x4009C10C" access="rw" />
+			<register name="USART1_RNPR" description="Receive Next Pointer Register" address="0x4009C110" access="rw" />
+			<register name="USART1_RNCR" description="Receive Next Counter Register" address="0x4009C114" access="rw" />
+			<register name="USART1_TNPR" description="Transmit Next Pointer Register" address="0x4009C118" access="rw" />
+			<register name="USART1_TNCR" description="Transmit Next Counter Register" address="0x4009C11C" access="rw" />
+			<register name="USART1_PTCR" description="Transfer Control Register" address="0x4009C120" access="w" />
+			<register name="USART1_PTSR" description="Transfer Status Register" address="0x4009C124" access="r" />
+		</registergroup>
+		<registergroup name="USART2" description= "USART2 peripheral" >
+			<register name="USART2_CR" description="Control Register" address="0x400A0000" access="w" />
+			<register name="USART2_MR" description="Mode Register" address="0x400A0004" access="rw" />
+			<register name="USART2_IER" description="Interrupt Enable Register" address="0x400A0008" access="w" />
+			<register name="USART2_IDR" description="Interrupt Disable Register" address="0x400A000C" access="w" />
+			<register name="USART2_IMR" description="Interrupt Mask Register" address="0x400A0010" access="r" />
+			<register name="USART2_CSR" description="Channel Status Register" address="0x400A0014" access="r" />
+			<register name="USART2_RHR" description="Receiver Holding Register" address="0x400A0018" access="r" />
+			<register name="USART2_THR" description="Transmitter Holding Register" address="0x400A001C" access="w" />
+			<register name="USART2_BRGR" description="Baud Rate Generator Register" address="0x400A0020" access="rw" />
+			<register name="USART2_RTOR" description="Receiver Time-out Register" address="0x400A0024" access="rw" />
+			<register name="USART2_TTGR" description="Transmitter Timeguard Register" address="0x400A0028" access="rw" />
+			<register name="USART2_FIDI" description="FI DI Ratio Register" address="0x400A0040" access="rw" />
+			<register name="USART2_NER" description="Number of Errors Register" address="0x400A0044" access="r" />
+			<register name="USART2_IF" description="IrDA Filter Register" address="0x400A004C" access="rw" />
+			<register name="USART2_MAN" description="Manchester Encoder Decoder Register" address="0x400A0050" access="rw" />
+			<register name="USART2_LINMR" description="LIN Mode Register" address="0x400A0054" access="rw" />
+			<register name="USART2_LINIR" description="LIN Identifier Register" address="0x400A0058" access="rw" />
+			<register name="USART2_LINBRR" description="LIN Baud Rate Register" address="0x400A005C" access="r" />
+			<register name="USART2_WPMR" description="Write Protect Mode Register" address="0x400A00E4" access="rw" />
+			<register name="USART2_WPSR" description="Write Protect Status Register" address="0x400A00E8" access="r" />
+			<register name="USART2_RPR" description="Receive Pointer Register" address="0x400A0100" access="rw" />
+			<register name="USART2_RCR" description="Receive Counter Register" address="0x400A0104" access="rw" />
+			<register name="USART2_TPR" description="Transmit Pointer Register" address="0x400A0108" access="rw" />
+			<register name="USART2_TCR" description="Transmit Counter Register" address="0x400A010C" access="rw" />
+			<register name="USART2_RNPR" description="Receive Next Pointer Register" address="0x400A0110" access="rw" />
+			<register name="USART2_RNCR" description="Receive Next Counter Register" address="0x400A0114" access="rw" />
+			<register name="USART2_TNPR" description="Transmit Next Pointer Register" address="0x400A0118" access="rw" />
+			<register name="USART2_TNCR" description="Transmit Next Counter Register" address="0x400A011C" access="rw" />
+			<register name="USART2_PTCR" description="Transfer Control Register" address="0x400A0120" access="w" />
+			<register name="USART2_PTSR" description="Transfer Status Register" address="0x400A0124" access="r" />
+		</registergroup>
+		<registergroup name="USART3" description= "USART3 peripheral" >
+			<register name="USART3_CR" description="Control Register" address="0x400A4000" access="w" />
+			<register name="USART3_MR" description="Mode Register" address="0x400A4004" access="rw" />
+			<register name="USART3_IER" description="Interrupt Enable Register" address="0x400A4008" access="w" />
+			<register name="USART3_IDR" description="Interrupt Disable Register" address="0x400A400C" access="w" />
+			<register name="USART3_IMR" description="Interrupt Mask Register" address="0x400A4010" access="r" />
+			<register name="USART3_CSR" description="Channel Status Register" address="0x400A4014" access="r" />
+			<register name="USART3_RHR" description="Receiver Holding Register" address="0x400A4018" access="r" />
+			<register name="USART3_THR" description="Transmitter Holding Register" address="0x400A401C" access="w" />
+			<register name="USART3_BRGR" description="Baud Rate Generator Register" address="0x400A4020" access="rw" />
+			<register name="USART3_RTOR" description="Receiver Time-out Register" address="0x400A4024" access="rw" />
+			<register name="USART3_TTGR" description="Transmitter Timeguard Register" address="0x400A4028" access="rw" />
+			<register name="USART3_FIDI" description="FI DI Ratio Register" address="0x400A4040" access="rw" />
+			<register name="USART3_NER" description="Number of Errors Register" address="0x400A4044" access="r" />
+			<register name="USART3_IF" description="IrDA Filter Register" address="0x400A404C" access="rw" />
+			<register name="USART3_MAN" description="Manchester Encoder Decoder Register" address="0x400A4050" access="rw" />
+			<register name="USART3_LINMR" description="LIN Mode Register" address="0x400A4054" access="rw" />
+			<register name="USART3_LINIR" description="LIN Identifier Register" address="0x400A4058" access="rw" />
+			<register name="USART3_LINBRR" description="LIN Baud Rate Register" address="0x400A405C" access="r" />
+			<register name="USART3_WPMR" description="Write Protect Mode Register" address="0x400A40E4" access="rw" />
+			<register name="USART3_WPSR" description="Write Protect Status Register" address="0x400A40E8" access="r" />
+			<register name="USART3_RPR" description="Receive Pointer Register" address="0x400A4100" access="rw" />
+			<register name="USART3_RCR" description="Receive Counter Register" address="0x400A4104" access="rw" />
+			<register name="USART3_TPR" description="Transmit Pointer Register" address="0x400A4108" access="rw" />
+			<register name="USART3_TCR" description="Transmit Counter Register" address="0x400A410C" access="rw" />
+			<register name="USART3_RNPR" description="Receive Next Pointer Register" address="0x400A4110" access="rw" />
+			<register name="USART3_RNCR" description="Receive Next Counter Register" address="0x400A4114" access="rw" />
+			<register name="USART3_TNPR" description="Transmit Next Pointer Register" address="0x400A4118" access="rw" />
+			<register name="USART3_TNCR" description="Transmit Next Counter Register" address="0x400A411C" access="rw" />
+			<register name="USART3_PTCR" description="Transfer Control Register" address="0x400A4120" access="w" />
+			<register name="USART3_PTSR" description="Transfer Status Register" address="0x400A4124" access="r" />
+		</registergroup>
+		<registergroup name="WDT" description= "WDT peripheral" >
+			<register name="WDT_CR" description="Control Register" address="0x400E1A50" access="w" />
+			<register name="WDT_MR" description="Mode Register" address="0x400E1A54" access="rw" />
+			<register name="WDT_SR" description="Status Register" address="0x400E1A58" access="r" />
+		</registergroup>
+	</group>
+</model>
