@@ -10,14 +10,14 @@ Things to do for a new FULL release:
   * embsysregview.data_feature -> feature.xml
 * update site.xml with new feature versions for view/data and compile
 * upload features/plugins jar files to sourceforge
-* update site.xml on sf webspace with new version numbers
-* update website
+* update website in eclipse
   * list new features
   * list all changes
+* update site.xml on sf webspace with new version numbers
+* upload website to sf
 * post news article on sf
 
-  
-  
+
 Things to do for a new DATA release:
 ====================================
 * switch version in:
