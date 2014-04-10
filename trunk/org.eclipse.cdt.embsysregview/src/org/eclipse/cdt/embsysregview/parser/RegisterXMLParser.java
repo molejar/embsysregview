@@ -340,6 +340,12 @@ public class RegisterXMLParser {
 										if (attr_key != null)
 											if (attr_key.getValue().startsWith("0x"))
 												key = Long.valueOf(attr_key.getValue().substring(2),16);
+											else if (attr_key.getValue().startsWith("#")) {
+												// Substitue x in #1xx binary patterns
+												String str = attr_key.getValue().substring(1);
+												str = str.replaceAll("x", "0");
+												key = Long.valueOf(str,2);
+											}
 											else
 												key = Long.valueOf(attr_key.getValue());
 										else
