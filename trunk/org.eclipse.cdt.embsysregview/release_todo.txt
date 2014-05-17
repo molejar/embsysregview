@@ -1,5 +1,6 @@
 Things to do for a new FULL release:
 ====================================
+* update SVN to head
 * check for open patches
 * check for open bugs
 * update LM data files (last check 20131012)
@@ -20,6 +21,7 @@ Things to do for a new FULL release:
 
 Things to do for a new DATA release:
 ====================================
+* update SVN to head
 * switch version in:
   * embsysregview.data -> META-INF/MANIFEST.MF
   * embsysregview.data_feature -> feature.xml
