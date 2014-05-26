@@ -61,7 +61,7 @@
   • Pre-Programmed Serial Bootloader
   • Temperature range -40 to 85 ºC
   • Single power supply 1.8 to 3.8 V
-(C) Copyright Silicon Laboratories Norway AS, 2013. All rights reserved.
+(C) Copyright Silicon Laboratories, Inc. 2014. All rights reserved.
   </chip_description>
   <group name="DMA" description="">
     <registergroup name="DMA" description="">
@@ -8486,10 +8486,10 @@
  Mass Erase Lock
  -
  Value, Description
- 0x00, LOCK -
- 0x00, UNLOCKED -
- 0x01, LOCKED -
- 0x0631A, UNLOCK -
+ 0x00, LOCK - Lock mass erase.
+ 0x00, UNLOCKED - Mass erase unlocked.
+ 0x01, LOCKED - Mass erase locked.
+ 0x0631A, UNLOCK - Unlock mass erase.
           </description>
           <interpretation key="0x00000000" text="LOCK"/>
           <interpretation key="0x00000000" text="UNLOCKED"/>
@@ -25383,9 +25383,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -26079,9 +26079,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -26775,9 +26775,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -27471,9 +27471,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -28167,9 +28167,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -28863,9 +28863,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
