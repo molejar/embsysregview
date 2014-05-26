@@ -8,7 +8,7 @@
    <feature url="features/org.eclipse.cdt.embsysregview_feature_0.2.4.jar" id="org.eclipse.cdt.embsysregview_feature" version="0.2.4">
       <category name="embsysregview"/>
    </feature>
-   <feature url="features/org.eclipse.cdt.embsysregview.data_feature_0.2.4.r160.jar" id="org.eclipse.cdt.embsysregview.data_feature" version="0.2.4.r160">
+   <feature url="features/org.eclipse.cdt.embsysregview.data_feature_0.2.4.r168.jar" id="org.eclipse.cdt.embsysregview.data_feature" version="0.2.4.r168">
       <category name="embsysregview"/>
    </feature>
    <archive path="plugins/org.eclipse.cdt.embsysregview_0.2.3.90.jar" url="http://downloads.sourceforge.net/embsysregview/org.eclipse.cdt.embsysregview_0.2.3.90.jar"/>
