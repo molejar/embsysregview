@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.List;
-import java.util.StringTokenizer;
-
 import org.eclipse.cdt.embsysregview.Activator;
 import org.eclipse.cdt.embsysregview.views.Interpretations;
 import org.eclipse.cdt.embsysregview.views.TreeField;
@@ -257,12 +255,90 @@ public class RegisterXMLParser {
 								rsize = Integer.parseInt(attr_rsize.getValue()) / 8;
 						else
 							rsize = 4;
+						
 
 						// TODO: calculate real address ... baseAddress+raddress
 						long lbaseAddress = Long.parseLong(baseAddress.substring(2), 16);
 
-						TreeRegister obj_register = new TreeRegister(rname, rdescription, lbaseAddress + raddress,
+						/////////////////////////////////////////////////////////////////////////////////////////////
+						// TODO: << EST Handle <dim>, see http://www.keil.com/pack/doc/cmsis/SVD/html/group__dim_element_group__gr.html
+						//  <dim>4</dim>
+				        //  <dimIncrement>4</dimIncrement>
+				        //  <dimIndex>0,1,2,3</dimIndex>
+				        //  <name>RELOAD[%s]</name>
+
+						Element attr_rdim = register.getChild("dim");
+						int rdim;
+						if (attr_rdim != null)
+							rdim = Integer.parseInt(attr_rdim.getValue(), 10);
+						else
+							rdim = 1; // just one element
+						
+						Element attr_rdimIncrement = register.getChild("dimIncrement");
+						int rdimIncrement;
+						// TODO: handle numbers with 0x
+						if (attr_rdimIncrement != null)
+							if (attr_rdimIncrement.getValue().startsWith("0x"))
+								rdimIncrement = Integer.parseInt(attr_rdimIncrement.getValue().substring(2), 16);
+							else
+								rdimIncrement = Integer.parseInt(attr_rdimIncrement.getValue(), 10);
+						else
+							rdimIncrement = 0;
+
+						Element attr_rdimIndex = register.getChild("dimIndex");
+						String rdimIndex;
+						if (attr_rdimIndex != null)
+							rdimIndex = attr_rdimIndex.getValue();
+						else
+							rdimIndex = "";
+						
+						if (rdim>1) {
+							System.out.println("DIM Register: " + rname + " " + rdescription + " " + lbaseAddress + " "
+									+ raddress + " " + rresetvalue + " " + raccess + " " + rsize + " " + rdim + " " + rdimIncrement + " " + rdimIndex);
+						}
+						int begIdx=0, commaIdx=0;
+						Boolean isCommaList, isRangeList; 
+						
+						isCommaList = rdimIndex.indexOf(',', 0)!=-1; /* e.g. "0,1,2,3" */
+						isRangeList = rdimIndex.indexOf('-', 0)!=-1; /* e.g. "0-3" */ // \todo not handled yet! */
+						TreeRegister obj_register;
+
+					for (int i=0; i<rdim; i++) { // << EST
+						if (rdim>1) {
+							String s, r;
+							
+							if (isCommaList) {
+								if (i<rdim-1) {
+									commaIdx = rdimIndex.indexOf(',', begIdx); /* find position of ',' in "1,2,3,4" */
+								} else {
+									commaIdx = rdimIndex.length(); /* there is no comma any more at the end of the list */
+								}
+							    if (commaIdx!=-1) { /* found! */
+							    	r = rdimIndex.substring(begIdx, commaIdx);
+							    	begIdx = commaIdx+1; /* move after comma */
+							    } else {
+							    	r = "x"; /* \todo dummy value, need to handle e.g. "3-5" */
+							    	begIdx = 0;
+							    }
+							} else if (isRangeList) {
+						    	r = "x"; /* \todo dummy value, need to handle e.g. "3-5" */
+						    	begIdx = 0; /* reset index */
+							} else { /* unkonwn error? */
+						    	r = "[err]";
+						    	begIdx = 0; /* reset index */
+							}
+							s = rname.replace("%s", r); // replace %s with new string
+							obj_register = new TreeRegister(s, rdescription, lbaseAddress + raddress,
+									rresetvalue, raccess, rsize);
+							lbaseAddress += rdimIncrement;  // increment register
+						} else {
+							obj_register = new TreeRegister(rname, rdescription, lbaseAddress + raddress,
 								rresetvalue, raccess, rsize);
+						}
+						/////////////////////////////////////////////////////////////////////////////////////////////
+						//old: // TreeRegister obj_register = new TreeRegister(rname, rdescription, lbaseAddress + raddress,
+						//		rresetvalue, raccess, rsize);
+						/////////////////////////////////////////////////////////////////////////////////////////////
 
 						System.out.println("Register: " + rname + " " + rdescription + " " + lbaseAddress + " "
 								+ raddress + " " + rresetvalue + " " + raccess + " " + rsize);
@@ -384,6 +460,7 @@ public class RegisterXMLParser {
 								}
 							}
 						}
+					} // << EST for()
 					}
 				}
 			}
