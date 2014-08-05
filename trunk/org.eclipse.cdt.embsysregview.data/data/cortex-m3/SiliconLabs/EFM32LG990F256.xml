@@ -8806,7 +8806,7 @@
   </group>
   <group name="CMU" description="">
     <registergroup name="CMU" description="">
-      <register name="CTRL" address="0x400c8000" access="RW" resetvalue="0x000C062C">
+      <register name="CTRL" address="0x400c8000" access="RW" resetvalue="0x000C262C">
         <description>CMU Control Register</description>
         <field name="HFXOMODE" bitoffset="0" bitlength="2">
           <description>
