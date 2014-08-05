@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE model SYSTEM "../../embsysregview.dtd">
-<model chipname="INC/EFM32LG380F64">
+<model chipname="INC/EFM32WG360F256">
   <chip_description>Product Features
   • ARM Cortex-M CPU platform
      • High Performance 32-bit processor @ up to 48 MHz
@@ -963,7 +963,6 @@
  0x00, MSCWDATA -
  0x00, AESDATAWR - Advanced Encryption Standard Accelerator
  0x00, LESENSEBUFDATAV - Low Energy Sensor Interface
- 0x00, EBIPXL0EMPTY - External Bus Interface
  0x01, ADC0SCAN - Analog to Digital Converter 0
  0x01, DAC0CH1 - Digital to Analog Converter 0
  0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
@@ -980,7 +979,6 @@
  0x01, UART0TXBL - Universal Asynchronous Receiver/Transmitter 0
  0x01, UART1TXBL - Universal Asynchronous Receiver/Transmitter 1
  0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
- 0x01, EBIPXL1EMPTY - External Bus Interface
  0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
  0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x02, USART2TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 2
@@ -993,7 +991,6 @@
  0x02, UART0TXEMPTY - Universal Asynchronous Receiver/Transmitter 0
  0x02, UART1TXEMPTY - Universal Asynchronous Receiver/Transmitter 1
  0x02, AESDATARD - Advanced Encryption Standard Accelerator
- 0x02, EBIPXLFULL - External Bus Interface
  0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x03, USART2RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
  0x03, TIMER0CC2 - Timer 0
@@ -1001,7 +998,6 @@
  0x03, TIMER2CC2 - Timer 2
  0x03, TIMER3CC2 - Timer 3
  0x03, AESKEYWR - Advanced Encryption Standard Accelerator
- 0x03, EBIDDEMPTY - External Bus Interface
  0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x04, USART2TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
           </description>
@@ -1023,7 +1019,6 @@
           <interpretation key="0x00000000" text="MSCWDATA"/>
           <interpretation key="0x00000000" text="AESDATAWR"/>
           <interpretation key="0x00000000" text="LESENSEBUFDATAV"/>
-          <interpretation key="0x00000000" text="EBIPXL0EMPTY"/>
           <interpretation key="0x00000001" text="ADC0SCAN"/>
           <interpretation key="0x00000001" text="DAC0CH1"/>
           <interpretation key="0x00000001" text="USART0TXBL"/>
@@ -1040,7 +1035,6 @@
           <interpretation key="0x00000001" text="UART0TXBL"/>
           <interpretation key="0x00000001" text="UART1TXBL"/>
           <interpretation key="0x00000001" text="AESXORDATAWR"/>
-          <interpretation key="0x00000001" text="EBIPXL1EMPTY"/>
           <interpretation key="0x00000002" text="USART0TXEMPTY"/>
           <interpretation key="0x00000002" text="USART1TXEMPTY"/>
           <interpretation key="0x00000002" text="USART2TXEMPTY"/>
@@ -1053,7 +1047,6 @@
           <interpretation key="0x00000002" text="UART0TXEMPTY"/>
           <interpretation key="0x00000002" text="UART1TXEMPTY"/>
           <interpretation key="0x00000002" text="AESDATARD"/>
-          <interpretation key="0x00000002" text="EBIPXLFULL"/>
           <interpretation key="0x00000003" text="USART1RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="USART2RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="TIMER0CC2"/>
@@ -1061,7 +1054,6 @@
           <interpretation key="0x00000003" text="TIMER2CC2"/>
           <interpretation key="0x00000003" text="TIMER3CC2"/>
           <interpretation key="0x00000003" text="AESKEYWR"/>
-          <interpretation key="0x00000003" text="EBIDDEMPTY"/>
           <interpretation key="0x00000004" text="USART1TXBLRIGHT"/>
           <interpretation key="0x00000004" text="USART2TXBLRIGHT"/>
         </field>
@@ -1089,7 +1081,6 @@
  0x030, MSC -
  0x031, AES - Advanced Encryption Standard Accelerator
  0x032, LESENSE - Low Energy Sensor Interface
- 0x033, EBI - External Bus Interface
           </description>
           <interpretation key="0x00000000" text="NONE"/>
           <interpretation key="0x00000008" text="ADC0"/>
@@ -1110,7 +1101,6 @@
           <interpretation key="0x00000030" text="MSC"/>
           <interpretation key="0x00000031" text="AES"/>
           <interpretation key="0x00000032" text="LESENSE"/>
-          <interpretation key="0x00000033" text="EBI"/>
         </field>
       </register>
       <register name="CH1_CTRL" address="0x400c3104" access="RW" resetvalue="0x00000000">
@@ -1138,7 +1128,6 @@
  0x00, MSCWDATA -
  0x00, AESDATAWR - Advanced Encryption Standard Accelerator
  0x00, LESENSEBUFDATAV - Low Energy Sensor Interface
- 0x00, EBIPXL0EMPTY - External Bus Interface
  0x01, ADC0SCAN - Analog to Digital Converter 0
  0x01, DAC0CH1 - Digital to Analog Converter 0
  0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
@@ -1155,7 +1144,6 @@
  0x01, UART0TXBL - Universal Asynchronous Receiver/Transmitter 0
  0x01, UART1TXBL - Universal Asynchronous Receiver/Transmitter 1
  0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
- 0x01, EBIPXL1EMPTY - External Bus Interface
  0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
  0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x02, USART2TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 2
@@ -1168,7 +1156,6 @@
  0x02, UART0TXEMPTY - Universal Asynchronous Receiver/Transmitter 0
  0x02, UART1TXEMPTY - Universal Asynchronous Receiver/Transmitter 1
  0x02, AESDATARD - Advanced Encryption Standard Accelerator
- 0x02, EBIPXLFULL - External Bus Interface
  0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x03, USART2RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
  0x03, TIMER0CC2 - Timer 0
@@ -1176,7 +1163,6 @@
  0x03, TIMER2CC2 - Timer 2
  0x03, TIMER3CC2 - Timer 3
  0x03, AESKEYWR - Advanced Encryption Standard Accelerator
- 0x03, EBIDDEMPTY - External Bus Interface
  0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x04, USART2TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
           </description>
@@ -1198,7 +1184,6 @@
           <interpretation key="0x00000000" text="MSCWDATA"/>
           <interpretation key="0x00000000" text="AESDATAWR"/>
           <interpretation key="0x00000000" text="LESENSEBUFDATAV"/>
-          <interpretation key="0x00000000" text="EBIPXL0EMPTY"/>
           <interpretation key="0x00000001" text="ADC0SCAN"/>
           <interpretation key="0x00000001" text="DAC0CH1"/>
           <interpretation key="0x00000001" text="USART0TXBL"/>
@@ -1215,7 +1200,6 @@
           <interpretation key="0x00000001" text="UART0TXBL"/>
           <interpretation key="0x00000001" text="UART1TXBL"/>
           <interpretation key="0x00000001" text="AESXORDATAWR"/>
-          <interpretation key="0x00000001" text="EBIPXL1EMPTY"/>
           <interpretation key="0x00000002" text="USART0TXEMPTY"/>
           <interpretation key="0x00000002" text="USART1TXEMPTY"/>
           <interpretation key="0x00000002" text="USART2TXEMPTY"/>
@@ -1228,7 +1212,6 @@
           <interpretation key="0x00000002" text="UART0TXEMPTY"/>
           <interpretation key="0x00000002" text="UART1TXEMPTY"/>
           <interpretation key="0x00000002" text="AESDATARD"/>
-          <interpretation key="0x00000002" text="EBIPXLFULL"/>
           <interpretation key="0x00000003" text="USART1RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="USART2RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="TIMER0CC2"/>
@@ -1236,7 +1219,6 @@
           <interpretation key="0x00000003" text="TIMER2CC2"/>
           <interpretation key="0x00000003" text="TIMER3CC2"/>
           <interpretation key="0x00000003" text="AESKEYWR"/>
-          <interpretation key="0x00000003" text="EBIDDEMPTY"/>
           <interpretation key="0x00000004" text="USART1TXBLRIGHT"/>
           <interpretation key="0x00000004" text="USART2TXBLRIGHT"/>
         </field>
@@ -1264,7 +1246,6 @@
  0x030, MSC -
  0x031, AES - Advanced Encryption Standard Accelerator
  0x032, LESENSE - Low Energy Sensor Interface
- 0x033, EBI - External Bus Interface
           </description>
           <interpretation key="0x00000000" text="NONE"/>
           <interpretation key="0x00000008" text="ADC0"/>
@@ -1285,7 +1266,6 @@
           <interpretation key="0x00000030" text="MSC"/>
           <interpretation key="0x00000031" text="AES"/>
           <interpretation key="0x00000032" text="LESENSE"/>
-          <interpretation key="0x00000033" text="EBI"/>
         </field>
       </register>
       <register name="CH2_CTRL" address="0x400c3108" access="RW" resetvalue="0x00000000">
@@ -1313,7 +1293,6 @@
  0x00, MSCWDATA -
  0x00, AESDATAWR - Advanced Encryption Standard Accelerator
  0x00, LESENSEBUFDATAV - Low Energy Sensor Interface
- 0x00, EBIPXL0EMPTY - External Bus Interface
  0x01, ADC0SCAN - Analog to Digital Converter 0
  0x01, DAC0CH1 - Digital to Analog Converter 0
  0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
@@ -1330,7 +1309,6 @@
  0x01, UART0TXBL - Universal Asynchronous Receiver/Transmitter 0
  0x01, UART1TXBL - Universal Asynchronous Receiver/Transmitter 1
  0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
- 0x01, EBIPXL1EMPTY - External Bus Interface
  0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
  0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x02, USART2TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 2
@@ -1343,7 +1321,6 @@
  0x02, UART0TXEMPTY - Universal Asynchronous Receiver/Transmitter 0
  0x02, UART1TXEMPTY - Universal Asynchronous Receiver/Transmitter 1
  0x02, AESDATARD - Advanced Encryption Standard Accelerator
- 0x02, EBIPXLFULL - External Bus Interface
  0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x03, USART2RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
  0x03, TIMER0CC2 - Timer 0
@@ -1351,7 +1328,6 @@
  0x03, TIMER2CC2 - Timer 2
  0x03, TIMER3CC2 - Timer 3
  0x03, AESKEYWR - Advanced Encryption Standard Accelerator
- 0x03, EBIDDEMPTY - External Bus Interface
  0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x04, USART2TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
           </description>
@@ -1373,7 +1349,6 @@
           <interpretation key="0x00000000" text="MSCWDATA"/>
           <interpretation key="0x00000000" text="AESDATAWR"/>
           <interpretation key="0x00000000" text="LESENSEBUFDATAV"/>
-          <interpretation key="0x00000000" text="EBIPXL0EMPTY"/>
           <interpretation key="0x00000001" text="ADC0SCAN"/>
           <interpretation key="0x00000001" text="DAC0CH1"/>
           <interpretation key="0x00000001" text="USART0TXBL"/>
@@ -1390,7 +1365,6 @@
           <interpretation key="0x00000001" text="UART0TXBL"/>
           <interpretation key="0x00000001" text="UART1TXBL"/>
           <interpretation key="0x00000001" text="AESXORDATAWR"/>
-          <interpretation key="0x00000001" text="EBIPXL1EMPTY"/>
           <interpretation key="0x00000002" text="USART0TXEMPTY"/>
           <interpretation key="0x00000002" text="USART1TXEMPTY"/>
           <interpretation key="0x00000002" text="USART2TXEMPTY"/>
@@ -1403,7 +1377,6 @@
           <interpretation key="0x00000002" text="UART0TXEMPTY"/>
           <interpretation key="0x00000002" text="UART1TXEMPTY"/>
           <interpretation key="0x00000002" text="AESDATARD"/>
-          <interpretation key="0x00000002" text="EBIPXLFULL"/>
           <interpretation key="0x00000003" text="USART1RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="USART2RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="TIMER0CC2"/>
@@ -1411,7 +1384,6 @@
           <interpretation key="0x00000003" text="TIMER2CC2"/>
           <interpretation key="0x00000003" text="TIMER3CC2"/>
           <interpretation key="0x00000003" text="AESKEYWR"/>
-          <interpretation key="0x00000003" text="EBIDDEMPTY"/>
           <interpretation key="0x00000004" text="USART1TXBLRIGHT"/>
           <interpretation key="0x00000004" text="USART2TXBLRIGHT"/>
         </field>
@@ -1439,7 +1411,6 @@
  0x030, MSC -
  0x031, AES - Advanced Encryption Standard Accelerator
  0x032, LESENSE - Low Energy Sensor Interface
- 0x033, EBI - External Bus Interface
           </description>
           <interpretation key="0x00000000" text="NONE"/>
           <interpretation key="0x00000008" text="ADC0"/>
@@ -1460,7 +1431,6 @@
           <interpretation key="0x00000030" text="MSC"/>
           <interpretation key="0x00000031" text="AES"/>
           <interpretation key="0x00000032" text="LESENSE"/>
-          <interpretation key="0x00000033" text="EBI"/>
         </field>
       </register>
       <register name="CH3_CTRL" address="0x400c310c" access="RW" resetvalue="0x00000000">
@@ -1488,7 +1458,6 @@
  0x00, MSCWDATA -
  0x00, AESDATAWR - Advanced Encryption Standard Accelerator
  0x00, LESENSEBUFDATAV - Low Energy Sensor Interface
- 0x00, EBIPXL0EMPTY - External Bus Interface
  0x01, ADC0SCAN - Analog to Digital Converter 0
  0x01, DAC0CH1 - Digital to Analog Converter 0
  0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
@@ -1505,7 +1474,6 @@
  0x01, UART0TXBL - Universal Asynchronous Receiver/Transmitter 0
  0x01, UART1TXBL - Universal Asynchronous Receiver/Transmitter 1
  0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
- 0x01, EBIPXL1EMPTY - External Bus Interface
  0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
  0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x02, USART2TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 2
@@ -1518,7 +1486,6 @@
  0x02, UART0TXEMPTY - Universal Asynchronous Receiver/Transmitter 0
  0x02, UART1TXEMPTY - Universal Asynchronous Receiver/Transmitter 1
  0x02, AESDATARD - Advanced Encryption Standard Accelerator
- 0x02, EBIPXLFULL - External Bus Interface
  0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x03, USART2RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
  0x03, TIMER0CC2 - Timer 0
@@ -1526,7 +1493,6 @@
  0x03, TIMER2CC2 - Timer 2
  0x03, TIMER3CC2 - Timer 3
  0x03, AESKEYWR - Advanced Encryption Standard Accelerator
- 0x03, EBIDDEMPTY - External Bus Interface
  0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x04, USART2TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
           </description>
@@ -1548,7 +1514,6 @@
           <interpretation key="0x00000000" text="MSCWDATA"/>
           <interpretation key="0x00000000" text="AESDATAWR"/>
           <interpretation key="0x00000000" text="LESENSEBUFDATAV"/>
-          <interpretation key="0x00000000" text="EBIPXL0EMPTY"/>
           <interpretation key="0x00000001" text="ADC0SCAN"/>
           <interpretation key="0x00000001" text="DAC0CH1"/>
           <interpretation key="0x00000001" text="USART0TXBL"/>
@@ -1565,7 +1530,6 @@
           <interpretation key="0x00000001" text="UART0TXBL"/>
           <interpretation key="0x00000001" text="UART1TXBL"/>
           <interpretation key="0x00000001" text="AESXORDATAWR"/>
-          <interpretation key="0x00000001" text="EBIPXL1EMPTY"/>
           <interpretation key="0x00000002" text="USART0TXEMPTY"/>
           <interpretation key="0x00000002" text="USART1TXEMPTY"/>
           <interpretation key="0x00000002" text="USART2TXEMPTY"/>
@@ -1578,7 +1542,6 @@
           <interpretation key="0x00000002" text="UART0TXEMPTY"/>
           <interpretation key="0x00000002" text="UART1TXEMPTY"/>
           <interpretation key="0x00000002" text="AESDATARD"/>
-          <interpretation key="0x00000002" text="EBIPXLFULL"/>
           <interpretation key="0x00000003" text="USART1RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="USART2RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="TIMER0CC2"/>
@@ -1586,7 +1549,6 @@
           <interpretation key="0x00000003" text="TIMER2CC2"/>
           <interpretation key="0x00000003" text="TIMER3CC2"/>
           <interpretation key="0x00000003" text="AESKEYWR"/>
-          <interpretation key="0x00000003" text="EBIDDEMPTY"/>
           <interpretation key="0x00000004" text="USART1TXBLRIGHT"/>
           <interpretation key="0x00000004" text="USART2TXBLRIGHT"/>
         </field>
@@ -1614,7 +1576,6 @@
  0x030, MSC -
  0x031, AES - Advanced Encryption Standard Accelerator
  0x032, LESENSE - Low Energy Sensor Interface
- 0x033, EBI - External Bus Interface
           </description>
           <interpretation key="0x00000000" text="NONE"/>
           <interpretation key="0x00000008" text="ADC0"/>
@@ -1635,7 +1596,6 @@
           <interpretation key="0x00000030" text="MSC"/>
           <interpretation key="0x00000031" text="AES"/>
           <interpretation key="0x00000032" text="LESENSE"/>
-          <interpretation key="0x00000033" text="EBI"/>
         </field>
       </register>
       <register name="CH4_CTRL" address="0x400c3110" access="RW" resetvalue="0x00000000">
@@ -1663,7 +1623,6 @@
  0x00, MSCWDATA -
  0x00, AESDATAWR - Advanced Encryption Standard Accelerator
  0x00, LESENSEBUFDATAV - Low Energy Sensor Interface
- 0x00, EBIPXL0EMPTY - External Bus Interface
  0x01, ADC0SCAN - Analog to Digital Converter 0
  0x01, DAC0CH1 - Digital to Analog Converter 0
  0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
@@ -1680,7 +1639,6 @@
  0x01, UART0TXBL - Universal Asynchronous Receiver/Transmitter 0
  0x01, UART1TXBL - Universal Asynchronous Receiver/Transmitter 1
  0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
- 0x01, EBIPXL1EMPTY - External Bus Interface
  0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
  0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x02, USART2TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 2
@@ -1693,7 +1651,6 @@
  0x02, UART0TXEMPTY - Universal Asynchronous Receiver/Transmitter 0
  0x02, UART1TXEMPTY - Universal Asynchronous Receiver/Transmitter 1
  0x02, AESDATARD - Advanced Encryption Standard Accelerator
- 0x02, EBIPXLFULL - External Bus Interface
  0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x03, USART2RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
  0x03, TIMER0CC2 - Timer 0
@@ -1701,7 +1658,6 @@
  0x03, TIMER2CC2 - Timer 2
  0x03, TIMER3CC2 - Timer 3
  0x03, AESKEYWR - Advanced Encryption Standard Accelerator
- 0x03, EBIDDEMPTY - External Bus Interface
  0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x04, USART2TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
           </description>
@@ -1723,7 +1679,6 @@
           <interpretation key="0x00000000" text="MSCWDATA"/>
           <interpretation key="0x00000000" text="AESDATAWR"/>
           <interpretation key="0x00000000" text="LESENSEBUFDATAV"/>
-          <interpretation key="0x00000000" text="EBIPXL0EMPTY"/>
           <interpretation key="0x00000001" text="ADC0SCAN"/>
           <interpretation key="0x00000001" text="DAC0CH1"/>
           <interpretation key="0x00000001" text="USART0TXBL"/>
@@ -1740,7 +1695,6 @@
           <interpretation key="0x00000001" text="UART0TXBL"/>
           <interpretation key="0x00000001" text="UART1TXBL"/>
           <interpretation key="0x00000001" text="AESXORDATAWR"/>
-          <interpretation key="0x00000001" text="EBIPXL1EMPTY"/>
           <interpretation key="0x00000002" text="USART0TXEMPTY"/>
           <interpretation key="0x00000002" text="USART1TXEMPTY"/>
           <interpretation key="0x00000002" text="USART2TXEMPTY"/>
@@ -1753,7 +1707,6 @@
           <interpretation key="0x00000002" text="UART0TXEMPTY"/>
           <interpretation key="0x00000002" text="UART1TXEMPTY"/>
           <interpretation key="0x00000002" text="AESDATARD"/>
-          <interpretation key="0x00000002" text="EBIPXLFULL"/>
           <interpretation key="0x00000003" text="USART1RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="USART2RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="TIMER0CC2"/>
@@ -1761,7 +1714,6 @@
           <interpretation key="0x00000003" text="TIMER2CC2"/>
           <interpretation key="0x00000003" text="TIMER3CC2"/>
           <interpretation key="0x00000003" text="AESKEYWR"/>
-          <interpretation key="0x00000003" text="EBIDDEMPTY"/>
           <interpretation key="0x00000004" text="USART1TXBLRIGHT"/>
           <interpretation key="0x00000004" text="USART2TXBLRIGHT"/>
         </field>
@@ -1789,7 +1741,6 @@
  0x030, MSC -
  0x031, AES - Advanced Encryption Standard Accelerator
  0x032, LESENSE - Low Energy Sensor Interface
- 0x033, EBI - External Bus Interface
           </description>
           <interpretation key="0x00000000" text="NONE"/>
           <interpretation key="0x00000008" text="ADC0"/>
@@ -1810,7 +1761,6 @@
           <interpretation key="0x00000030" text="MSC"/>
           <interpretation key="0x00000031" text="AES"/>
           <interpretation key="0x00000032" text="LESENSE"/>
-          <interpretation key="0x00000033" text="EBI"/>
         </field>
       </register>
       <register name="CH5_CTRL" address="0x400c3114" access="RW" resetvalue="0x00000000">
@@ -1838,7 +1788,6 @@
  0x00, MSCWDATA -
  0x00, AESDATAWR - Advanced Encryption Standard Accelerator
  0x00, LESENSEBUFDATAV - Low Energy Sensor Interface
- 0x00, EBIPXL0EMPTY - External Bus Interface
  0x01, ADC0SCAN - Analog to Digital Converter 0
  0x01, DAC0CH1 - Digital to Analog Converter 0
  0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
@@ -1855,7 +1804,6 @@
  0x01, UART0TXBL - Universal Asynchronous Receiver/Transmitter 0
  0x01, UART1TXBL - Universal Asynchronous Receiver/Transmitter 1
  0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
- 0x01, EBIPXL1EMPTY - External Bus Interface
  0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
  0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x02, USART2TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 2
@@ -1868,7 +1816,6 @@
  0x02, UART0TXEMPTY - Universal Asynchronous Receiver/Transmitter 0
  0x02, UART1TXEMPTY - Universal Asynchronous Receiver/Transmitter 1
  0x02, AESDATARD - Advanced Encryption Standard Accelerator
- 0x02, EBIPXLFULL - External Bus Interface
  0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x03, USART2RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
  0x03, TIMER0CC2 - Timer 0
@@ -1876,7 +1823,6 @@
  0x03, TIMER2CC2 - Timer 2
  0x03, TIMER3CC2 - Timer 3
  0x03, AESKEYWR - Advanced Encryption Standard Accelerator
- 0x03, EBIDDEMPTY - External Bus Interface
  0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x04, USART2TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
           </description>
@@ -1898,7 +1844,6 @@
           <interpretation key="0x00000000" text="MSCWDATA"/>
           <interpretation key="0x00000000" text="AESDATAWR"/>
           <interpretation key="0x00000000" text="LESENSEBUFDATAV"/>
-          <interpretation key="0x00000000" text="EBIPXL0EMPTY"/>
           <interpretation key="0x00000001" text="ADC0SCAN"/>
           <interpretation key="0x00000001" text="DAC0CH1"/>
           <interpretation key="0x00000001" text="USART0TXBL"/>
@@ -1915,7 +1860,6 @@
           <interpretation key="0x00000001" text="UART0TXBL"/>
           <interpretation key="0x00000001" text="UART1TXBL"/>
           <interpretation key="0x00000001" text="AESXORDATAWR"/>
-          <interpretation key="0x00000001" text="EBIPXL1EMPTY"/>
           <interpretation key="0x00000002" text="USART0TXEMPTY"/>
           <interpretation key="0x00000002" text="USART1TXEMPTY"/>
           <interpretation key="0x00000002" text="USART2TXEMPTY"/>
@@ -1928,7 +1872,6 @@
           <interpretation key="0x00000002" text="UART0TXEMPTY"/>
           <interpretation key="0x00000002" text="UART1TXEMPTY"/>
           <interpretation key="0x00000002" text="AESDATARD"/>
-          <interpretation key="0x00000002" text="EBIPXLFULL"/>
           <interpretation key="0x00000003" text="USART1RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="USART2RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="TIMER0CC2"/>
@@ -1936,7 +1879,6 @@
           <interpretation key="0x00000003" text="TIMER2CC2"/>
           <interpretation key="0x00000003" text="TIMER3CC2"/>
           <interpretation key="0x00000003" text="AESKEYWR"/>
-          <interpretation key="0x00000003" text="EBIDDEMPTY"/>
           <interpretation key="0x00000004" text="USART1TXBLRIGHT"/>
           <interpretation key="0x00000004" text="USART2TXBLRIGHT"/>
         </field>
@@ -1964,7 +1906,6 @@
  0x030, MSC -
  0x031, AES - Advanced Encryption Standard Accelerator
  0x032, LESENSE - Low Energy Sensor Interface
- 0x033, EBI - External Bus Interface
           </description>
           <interpretation key="0x00000000" text="NONE"/>
           <interpretation key="0x00000008" text="ADC0"/>
@@ -1985,7 +1926,6 @@
           <interpretation key="0x00000030" text="MSC"/>
           <interpretation key="0x00000031" text="AES"/>
           <interpretation key="0x00000032" text="LESENSE"/>
-          <interpretation key="0x00000033" text="EBI"/>
         </field>
       </register>
       <register name="CH6_CTRL" address="0x400c3118" access="RW" resetvalue="0x00000000">
@@ -2013,7 +1953,6 @@
  0x00, MSCWDATA -
  0x00, AESDATAWR - Advanced Encryption Standard Accelerator
  0x00, LESENSEBUFDATAV - Low Energy Sensor Interface
- 0x00, EBIPXL0EMPTY - External Bus Interface
  0x01, ADC0SCAN - Analog to Digital Converter 0
  0x01, DAC0CH1 - Digital to Analog Converter 0
  0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
@@ -2030,7 +1969,6 @@
  0x01, UART0TXBL - Universal Asynchronous Receiver/Transmitter 0
  0x01, UART1TXBL - Universal Asynchronous Receiver/Transmitter 1
  0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
- 0x01, EBIPXL1EMPTY - External Bus Interface
  0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
  0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x02, USART2TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 2
@@ -2043,7 +1981,6 @@
  0x02, UART0TXEMPTY - Universal Asynchronous Receiver/Transmitter 0
  0x02, UART1TXEMPTY - Universal Asynchronous Receiver/Transmitter 1
  0x02, AESDATARD - Advanced Encryption Standard Accelerator
- 0x02, EBIPXLFULL - External Bus Interface
  0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x03, USART2RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
  0x03, TIMER0CC2 - Timer 0
@@ -2051,7 +1988,6 @@
  0x03, TIMER2CC2 - Timer 2
  0x03, TIMER3CC2 - Timer 3
  0x03, AESKEYWR - Advanced Encryption Standard Accelerator
- 0x03, EBIDDEMPTY - External Bus Interface
  0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x04, USART2TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
           </description>
@@ -2073,7 +2009,6 @@
           <interpretation key="0x00000000" text="MSCWDATA"/>
           <interpretation key="0x00000000" text="AESDATAWR"/>
           <interpretation key="0x00000000" text="LESENSEBUFDATAV"/>
-          <interpretation key="0x00000000" text="EBIPXL0EMPTY"/>
           <interpretation key="0x00000001" text="ADC0SCAN"/>
           <interpretation key="0x00000001" text="DAC0CH1"/>
           <interpretation key="0x00000001" text="USART0TXBL"/>
@@ -2090,7 +2025,6 @@
           <interpretation key="0x00000001" text="UART0TXBL"/>
           <interpretation key="0x00000001" text="UART1TXBL"/>
           <interpretation key="0x00000001" text="AESXORDATAWR"/>
-          <interpretation key="0x00000001" text="EBIPXL1EMPTY"/>
           <interpretation key="0x00000002" text="USART0TXEMPTY"/>
           <interpretation key="0x00000002" text="USART1TXEMPTY"/>
           <interpretation key="0x00000002" text="USART2TXEMPTY"/>
@@ -2103,7 +2037,6 @@
           <interpretation key="0x00000002" text="UART0TXEMPTY"/>
           <interpretation key="0x00000002" text="UART1TXEMPTY"/>
           <interpretation key="0x00000002" text="AESDATARD"/>
-          <interpretation key="0x00000002" text="EBIPXLFULL"/>
           <interpretation key="0x00000003" text="USART1RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="USART2RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="TIMER0CC2"/>
@@ -2111,7 +2044,6 @@
           <interpretation key="0x00000003" text="TIMER2CC2"/>
           <interpretation key="0x00000003" text="TIMER3CC2"/>
           <interpretation key="0x00000003" text="AESKEYWR"/>
-          <interpretation key="0x00000003" text="EBIDDEMPTY"/>
           <interpretation key="0x00000004" text="USART1TXBLRIGHT"/>
           <interpretation key="0x00000004" text="USART2TXBLRIGHT"/>
         </field>
@@ -2139,7 +2071,6 @@
  0x030, MSC -
  0x031, AES - Advanced Encryption Standard Accelerator
  0x032, LESENSE - Low Energy Sensor Interface
- 0x033, EBI - External Bus Interface
           </description>
           <interpretation key="0x00000000" text="NONE"/>
           <interpretation key="0x00000008" text="ADC0"/>
@@ -2160,7 +2091,6 @@
           <interpretation key="0x00000030" text="MSC"/>
           <interpretation key="0x00000031" text="AES"/>
           <interpretation key="0x00000032" text="LESENSE"/>
-          <interpretation key="0x00000033" text="EBI"/>
         </field>
       </register>
       <register name="CH7_CTRL" address="0x400c311c" access="RW" resetvalue="0x00000000">
@@ -2188,7 +2118,6 @@
  0x00, MSCWDATA -
  0x00, AESDATAWR - Advanced Encryption Standard Accelerator
  0x00, LESENSEBUFDATAV - Low Energy Sensor Interface
- 0x00, EBIPXL0EMPTY - External Bus Interface
  0x01, ADC0SCAN - Analog to Digital Converter 0
  0x01, DAC0CH1 - Digital to Analog Converter 0
  0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
@@ -2205,7 +2134,6 @@
  0x01, UART0TXBL - Universal Asynchronous Receiver/Transmitter 0
  0x01, UART1TXBL - Universal Asynchronous Receiver/Transmitter 1
  0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
- 0x01, EBIPXL1EMPTY - External Bus Interface
  0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
  0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x02, USART2TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 2
@@ -2218,7 +2146,6 @@
  0x02, UART0TXEMPTY - Universal Asynchronous Receiver/Transmitter 0
  0x02, UART1TXEMPTY - Universal Asynchronous Receiver/Transmitter 1
  0x02, AESDATARD - Advanced Encryption Standard Accelerator
- 0x02, EBIPXLFULL - External Bus Interface
  0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x03, USART2RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
  0x03, TIMER0CC2 - Timer 0
@@ -2226,7 +2153,6 @@
  0x03, TIMER2CC2 - Timer 2
  0x03, TIMER3CC2 - Timer 3
  0x03, AESKEYWR - Advanced Encryption Standard Accelerator
- 0x03, EBIDDEMPTY - External Bus Interface
  0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x04, USART2TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
           </description>
@@ -2248,7 +2174,6 @@
           <interpretation key="0x00000000" text="MSCWDATA"/>
           <interpretation key="0x00000000" text="AESDATAWR"/>
           <interpretation key="0x00000000" text="LESENSEBUFDATAV"/>
-          <interpretation key="0x00000000" text="EBIPXL0EMPTY"/>
           <interpretation key="0x00000001" text="ADC0SCAN"/>
           <interpretation key="0x00000001" text="DAC0CH1"/>
           <interpretation key="0x00000001" text="USART0TXBL"/>
@@ -2265,7 +2190,6 @@
           <interpretation key="0x00000001" text="UART0TXBL"/>
           <interpretation key="0x00000001" text="UART1TXBL"/>
           <interpretation key="0x00000001" text="AESXORDATAWR"/>
-          <interpretation key="0x00000001" text="EBIPXL1EMPTY"/>
           <interpretation key="0x00000002" text="USART0TXEMPTY"/>
           <interpretation key="0x00000002" text="USART1TXEMPTY"/>
           <interpretation key="0x00000002" text="USART2TXEMPTY"/>
@@ -2278,7 +2202,6 @@
           <interpretation key="0x00000002" text="UART0TXEMPTY"/>
           <interpretation key="0x00000002" text="UART1TXEMPTY"/>
           <interpretation key="0x00000002" text="AESDATARD"/>
-          <interpretation key="0x00000002" text="EBIPXLFULL"/>
           <interpretation key="0x00000003" text="USART1RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="USART2RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="TIMER0CC2"/>
@@ -2286,7 +2209,6 @@
           <interpretation key="0x00000003" text="TIMER2CC2"/>
           <interpretation key="0x00000003" text="TIMER3CC2"/>
           <interpretation key="0x00000003" text="AESKEYWR"/>
-          <interpretation key="0x00000003" text="EBIDDEMPTY"/>
           <interpretation key="0x00000004" text="USART1TXBLRIGHT"/>
           <interpretation key="0x00000004" text="USART2TXBLRIGHT"/>
         </field>
@@ -2314,7 +2236,6 @@
  0x030, MSC -
  0x031, AES - Advanced Encryption Standard Accelerator
  0x032, LESENSE - Low Energy Sensor Interface
- 0x033, EBI - External Bus Interface
           </description>
           <interpretation key="0x00000000" text="NONE"/>
           <interpretation key="0x00000008" text="ADC0"/>
@@ -2335,7 +2256,6 @@
           <interpretation key="0x00000030" text="MSC"/>
           <interpretation key="0x00000031" text="AES"/>
           <interpretation key="0x00000032" text="LESENSE"/>
-          <interpretation key="0x00000033" text="EBI"/>
         </field>
       </register>
       <register name="CH8_CTRL" address="0x400c3120" access="RW" resetvalue="0x00000000">
@@ -2363,7 +2283,6 @@
  0x00, MSCWDATA -
  0x00, AESDATAWR - Advanced Encryption Standard Accelerator
  0x00, LESENSEBUFDATAV - Low Energy Sensor Interface
- 0x00, EBIPXL0EMPTY - External Bus Interface
  0x01, ADC0SCAN - Analog to Digital Converter 0
  0x01, DAC0CH1 - Digital to Analog Converter 0
  0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
@@ -2380,7 +2299,6 @@
  0x01, UART0TXBL - Universal Asynchronous Receiver/Transmitter 0
  0x01, UART1TXBL - Universal Asynchronous Receiver/Transmitter 1
  0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
- 0x01, EBIPXL1EMPTY - External Bus Interface
  0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
  0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x02, USART2TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 2
@@ -2393,7 +2311,6 @@
  0x02, UART0TXEMPTY - Universal Asynchronous Receiver/Transmitter 0
  0x02, UART1TXEMPTY - Universal Asynchronous Receiver/Transmitter 1
  0x02, AESDATARD - Advanced Encryption Standard Accelerator
- 0x02, EBIPXLFULL - External Bus Interface
  0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x03, USART2RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
  0x03, TIMER0CC2 - Timer 0
@@ -2401,7 +2318,6 @@
  0x03, TIMER2CC2 - Timer 2
  0x03, TIMER3CC2 - Timer 3
  0x03, AESKEYWR - Advanced Encryption Standard Accelerator
- 0x03, EBIDDEMPTY - External Bus Interface
  0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x04, USART2TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
           </description>
@@ -2423,7 +2339,6 @@
           <interpretation key="0x00000000" text="MSCWDATA"/>
           <interpretation key="0x00000000" text="AESDATAWR"/>
           <interpretation key="0x00000000" text="LESENSEBUFDATAV"/>
-          <interpretation key="0x00000000" text="EBIPXL0EMPTY"/>
           <interpretation key="0x00000001" text="ADC0SCAN"/>
           <interpretation key="0x00000001" text="DAC0CH1"/>
           <interpretation key="0x00000001" text="USART0TXBL"/>
@@ -2440,7 +2355,6 @@
           <interpretation key="0x00000001" text="UART0TXBL"/>
           <interpretation key="0x00000001" text="UART1TXBL"/>
           <interpretation key="0x00000001" text="AESXORDATAWR"/>
-          <interpretation key="0x00000001" text="EBIPXL1EMPTY"/>
           <interpretation key="0x00000002" text="USART0TXEMPTY"/>
           <interpretation key="0x00000002" text="USART1TXEMPTY"/>
           <interpretation key="0x00000002" text="USART2TXEMPTY"/>
@@ -2453,7 +2367,6 @@
           <interpretation key="0x00000002" text="UART0TXEMPTY"/>
           <interpretation key="0x00000002" text="UART1TXEMPTY"/>
           <interpretation key="0x00000002" text="AESDATARD"/>
-          <interpretation key="0x00000002" text="EBIPXLFULL"/>
           <interpretation key="0x00000003" text="USART1RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="USART2RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="TIMER0CC2"/>
@@ -2461,7 +2374,6 @@
           <interpretation key="0x00000003" text="TIMER2CC2"/>
           <interpretation key="0x00000003" text="TIMER3CC2"/>
           <interpretation key="0x00000003" text="AESKEYWR"/>
-          <interpretation key="0x00000003" text="EBIDDEMPTY"/>
           <interpretation key="0x00000004" text="USART1TXBLRIGHT"/>
           <interpretation key="0x00000004" text="USART2TXBLRIGHT"/>
         </field>
@@ -2489,7 +2401,6 @@
  0x030, MSC -
  0x031, AES - Advanced Encryption Standard Accelerator
  0x032, LESENSE - Low Energy Sensor Interface
- 0x033, EBI - External Bus Interface
           </description>
           <interpretation key="0x00000000" text="NONE"/>
           <interpretation key="0x00000008" text="ADC0"/>
@@ -2510,7 +2421,6 @@
           <interpretation key="0x00000030" text="MSC"/>
           <interpretation key="0x00000031" text="AES"/>
           <interpretation key="0x00000032" text="LESENSE"/>
-          <interpretation key="0x00000033" text="EBI"/>
         </field>
       </register>
       <register name="CH9_CTRL" address="0x400c3124" access="RW" resetvalue="0x00000000">
@@ -2538,7 +2448,6 @@
  0x00, MSCWDATA -
  0x00, AESDATAWR - Advanced Encryption Standard Accelerator
  0x00, LESENSEBUFDATAV - Low Energy Sensor Interface
- 0x00, EBIPXL0EMPTY - External Bus Interface
  0x01, ADC0SCAN - Analog to Digital Converter 0
  0x01, DAC0CH1 - Digital to Analog Converter 0
  0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
@@ -2555,7 +2464,6 @@
  0x01, UART0TXBL - Universal Asynchronous Receiver/Transmitter 0
  0x01, UART1TXBL - Universal Asynchronous Receiver/Transmitter 1
  0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
- 0x01, EBIPXL1EMPTY - External Bus Interface
  0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
  0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x02, USART2TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 2
@@ -2568,7 +2476,6 @@
  0x02, UART0TXEMPTY - Universal Asynchronous Receiver/Transmitter 0
  0x02, UART1TXEMPTY - Universal Asynchronous Receiver/Transmitter 1
  0x02, AESDATARD - Advanced Encryption Standard Accelerator
- 0x02, EBIPXLFULL - External Bus Interface
  0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x03, USART2RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
  0x03, TIMER0CC2 - Timer 0
@@ -2576,7 +2483,6 @@
  0x03, TIMER2CC2 - Timer 2
  0x03, TIMER3CC2 - Timer 3
  0x03, AESKEYWR - Advanced Encryption Standard Accelerator
- 0x03, EBIDDEMPTY - External Bus Interface
  0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x04, USART2TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
           </description>
@@ -2598,7 +2504,6 @@
           <interpretation key="0x00000000" text="MSCWDATA"/>
           <interpretation key="0x00000000" text="AESDATAWR"/>
           <interpretation key="0x00000000" text="LESENSEBUFDATAV"/>
-          <interpretation key="0x00000000" text="EBIPXL0EMPTY"/>
           <interpretation key="0x00000001" text="ADC0SCAN"/>
           <interpretation key="0x00000001" text="DAC0CH1"/>
           <interpretation key="0x00000001" text="USART0TXBL"/>
@@ -2615,7 +2520,6 @@
           <interpretation key="0x00000001" text="UART0TXBL"/>
           <interpretation key="0x00000001" text="UART1TXBL"/>
           <interpretation key="0x00000001" text="AESXORDATAWR"/>
-          <interpretation key="0x00000001" text="EBIPXL1EMPTY"/>
           <interpretation key="0x00000002" text="USART0TXEMPTY"/>
           <interpretation key="0x00000002" text="USART1TXEMPTY"/>
           <interpretation key="0x00000002" text="USART2TXEMPTY"/>
@@ -2628,7 +2532,6 @@
           <interpretation key="0x00000002" text="UART0TXEMPTY"/>
           <interpretation key="0x00000002" text="UART1TXEMPTY"/>
           <interpretation key="0x00000002" text="AESDATARD"/>
-          <interpretation key="0x00000002" text="EBIPXLFULL"/>
           <interpretation key="0x00000003" text="USART1RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="USART2RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="TIMER0CC2"/>
@@ -2636,7 +2539,6 @@
           <interpretation key="0x00000003" text="TIMER2CC2"/>
           <interpretation key="0x00000003" text="TIMER3CC2"/>
           <interpretation key="0x00000003" text="AESKEYWR"/>
-          <interpretation key="0x00000003" text="EBIDDEMPTY"/>
           <interpretation key="0x00000004" text="USART1TXBLRIGHT"/>
           <interpretation key="0x00000004" text="USART2TXBLRIGHT"/>
         </field>
@@ -2664,7 +2566,6 @@
  0x030, MSC -
  0x031, AES - Advanced Encryption Standard Accelerator
  0x032, LESENSE - Low Energy Sensor Interface
- 0x033, EBI - External Bus Interface
           </description>
           <interpretation key="0x00000000" text="NONE"/>
           <interpretation key="0x00000008" text="ADC0"/>
@@ -2685,7 +2586,6 @@
           <interpretation key="0x00000030" text="MSC"/>
           <interpretation key="0x00000031" text="AES"/>
           <interpretation key="0x00000032" text="LESENSE"/>
-          <interpretation key="0x00000033" text="EBI"/>
         </field>
       </register>
       <register name="CH10_CTRL" address="0x400c3128" access="RW" resetvalue="0x00000000">
@@ -2713,7 +2613,6 @@
  0x00, MSCWDATA -
  0x00, AESDATAWR - Advanced Encryption Standard Accelerator
  0x00, LESENSEBUFDATAV - Low Energy Sensor Interface
- 0x00, EBIPXL0EMPTY - External Bus Interface
  0x01, ADC0SCAN - Analog to Digital Converter 0
  0x01, DAC0CH1 - Digital to Analog Converter 0
  0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
@@ -2730,7 +2629,6 @@
  0x01, UART0TXBL - Universal Asynchronous Receiver/Transmitter 0
  0x01, UART1TXBL - Universal Asynchronous Receiver/Transmitter 1
  0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
- 0x01, EBIPXL1EMPTY - External Bus Interface
  0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
  0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x02, USART2TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 2
@@ -2743,7 +2641,6 @@
  0x02, UART0TXEMPTY - Universal Asynchronous Receiver/Transmitter 0
  0x02, UART1TXEMPTY - Universal Asynchronous Receiver/Transmitter 1
  0x02, AESDATARD - Advanced Encryption Standard Accelerator
- 0x02, EBIPXLFULL - External Bus Interface
  0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x03, USART2RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
  0x03, TIMER0CC2 - Timer 0
@@ -2751,7 +2648,6 @@
  0x03, TIMER2CC2 - Timer 2
  0x03, TIMER3CC2 - Timer 3
  0x03, AESKEYWR - Advanced Encryption Standard Accelerator
- 0x03, EBIDDEMPTY - External Bus Interface
  0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x04, USART2TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
           </description>
@@ -2773,7 +2669,6 @@
           <interpretation key="0x00000000" text="MSCWDATA"/>
           <interpretation key="0x00000000" text="AESDATAWR"/>
           <interpretation key="0x00000000" text="LESENSEBUFDATAV"/>
-          <interpretation key="0x00000000" text="EBIPXL0EMPTY"/>
           <interpretation key="0x00000001" text="ADC0SCAN"/>
           <interpretation key="0x00000001" text="DAC0CH1"/>
           <interpretation key="0x00000001" text="USART0TXBL"/>
@@ -2790,7 +2685,6 @@
           <interpretation key="0x00000001" text="UART0TXBL"/>
           <interpretation key="0x00000001" text="UART1TXBL"/>
           <interpretation key="0x00000001" text="AESXORDATAWR"/>
-          <interpretation key="0x00000001" text="EBIPXL1EMPTY"/>
           <interpretation key="0x00000002" text="USART0TXEMPTY"/>
           <interpretation key="0x00000002" text="USART1TXEMPTY"/>
           <interpretation key="0x00000002" text="USART2TXEMPTY"/>
@@ -2803,7 +2697,6 @@
           <interpretation key="0x00000002" text="UART0TXEMPTY"/>
           <interpretation key="0x00000002" text="UART1TXEMPTY"/>
           <interpretation key="0x00000002" text="AESDATARD"/>
-          <interpretation key="0x00000002" text="EBIPXLFULL"/>
           <interpretation key="0x00000003" text="USART1RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="USART2RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="TIMER0CC2"/>
@@ -2811,7 +2704,6 @@
           <interpretation key="0x00000003" text="TIMER2CC2"/>
           <interpretation key="0x00000003" text="TIMER3CC2"/>
           <interpretation key="0x00000003" text="AESKEYWR"/>
-          <interpretation key="0x00000003" text="EBIDDEMPTY"/>
           <interpretation key="0x00000004" text="USART1TXBLRIGHT"/>
           <interpretation key="0x00000004" text="USART2TXBLRIGHT"/>
         </field>
@@ -2839,7 +2731,6 @@
  0x030, MSC -
  0x031, AES - Advanced Encryption Standard Accelerator
  0x032, LESENSE - Low Energy Sensor Interface
- 0x033, EBI - External Bus Interface
           </description>
           <interpretation key="0x00000000" text="NONE"/>
           <interpretation key="0x00000008" text="ADC0"/>
@@ -2860,7 +2751,6 @@
           <interpretation key="0x00000030" text="MSC"/>
           <interpretation key="0x00000031" text="AES"/>
           <interpretation key="0x00000032" text="LESENSE"/>
-          <interpretation key="0x00000033" text="EBI"/>
         </field>
       </register>
       <register name="CH11_CTRL" address="0x400c312c" access="RW" resetvalue="0x00000000">
@@ -2888,7 +2778,6 @@
  0x00, MSCWDATA -
  0x00, AESDATAWR - Advanced Encryption Standard Accelerator
  0x00, LESENSEBUFDATAV - Low Energy Sensor Interface
- 0x00, EBIPXL0EMPTY - External Bus Interface
  0x01, ADC0SCAN - Analog to Digital Converter 0
  0x01, DAC0CH1 - Digital to Analog Converter 0
  0x01, USART0TXBL - Universal Synchronous/Asynchronous Receiver/Transmitter 0
@@ -2905,7 +2794,6 @@
  0x01, UART0TXBL - Universal Asynchronous Receiver/Transmitter 0
  0x01, UART1TXBL - Universal Asynchronous Receiver/Transmitter 1
  0x01, AESXORDATAWR - Advanced Encryption Standard Accelerator
- 0x01, EBIPXL1EMPTY - External Bus Interface
  0x02, USART0TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 0
  0x02, USART1TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x02, USART2TXEMPTY - Universal Synchronous/Asynchronous Receiver/Transmitter 2
@@ -2918,7 +2806,6 @@
  0x02, UART0TXEMPTY - Universal Asynchronous Receiver/Transmitter 0
  0x02, UART1TXEMPTY - Universal Asynchronous Receiver/Transmitter 1
  0x02, AESDATARD - Advanced Encryption Standard Accelerator
- 0x02, EBIPXLFULL - External Bus Interface
  0x03, USART1RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x03, USART2RXDATAVRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
  0x03, TIMER0CC2 - Timer 0
@@ -2926,7 +2813,6 @@
  0x03, TIMER2CC2 - Timer 2
  0x03, TIMER3CC2 - Timer 3
  0x03, AESKEYWR - Advanced Encryption Standard Accelerator
- 0x03, EBIDDEMPTY - External Bus Interface
  0x04, USART1TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 1
  0x04, USART2TXBLRIGHT - Universal Synchronous/Asynchronous Receiver/Transmitter 2
           </description>
@@ -2948,7 +2834,6 @@
           <interpretation key="0x00000000" text="MSCWDATA"/>
           <interpretation key="0x00000000" text="AESDATAWR"/>
           <interpretation key="0x00000000" text="LESENSEBUFDATAV"/>
-          <interpretation key="0x00000000" text="EBIPXL0EMPTY"/>
           <interpretation key="0x00000001" text="ADC0SCAN"/>
           <interpretation key="0x00000001" text="DAC0CH1"/>
           <interpretation key="0x00000001" text="USART0TXBL"/>
@@ -2965,7 +2850,6 @@
           <interpretation key="0x00000001" text="UART0TXBL"/>
           <interpretation key="0x00000001" text="UART1TXBL"/>
           <interpretation key="0x00000001" text="AESXORDATAWR"/>
-          <interpretation key="0x00000001" text="EBIPXL1EMPTY"/>
           <interpretation key="0x00000002" text="USART0TXEMPTY"/>
           <interpretation key="0x00000002" text="USART1TXEMPTY"/>
           <interpretation key="0x00000002" text="USART2TXEMPTY"/>
@@ -2978,7 +2862,6 @@
           <interpretation key="0x00000002" text="UART0TXEMPTY"/>
           <interpretation key="0x00000002" text="UART1TXEMPTY"/>
           <interpretation key="0x00000002" text="AESDATARD"/>
-          <interpretation key="0x00000002" text="EBIPXLFULL"/>
           <interpretation key="0x00000003" text="USART1RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="USART2RXDATAVRIGHT"/>
           <interpretation key="0x00000003" text="TIMER0CC2"/>
@@ -2986,7 +2869,6 @@
           <interpretation key="0x00000003" text="TIMER2CC2"/>
           <interpretation key="0x00000003" text="TIMER3CC2"/>
           <interpretation key="0x00000003" text="AESKEYWR"/>
-          <interpretation key="0x00000003" text="EBIDDEMPTY"/>
           <interpretation key="0x00000004" text="USART1TXBLRIGHT"/>
           <interpretation key="0x00000004" text="USART2TXBLRIGHT"/>
         </field>
@@ -3014,7 +2896,6 @@
  0x030, MSC -
  0x031, AES - Advanced Encryption Standard Accelerator
  0x032, LESENSE - Low Energy Sensor Interface
- 0x033, EBI - External Bus Interface
           </description>
           <interpretation key="0x00000000" text="NONE"/>
           <interpretation key="0x00000008" text="ADC0"/>
@@ -3035,7 +2916,6 @@
           <interpretation key="0x00000030" text="MSC"/>
           <interpretation key="0x00000031" text="AES"/>
           <interpretation key="0x00000032" text="LESENSE"/>
-          <interpretation key="0x00000033" text="EBI"/>
         </field>
       </register>
     </registergroup>
@@ -9431,9 +9311,6 @@
         <field name="LE" bitoffset="4" bitlength="1">
           <description>Low Energy Peripheral Interface Clock Enable</description>
         </field>
-        <field name="EBI" bitoffset="5" bitlength="1">
-          <description>External Bus Interface Clock Enable</description>
-        </field>
       </register>
       <register name="HFPERCLKEN0" address="0x400c8044" access="RW" resetvalue="0x00000000">
         <description>High Frequency Peripheral Clock Enable Register 0</description>
@@ -14334,1043 +14211,90 @@
       </register>
     </registergroup>
   </group>
-  <group name="EBI" description="">
-    <registergroup name="EBI" description="">
-      <register name="CTRL" address="0x40008000" access="RW" resetvalue="0x00000000">
-        <description>Control Register</description>
-        <field name="MODE" bitoffset="0" bitlength="2">
-          <description>
- Mode
- -
- Value, Description
- 0x00, D8A8 - EBI_AD drives 8 bit data, 8 bit address, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
- 0x01, D16A16ALE - EBI_AD drives 16 bit data, 16 bit address, ALE is used for address latching. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
- 0x02, D8A24ALE - EBI_AD drives 8 bit data, 24 bit address, ALE is used for address latching. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
- 0x03, D16 - EBI_AD drives 16 bit data, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
-          </description>
-          <interpretation key="0x00000000" text="D8A8"/>
-          <interpretation key="0x00000001" text="D16A16ALE"/>
-          <interpretation key="0x00000002" text="D8A24ALE"/>
-          <interpretation key="0x00000003" text="D16"/>
-        </field>
-        <field name="MODE1" bitoffset="2" bitlength="2">
-          <description>
- Mode 1
- -
- Value, Description
- 0x00, D8A8 - EBI_AD drives 8 bit data, 8 bit address, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
- 0x01, D16A16ALE - EBI_AD drives 16 bit data, 16 bit address, ALE is used for address latching. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
- 0x02, D8A24ALE - EBI_AD drives 8 bit data, 24 bit address, ALE is used for address latching. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
- 0x03, D16 - EBI_AD drives 16 bit data, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
-          </description>
-          <interpretation key="0x00000000" text="D8A8"/>
-          <interpretation key="0x00000001" text="D16A16ALE"/>
-          <interpretation key="0x00000002" text="D8A24ALE"/>
-          <interpretation key="0x00000003" text="D16"/>
-        </field>
-        <field name="MODE2" bitoffset="4" bitlength="2">
-          <description>
- Mode 2
- -
- Value, Description
- 0x00, D8A8 - EBI_AD drives 8 bit data, 8 bit address, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
- 0x01, D16A16ALE - EBI_AD drives 16 bit data, 16 bit address, ALE is used for address latching. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
- 0x02, D8A24ALE - EBI_AD drives 8 bit data, 24 bit address, ALE is used for address latching. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
- 0x03, D16 - EBI_AD drives 16 bit data, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
-          </description>
-          <interpretation key="0x00000000" text="D8A8"/>
-          <interpretation key="0x00000001" text="D16A16ALE"/>
-          <interpretation key="0x00000002" text="D8A24ALE"/>
-          <interpretation key="0x00000003" text="D16"/>
-        </field>
-        <field name="MODE3" bitoffset="6" bitlength="2">
-          <description>
- Mode 3
- -
- Value, Description
- 0x00, D8A8 - EBI_AD drives 8 bit data, 8 bit address, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
- 0x01, D16A16ALE - EBI_AD drives 16 bit data, 16 bit address, ALE is used for address latching. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
- 0x02, D8A24ALE - EBI_AD drives 8 bit data, 24 bit address, ALE is used for address latching. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
- 0x03, D16 - EBI_AD drives 16 bit data, ALE not used. Extended address bits can be enabled on EBI_A in the EBI_ROUTE register.
-          </description>
-          <interpretation key="0x00000000" text="D8A8"/>
-          <interpretation key="0x00000001" text="D16A16ALE"/>
-          <interpretation key="0x00000002" text="D8A24ALE"/>
-          <interpretation key="0x00000003" text="D16"/>
-        </field>
-        <field name="BANK0EN" bitoffset="8" bitlength="1">
-          <description>Bank 0 Enable</description>
-        </field>
-        <field name="BANK1EN" bitoffset="9" bitlength="1">
-          <description>Bank 1 Enable</description>
-        </field>
-        <field name="BANK2EN" bitoffset="10" bitlength="1">
-          <description>Bank 2 Enable</description>
-        </field>
-        <field name="BANK3EN" bitoffset="11" bitlength="1">
-          <description>Bank 3 Enable</description>
-        </field>
-        <field name="NOIDLE" bitoffset="12" bitlength="1">
-          <description>No idle cycle insertion on bank 0.</description>
-        </field>
-        <field name="NOIDLE1" bitoffset="13" bitlength="1">
-          <description>No idle cycle insertion on bank 1.</description>
-        </field>
-        <field name="NOIDLE2" bitoffset="14" bitlength="1">
-          <description>No idle cycle insertion on bank 2.</description>
-        </field>
-        <field name="NOIDLE3" bitoffset="15" bitlength="1">
-          <description>No idle cycle insertion on bank 3.</description>
-        </field>
-        <field name="ARDYEN" bitoffset="16" bitlength="1">
-          <description>ARDY Enable</description>
-        </field>
-        <field name="ARDYTODIS" bitoffset="17" bitlength="1">
-          <description>ARDY Timeout Disable</description>
-        </field>
-        <field name="ARDY1EN" bitoffset="18" bitlength="1">
-          <description>ARDY Enable for bank 1</description>
-        </field>
-        <field name="ARDYTO1DIS" bitoffset="19" bitlength="1">
-          <description>ARDY Timeout Disable for bank 1</description>
-        </field>
-        <field name="ARDY2EN" bitoffset="20" bitlength="1">
-          <description>ARDY Enable for bank 2</description>
-        </field>
-        <field name="ARDYTO2DIS" bitoffset="21" bitlength="1">
-          <description>ARDY Timeout Disable for bank 2</description>
-        </field>
-        <field name="ARDY3EN" bitoffset="22" bitlength="1">
-          <description>ARDY Enable for bank 3</description>
-        </field>
-        <field name="ARDYTO3DIS" bitoffset="23" bitlength="1">
-          <description>ARDY Timeout Disable for bank 3</description>
-        </field>
-        <field name="BL" bitoffset="24" bitlength="1">
-          <description>Byte Lane Enable for bank 0</description>
-        </field>
-        <field name="BL1" bitoffset="25" bitlength="1">
-          <description>Byte Lane Enable for bank 1</description>
-        </field>
-        <field name="BL2" bitoffset="26" bitlength="1">
-          <description>Byte Lane Enable for bank 2</description>
-        </field>
-        <field name="BL3" bitoffset="27" bitlength="1">
-          <description>Byte Lane Enable for bank 3</description>
-        </field>
-        <field name="ITS" bitoffset="30" bitlength="1">
-          <description>Individual Timing Set, Line Polarity and Mode Definition Enable</description>
-        </field>
-        <field name="ALTMAP" bitoffset="31" bitlength="1">
-          <description>Alternative Address Map Enable</description>
-        </field>
-      </register>
-      <register name="ADDRTIMING" address="0x40008004" access="RW" resetvalue="0x00000303">
-        <description>Address Timing Register</description>
-        <field name="ADDRSETUP" bitoffset="0" bitlength="2">
-          <description>
-        Address Setup Time
-          </description>
-        </field>
-        <field name="ADDRHOLD" bitoffset="8" bitlength="2">
-          <description>
-        Address Hold Time
-          </description>
-        </field>
-        <field name="HALFALE" bitoffset="28" bitlength="1">
-          <description>Half Cycle ALE Strobe Duration Enable</description>
-        </field>
-      </register>
-      <register name="RDTIMING" address="0x40008008" access="RW" resetvalue="0x00033F03">
-        <description>Read Timing Register</description>
-        <field name="RDSETUP" bitoffset="0" bitlength="2">
-          <description>
-        Read Setup Time
-          </description>
-        </field>
-        <field name="RDSTRB" bitoffset="8" bitlength="6">
-          <description>
-        Read Strobe Time
-          </description>
-        </field>
-        <field name="RDHOLD" bitoffset="16" bitlength="2">
-          <description>
-        Read Hold Time
-          </description>
-        </field>
-        <field name="HALFRE" bitoffset="28" bitlength="1">
-          <description>Half Cycle REn Strobe Duration Enable</description>
-        </field>
-        <field name="PREFETCH" bitoffset="29" bitlength="1">
-          <description>Prefetch Enable</description>
-        </field>
-        <field name="PAGEMODE" bitoffset="30" bitlength="1">
-          <description>Page Mode Access Enable</description>
-        </field>
-      </register>
-      <register name="WRTIMING" address="0x4000800c" access="RW" resetvalue="0x00033F03">
-        <description>Write Timing Register</description>
-        <field name="WRSETUP" bitoffset="0" bitlength="2">
-          <description>
-        Write Setup Time
-          </description>
-        </field>
-        <field name="WRSTRB" bitoffset="8" bitlength="6">
-          <description>
-        Write Strobe Time
-          </description>
-        </field>
-        <field name="WRHOLD" bitoffset="16" bitlength="2">
-          <description>
-        Write Hold Time
-          </description>
-        </field>
-        <field name="HALFWE" bitoffset="28" bitlength="1">
-          <description>Half Cycle WEn Strobe Duration Enable</description>
-        </field>
-        <field name="WBUFDIS" bitoffset="29" bitlength="1">
-          <description>Write Buffer Disable</description>
-        </field>
-      </register>
-      <register name="POLARITY" address="0x40008010" access="RW" resetvalue="0x00000000">
-        <description>Polarity Register</description>
-        <field name="CSPOL" bitoffset="0" bitlength="1">
-          <description>Chip Select Polarity</description>
-        </field>
-        <field name="REPOL" bitoffset="1" bitlength="1">
-          <description>Read Enable Polarity</description>
-        </field>
-        <field name="WEPOL" bitoffset="2" bitlength="1">
-          <description>Write Enable Polarity</description>
-        </field>
-        <field name="ALEPOL" bitoffset="3" bitlength="1">
-          <description>Address Latch Polarity</description>
-        </field>
-        <field name="ARDYPOL" bitoffset="4" bitlength="1">
-          <description>ARDY Polarity</description>
-        </field>
-        <field name="BLPOL" bitoffset="5" bitlength="1">
-          <description>BL Polarity</description>
-        </field>
-      </register>
-      <register name="ROUTE" address="0x40008014" access="RW" resetvalue="0x00000000">
-        <description>I/O Routing Register</description>
-        <field name="EBIPEN" bitoffset="0" bitlength="1">
-          <description>EBI Pin Enable</description>
-        </field>
-        <field name="CS0PEN" bitoffset="1" bitlength="1">
-          <description>EBI_CS0 Pin Enable</description>
-        </field>
-        <field name="CS1PEN" bitoffset="2" bitlength="1">
-          <description>EBI_CS1 Pin Enable</description>
-        </field>
-        <field name="CS2PEN" bitoffset="3" bitlength="1">
-          <description>EBI_CS2 Pin Enable</description>
-        </field>
-        <field name="CS3PEN" bitoffset="4" bitlength="1">
-          <description>EBI_CS3 Pin Enable</description>
-        </field>
-        <field name="ALEPEN" bitoffset="5" bitlength="1">
-          <description>EBI_ALE Pin Enable</description>
-        </field>
-        <field name="ARDYPEN" bitoffset="6" bitlength="1">
-          <description>EBI_ARDY Pin Enable</description>
-        </field>
-        <field name="BLPEN" bitoffset="7" bitlength="1">
-          <description>EBI_BL[1:0] Pin Enable</description>
-        </field>
-        <field name="NANDPEN" bitoffset="12" bitlength="1">
-          <description>NANDRE and NANDWE Pin Enable</description>
-        </field>
-        <field name="ALB" bitoffset="16" bitlength="2">
-          <description>
- Sets the lower bound for EBI_A enabling
- -
- Value, Description
- 0x00, A0 - Address lines from EBI_A[0] and upwards can be enabled via APEN.
- 0x01, A8 - Address lines from EBI_A[8] and upwards can be enabled via APEN.
- 0x02, A16 - Address lines from EBI_A[16] and upwards can be enabled via APEN.
- 0x03, A24 - Address lines from EBI_A[24] and upwards can be enabled via APEN.
-          </description>
-          <interpretation key="0x00000000" text="A0"/>
-          <interpretation key="0x00000001" text="A8"/>
-          <interpretation key="0x00000002" text="A16"/>
-          <interpretation key="0x00000003" text="A24"/>
-        </field>
-        <field name="APEN" bitoffset="18" bitlength="5">
-          <description>
- EBI_A Pin Enable
- -
- Value, Description
- 0x00, A0 - All EBI_A pins are disabled.
- 0x05, A5 - EBI_A[4:L] pins enabled.
- 0x06, A6 - EBI_A[5:L] pins enabled.
- 0x07, A7 - EBI_A[6:L] pins enabled.
- 0x08, A8 - EBI_A[7:L] pins enabled.
- 0x09, A9 - EBI_A[8:L] pins enabled.
- 0x0A, A10 - EBI_A[9:L] pins enabled.
- 0x0B, A11 - EBI_A[10:L] pins enabled.
- 0x0C, A12 - EBI_A[11:L] pins enabled.
- 0x0D, A13 - EBI_A[12:L] pins enabled.
- 0x0E, A14 - EBI_A[13:L] pins enabled.
- 0x0F, A15 - EBI_A[14:L] pins enabled.
- 0x010, A16 - EBI_A[15:L] pins enabled.
- 0x011, A17 - EBI_A[16:L] pins enabled.
- 0x012, A18 - EBI_A[17:L] pins enabled.
- 0x013, A19 - EBI_A[18:L] pins enabled.
- 0x014, A20 - EBI_A[19:L] pins enabled.
- 0x015, A21 - EBI_A[20:L] pins enabled.
- 0x016, A22 - EBI_A[21:L] pins enabled.
- 0x017, A23 - EBI_A[22:L] pins enabled.
- 0x018, A24 - EBI_A[23:L] pins enabled.
- 0x019, A25 - EBI_A[24:L] pins enabled.
- 0x01A, A26 - EBI_A[25:L] pins enabled.
- 0x01B, A27 - EBI_A[26:L] pins enabled.
- 0x01C, A28 - EBI_A[27:L] pins enabled.
-          </description>
-          <interpretation key="0x00000000" text="A0"/>
-          <interpretation key="0x00000005" text="A5"/>
-          <interpretation key="0x00000006" text="A6"/>
-          <interpretation key="0x00000007" text="A7"/>
-          <interpretation key="0x00000008" text="A8"/>
-          <interpretation key="0x00000009" text="A9"/>
-          <interpretation key="0x0000000A" text="A10"/>
-          <interpretation key="0x0000000B" text="A11"/>
-          <interpretation key="0x0000000C" text="A12"/>
-          <interpretation key="0x0000000D" text="A13"/>
-          <interpretation key="0x0000000E" text="A14"/>
-          <interpretation key="0x0000000F" text="A15"/>
-          <interpretation key="0x00000010" text="A16"/>
-          <interpretation key="0x00000011" text="A17"/>
-          <interpretation key="0x00000012" text="A18"/>
-          <interpretation key="0x00000013" text="A19"/>
-          <interpretation key="0x00000014" text="A20"/>
-          <interpretation key="0x00000015" text="A21"/>
-          <interpretation key="0x00000016" text="A22"/>
-          <interpretation key="0x00000017" text="A23"/>
-          <interpretation key="0x00000018" text="A24"/>
-          <interpretation key="0x00000019" text="A25"/>
-          <interpretation key="0x0000001A" text="A26"/>
-          <interpretation key="0x0000001B" text="A27"/>
-          <interpretation key="0x0000001C" text="A28"/>
-        </field>
-        <field name="TFTPEN" bitoffset="24" bitlength="1">
-          <description>EBI_TFT Pin Enable</description>
-        </field>
-        <field name="DATAENPEN" bitoffset="25" bitlength="1">
-          <description>EBI_TFT Pin Enable</description>
-        </field>
-        <field name="CSTFTPEN" bitoffset="26" bitlength="1">
-          <description>EBI_CSTFT Pin Enable</description>
-        </field>
-        <field name="LOCATION" bitoffset="28" bitlength="3">
-          <description>
- I/O Location
- -
- Value, Description
- 0x00, LOC0 - Location 0
- 0x01, LOC1 - Location 1
- 0x02, LOC2 - Location 2
-          </description>
-          <interpretation key="0x00000000" text="LOC0"/>
-          <interpretation key="0x00000001" text="LOC1"/>
-          <interpretation key="0x00000002" text="LOC2"/>
-        </field>
-      </register>
-      <register name="ADDRTIMING1" address="0x40008018" access="RW" resetvalue="0x00000303">
-        <description>Address Timing Register 1</description>
-        <field name="ADDRSETUP" bitoffset="0" bitlength="2">
-          <description>
-        Address Setup Time
-          </description>
-        </field>
-        <field name="ADDRHOLD" bitoffset="8" bitlength="2">
-          <description>
-        Address Hold Time
-          </description>
-        </field>
-        <field name="HALFALE" bitoffset="28" bitlength="1">
-          <description>Half Cycle ALE Strobe Duration Enable</description>
-        </field>
-      </register>
-      <register name="RDTIMING1" address="0x4000801c" access="RW" resetvalue="0x00033F03">
-        <description>Read Timing Register 1</description>
-        <field name="RDSETUP" bitoffset="0" bitlength="2">
-          <description>
-        Read Setup Time
-          </description>
-        </field>
-        <field name="RDSTRB" bitoffset="8" bitlength="6">
-          <description>
-        Read Strobe Time
-          </description>
-        </field>
-        <field name="RDHOLD" bitoffset="16" bitlength="2">
-          <description>
-        Read Hold Time
-          </description>
-        </field>
-        <field name="HALFRE" bitoffset="28" bitlength="1">
-          <description>Half Cycle REn Strobe Duration Enable</description>
-        </field>
-        <field name="PREFETCH" bitoffset="29" bitlength="1">
-          <description>Prefetch Enable</description>
-        </field>
-        <field name="PAGEMODE" bitoffset="30" bitlength="1">
-          <description>Page Mode Access Enable</description>
-        </field>
-      </register>
-      <register name="WRTIMING1" address="0x40008020" access="RW" resetvalue="0x00033F03">
-        <description>Write Timing Register 1</description>
-        <field name="WRSETUP" bitoffset="0" bitlength="2">
-          <description>
-        Write Setup Time
-          </description>
-        </field>
-        <field name="WRSTRB" bitoffset="8" bitlength="6">
-          <description>
-        Write Strobe Time
-          </description>
-        </field>
-        <field name="WRHOLD" bitoffset="16" bitlength="2">
-          <description>
-        Write Hold Time
-          </description>
-        </field>
-        <field name="HALFWE" bitoffset="28" bitlength="1">
-          <description>Half Cycle WEn Strobe Duration Enable</description>
-        </field>
-        <field name="WBUFDIS" bitoffset="29" bitlength="1">
-          <description>Write Buffer Disable</description>
-        </field>
-      </register>
-      <register name="POLARITY1" address="0x40008024" access="RW" resetvalue="0x00000000">
-        <description>Polarity Register 1</description>
-        <field name="CSPOL" bitoffset="0" bitlength="1">
-          <description>Chip Select Polarity</description>
-        </field>
-        <field name="REPOL" bitoffset="1" bitlength="1">
-          <description>Read Enable Polarity</description>
-        </field>
-        <field name="WEPOL" bitoffset="2" bitlength="1">
-          <description>Write Enable Polarity</description>
-        </field>
-        <field name="ALEPOL" bitoffset="3" bitlength="1">
-          <description>Address Latch Polarity</description>
-        </field>
-        <field name="ARDYPOL" bitoffset="4" bitlength="1">
-          <description>ARDY Polarity</description>
-        </field>
-        <field name="BLPOL" bitoffset="5" bitlength="1">
-          <description>BL Polarity</description>
-        </field>
-      </register>
-      <register name="ADDRTIMING2" address="0x40008028" access="RW" resetvalue="0x00000303">
-        <description>Address Timing Register 2</description>
-        <field name="ADDRSETUP" bitoffset="0" bitlength="2">
-          <description>
-        Address Setup Time
-          </description>
-        </field>
-        <field name="ADDRHOLD" bitoffset="8" bitlength="2">
-          <description>
-        Address Hold Time
-          </description>
-        </field>
-        <field name="HALFALE" bitoffset="28" bitlength="1">
-          <description>Half Cycle ALE Strobe Duration Enable</description>
-        </field>
-      </register>
-      <register name="RDTIMING2" address="0x4000802c" access="RW" resetvalue="0x00033F03">
-        <description>Read Timing Register 2</description>
-        <field name="RDSETUP" bitoffset="0" bitlength="2">
-          <description>
-        Read Setup Time
-          </description>
-        </field>
-        <field name="RDSTRB" bitoffset="8" bitlength="6">
-          <description>
-        Read Strobe Time
-          </description>
-        </field>
-        <field name="RDHOLD" bitoffset="16" bitlength="2">
-          <description>
-        Read Hold Time
-          </description>
-        </field>
-        <field name="HALFRE" bitoffset="28" bitlength="1">
-          <description>Half Cycle REn Strobe Duration Enable</description>
-        </field>
-        <field name="PREFETCH" bitoffset="29" bitlength="1">
-          <description>Prefetch Enable</description>
-        </field>
-        <field name="PAGEMODE" bitoffset="30" bitlength="1">
-          <description>Page Mode Access Enable</description>
-        </field>
-      </register>
-      <register name="WRTIMING2" address="0x40008030" access="RW" resetvalue="0x00033F03">
-        <description>Write Timing Register 2</description>
-        <field name="WRSETUP" bitoffset="0" bitlength="2">
-          <description>
-        Write Setup Time
-          </description>
-        </field>
-        <field name="WRSTRB" bitoffset="8" bitlength="6">
-          <description>
-        Write Strobe Time
-          </description>
-        </field>
-        <field name="WRHOLD" bitoffset="16" bitlength="2">
-          <description>
-        Write Hold Time
-          </description>
-        </field>
-        <field name="HALFWE" bitoffset="28" bitlength="1">
-          <description>Half Cycle WEn Strobe Duration Enable</description>
-        </field>
-        <field name="WBUFDIS" bitoffset="29" bitlength="1">
-          <description>Write Buffer Disable</description>
-        </field>
-      </register>
-      <register name="POLARITY2" address="0x40008034" access="RW" resetvalue="0x00000000">
-        <description>Polarity Register 2</description>
-        <field name="CSPOL" bitoffset="0" bitlength="1">
-          <description>Chip Select Polarity</description>
-        </field>
-        <field name="REPOL" bitoffset="1" bitlength="1">
-          <description>Read Enable Polarity</description>
-        </field>
-        <field name="WEPOL" bitoffset="2" bitlength="1">
-          <description>Write Enable Polarity</description>
-        </field>
-        <field name="ALEPOL" bitoffset="3" bitlength="1">
-          <description>Address Latch Polarity</description>
-        </field>
-        <field name="ARDYPOL" bitoffset="4" bitlength="1">
-          <description>ARDY Polarity</description>
-        </field>
-        <field name="BLPOL" bitoffset="5" bitlength="1">
-          <description>BL Polarity</description>
-        </field>
-      </register>
-      <register name="ADDRTIMING3" address="0x40008038" access="RW" resetvalue="0x00000303">
-        <description>Address Timing Register 3</description>
-        <field name="ADDRSETUP" bitoffset="0" bitlength="2">
-          <description>
-        Address Setup Time
-          </description>
-        </field>
-        <field name="ADDRHOLD" bitoffset="8" bitlength="2">
-          <description>
-        Address Hold Time
-          </description>
-        </field>
-        <field name="HALFALE" bitoffset="28" bitlength="1">
-          <description>Half Cycle ALE Strobe Duration Enable</description>
-        </field>
-      </register>
-      <register name="RDTIMING3" address="0x4000803c" access="RW" resetvalue="0x00033F03">
-        <description>Read Timing Register 3</description>
-        <field name="RDSETUP" bitoffset="0" bitlength="2">
-          <description>
-        Read Setup Time
-          </description>
-        </field>
-        <field name="RDSTRB" bitoffset="8" bitlength="6">
-          <description>
-        Read Strobe Time
-          </description>
-        </field>
-        <field name="RDHOLD" bitoffset="16" bitlength="2">
-          <description>
-        Read Hold Time
-          </description>
-        </field>
-        <field name="HALFRE" bitoffset="28" bitlength="1">
-          <description>Half Cycle REn Strobe Duration Enable</description>
-        </field>
-        <field name="PREFETCH" bitoffset="29" bitlength="1">
-          <description>Prefetch Enable</description>
-        </field>
-        <field name="PAGEMODE" bitoffset="30" bitlength="1">
-          <description>Page Mode Access Enable</description>
-        </field>
-      </register>
-      <register name="WRTIMING3" address="0x40008040" access="RW" resetvalue="0x00033F03">
-        <description>Write Timing Register 3</description>
-        <field name="WRSETUP" bitoffset="0" bitlength="2">
-          <description>
-        Write Setup Time
-          </description>
-        </field>
-        <field name="WRSTRB" bitoffset="8" bitlength="6">
-          <description>
-        Write Strobe Time
-          </description>
-        </field>
-        <field name="WRHOLD" bitoffset="16" bitlength="2">
-          <description>
-        Write Hold Time
-          </description>
-        </field>
-        <field name="HALFWE" bitoffset="28" bitlength="1">
-          <description>Half Cycle WEn Strobe Duration Enable</description>
-        </field>
-        <field name="WBUFDIS" bitoffset="29" bitlength="1">
-          <description>Write Buffer Disable</description>
-        </field>
-      </register>
-      <register name="POLARITY3" address="0x40008044" access="RW" resetvalue="0x00000000">
-        <description>Polarity Register 3</description>
-        <field name="CSPOL" bitoffset="0" bitlength="1">
-          <description>Chip Select Polarity</description>
-        </field>
-        <field name="REPOL" bitoffset="1" bitlength="1">
-          <description>Read Enable Polarity</description>
-        </field>
-        <field name="WEPOL" bitoffset="2" bitlength="1">
-          <description>Write Enable Polarity</description>
-        </field>
-        <field name="ALEPOL" bitoffset="3" bitlength="1">
-          <description>Address Latch Polarity</description>
-        </field>
-        <field name="ARDYPOL" bitoffset="4" bitlength="1">
-          <description>ARDY Polarity</description>
-        </field>
-        <field name="BLPOL" bitoffset="5" bitlength="1">
-          <description>BL Polarity</description>
-        </field>
-      </register>
-      <register name="PAGECTRL" address="0x40008048" access="RW" resetvalue="0x00000700">
-        <description>Page Control Register</description>
-        <field name="PAGELEN" bitoffset="0" bitlength="2">
-          <description>
- Page Length
- -
- Value, Description
- 0x00, MEMBER4 - 4 members in a page.
- 0x01, MEMBER8 - 8 members in a page.
- 0x02, MEMBER16 - 16 members in a page.
- 0x03, MEMBER32 - 32 members in a page.
-          </description>
-          <interpretation key="0x00000000" text="MEMBER4"/>
-          <interpretation key="0x00000001" text="MEMBER8"/>
-          <interpretation key="0x00000002" text="MEMBER16"/>
-          <interpretation key="0x00000003" text="MEMBER32"/>
-        </field>
-        <field name="INCHIT" bitoffset="4" bitlength="1">
-          <description>Intrapage hit only on incremental addresses</description>
-        </field>
-        <field name="RDPA" bitoffset="8" bitlength="3">
-          <description>
-        Page Read Access Time
-          </description>
-        </field>
-        <field name="KEEPOPEN" bitoffset="20" bitlength="7">
-          <description>
-        Maximum Page Open Time.
-          </description>
-        </field>
-      </register>
-      <register name="NANDCTRL" address="0x4000804c" access="RW" resetvalue="0x00000000">
-        <description>NAND Control Register</description>
-        <field name="EN" bitoffset="0" bitlength="1">
-          <description>NAND Flash control enable</description>
-        </field>
-        <field name="BANKSEL" bitoffset="4" bitlength="2">
-          <description>
- NAND Flash Bank
- -
- Value, Description
- 0x00, BANK0 - Memory bank 0 is connected to a NAND Flash device.
- 0x01, BANK1 - Memory bank 1 is connected to a NAND Flash device.
- 0x02, BANK2 - Memory bank 2 is connected to a NAND Flash device.
- 0x03, BANK3 - Memory bank 3 is connected to a NAND Flash device.
-          </description>
-          <interpretation key="0x00000000" text="BANK0"/>
-          <interpretation key="0x00000001" text="BANK1"/>
-          <interpretation key="0x00000002" text="BANK2"/>
-          <interpretation key="0x00000003" text="BANK3"/>
-        </field>
-      </register>
-      <register name="CMD" address="0x40008050" access="WO" resetvalue="0x00000000">
-        <description>Command Register</description>
-        <field name="ECCSTART" bitoffset="0" bitlength="1">
-          <description>Error Correction Code Generation Start</description>
-        </field>
-        <field name="ECCSTOP" bitoffset="1" bitlength="1">
-          <description>Error Correction Code Generation Stop</description>
-        </field>
-        <field name="ECCCLEAR" bitoffset="2" bitlength="1">
-          <description>Error Correction Code Clear</description>
-        </field>
-      </register>
-      <register name="STATUS" address="0x40008054" access="RO" resetvalue="0x00000000">
-        <description>Status Register</description>
-        <field name="AHBACT" bitoffset="0" bitlength="1">
-          <description>EBI Busy with AHB Transaction.</description>
-        </field>
-        <field name="ECCACT" bitoffset="4" bitlength="1">
-          <description>EBI ECC Generation Active.</description>
-        </field>
-        <field name="TFTPIXEL0EMPTY" bitoffset="8" bitlength="1">
-          <description>EBI_TFTPIXEL0 is empty.</description>
-        </field>
-        <field name="TFTPIXEL1EMPTY" bitoffset="9" bitlength="1">
-          <description>EBI_TFTPIXEL1 is empty.</description>
-        </field>
-        <field name="TFTPIXELFULL" bitoffset="10" bitlength="1">
-          <description>EBI_TFTPIXEL0 is full.</description>
-        </field>
-        <field name="DDACT" bitoffset="12" bitlength="1">
-          <description>EBI Busy with Direct Drive Transactions.</description>
-        </field>
-        <field name="TFTDDEMPTY" bitoffset="13" bitlength="1">
-          <description>EBI_TFTDD register is empty.</description>
-        </field>
-      </register>
-      <register name="ECCPARITY" address="0x40008058" access="RO" resetvalue="0x00000000">
-        <description>ECC Parity register</description>
-        <field name="ECCPARITY" bitoffset="0" bitlength="32">
-          <description>
-        ECC Parity Data
-          </description>
-        </field>
-      </register>
-      <register name="TFTCTRL" address="0x4000805c" access="RW" resetvalue="0x00000000">
-        <description>TFT Control Register</description>
-        <field name="DD" bitoffset="0" bitlength="2">
-          <description>
- TFT Direct Drive Mode
- -
- Value, Description
- 0x00, DISABLED - Direct Drive is disabled.
- 0x01, INTERNAL - Direct Drive from internal memory enabled and started.
- 0x02, EXTERNAL - Direct Drive from external memory enabled and started.
-          </description>
-          <interpretation key="0x00000000" text="DISABLED"/>
-          <interpretation key="0x00000001" text="INTERNAL"/>
-          <interpretation key="0x00000002" text="EXTERNAL"/>
-        </field>
-        <field name="MASKBLEND" bitoffset="2" bitlength="3">
-          <description>
- TFT Mask and Blend Mode
- -
- Value, Description
- 0x00, DISABLED - Masking and Blending are disabled.
- 0x01, IMASK - Internal Masking is enabled.
- 0x02, IALPHA - Internal Alpha Blending is enabled.
- 0x03, IMASKIALPHA - Internal Masking and Alpha Blending are enabled.
- 0x05, EMASK - External Masking is enabled.
- 0x06, EALPHA - External Alpha Blending is enabled.
- 0x07, EMASKEALPHA - External Masking and Alpha Blending are enabled.
-          </description>
-          <interpretation key="0x00000000" text="DISABLED"/>
-          <interpretation key="0x00000001" text="IMASK"/>
-          <interpretation key="0x00000002" text="IALPHA"/>
-          <interpretation key="0x00000003" text="IMASKIALPHA"/>
-          <interpretation key="0x00000005" text="EMASK"/>
-          <interpretation key="0x00000006" text="EALPHA"/>
-          <interpretation key="0x00000007" text="EMASKEALPHA"/>
-        </field>
-        <field name="SHIFTDCLKEN" bitoffset="8" bitlength="1">
-          <description>TFT EBI_DCLK Shift Enable</description>
-        </field>
-        <field name="FBCTRIG" bitoffset="9" bitlength="1">
-          <description>TFT Frame Base Copy Trigger</description>
-        </field>
-        <field name="INTERLEAVE" bitoffset="10" bitlength="2">
-          <description>
- Interleave Mode
- -
- Value, Description
- 0x00, UNLIMITED - Allow unlimited interleaved EBI accesses per EBI_DCLK period. This can cause jitter on the EBI_DCLK
- 0x01, ONEPERDCLK - Allow 1 interleaved EBI access per EBI_DCLK period.
- 0x02, PORCH - Only allow EBI accesses during TFT porches.
-          </description>
-          <interpretation key="0x00000000" text="UNLIMITED"/>
-          <interpretation key="0x00000001" text="ONEPERDCLK"/>
-          <interpretation key="0x00000002" text="PORCH"/>
-        </field>
-        <field name="COLOR1SRC" bitoffset="12" bitlength="1">
-          <description>Masking/Alpha Blending Color1 Source</description>
-        </field>
-        <field name="WIDTH" bitoffset="16" bitlength="1">
-          <description>TFT Transaction Width</description>
-        </field>
-        <field name="BANKSEL" bitoffset="20" bitlength="2">
-          <description>
- Graphics Bank
- -
- Value, Description
- 0x00, BANK0 - Memory bank 0 is used for Direct Drive, Masking, and Alpha Blending.
- 0x01, BANK1 - Memory bank 1 is used for Direct Drive, Masking, and Alpha Blending.
- 0x02, BANK2 - Memory bank 2 is used for Direct Drive, Masking, and Alpha Blending.
- 0x03, BANK3 - Memory bank 3 is used for Direct Drive, Masking, and Alpha Blending.
-          </description>
-          <interpretation key="0x00000000" text="BANK0"/>
-          <interpretation key="0x00000001" text="BANK1"/>
-          <interpretation key="0x00000002" text="BANK2"/>
-          <interpretation key="0x00000003" text="BANK3"/>
-        </field>
-        <field name="RGBMODE" bitoffset="24" bitlength="1">
-          <description>TFT RGB Mode</description>
-        </field>
-      </register>
-      <register name="TFTSTATUS" address="0x40008060" access="RO" resetvalue="0x00000000">
-        <description>TFT Status Register</description>
-        <field name="HCNT" bitoffset="0" bitlength="11">
-          <description>
-        Horizontal Count
-          </description>
-        </field>
-        <field name="VCNT" bitoffset="16" bitlength="11">
-          <description>
-        Vertical Count
-          </description>
-        </field>
-      </register>
-      <register name="TFTFRAMEBASE" address="0x40008064" access="RW" resetvalue="0x00000000">
-        <description>TFT Frame Base Register</description>
-        <field name="FRAMEBASE" bitoffset="0" bitlength="28">
-          <description>
-        Frame Base Address
-          </description>
-        </field>
-      </register>
-      <register name="TFTSTRIDE" address="0x40008068" access="RW" resetvalue="0x00000000">
-        <description>TFT Stride Register</description>
-        <field name="HSTRIDE" bitoffset="0" bitlength="12">
-          <description>
-        Horizontal Stride
-          </description>
-        </field>
-      </register>
-      <register name="TFTSIZE" address="0x4000806c" access="RW" resetvalue="0x00000000">
-        <description>TFT Size Register</description>
-        <field name="HSZ" bitoffset="0" bitlength="10">
-          <description>
-        Horizontal Size (excluding porches)
-          </description>
-        </field>
-        <field name="VSZ" bitoffset="16" bitlength="10">
-          <description>
-        Vertical Size (excluding porches)
-          </description>
-        </field>
-      </register>
-      <register name="TFTHPORCH" address="0x40008070" access="RW" resetvalue="0x00000000">
-        <description>TFT Horizontal Porch Register</description>
-        <field name="HSYNC" bitoffset="0" bitlength="7">
-          <description>
-        Horizontal Synchronization Pulse Width
-          </description>
-        </field>
-        <field name="HFPORCH" bitoffset="8" bitlength="8">
-          <description>
-        Horizontal Front Porch Size
-          </description>
-        </field>
-        <field name="HBPORCH" bitoffset="18" bitlength="8">
-          <description>
-        Horizontal Back Porch Size
-          </description>
-        </field>
-        <field name="HSYNCSTART" bitoffset="28" bitlength="2">
-          <description>
-        HSYNC Start Delay
-          </description>
-        </field>
-      </register>
-      <register name="TFTVPORCH" address="0x40008074" access="RW" resetvalue="0x00000000">
-        <description>TFT Vertical Porch Register</description>
-        <field name="VSYNC" bitoffset="0" bitlength="7">
-          <description>
-        Vertical Synchronization Pulse Width
-          </description>
-        </field>
-        <field name="VFPORCH" bitoffset="8" bitlength="8">
-          <description>
-        Vertical Front Porch Size
-          </description>
-        </field>
-        <field name="VBPORCH" bitoffset="18" bitlength="8">
-          <description>
-        Vertical Back Porch Size
-          </description>
-        </field>
-      </register>
-      <register name="TFTTIMING" address="0x40008078" access="RW" resetvalue="0x00000000">
-        <description>TFT Timing Register</description>
-        <field name="DCLKPERIOD" bitoffset="0" bitlength="11">
-          <description>
-        TFT Direct Drive Transaction (EBI_DCLK) Period
-          </description>
-        </field>
-        <field name="TFTSTART" bitoffset="12" bitlength="11">
-          <description>
-        TFT Direct Drive Transaction Start
-          </description>
-        </field>
-        <field name="TFTSETUP" bitoffset="24" bitlength="2">
-          <description>
-        TFT Setup Time
-          </description>
-        </field>
-        <field name="TFTHOLD" bitoffset="28" bitlength="2">
-          <description>
-        TFT Hold Time
-          </description>
-        </field>
-      </register>
-      <register name="TFTPOLARITY" address="0x4000807c" access="RW" resetvalue="0x00000000">
-        <description>TFT Polarity Register</description>
-        <field name="CSPOL" bitoffset="0" bitlength="1">
-          <description>TFT Chip Select Polarity</description>
-        </field>
-        <field name="DCLKPOL" bitoffset="1" bitlength="1">
-          <description>TFT DCLK Polarity</description>
-        </field>
-        <field name="DATAENPOL" bitoffset="2" bitlength="1">
-          <description>TFT DATAEN Polarity</description>
-        </field>
-        <field name="HSYNCPOL" bitoffset="3" bitlength="1">
-          <description>Address Latch Polarity</description>
-        </field>
-        <field name="VSYNCPOL" bitoffset="4" bitlength="1">
-          <description>VSYNC Polarity</description>
-        </field>
-      </register>
-      <register name="TFTDD" address="0x40008080" access="RW" resetvalue="0x00000000">
-        <description>TFT Direct Drive Data Register</description>
-        <field name="DATA" bitoffset="0" bitlength="16">
-          <description>
-        TFT Direct Drive Data from Internal Memory
-          </description>
-        </field>
-      </register>
-      <register name="TFTALPHA" address="0x40008084" access="RW" resetvalue="0x00000000">
-        <description>TFT Alpha Blending Register</description>
-        <field name="ALPHA" bitoffset="0" bitlength="9">
-          <description>
-        TFT Alpha Blending Factor
-          </description>
-        </field>
-      </register>
-      <register name="TFTPIXEL0" address="0x40008088" access="RW" resetvalue="0x00000000">
-        <description>TFT Pixel 0 Register</description>
-        <field name="DATA" bitoffset="0" bitlength="16">
-          <description>
-        RGB data.
-          </description>
-        </field>
-      </register>
-      <register name="TFTPIXEL1" address="0x4000808c" access="RW" resetvalue="0x00000000">
-        <description>TFT Pixel 1 Register</description>
-        <field name="DATA" bitoffset="0" bitlength="16">
-          <description>
-        RGB data.
-          </description>
-        </field>
-      </register>
-      <register name="TFTPIXEL" address="0x40008090" access="RO" resetvalue="0x00000000">
-        <description>TFT Alpha Blending Result Pixel Register</description>
-        <field name="DATA" bitoffset="0" bitlength="16">
-          <description>
-        Alpha Blending Result
-          </description>
-        </field>
-      </register>
-      <register name="TFTMASK" address="0x40008094" access="RW" resetvalue="0x00000000">
-        <description>TFT Masking Register</description>
-        <field name="TFTMASK" bitoffset="0" bitlength="16">
-          <description>
-        TFT Mask Value
-          </description>
-        </field>
-      </register>
-      <register name="IF" address="0x40008098" access="RO" resetvalue="0x00000000">
+  <group name="FPUEH" description="">
+    <registergroup name="FPUEH" description="">
+      <register name="IF" address="0x400c1c00" access="RO" resetvalue="0x00000000">
         <description>Interrupt Flag Register</description>
-        <field name="VSYNC" bitoffset="0" bitlength="1">
-          <description>Vertical Sync Interrupt Flag</description>
+        <field name="FPIOC" bitoffset="0" bitlength="1">
+          <description>FPU invalid operation</description>
         </field>
-        <field name="HSYNC" bitoffset="1" bitlength="1">
-          <description>Horizontal Sync Interrupt Flag</description>
+        <field name="FPDZC" bitoffset="1" bitlength="1">
+          <description>FPU divide-by-zero exception</description>
         </field>
-        <field name="VBPORCH" bitoffset="2" bitlength="1">
-          <description>Vertical Back Porch Interrupt Flag</description>
+        <field name="FPUFC" bitoffset="2" bitlength="1">
+          <description>FPU underflow exception</description>
         </field>
-        <field name="VFPORCH" bitoffset="3" bitlength="1">
-          <description>Vertical Front Porch Interrupt Flag</description>
+        <field name="FPOFC" bitoffset="3" bitlength="1">
+          <description>FPU overflow exception</description>
         </field>
-        <field name="DDEMPTY" bitoffset="4" bitlength="1">
-          <description>Direct Drive Data Empty Interrupt Flag</description>
+        <field name="FPIDC" bitoffset="4" bitlength="1">
+          <description>FPU input denormal exception</description>
         </field>
-        <field name="DDJIT" bitoffset="5" bitlength="1">
-          <description>Direct Drive Jitter Interrupt Flag</description>
+        <field name="FPIXC" bitoffset="5" bitlength="1">
+          <description>FPU inexact exception</description>
         </field>
       </register>
-      <register name="IFS" address="0x4000809c" access="WO" resetvalue="0x00000000">
+      <register name="IFS" address="0x400c1c04" access="WO" resetvalue="0x00000000">
         <description>Interrupt Flag Set Register</description>
-        <field name="VSYNC" bitoffset="0" bitlength="1">
-          <description>Vertical Sync Interrupt Flag Set</description>
+        <field name="FPIOC" bitoffset="0" bitlength="1">
+          <description>Set FPIOC Interrupt Flag</description>
         </field>
-        <field name="HSYNC" bitoffset="1" bitlength="1">
-          <description>Horizontal Sync Interrupt Flag Set</description>
+        <field name="FPDZC" bitoffset="1" bitlength="1">
+          <description>Set FPDZC Interrupt Flag</description>
         </field>
-        <field name="VBPORCH" bitoffset="2" bitlength="1">
-          <description>Vertical Back Porch Interrupt Flag Set</description>
+        <field name="FPUFC" bitoffset="2" bitlength="1">
+          <description>Set FPUFC Interrupt Flag</description>
         </field>
-        <field name="VFPORCH" bitoffset="3" bitlength="1">
-          <description>Vertical Front Porch Interrupt Flag Set</description>
+        <field name="FPOFC" bitoffset="3" bitlength="1">
+          <description>Set FPOFC Interrupt Flag</description>
         </field>
-        <field name="DDEMPTY" bitoffset="4" bitlength="1">
-          <description>Direct Drive Data Empty Interrupt Flag Set</description>
+        <field name="FPIDC" bitoffset="4" bitlength="1">
+          <description>Set FPIDC Interrupt Flag</description>
         </field>
-        <field name="DDJIT" bitoffset="5" bitlength="1">
-          <description>Direct Drive Jitter Interrupt Flag Set</description>
+        <field name="FPIXC" bitoffset="5" bitlength="1">
+          <description>Set FPIXC Interrupt Flag</description>
         </field>
       </register>
-      <register name="IFC" address="0x400080a0" access="WO" resetvalue="0x00000000">
+      <register name="IFC" address="0x400c1c08" access="RW" resetvalue="0x00000000">
         <description>Interrupt Flag Clear Register</description>
-        <field name="VSYNC" bitoffset="0" bitlength="1">
-          <description>Vertical Sync Interrupt Flag Clear</description>
+        <field name="FPIOC" bitoffset="0" bitlength="1">
+          <description>Clear FPIOC Interrupt Flag</description>
         </field>
-        <field name="HSYNC" bitoffset="1" bitlength="1">
-          <description>Horizontal Sync Interrupt Flag Clear</description>
+        <field name="FPDZC" bitoffset="1" bitlength="1">
+          <description>Clear FPDZC Interrupt Flag</description>
         </field>
-        <field name="VBPORCH" bitoffset="2" bitlength="1">
-          <description>Vertical Back Porch Interrupt Flag Clear</description>
+        <field name="FPUFC" bitoffset="2" bitlength="1">
+          <description>Clear FPUFC Interrupt Flag</description>
         </field>
-        <field name="VFPORCH" bitoffset="3" bitlength="1">
-          <description>Vertical Front Porch Interrupt Flag Clear</description>
+        <field name="FPOFC" bitoffset="3" bitlength="1">
+          <description>Clear FPOFC Interrupt Flag</description>
         </field>
-        <field name="DDEMPTY" bitoffset="4" bitlength="1">
-          <description>Direct Drive Data Empty Interrupt Flag Clear</description>
+        <field name="FPIDC" bitoffset="4" bitlength="1">
+          <description>Clear FPIDC Interrupt Flag</description>
         </field>
-        <field name="DDJIT" bitoffset="5" bitlength="1">
-          <description>Direct Drive Jitter Interrupt Flag Clear</description>
+        <field name="FPIXC" bitoffset="5" bitlength="1">
+          <description>Clear FPIXC Interrupt Flag</description>
         </field>
       </register>
-      <register name="IEN" address="0x400080a4" access="RW" resetvalue="0x00000000">
+      <register name="IEN" address="0x400c1c0c" access="RW" resetvalue="0x00000000">
         <description>Interrupt Enable Register</description>
-        <field name="VSYNC" bitoffset="0" bitlength="1">
-          <description>Vertical Sync Interrupt Enable</description>
+        <field name="FPIOC" bitoffset="0" bitlength="1">
+          <description>FPIOC Interrupt Enable</description>
         </field>
-        <field name="HSYNC" bitoffset="1" bitlength="1">
-          <description>Horizontal Sync Interrupt Enable</description>
+        <field name="FPDZC" bitoffset="1" bitlength="1">
+          <description>FPDZC Interrupt Enable</description>
         </field>
-        <field name="VBPORCH" bitoffset="2" bitlength="1">
-          <description>Vertical Back Porch Interrupt Enable</description>
+        <field name="FPUFC" bitoffset="2" bitlength="1">
+          <description>FPUFC Interrupt Enable</description>
         </field>
-        <field name="VFPORCH" bitoffset="3" bitlength="1">
-          <description>Vertical Front Porch Interrupt Enable</description>
+        <field name="FPOFC" bitoffset="3" bitlength="1">
+          <description>FPOFC Interrupt Enable</description>
         </field>
-        <field name="DDEMPTY" bitoffset="4" bitlength="1">
-          <description>Direct Drive Data Empty Interrupt Enable</description>
+        <field name="FPIDC" bitoffset="4" bitlength="1">
+          <description>FPIDC Interrupt Enable</description>
         </field>
-        <field name="DDJIT" bitoffset="5" bitlength="1">
-          <description>Direct Drive Jitter Interrupt Enable</description>
+        <field name="FPIXC" bitoffset="5" bitlength="1">
+          <description>FPIXC Interrupt Enable</description>
         </field>
       </register>
     </registergroup>

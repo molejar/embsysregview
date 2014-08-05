@@ -3496,9 +3496,6 @@
         <field name="HRCCLR" bitoffset="0" bitlength="1">
           <description>Hard Reset Cause Clear</description>
         </field>
-        <field name="REDLFXOBOOST" bitoffset="8" bitlength="1">
-          <description>Reduce LFXO Start-up Boost Current</description>
-        </field>
       </register>
       <register name="EM4CONF" address="0x400c602c" access="RW" resetvalue="0x00000000">
         <description>Energy mode 4 configuration register</description>
@@ -3538,6 +3535,9 @@
         </field>
         <field name="BODCAL" bitoffset="2" bitlength="1">
           <description>Enable BOD calibration mode</description>
+        </field>
+        <field name="BUMODEBODEN" bitoffset="3" bitlength="1">
+          <description>Enable brown out detection on BU_VIN when in backup mode</description>
         </field>
         <field name="PROBE" bitoffset="5" bitlength="2">
           <description>
@@ -10448,6 +10448,9 @@
         <field name="ERRSTX" bitoffset="24" bitlength="1">
           <description>Disable TX On Error</description>
         </field>
+        <field name="SSSEARLY" bitoffset="25" bitlength="1">
+          <description>Synchronous Slave Setup Early</description>
+        </field>
         <field name="TXDELAY" bitoffset="26" bitlength="2">
           <description>
  TX Delay Transmission
@@ -10471,6 +10474,9 @@
         </field>
         <field name="MVDIS" bitoffset="30" bitlength="1">
           <description>Majority Vote Disable</description>
+        </field>
+        <field name="SMSDELAY" bitoffset="31" bitlength="1">
+          <description>Synchronous Master Sample Delay</description>
         </field>
       </register>
       <register name="FRAME" address="0x4000c004" access="RW" resetvalue="0x00001005">
@@ -11250,6 +11256,9 @@
         <field name="ERRSTX" bitoffset="24" bitlength="1">
           <description>Disable TX On Error</description>
         </field>
+        <field name="SSSEARLY" bitoffset="25" bitlength="1">
+          <description>Synchronous Slave Setup Early</description>
+        </field>
         <field name="TXDELAY" bitoffset="26" bitlength="2">
           <description>
  TX Delay Transmission
@@ -11273,6 +11282,9 @@
         </field>
         <field name="MVDIS" bitoffset="30" bitlength="1">
           <description>Majority Vote Disable</description>
+        </field>
+        <field name="SMSDELAY" bitoffset="31" bitlength="1">
+          <description>Synchronous Master Sample Delay</description>
         </field>
       </register>
       <register name="FRAME" address="0x4000c404" access="RW" resetvalue="0x00001005">
@@ -12052,6 +12064,9 @@
         <field name="ERRSTX" bitoffset="24" bitlength="1">
           <description>Disable TX On Error</description>
         </field>
+        <field name="SSSEARLY" bitoffset="25" bitlength="1">
+          <description>Synchronous Slave Setup Early</description>
+        </field>
         <field name="TXDELAY" bitoffset="26" bitlength="2">
           <description>
  TX Delay Transmission
@@ -12075,6 +12090,9 @@
         </field>
         <field name="MVDIS" bitoffset="30" bitlength="1">
           <description>Majority Vote Disable</description>
+        </field>
+        <field name="SMSDELAY" bitoffset="31" bitlength="1">
+          <description>Synchronous Master Sample Delay</description>
         </field>
       </register>
       <register name="FRAME" address="0x4000c804" access="RW" resetvalue="0x00001005">
@@ -12854,6 +12872,9 @@
         <field name="ERRSTX" bitoffset="24" bitlength="1">
           <description>Disable TX On Error</description>
         </field>
+        <field name="SSSEARLY" bitoffset="25" bitlength="1">
+          <description>Synchronous Slave Setup Early</description>
+        </field>
         <field name="TXDELAY" bitoffset="26" bitlength="2">
           <description>
  TX Delay Transmission
@@ -12877,6 +12898,9 @@
         </field>
         <field name="MVDIS" bitoffset="30" bitlength="1">
           <description>Majority Vote Disable</description>
+        </field>
+        <field name="SMSDELAY" bitoffset="31" bitlength="1">
+          <description>Synchronous Master Sample Delay</description>
         </field>
       </register>
       <register name="FRAME" address="0x4000e004" access="RW" resetvalue="0x00001005">
@@ -13656,6 +13680,9 @@
         <field name="ERRSTX" bitoffset="24" bitlength="1">
           <description>Disable TX On Error</description>
         </field>
+        <field name="SSSEARLY" bitoffset="25" bitlength="1">
+          <description>Synchronous Slave Setup Early</description>
+        </field>
         <field name="TXDELAY" bitoffset="26" bitlength="2">
           <description>
  TX Delay Transmission
@@ -13679,6 +13706,9 @@
         </field>
         <field name="MVDIS" bitoffset="30" bitlength="1">
           <description>Majority Vote Disable</description>
+        </field>
+        <field name="SMSDELAY" bitoffset="31" bitlength="1">
+          <description>Synchronous Master Sample Delay</description>
         </field>
       </register>
       <register name="FRAME" address="0x4000e404" access="RW" resetvalue="0x00001005">
