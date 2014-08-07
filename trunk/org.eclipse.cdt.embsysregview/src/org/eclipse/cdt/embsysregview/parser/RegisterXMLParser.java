@@ -222,14 +222,16 @@ public class RegisterXMLParser {
 
 						// Optional attribute resetvalue
 						Element attr_rresetvalue = register.getChild("resetValue");
-						long rresetvalue;
+						long rresetvalue = 0x00000000;
 						if (attr_rresetvalue != null && attr_rresetvalue.getValue() != "")
+							try{
 							if (attr_rresetvalue.getValue().startsWith("0x"))
 								rresetvalue = Long.parseLong(attr_rresetvalue.getValue().substring(2), 16);
 							else
 								rresetvalue = Long.parseLong(attr_rresetvalue.getValue());
-						else
-							rresetvalue = 0x00000000;
+							}catch (Exception e) { 
+								// just keep initialized value 0x00000000								
+							}
 
 						// Optional attribute access
 						Element attr_raccess = register.getChild("access");
