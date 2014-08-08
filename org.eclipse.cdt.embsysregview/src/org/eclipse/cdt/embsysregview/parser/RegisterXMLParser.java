@@ -451,6 +451,7 @@ public class RegisterXMLParser {
 
 										interpretations.addInterpretation(key, name + ": " + text);
 									}
+								}
 
 									System.out.println("Field: " + fname + " " + fdescription + " " + fbitoffset + " "
 											+ fbitlength + " " + interpretations);
@@ -462,7 +463,6 @@ public class RegisterXMLParser {
 								}
 							}
 						}
-					} // << EST for()
 					}
 				}
 			}
