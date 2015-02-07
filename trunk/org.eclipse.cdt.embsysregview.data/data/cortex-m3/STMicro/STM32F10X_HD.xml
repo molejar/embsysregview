@@ -3196,6 +3196,13 @@ Connectivity line (CL) devices are STM32F105xx and STM32F107xx microcontrollers.
 			<interpretation key="14" text="SYSCLK divided by 256"/>
 			<interpretation key="15" text="SYSCLK divided by 512"/>
 		</field>
+		<field bitoffset="8" bitlength="3" name="PPRE1" description="PRE1[2:0] bits (APB1 prescaler)">
+			<interpretation key="0" text="HCLK not divided"/>
+			<interpretation key="4" text="HCLK divided by 2"/>
+			<interpretation key="5" text="HCLK divided by 4"/>
+			<interpretation key="6" text="HCLK divided by 8"/>
+			<interpretation key="7" text="HCLK divided by 16"/>
+		</field>
 		<field bitoffset="11" bitlength="3" name="PPRE2" description="PRE2[2:0] bits (APB2 prescaler)">
 			<interpretation key="0" text="HCLK not divided"/>
 			<interpretation key="4" text="HCLK divided by 2"/>
