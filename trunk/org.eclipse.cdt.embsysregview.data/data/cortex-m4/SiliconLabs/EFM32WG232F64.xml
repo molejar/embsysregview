@@ -61,7 +61,7 @@
   • Pre-Programmed Serial Bootloader
   • Temperature range -40 to 85 ºC
   • Single power supply 1.8 to 3.8 V
-(C) Copyright Silicon Laboratories, Inc. 2014. All rights reserved.
+(C) Copyright Silicon Laboratories, Inc. 2015. All rights reserved.
   </chip_description>
   <group name="DMA" description="">
     <registergroup name="DMA" description="">
@@ -3591,14 +3591,14 @@
           <interpretation key="0x00000006" text="ULFRCO"/>
           <interpretation key="0x00000007" text="AUXHFRCO"/>
         </field>
-        <field name="CLKOUTSEL1" bitoffset="23" bitlength="3">
+        <field name="CLKOUTSEL1" bitoffset="23" bitlength="4">
           <description>
  Clock Output Select 1
  -
  Value, Description
  0x00, LFRCO - LFRCO (directly from oscillator).
  0x01, LFXO - LFXO (directly from oscillator).
- 0x02, HFCLK - HFCLK.
+ 0x02, HFCLK - HFCLK (undivided).
  0x03, LFXOQ - LFXO (qualified).
  0x04, HFXOQ - HFXO (qualified).
  0x05, LFRCOQ - LFRCO (qualified).
@@ -4793,7 +4793,7 @@
  Value, Description
  0x00, DUTYCYCLE - Bias module duty cycled between low power and high accuracy mode
  0x01, HIGHACC - Bias module always in high accuracy mode
- 0x02, DONTTOUCH - Bias module is controlled by the EMU and not affected by LESENSE
+ 0x02, DONTTOUCH - Bias module not affected by LESENSE
           </description>
           <interpretation key="0x00000000" text="DUTYCYCLE"/>
           <interpretation key="0x00000001" text="HIGHACC"/>
@@ -11576,7 +11576,7 @@
           <description>Always Track Inputs</description>
         </field>
         <field name="RSSCOIST" bitoffset="29" bitlength="1">
-          <description>Reload-Start Sets Compare Ouptut initial State</description>
+          <description>Reload-Start Sets Compare Output initial State</description>
         </field>
       </register>
       <register name="CMD" address="0x40010004" access="WO" resetvalue="0x00000000">
@@ -12628,7 +12628,7 @@
           <description>Always Track Inputs</description>
         </field>
         <field name="RSSCOIST" bitoffset="29" bitlength="1">
-          <description>Reload-Start Sets Compare Ouptut initial State</description>
+          <description>Reload-Start Sets Compare Output initial State</description>
         </field>
       </register>
       <register name="CMD" address="0x40010404" access="WO" resetvalue="0x00000000">
@@ -13680,7 +13680,7 @@
           <description>Always Track Inputs</description>
         </field>
         <field name="RSSCOIST" bitoffset="29" bitlength="1">
-          <description>Reload-Start Sets Compare Ouptut initial State</description>
+          <description>Reload-Start Sets Compare Output initial State</description>
         </field>
       </register>
       <register name="CMD" address="0x40010804" access="WO" resetvalue="0x00000000">
@@ -14732,7 +14732,7 @@
           <description>Always Track Inputs</description>
         </field>
         <field name="RSSCOIST" bitoffset="29" bitlength="1">
-          <description>Reload-Start Sets Compare Ouptut initial State</description>
+          <description>Reload-Start Sets Compare Output initial State</description>
         </field>
       </register>
       <register name="CMD" address="0x40010c04" access="WO" resetvalue="0x00000000">
@@ -27043,8 +27043,8 @@
  0x01, 2V5 - Internal 2.5 V reference
  0x02, VDD - Buffered VDD
  0x03, 5VDIFF - Internal differential 5 V reference
- 0x04, EXTSINGLE - Single ended external reference from pin 6
- 0x05, 2XEXTDIFF - Differential external reference, 2x(pin 6 - pin 7)
+ 0x04, EXTSINGLE - Single ended external reference from ADCn_CH6
+ 0x05, 2XEXTDIFF - Differential external reference, 2x(ADCn_CH6 - ADCn_CH7)
  0x06, 2XVDD - Unbuffered 2xVDD
           </description>
           <interpretation key="0x00000000" text="1V25"/>
@@ -27181,8 +27181,8 @@
  0x01, 2V5 - Internal 2.5 V reference
  0x02, VDD - VDD
  0x03, 5VDIFF - Internal differential 5 V reference
- 0x04, EXTSINGLE - Single ended external reference from pin 6
- 0x05, 2XEXTDIFF - Differential external reference, 2x(pin 6 - pin 7)
+ 0x04, EXTSINGLE - Single ended external reference from ADCn_CH6
+ 0x05, 2XEXTDIFF - Differential external reference, 2x(ADCn_CH6 - ADCn_CH7)
  0x06, 2XVDD - Unbuffered 2xVDD
           </description>
           <interpretation key="0x00000000" text="1V25"/>

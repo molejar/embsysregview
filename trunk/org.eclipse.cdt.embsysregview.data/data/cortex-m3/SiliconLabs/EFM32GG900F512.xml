@@ -61,7 +61,7 @@
   • Pre-Programmed Serial Bootloader
   • Temperature range -40 to 85 ºC
   • Single power supply 1.8 to 3.8 V
-(C) Copyright Silicon Laboratories, Inc. 2014. All rights reserved.
+(C) Copyright Silicon Laboratories, Inc. 2015. All rights reserved.
   </chip_description>
   <group name="DMA" description="">
     <registergroup name="DMA" description="">
@@ -3268,10 +3268,10 @@
       <register name="GOTGCTL" address="0x40100000" access="RW" resetvalue="0x00010000">
         <description>OTG Control and Status Register</description>
         <field name="SESREQSCS" bitoffset="0" bitlength="1">
-          <description>Session Request Success (device only)</description>
+          <description>Session Request Success device only</description>
         </field>
         <field name="SESREQ" bitoffset="1" bitlength="1">
-          <description>Session Request (device only)</description>
+          <description>Session Request device only</description>
         </field>
         <field name="VBVALIDOVEN" bitoffset="2" bitlength="1">
           <description>VBUS-Valid Override Enable</description>
@@ -3292,28 +3292,28 @@
           <description>Avalid Override Value</description>
         </field>
         <field name="HSTNEGSCS" bitoffset="8" bitlength="1">
-          <description>Host Negotiation Success (device only)</description>
+          <description>Host Negotiation Success device only</description>
         </field>
         <field name="HNPREQ" bitoffset="9" bitlength="1">
-          <description>HNP Request (device only)</description>
+          <description>HNP Request device only</description>
         </field>
         <field name="HSTSETHNPEN" bitoffset="10" bitlength="1">
-          <description>Host Set HNP Enable (host only)</description>
+          <description>Host Set HNP Enable host only</description>
         </field>
         <field name="DEVHNPEN" bitoffset="11" bitlength="1">
-          <description>Device HNP Enabled (device only)</description>
+          <description>Device HNP Enabled device only</description>
         </field>
         <field name="CONIDSTS" bitoffset="16" bitlength="1">
-          <description>Connector ID Status (host and device)</description>
+          <description>Connector ID Status host and device</description>
         </field>
         <field name="DBNCTIME" bitoffset="17" bitlength="1">
-          <description>Long/Short Debounce Time (host only)</description>
+          <description>Long/Short Debounce Time host only</description>
         </field>
         <field name="ASESVLD" bitoffset="18" bitlength="1">
-          <description>A-Session Valid (host only)</description>
+          <description>A-Session Valid host only</description>
         </field>
         <field name="BSESVLD" bitoffset="19" bitlength="1">
-          <description>B-Session Valid (device only)</description>
+          <description>B-Session Valid device only</description>
         </field>
         <field name="OTGVER" bitoffset="20" bitlength="1">
           <description>OTG Version</description>
@@ -3322,32 +3322,32 @@
       <register name="GOTGINT" address="0x40100004" access="RW" resetvalue="0x00000000">
         <description>OTG Interrupt Register</description>
         <field name="SESENDDET" bitoffset="2" bitlength="1">
-          <description>Session End Detected (host and device)</description>
+          <description>Session End Detected host and device</description>
         </field>
         <field name="SESREQSUCSTSCHNG" bitoffset="8" bitlength="1">
-          <description>Session Request Success Status Change (host and device)</description>
+          <description>Session Request Success Status Change host and device</description>
         </field>
         <field name="HSTNEGSUCSTSCHNG" bitoffset="9" bitlength="1">
-          <description>Host Negotiation Success Status Change (host and device)</description>
+          <description>Host Negotiation Success Status Change host and device</description>
         </field>
         <field name="HSTNEGDET" bitoffset="17" bitlength="1">
-          <description>Host Negotiation Detected (host and device)</description>
+          <description>Host Negotiation Detected host and device</description>
         </field>
         <field name="ADEVTOUTCHG" bitoffset="18" bitlength="1">
-          <description>A-Device Timeout Change (host and device)</description>
+          <description>A-Device Timeout Change host and device</description>
         </field>
         <field name="DBNCEDONE" bitoffset="19" bitlength="1">
-          <description>Debounce Done (host only)</description>
+          <description>Debounce Done host only</description>
         </field>
       </register>
       <register name="GAHBCFG" address="0x40100008" access="RW" resetvalue="0x00000000">
         <description>AHB Configuration Register</description>
         <field name="GLBLINTRMSK" bitoffset="0" bitlength="1">
-          <description>Global Interrupt Mask (host and device)</description>
+          <description>Global Interrupt Mask host and device</description>
         </field>
         <field name="HBSTLEN" bitoffset="1" bitlength="4">
           <description>
- Burst Length/Type (host and device)
+ Burst Length/Type host and device
  -
  Value, Description
  0x00, SINGLE - Single transfer.
@@ -3363,13 +3363,13 @@
           <interpretation key="0x00000007" text="INCR16"/>
         </field>
         <field name="DMAEN" bitoffset="5" bitlength="1">
-          <description>DMA Enable (host and device)</description>
+          <description>DMA Enable host and device</description>
         </field>
         <field name="NPTXFEMPLVL" bitoffset="7" bitlength="1">
-          <description>Non-Periodic TxFIFO Empty Level (host and device)</description>
+          <description>Non-Periodic TxFIFO Empty Level host and device</description>
         </field>
         <field name="PTXFEMPLVL" bitoffset="8" bitlength="1">
-          <description>Periodic TxFIFO Empty Level (host only)</description>
+          <description>Periodic TxFIFO Empty Level host only</description>
         </field>
         <field name="REMMEMSUPP" bitoffset="21" bitlength="1">
           <description>Remote Memory Support</description>
@@ -3382,56 +3382,56 @@
         <description>USB Configuration Register</description>
         <field name="TOUTCAL" bitoffset="0" bitlength="3">
           <description>
-        Timeout Calibration (host and device)
+        Timeout Calibration host and device
           </description>
         </field>
         <field name="FSINTF" bitoffset="5" bitlength="1">
-          <description>Full-Speed Serial Interface Select (host and device)</description>
+          <description>Full-Speed Serial Interface Select host and device</description>
         </field>
         <field name="SRPCAP" bitoffset="8" bitlength="1">
-          <description>SRP-Capable (host and device)</description>
+          <description>SRP-Capable host and device</description>
         </field>
         <field name="HNPCAP" bitoffset="9" bitlength="1">
-          <description>HNP-Capable (host and device)</description>
+          <description>HNP-Capable host and device</description>
         </field>
         <field name="USBTRDTIM" bitoffset="10" bitlength="4">
           <description>
-        USB Turnaround Time (device only)
+        USB Turnaround Time device only
           </description>
         </field>
         <field name="TERMSELDLPULSE" bitoffset="22" bitlength="1">
-          <description>TermSel DLine Pulsing Selection (device only)</description>
+          <description>TermSel DLine Pulsing Selection device only</description>
         </field>
         <field name="TXENDDELAY" bitoffset="28" bitlength="1">
-          <description>Tx End Delay (device only)</description>
+          <description>Tx End Delay device only</description>
         </field>
         <field name="FORCEHSTMODE" bitoffset="29" bitlength="1">
-          <description>Force Host Mode (host and device)</description>
+          <description>Force Host Mode host and device</description>
         </field>
         <field name="FORCEDEVMODE" bitoffset="30" bitlength="1">
-          <description>Force Device Mode (host and device)</description>
+          <description>Force Device Mode host and device</description>
         </field>
         <field name="CORRUPTTXPKT" bitoffset="31" bitlength="1">
-          <description>Corrupt Tx packet (host and device)</description>
+          <description>Corrupt Tx packet host and device</description>
         </field>
       </register>
       <register name="GRSTCTL" address="0x40100010" access="RW" resetvalue="0x80000000">
         <description>Reset Register</description>
         <field name="CSFTRST" bitoffset="0" bitlength="1">
-          <description>Core Soft Reset (host and device)</description>
+          <description>Core Soft Reset host and device</description>
         </field>
         <field name="FRMCNTRRST" bitoffset="2" bitlength="1">
-          <description>Host Frame Counter Reset (host only)</description>
+          <description>Host Frame Counter Reset host only</description>
         </field>
         <field name="RXFFLSH" bitoffset="4" bitlength="1">
-          <description>RxFIFO Flush (host and device)</description>
+          <description>RxFIFO Flush host and device</description>
         </field>
         <field name="TXFFLSH" bitoffset="5" bitlength="1">
-          <description>TxFIFO Flush (host and device)</description>
+          <description>TxFIFO Flush host and device</description>
         </field>
         <field name="TXFNUM" bitoffset="6" bitlength="5">
           <description>
- TxFIFO Number (host and device)
+ TxFIFO Number host and device
  -
  Value, Description
  0x00, F0 - Host mode: Non-periodic TxFIFO flush. Device: Tx FIFO 0 flush
@@ -3453,176 +3453,182 @@
           <interpretation key="0x00000010" text="FALL"/>
         </field>
         <field name="DMAREQ" bitoffset="30" bitlength="1">
-          <description>DMA Request Signal (host and device)</description>
+          <description>DMA Request Signal host and device</description>
         </field>
         <field name="AHBIDLE" bitoffset="31" bitlength="1">
-          <description>AHB Master Idle (host and device)</description>
+          <description>AHB Master Idle host and device</description>
         </field>
       </register>
       <register name="GINTSTS" address="0x40100014" access="RW" resetvalue="0x14000020">
         <description>Interrupt Register</description>
         <field name="CURMOD" bitoffset="0" bitlength="1">
-          <description>Current Mode of Operation (host and device)</description>
+          <description>Current Mode of Operation host and device</description>
         </field>
         <field name="MODEMIS" bitoffset="1" bitlength="1">
-          <description>Mode Mismatch Interrupt (host and device)</description>
+          <description>Mode Mismatch Interrupt host and device</description>
         </field>
         <field name="OTGINT" bitoffset="2" bitlength="1">
-          <description>OTG Interrupt (host and device)</description>
+          <description>OTG Interrupt host and device</description>
         </field>
         <field name="SOF" bitoffset="3" bitlength="1">
-          <description>Start of Frame (host and device)</description>
+          <description>Start of Frame host and device</description>
         </field>
         <field name="RXFLVL" bitoffset="4" bitlength="1">
-          <description>RxFIFO Non-Empty (host and device)</description>
+          <description>RxFIFO Non-Empty host and device</description>
         </field>
         <field name="NPTXFEMP" bitoffset="5" bitlength="1">
-          <description>Non-Periodic TxFIFO Empty (host only)</description>
+          <description>Non-Periodic TxFIFO Empty host only</description>
         </field>
         <field name="GINNAKEFF" bitoffset="6" bitlength="1">
-          <description>Global IN Non-periodic NAK Effective (device only)</description>
+          <description>Global IN Non-periodic NAK Effective device only</description>
         </field>
         <field name="GOUTNAKEFF" bitoffset="7" bitlength="1">
-          <description>Global OUT NAK Effective (device only)</description>
+          <description>Global OUT NAK Effective device only</description>
         </field>
         <field name="ERLYSUSP" bitoffset="10" bitlength="1">
-          <description>Early Suspend (device only)</description>
+          <description>Early Suspend device only</description>
         </field>
         <field name="USBSUSP" bitoffset="11" bitlength="1">
-          <description>USB Suspend (device only)</description>
+          <description>USB Suspend device only</description>
         </field>
         <field name="USBRST" bitoffset="12" bitlength="1">
-          <description>USB Reset (device only)</description>
+          <description>USB Reset device only</description>
         </field>
         <field name="ENUMDONE" bitoffset="13" bitlength="1">
-          <description>Enumeration Done (device only)</description>
+          <description>Enumeration Done device only</description>
         </field>
         <field name="ISOOUTDROP" bitoffset="14" bitlength="1">
-          <description>Isochronous OUT Packet Dropped Interrupt (device only)</description>
+          <description>Isochronous OUT Packet Dropped Interrupt device only</description>
+        </field>
+        <field name="EOPF" bitoffset="15" bitlength="1">
+          <description>End of Periodic Frame Interrupt</description>
         </field>
         <field name="IEPINT" bitoffset="18" bitlength="1">
-          <description>IN Endpoints Interrupt (device only)</description>
+          <description>IN Endpoints Interrupt device only</description>
         </field>
         <field name="OEPINT" bitoffset="19" bitlength="1">
-          <description>OUT Endpoints Interrupt (device only)</description>
+          <description>OUT Endpoints Interrupt device only</description>
         </field>
         <field name="INCOMPISOIN" bitoffset="20" bitlength="1">
-          <description>Incomplete Isochronous IN Transfer (device only)</description>
+          <description>Incomplete Isochronous IN Transfer device only</description>
         </field>
         <field name="INCOMPLP" bitoffset="21" bitlength="1">
-          <description>Incomplete Periodic Transfer (device only)</description>
+          <description>Incomplete Periodic Transfer host and device</description>
         </field>
         <field name="FETSUSP" bitoffset="22" bitlength="1">
-          <description>Data Fetch Suspended (device only)</description>
+          <description>Data Fetch Suspended device only</description>
         </field>
         <field name="RESETDET" bitoffset="23" bitlength="1">
-          <description>Reset detected Interrupt (device only)</description>
+          <description>Reset detected Interrupt device only</description>
         </field>
         <field name="PRTINT" bitoffset="24" bitlength="1">
-          <description>Host Port Interrupt (host only)</description>
+          <description>Host Port Interrupt host only</description>
         </field>
         <field name="HCHINT" bitoffset="25" bitlength="1">
-          <description>Host Channels Interrupt (host only)</description>
+          <description>Host Channels Interrupt host only</description>
         </field>
         <field name="PTXFEMP" bitoffset="26" bitlength="1">
-          <description>Periodic TxFIFO Empty (host only)</description>
+          <description>Periodic TxFIFO Empty host only</description>
         </field>
         <field name="CONIDSTSCHNG" bitoffset="28" bitlength="1">
-          <description>Connector ID Status Change (host and device)</description>
+          <description>Connector ID Status Change host and device</description>
         </field>
         <field name="DISCONNINT" bitoffset="29" bitlength="1">
-          <description>Disconnect Detected Interrupt (host only)</description>
+          <description>Disconnect Detected Interrupt host only</description>
         </field>
         <field name="SESSREQINT" bitoffset="30" bitlength="1">
-          <description>Session Request/New Session Detected Interrupt (host and device)</description>
+          <description>Session Request/New Session Detected Interrupt host and device</description>
         </field>
         <field name="WKUPINT" bitoffset="31" bitlength="1">
-          <description>Resume/Remote Wakeup Detected Interrupt (host and device)</description>
+          <description>Resume/Remote Wakeup Detected Interrupt host and device</description>
         </field>
       </register>
       <register name="GINTMSK" address="0x40100018" access="RW" resetvalue="0x00000000">
         <description>Interrupt Mask Register</description>
         <field name="MODEMISMSK" bitoffset="1" bitlength="1">
-          <description>Mode Mismatch Interrupt Mask (host and device)</description>
+          <description>Mode Mismatch Interrupt Mask host and device</description>
         </field>
         <field name="OTGINTMSK" bitoffset="2" bitlength="1">
-          <description>OTG Interrupt Mask (host and device)</description>
+          <description>OTG Interrupt Mask host and device</description>
         </field>
         <field name="SOFMSK" bitoffset="3" bitlength="1">
-          <description>Start of Frame Mask (host and device)</description>
+          <description>Start of Frame Mask host and device</description>
         </field>
         <field name="RXFLVLMSK" bitoffset="4" bitlength="1">
-          <description>Receive FIFO Non-Empty Mask (host and device)</description>
+          <description>Receive FIFO Non-Empty Mask host and device</description>
         </field>
         <field name="NPTXFEMPMSK" bitoffset="5" bitlength="1">
-          <description>Non-Periodic TxFIFO Empty Mask (host only)</description>
+          <description>Non-Periodic TxFIFO Empty Mask host only</description>
         </field>
         <field name="GINNAKEFFMSK" bitoffset="6" bitlength="1">
-          <description>Global Non-periodic IN NAK Effective Mask (device only)</description>
+          <description>Global Non-periodic IN NAK Effective Mask device only</description>
         </field>
         <field name="GOUTNAKEFFMSK" bitoffset="7" bitlength="1">
-          <description>Global OUT NAK Effective Mask (device only)</description>
+          <description>Global OUT NAK Effective Mask device only</description>
         </field>
         <field name="ERLYSUSPMSK" bitoffset="10" bitlength="1">
-          <description>Early Suspend Mask (device only)</description>
+          <description>Early Suspend Mask device only</description>
         </field>
         <field name="USBSUSPMSK" bitoffset="11" bitlength="1">
-          <description>USB Suspend Mask (device only)</description>
+          <description>USB Suspend Mask device only</description>
         </field>
         <field name="USBRSTMSK" bitoffset="12" bitlength="1">
-          <description>USB Reset Mask (device only)</description>
+          <description>USB Reset Mask device only</description>
         </field>
         <field name="ENUMDONEMSK" bitoffset="13" bitlength="1">
-          <description>Enumeration Done Mask (device only)</description>
+          <description>Enumeration Done Mask device only</description>
         </field>
         <field name="ISOOUTDROPMSK" bitoffset="14" bitlength="1">
-          <description>Isochronous OUT Packet Dropped Interrupt Mask (device only)</description>
+          <description>Isochronous OUT Packet Dropped Interrupt Mask device only</description>
+        </field>
+        <field name="EOPFMSK" bitoffset="15" bitlength="1">
+          <description>End of Periodic Frame Interrupt Mask device only</description>
         </field>
         <field name="IEPINTMSK" bitoffset="18" bitlength="1">
-          <description>IN Endpoints Interrupt Mask (device only)</description>
+          <description>IN Endpoints Interrupt Mask device only</description>
         </field>
         <field name="OEPINTMSK" bitoffset="19" bitlength="1">
-          <description>OUT Endpoints Interrupt Mask (device only)</description>
+          <description>OUT Endpoints Interrupt Mask device only</description>
         </field>
         <field name="INCOMPISOINMSK" bitoffset="20" bitlength="1">
-          <description>Incomplete Isochronous IN Transfer Mask (device only)</description>
+          <description>Incomplete Isochronous IN Transfer Mask device only</description>
         </field>
         <field name="INCOMPLPMSK" bitoffset="21" bitlength="1">
-          <description>Incomplete Periodic Transfer Mask (host only)</description>
+          <description>Incomplete Periodic Transfer Mask host and device</description>
         </field>
         <field name="FETSUSPMSK" bitoffset="22" bitlength="1">
-          <description>Data Fetch Suspended Mask (device only)</description>
+          <description>Data Fetch Suspended Mask device only</description>
         </field>
         <field name="RESETDETMSK" bitoffset="23" bitlength="1">
-          <description>Reset detected Interrupt Mask (device only)</description>
+          <description>Reset detected Interrupt Mask device only</description>
         </field>
         <field name="PRTINTMSK" bitoffset="24" bitlength="1">
-          <description>Host Port Interrupt Mask (host only)</description>
+          <description>Host Port Interrupt Mask host only</description>
         </field>
         <field name="HCHINTMSK" bitoffset="25" bitlength="1">
-          <description>Host Channels Interrupt Mask (host only)</description>
+          <description>Host Channels Interrupt Mask host only</description>
         </field>
         <field name="PTXFEMPMSK" bitoffset="26" bitlength="1">
-          <description>Periodic TxFIFO Empty Mask (host only)</description>
+          <description>Periodic TxFIFO Empty Mask host only</description>
         </field>
         <field name="CONIDSTSCHNGMSK" bitoffset="28" bitlength="1">
-          <description>Connector ID Status Change Mask (host and device)</description>
+          <description>Connector ID Status Change Mask host and device</description>
         </field>
         <field name="DISCONNINTMSK" bitoffset="29" bitlength="1">
-          <description>Disconnect Detected Interrupt Mask (host and device)</description>
+          <description>Disconnect Detected Interrupt Mask host and device</description>
         </field>
         <field name="SESSREQINTMSK" bitoffset="30" bitlength="1">
-          <description>Session Request/New Session Detected Interrupt Mask (host and device)</description>
+          <description>Session Request/New Session Detected Interrupt Mask host and device</description>
         </field>
         <field name="WKUPINTMSK" bitoffset="31" bitlength="1">
-          <description>Resume/Remote Wakeup Detected Interrupt Mask (host and device)</description>
+          <description>Resume/Remote Wakeup Detected Interrupt Mask host and device</description>
         </field>
       </register>
       <register name="GRXSTSR" address="0x4010001c" access="RO" resetvalue="0x00000000">
         <description>Receive Status Debug Read Register</description>
         <field name="CHEPNUM" bitoffset="0" bitlength="4">
           <description>
-        Channel Number (host only) / Endpoint Number (device only)
+        Channel Number host only / Endpoint Number device only
           </description>
         </field>
         <field name="BCNT" bitoffset="4" bitlength="11">
@@ -3668,7 +3674,7 @@
         </field>
         <field name="FN" bitoffset="24" bitlength="4">
           <description>
-        Frame Number (device only)
+        Frame Number device only
           </description>
         </field>
       </register>
@@ -3676,7 +3682,7 @@
         <description>Receive Status Read and Pop Register</description>
         <field name="CHEPNUM" bitoffset="0" bitlength="4">
           <description>
-        Channel Number (host only) / Endpoint Number (device only)
+        Channel Number host only / Endpoint Number device only
           </description>
         </field>
         <field name="BCNT" bitoffset="4" bitlength="11">
@@ -3722,7 +3728,7 @@
         </field>
         <field name="FN" bitoffset="21" bitlength="4">
           <description>
-        Frame Number (device only)
+        Frame Number device only
           </description>
         </field>
       </register>
@@ -3738,12 +3744,12 @@
         <description>Non-periodic Transmit FIFO Size Register</description>
         <field name="NPTXFSTADDR" bitoffset="0" bitlength="10">
           <description>
-        Non-periodic Transmit RAM Start Address (host only)
+        Non-periodic Transmit RAM Start Address host only
           </description>
         </field>
         <field name="NPTXFINEPTXF0DEP" bitoffset="16" bitlength="16">
           <description>
-        Non-periodic TxFIFO Depth (host only) / IN Endpoint TxFIFO 0 Depth (device only)
+        Non-periodic TxFIFO Depth host only / IN Endpoint TxFIFO 0 Depth device only
           </description>
         </field>
       </register>
@@ -8961,14 +8967,14 @@
           <interpretation key="0x00000006" text="ULFRCO"/>
           <interpretation key="0x00000007" text="AUXHFRCO"/>
         </field>
-        <field name="CLKOUTSEL1" bitoffset="23" bitlength="3">
+        <field name="CLKOUTSEL1" bitoffset="23" bitlength="4">
           <description>
  Clock Output Select 1
  -
  Value, Description
  0x00, LFRCO - LFRCO (directly from oscillator).
  0x01, LFXO - LFXO (directly from oscillator).
- 0x02, HFCLK - HFCLK.
+ 0x02, HFCLK - HFCLK (undivided).
  0x03, LFXOQ - LFXO (qualified).
  0x04, HFXOQ - HFXO (qualified).
  0x05, LFRCOQ - LFRCO (qualified).
@@ -9230,12 +9236,12 @@
         <field name="CALSTOP" bitoffset="4" bitlength="1">
           <description>Calibration Stop</description>
         </field>
-        <field name="USBCCLKSEL" bitoffset="5" bitlength="2">
+        <field name="USBCCLKSEL" bitoffset="5" bitlength="3">
           <description>
  USB Core Clock Select
  -
  Value, Description
- 0x01, HFCLKNODIV - Select HFCLKNODIV as HFCORECLKUSBC.
+ 0x01, HFCLKNODIV - Select HFCLK (undivided) as HFCORECLKUSBC.
  0x02, LFXO - Select LFXO as HFCORECLKUSBC.
  0x03, LFRCO - Select LFRCO as HFCORECLKUSBC.
           </description>
@@ -10264,7 +10270,7 @@
  Value, Description
  0x00, DUTYCYCLE - Bias module duty cycled between low power and high accuracy mode
  0x01, HIGHACC - Bias module always in high accuracy mode
- 0x02, DONTTOUCH - Bias module is controlled by the EMU and not affected by LESENSE
+ 0x02, DONTTOUCH - Bias module not affected by LESENSE
           </description>
           <interpretation key="0x00000000" text="DUTYCYCLE"/>
           <interpretation key="0x00000001" text="HIGHACC"/>
@@ -19952,7 +19958,7 @@
           <description>Always Track Inputs</description>
         </field>
         <field name="RSSCOIST" bitoffset="29" bitlength="1">
-          <description>Reload-Start Sets Compare Ouptut initial State</description>
+          <description>Reload-Start Sets Compare Output initial State</description>
         </field>
       </register>
       <register name="CMD" address="0x40010004" access="WO" resetvalue="0x00000000">
@@ -21004,7 +21010,7 @@
           <description>Always Track Inputs</description>
         </field>
         <field name="RSSCOIST" bitoffset="29" bitlength="1">
-          <description>Reload-Start Sets Compare Ouptut initial State</description>
+          <description>Reload-Start Sets Compare Output initial State</description>
         </field>
       </register>
       <register name="CMD" address="0x40010404" access="WO" resetvalue="0x00000000">
@@ -22056,7 +22062,7 @@
           <description>Always Track Inputs</description>
         </field>
         <field name="RSSCOIST" bitoffset="29" bitlength="1">
-          <description>Reload-Start Sets Compare Ouptut initial State</description>
+          <description>Reload-Start Sets Compare Output initial State</description>
         </field>
       </register>
       <register name="CMD" address="0x40010804" access="WO" resetvalue="0x00000000">
@@ -23108,7 +23114,7 @@
           <description>Always Track Inputs</description>
         </field>
         <field name="RSSCOIST" bitoffset="29" bitlength="1">
-          <description>Reload-Start Sets Compare Ouptut initial State</description>
+          <description>Reload-Start Sets Compare Output initial State</description>
         </field>
       </register>
       <register name="CMD" address="0x40010c04" access="WO" resetvalue="0x00000000">
@@ -35269,8 +35275,8 @@
  0x01, 2V5 - Internal 2.5 V reference
  0x02, VDD - Buffered VDD
  0x03, 5VDIFF - Internal differential 5 V reference
- 0x04, EXTSINGLE - Single ended external reference from pin 6
- 0x05, 2XEXTDIFF - Differential external reference, 2x(pin 6 - pin 7)
+ 0x04, EXTSINGLE - Single ended external reference from ADCn_CH6
+ 0x05, 2XEXTDIFF - Differential external reference, 2x(ADCn_CH6 - ADCn_CH7)
  0x06, 2XVDD - Unbuffered 2xVDD
           </description>
           <interpretation key="0x00000000" text="1V25"/>
@@ -35407,8 +35413,8 @@
  0x01, 2V5 - Internal 2.5 V reference
  0x02, VDD - VDD
  0x03, 5VDIFF - Internal differential 5 V reference
- 0x04, EXTSINGLE - Single ended external reference from pin 6
- 0x05, 2XEXTDIFF - Differential external reference, 2x(pin 6 - pin 7)
+ 0x04, EXTSINGLE - Single ended external reference from ADCn_CH6
+ 0x05, 2XEXTDIFF - Differential external reference, 2x(ADCn_CH6 - ADCn_CH7)
  0x06, 2XVDD - Unbuffered 2xVDD
           </description>
           <interpretation key="0x00000000" text="1V25"/>

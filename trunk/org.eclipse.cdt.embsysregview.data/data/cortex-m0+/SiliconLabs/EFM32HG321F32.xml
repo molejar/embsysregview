@@ -61,7 +61,7 @@
   • Pre-Programmed Serial Bootloader
   • Temperature range -40 to 85 ºC
   • Single power supply 1.8 to 3.8 V
-(C) Copyright Silicon Laboratories, Inc. 2014. All rights reserved.
+(C) Copyright Silicon Laboratories, Inc. 2015. All rights reserved.
   </chip_description>
   <group name="DMA" description="">
     <registergroup name="DMA" description="">
@@ -1112,12 +1112,6 @@
         <field name="LEMIDLEEN" bitoffset="9" bitlength="1">
           <description>Low Energy Mode on  Bus Idle Enable</description>
         </field>
-        <field name="LEMNAKEN" bitoffset="10" bitlength="1">
-          <description>Low Energy Mode on OUT NAK Enable</description>
-        </field>
-        <field name="LEMADDRMEN" bitoffset="11" bitlength="1">
-          <description>Low Energy Mode on Device Address Mismatch Enable</description>
-        </field>
         <field name="VREGDIS" bitoffset="16" bitlength="1">
           <description>Voltage Regulator Disable</description>
         </field>
@@ -1189,45 +1183,6 @@
           <description>DMPU Pin Enable</description>
         </field>
       </register>
-      <register name="GOTGCTL" address="0x40100000" access="RW" resetvalue="0x00090000">
-        <description>OTG Control and Status Register</description>
-        <field name="BVALIDOVEN" bitoffset="6" bitlength="1">
-          <description>B-Peripheral Session Valid Override Enable</description>
-        </field>
-        <field name="BVALIDOVVAL" bitoffset="7" bitlength="1">
-          <description>B-Peripheral Session Valid OverrideValue</description>
-        </field>
-        <field name="CONIDSTS" bitoffset="16" bitlength="1">
-          <description>Connector ID Status</description>
-        </field>
-        <field name="BSESVLD" bitoffset="19" bitlength="1">
-          <description>B-Session Valid</description>
-        </field>
-        <field name="OTGVER" bitoffset="20" bitlength="1">
-          <description>OTG Version</description>
-        </field>
-        <field name="CURMOD" bitoffset="21" bitlength="1">
-          <description>Current Mode of Operation</description>
-        </field>
-      </register>
-      <register name="GOTGINT" address="0x40100004" access="RW" resetvalue="0x00000000">
-        <description>OTG Interrupt Register</description>
-        <field name="SESENDDET" bitoffset="2" bitlength="1">
-          <description>Session End Detected</description>
-        </field>
-        <field name="SESREQSUCSTSCHNG" bitoffset="8" bitlength="1">
-          <description>Session Request Success Status Change</description>
-        </field>
-        <field name="HSTNEGSUCSTSCHNG" bitoffset="9" bitlength="1">
-          <description>Host Negotiation Success Status Change</description>
-        </field>
-        <field name="HSTNEGDET" bitoffset="17" bitlength="1">
-          <description>Host Negotiation Detected</description>
-        </field>
-        <field name="ADEVTOUTCHG" bitoffset="18" bitlength="1">
-          <description>A-Device Timeout Change</description>
-        </field>
-      </register>
       <register name="GAHBCFG" address="0x40100008" access="RW" resetvalue="0x00000000">
         <description>AHB Configuration Register</description>
         <field name="GLBLINTRMSK" bitoffset="0" bitlength="1">
@@ -1260,7 +1215,7 @@
           <description>Remote Memory Support</description>
         </field>
         <field name="NOTIALLDMAWRIT" bitoffset="22" bitlength="1">
-          <description>Notify All Dma Write Transactions</description>
+          <description>Notify All DMA Writes</description>
         </field>
         <field name="AHBSINGLE" bitoffset="23" bitlength="1">
           <description>AHB Single Support</description>
@@ -1270,17 +1225,11 @@
         <description>USB Configuration Register</description>
         <field name="TOUTCAL" bitoffset="0" bitlength="3">
           <description>
-        HS/FS Timeout Calibration
+        Timeout Calibration
           </description>
-        </field>
-        <field name="PHYIF" bitoffset="3" bitlength="1">
-          <description>PHY Interface</description>
         </field>
         <field name="FSINTF" bitoffset="5" bitlength="1">
           <description>Full-Speed Serial Interface Select</description>
-        </field>
-        <field name="PHYSEL" bitoffset="6" bitlength="1">
-          <description>USB 2.0 High-Speed PHY or USB 1.1 Full-Speed Serial Transceiver Select</description>
         </field>
         <field name="USBTRDTIM" bitoffset="10" bitlength="4">
           <description>
@@ -1290,14 +1239,11 @@
         <field name="TERMSELDLPULSE" bitoffset="22" bitlength="1">
           <description>TermSel DLine Pulsing Selection</description>
         </field>
-        <field name="ICUSBCAP" bitoffset="26" bitlength="1">
-          <description>IC_USB-Capable</description>
-        </field>
         <field name="TXENDDELAY" bitoffset="28" bitlength="1">
           <description>Tx End Delay</description>
         </field>
         <field name="CORRUPTTXPKT" bitoffset="31" bitlength="1">
-          <description/>
+          <description>Corrupt Tx packet</description>
         </field>
       </register>
       <register name="GRSTCTL" address="0x40100010" access="RW" resetvalue="0x80000000">
@@ -1344,19 +1290,13 @@
           <description>AHB Master Idle</description>
         </field>
       </register>
-      <register name="GINTSTS" address="0x40100014" access="RW" resetvalue="0x10000000">
+      <register name="GINTSTS" address="0x40100014" access="RW" resetvalue="0x00000000">
         <description>Interrupt Register</description>
         <field name="CURMOD" bitoffset="0" bitlength="1">
           <description>Current Mode of Operation</description>
         </field>
-        <field name="MODEMIS" bitoffset="1" bitlength="1">
-          <description>Mode Mismatch Interrupt</description>
-        </field>
-        <field name="OTGINT" bitoffset="2" bitlength="1">
-          <description>OTG Interrupt</description>
-        </field>
         <field name="SOF" bitoffset="3" bitlength="1">
-          <description>Start of (micro)Frame</description>
+          <description>Start of Frame</description>
         </field>
         <field name="RXFLVL" bitoffset="4" bitlength="1">
           <description>RxFIFO Non-Empty</description>
@@ -1385,9 +1325,6 @@
         <field name="EOPF" bitoffset="15" bitlength="1">
           <description>End of Periodic Frame Interrupt</description>
         </field>
-        <field name="EPMIS" bitoffset="17" bitlength="1">
-          <description>Endpoint Mismatch Interrupt</description>
-        </field>
         <field name="IEPINT" bitoffset="18" bitlength="1">
           <description>IN Endpoints Interrupt</description>
         </field>
@@ -1406,12 +1343,6 @@
         <field name="RESETDET" bitoffset="23" bitlength="1">
           <description>Reset detected Interrupt</description>
         </field>
-        <field name="CONIDSTSCHNG" bitoffset="28" bitlength="1">
-          <description>Connector ID Status Change</description>
-        </field>
-        <field name="SESSREQINT" bitoffset="30" bitlength="1">
-          <description>Session Request/New Session Detected Interrupt</description>
-        </field>
         <field name="WKUPINT" bitoffset="31" bitlength="1">
           <description>Resume/Remote Wakeup Detected Interrupt</description>
         </field>
@@ -1421,11 +1352,8 @@
         <field name="MODEMISMSK" bitoffset="1" bitlength="1">
           <description>Mode Mismatch Interrupt Mask</description>
         </field>
-        <field name="OTGINTMSK" bitoffset="2" bitlength="1">
-          <description>OTG Interrupt Mask</description>
-        </field>
         <field name="SOFMSK" bitoffset="3" bitlength="1">
-          <description>Start of (micro)Frame Mask</description>
+          <description>Start of Frame Mask</description>
         </field>
         <field name="RXFLVLMSK" bitoffset="4" bitlength="1">
           <description>Receive FIFO Non-Empty Mask</description>
@@ -1454,9 +1382,6 @@
         <field name="EOPFMSK" bitoffset="15" bitlength="1">
           <description>End of Periodic Frame Interrupt Mask</description>
         </field>
-        <field name="EPMISMSK" bitoffset="17" bitlength="1">
-          <description>Endpoint Mismatch Interrupt Mask</description>
-        </field>
         <field name="IEPINTMSK" bitoffset="18" bitlength="1">
           <description>IN Endpoints Interrupt Mask</description>
         </field>
@@ -1466,8 +1391,8 @@
         <field name="INCOMPISOINMSK" bitoffset="20" bitlength="1">
           <description>Incomplete Isochronous IN Transfer Mask</description>
         </field>
-        <field name="INCOMPLISOOUTMSK" bitoffset="21" bitlength="1">
-          <description/>
+        <field name="INCOMPLPMSK" bitoffset="21" bitlength="1">
+          <description>Incomplete Periodic Transfer Mask</description>
         </field>
         <field name="FETSUSPMSK" bitoffset="22" bitlength="1">
           <description>Data Fetch Suspended Mask</description>
@@ -1475,34 +1400,25 @@
         <field name="RESETDETMSK" bitoffset="23" bitlength="1">
           <description>Reset detected Interrupt Mask</description>
         </field>
-        <field name="CONIDSTSCHNGMSK" bitoffset="28" bitlength="1">
-          <description>Connector ID Status Change Mask</description>
-        </field>
-        <field name="DISCONNINTMSK" bitoffset="29" bitlength="1">
-          <description>Disconnect Detected Interrupt Mask</description>
-        </field>
-        <field name="SESSREQINTMSK" bitoffset="30" bitlength="1">
-          <description>Session Request/New Session Detected Interrupt Mask</description>
-        </field>
         <field name="WKUPINTMSK" bitoffset="31" bitlength="1">
-          <description>Resume/Remote Wakeup Detected Interrupt Mask The WakeUp bit is used for LPM state wake up in a way similar to that of wake up in suspend state.</description>
+          <description>Resume/Remote Wakeup Detected Interrupt Mask</description>
         </field>
       </register>
       <register name="GRXSTSR" address="0x4010001c" access="RO" resetvalue="0x00000000">
         <description>Receive Status Debug Read Register</description>
-        <field name="CHNUM" bitoffset="0" bitlength="4">
+        <field name="CHEPNUM" bitoffset="0" bitlength="4">
           <description>
-        Channel Number
+        Channel Number host only / Endpoint Number
           </description>
         </field>
         <field name="BCNT" bitoffset="4" bitlength="11">
           <description>
-        Byte Count
+        Byte Count (host or device)
           </description>
         </field>
         <field name="DPID" bitoffset="15" bitlength="2">
           <description>
- Data PID
+ Data PID (host or device)
  -
  Value, Description
  0x00, DATA0 - DATA0 PID.
@@ -1517,7 +1433,7 @@
         </field>
         <field name="PKTSTS" bitoffset="17" bitlength="4">
           <description>
- Packet Status
+ Packet Status (host or device)
  -
  Value, Description
  0x01, GOUTNAK - Device mode: Global OUT NAK (triggers an interrupt).
@@ -1543,20 +1459,20 @@
         </field>
       </register>
       <register name="GRXSTSP" address="0x40100020" access="RO" resetvalue="0x00000000">
-        <description>Receive Status Read /Pop Register</description>
-        <field name="CHNUM" bitoffset="0" bitlength="4">
+        <description>Receive Status Read and Pop Register</description>
+        <field name="CHEPNUM" bitoffset="0" bitlength="4">
           <description>
-        Channel Number
+        Channel Number host only / Endpoint Number
           </description>
         </field>
         <field name="BCNT" bitoffset="4" bitlength="11">
           <description>
-        Byte Count
+        Byte Count (host or device)
           </description>
         </field>
         <field name="DPID" bitoffset="15" bitlength="2">
           <description>
- Data PID
+ Data PID (host or device)
  -
  Value, Description
  0x00, DATA0 - DATA0 PID.
@@ -1571,7 +1487,7 @@
         </field>
         <field name="PKTSTS" bitoffset="17" bitlength="4">
           <description>
- Packet Status
+ Packet Status (host or device)
  -
  Value, Description
  0x01, GOUTNAK - Device mode: Global OUT NAK (triggers an interrupt).
@@ -1606,14 +1522,14 @@
       </register>
       <register name="GNPTXFSIZ" address="0x40100028" access="RW" resetvalue="0x02000200">
         <description>Non-periodic Transmit FIFO Size Register</description>
-        <field name="NPTXFSTADDR" bitoffset="0" bitlength="16">
+        <field name="NPTXFSTADDR" bitoffset="0" bitlength="10">
           <description>
-        IN Endpoint FIFO0 Transmit RAM Start Address
+        Non-periodic Transmit RAM Start Address host only
           </description>
         </field>
         <field name="NPTXFINEPTXF0DEP" bitoffset="16" bitlength="16">
           <description>
-        IN Endpoint TxFIFO 0 Depth
+        Non-periodic TxFIFO Depth host only / IN Endpoint TxFIFO 0 Depth
           </description>
         </field>
       </register>
@@ -1621,22 +1537,20 @@
         <description>Global DFIFO Configuration Register</description>
         <field name="GDFIFOCFG" bitoffset="0" bitlength="16">
           <description>
- -
- Value, Description
+        DFIFO Config
           </description>
         </field>
         <field name="EPINFOBASEADDR" bitoffset="16" bitlength="16">
           <description>
- -
- Value, Description
+        Endpoint Info Base Address
           </description>
         </field>
       </register>
       <register name="DIEPTXF1" address="0x40100104" access="RW" resetvalue="0x02000400">
-        <description>Device IN Endpoint Transmit FIFO Size Register 1</description>
+        <description>Device IN Endpoint Transmit FIFO 1 Size Register</description>
         <field name="INEPNTXFSTADDR" bitoffset="0" bitlength="11">
           <description>
-        IN Endpoint FIFOn Transmit RAM Start Address
+        IN Endpoint FIFO 1 Transmit RAM Start Address
           </description>
         </field>
         <field name="INEPNTXFDEP" bitoffset="16" bitlength="10">
@@ -1646,10 +1560,10 @@
         </field>
       </register>
       <register name="DIEPTXF2" address="0x40100108" access="RW" resetvalue="0x02000600">
-        <description>Device IN Endpoint Transmit FIFO Size Register 2</description>
+        <description>Device IN Endpoint Transmit FIFO 2 Size Register</description>
         <field name="INEPNTXFSTADDR" bitoffset="0" bitlength="11">
           <description>
-        IN Endpoint FIFOn Transmit RAM Start Address
+        IN Endpoint FIFO 2 Transmit RAM Start Address
           </description>
         </field>
         <field name="INEPNTXFDEP" bitoffset="16" bitlength="10">
@@ -1659,10 +1573,10 @@
         </field>
       </register>
       <register name="DIEPTXF3" address="0x4010010c" access="RW" resetvalue="0x02000800">
-        <description>Device IN Endpoint Transmit FIFO Size Register 3</description>
+        <description>Device IN Endpoint Transmit FIFO 3 Size Register</description>
         <field name="INEPNTXFSTADDR" bitoffset="0" bitlength="12">
           <description>
-        IN Endpoint FIFOn Transmit RAM Start Address
+        IN Endpoint FIFO 3 Transmit RAM Start Address
           </description>
         </field>
         <field name="INEPNTXFDEP" bitoffset="16" bitlength="10">
@@ -1710,19 +1624,8 @@
           <interpretation key="0x00000002" text="90PCNT"/>
           <interpretation key="0x00000003" text="95PCNT"/>
         </field>
-        <field name="ENDEVOUTNAK" bitoffset="13" bitlength="1">
-          <description>Enable Device OUT NAK</description>
-        </field>
-        <field name="XCVRDLY" bitoffset="14" bitlength="1">
-          <description/>
-        </field>
         <field name="ERRATICINTMSK" bitoffset="15" bitlength="1">
           <description/>
-        </field>
-        <field name="PERSCHINTVL" bitoffset="24" bitlength="2">
-          <description>
-        Periodic Scheduling Interval
-          </description>
         </field>
         <field name="RESVALID" bitoffset="26" bitlength="6">
           <description>
@@ -1806,7 +1709,7 @@
         </field>
         <field name="SOFFN" bitoffset="8" bitlength="14">
           <description>
-        Frame or Microframe Number of the Received SOF
+        Frame Number of the Received SOF
           </description>
         </field>
         <field name="DEVLNSTS" bitoffset="22" bitlength="2">
@@ -1831,9 +1734,6 @@
         </field>
         <field name="INTKNTXFEMPMSK" bitoffset="4" bitlength="1">
           <description>IN Token Received When TxFIFO Empty Mask</description>
-        </field>
-        <field name="INTKNEPMISMSK" bitoffset="5" bitlength="1">
-          <description>IN Token received with EP Mismatch Mask</description>
         </field>
         <field name="INEPNAKEFFMSK" bitoffset="6" bitlength="1">
           <description>IN Endpoint NAK Effective Mask</description>
@@ -1877,130 +1777,71 @@
         <field name="NAKMSK" bitoffset="13" bitlength="1">
           <description>NAK interrupt Mask</description>
         </field>
-        <field name="NYETMSK" bitoffset="14" bitlength="1">
-          <description>NYET interrupt Mask</description>
-        </field>
       </register>
       <register name="DAINT" address="0x40100818" access="RO" resetvalue="0x00000000">
         <description>Device All Endpoints Interrupt Register</description>
         <field name="INEPINT0" bitoffset="0" bitlength="1">
-          <description/>
+          <description>IN Endpoint 0 Interrupt Bit</description>
         </field>
         <field name="INEPINT1" bitoffset="1" bitlength="1">
-          <description/>
+          <description>IN Endpoint 1 Interrupt Bit</description>
         </field>
         <field name="INEPINT2" bitoffset="2" bitlength="1">
-          <description/>
+          <description>IN Endpoint 2 Interrupt Bit</description>
         </field>
         <field name="INEPINT3" bitoffset="3" bitlength="1">
-          <description/>
+          <description>IN Endpoint 3 Interrupt Bit</description>
         </field>
         <field name="OUTEPINT0" bitoffset="16" bitlength="1">
-          <description/>
+          <description>OUT Endpoint 0 Interrupt Bit</description>
         </field>
         <field name="OUTEPINT1" bitoffset="17" bitlength="1">
-          <description/>
+          <description>OUT Endpoint 1 Interrupt Bit</description>
         </field>
         <field name="OUTEPINT2" bitoffset="18" bitlength="1">
-          <description/>
+          <description>OUT Endpoint 2 Interrupt Bit</description>
         </field>
         <field name="OUTEPINT3" bitoffset="19" bitlength="1">
-          <description/>
+          <description>OUT Endpoint 3 Interrupt Bit</description>
         </field>
       </register>
       <register name="DAINTMSK" address="0x4010081c" access="RW" resetvalue="0x00000000">
         <description>Device All Endpoints Interrupt Mask Register</description>
         <field name="INEPMSK0" bitoffset="0" bitlength="1">
-          <description/>
+          <description>IN Endpoint 0 Interrupt mask Bit</description>
         </field>
         <field name="INEPMSK1" bitoffset="1" bitlength="1">
-          <description/>
+          <description>IN Endpoint 1 Interrupt mask Bit</description>
         </field>
         <field name="INEPMSK2" bitoffset="2" bitlength="1">
-          <description/>
+          <description>IN Endpoint 2 Interrupt mask Bit</description>
         </field>
         <field name="INEPMSK3" bitoffset="3" bitlength="1">
-          <description/>
+          <description>IN Endpoint 3 Interrupt mask Bit</description>
         </field>
         <field name="OUTEPMSK0" bitoffset="16" bitlength="1">
-          <description/>
+          <description>OUT Endpoint 0 Interrupt mask Bit</description>
         </field>
         <field name="OUTEPMSK1" bitoffset="17" bitlength="1">
-          <description/>
+          <description>OUT Endpoint 1 Interrupt mask Bit</description>
         </field>
         <field name="OUTEPMSK2" bitoffset="18" bitlength="1">
-          <description/>
+          <description>OUT Endpoint 2 Interrupt mask Bit</description>
         </field>
         <field name="OUTEPMSK3" bitoffset="19" bitlength="1">
-          <description/>
-        </field>
-      </register>
-      <register name="DVBUSDIS" address="0x40100828" access="RW" resetvalue="0x000017D7">
-        <description>Device VBUS Discharge Time Register</description>
-        <field name="DVBUSDIS" bitoffset="0" bitlength="16">
-          <description>
-        Device VBUS Discharge Time
-          </description>
-        </field>
-      </register>
-      <register name="DVBUSPULSE" address="0x4010082c" access="RW" resetvalue="0x000005B8">
-        <description>Device VBUS Pulsing Time Register</description>
-        <field name="DVBUSPULSE" bitoffset="0" bitlength="12">
-          <description>
-        Device VBUS Pulsing Time
-          </description>
-        </field>
-      </register>
-      <register name="DTHRCTL" address="0x40100830" access="RW" resetvalue="0x08100020">
-        <description>Device Threshold Control Register</description>
-        <field name="NONISOTHREN" bitoffset="0" bitlength="1">
-          <description>Non-ISO IN Endpoints Threshold Enable.</description>
-        </field>
-        <field name="ISOTHREN" bitoffset="1" bitlength="1">
-          <description>ISO IN Endpoints Threshold Enable.</description>
-        </field>
-        <field name="TXTHRLEN" bitoffset="2" bitlength="9">
-          <description>
-        Transmit Threshold Length
-          </description>
-        </field>
-        <field name="AHBTHRRATIO" bitoffset="11" bitlength="2">
-          <description>
- AHB Threshold Ratio
- -
- Value, Description
- 0x00, DIV1 - AHB threshold = MAC threshold.
- 0x01, DIV2 - AHB threshold = MAC threshold / 2.
- 0x02, DIV4 - AHB threshold = MAC threshold / 4.
- 0x03, DIV8 - AHB threshold = MAC threshold / 8.
-          </description>
-          <interpretation key="0x00000000" text="DIV1"/>
-          <interpretation key="0x00000001" text="DIV2"/>
-          <interpretation key="0x00000002" text="DIV4"/>
-          <interpretation key="0x00000003" text="DIV8"/>
-        </field>
-        <field name="RXTHREN" bitoffset="16" bitlength="1">
-          <description>Receive Threshold Enable</description>
-        </field>
-        <field name="RXTHRLEN" bitoffset="17" bitlength="9">
-          <description>
-        Receive Threshold Length
-          </description>
-        </field>
-        <field name="ARBPRKEN" bitoffset="27" bitlength="1">
-          <description>Arbiter Parking Enable</description>
+          <description>OUT Endpoint 3 Interrupt mask Bit</description>
         </field>
       </register>
       <register name="DIEPEMPMSK" address="0x40100834" access="RW" resetvalue="0x00000000">
         <description>Device IN Endpoint FIFO Empty Interrupt Mask Register</description>
-        <field name="DIEPMPMSK" bitoffset="0" bitlength="16">
+        <field name="DIEPEMPMSK" bitoffset="0" bitlength="16">
           <description>
         IN EP Tx FIFO Empty Interrupt Mask Bits
           </description>
         </field>
       </register>
       <register name="DIEP0CTL" address="0x40100900" access="RW" resetvalue="0x00008000">
-        <description>Device Control IN Endpoint 0 Control Register</description>
+        <description>Device IN Endpoint 0 Control Register</description>
         <field name="MPS" bitoffset="0" bitlength="2">
           <description>
  Maximum Packet Size
@@ -2060,25 +1901,16 @@
           <description>AHB Error</description>
         </field>
         <field name="TIMEOUT" bitoffset="3" bitlength="1">
-          <description>Condition</description>
+          <description>Timeout Condition</description>
         </field>
         <field name="INTKNTXFEMP" bitoffset="4" bitlength="1">
           <description>IN Token Received When TxFIFO is Empty</description>
-        </field>
-        <field name="INTKNEPMIS" bitoffset="5" bitlength="1">
-          <description>IN Token Received with EP Mismatch</description>
         </field>
         <field name="INEPNAKEFF" bitoffset="6" bitlength="1">
           <description>IN Endpoint NAK Effective</description>
         </field>
         <field name="TXFEMP" bitoffset="7" bitlength="1">
           <description>Transmit FIFO Empty</description>
-        </field>
-        <field name="TXFIFOUNDRN" bitoffset="8" bitlength="1">
-          <description>Fifo Underrun</description>
-        </field>
-        <field name="BNAINTR" bitoffset="9" bitlength="1">
-          <description>BNA (Buffer Not Available) Interrupt</description>
         </field>
         <field name="PKTDRPSTS" bitoffset="11" bitlength="1">
           <description>Packet Drop Status</description>
@@ -2087,10 +1919,7 @@
           <description>NAK Interrupt</description>
         </field>
         <field name="NAKINTRPT" bitoffset="13" bitlength="1">
-          <description/>
-        </field>
-        <field name="NYETINTRPT" bitoffset="14" bitlength="1">
-          <description>NYET Interrupt</description>
+          <description>NAK Interrupt</description>
         </field>
       </register>
       <register name="DIEP0TSIZ" address="0x40100910" access="RW" resetvalue="0x00000000">
@@ -2108,23 +1937,22 @@
       </register>
       <register name="DIEP0DMAADDR" address="0x40100914" access="RW" resetvalue="0x00000000">
         <description>Device IN Endpoint 0 DMA Address Register</description>
-        <field name="DMAADDR" bitoffset="0" bitlength="32">
+        <field name="DIEP0DMAADDR" bitoffset="0" bitlength="32">
           <description>
- -
- Value, Description
+        DMA Address
           </description>
         </field>
       </register>
       <register name="DIEP0TXFSTS" address="0x40100918" access="RO" resetvalue="0x00000200">
-        <description>Device IN Endpoint Transmit FIFO Status Register 0</description>
+        <description>Device IN Endpoint 0 Transmit FIFO Status Register</description>
         <field name="SPCAVAIL" bitoffset="0" bitlength="16">
           <description>
-        IN Endpoint TxFIFO Space Avail
+        TxFIFO Space Available
           </description>
         </field>
       </register>
       <register name="DIEP0_CTL" address="0x40100920" access="RW" resetvalue="0x00000000">
-        <description>Device Control IN Endpoint 1 Control Register</description>
+        <description>Device IN Endpoint x+1 Control Register</description>
         <field name="MPS" bitoffset="0" bitlength="11">
           <description>
         Maximum Packet Size
@@ -2133,8 +1961,8 @@
         <field name="USBACTEP" bitoffset="15" bitlength="1">
           <description>USB Active Endpoint</description>
         </field>
-        <field name="DPID" bitoffset="16" bitlength="1">
-          <description>Endpoint Data PID</description>
+        <field name="DPIDEOF" bitoffset="16" bitlength="1">
+          <description>Endpoint Data PID / Even or Odd Frame</description>
         </field>
         <field name="NAKSTS" bitoffset="17" bitlength="1">
           <description>NAK Status</description>
@@ -2193,25 +2021,16 @@
           <description>AHB Error</description>
         </field>
         <field name="TIMEOUT" bitoffset="3" bitlength="1">
-          <description>Condition</description>
+          <description>Timeout Condition</description>
         </field>
         <field name="INTKNTXFEMP" bitoffset="4" bitlength="1">
           <description>IN Token Received When TxFIFO is Empty</description>
-        </field>
-        <field name="INTKNEPMIS" bitoffset="5" bitlength="1">
-          <description>IN Token Received with EP Mismatch</description>
         </field>
         <field name="INEPNAKEFF" bitoffset="6" bitlength="1">
           <description>IN Endpoint NAK Effective</description>
         </field>
         <field name="TXFEMP" bitoffset="7" bitlength="1">
           <description>Transmit FIFO Empty</description>
-        </field>
-        <field name="TXFIFOUNDRN" bitoffset="8" bitlength="1">
-          <description>Fifo Underrun</description>
-        </field>
-        <field name="BNAINTR" bitoffset="9" bitlength="1">
-          <description>BNA (Buffer Not Available) Interrupt</description>
         </field>
         <field name="PKTDRPSTS" bitoffset="11" bitlength="1">
           <description>Packet Drop Status</description>
@@ -2220,10 +2039,7 @@
           <description>NAK Interrupt</description>
         </field>
         <field name="NAKINTRPT" bitoffset="13" bitlength="1">
-          <description/>
-        </field>
-        <field name="NYETINTRPT" bitoffset="14" bitlength="1">
-          <description>NYET Interrupt</description>
+          <description>NAK Interrupt</description>
         </field>
       </register>
       <register name="DIEP0_TSIZ" address="0x40100930" access="RW" resetvalue="0x00000000">
@@ -2240,8 +2056,7 @@
         </field>
         <field name="MC" bitoffset="29" bitlength="2">
           <description>
- -
- Value, Description
+        Multi Count
           </description>
         </field>
       </register>
@@ -2249,21 +2064,20 @@
         <description>Device IN Endpoint x+1 DMA Address Register</description>
         <field name="DMAADDR" bitoffset="0" bitlength="32">
           <description>
- -
- Value, Description
+        DMA Address
           </description>
         </field>
       </register>
-      <register name="DIEP0_DTXFSTS" address="0x40100938" access="RO" resetvalue="0x00000200">
-        <description>Device IN Endpoint Transmit FIFO Status Register 1</description>
-        <field name="INEPTXFSPCAVAIL" bitoffset="0" bitlength="16">
+      <register name="DIEP0_TXFSTS" address="0x40100938" access="RO" resetvalue="0x00000200">
+        <description>Device IN Endpoint x+1 Transmit FIFO Status Register</description>
+        <field name="SPCAVAIL" bitoffset="0" bitlength="16">
           <description>
-        IN Endpoint TxFIFO Space Avail
+        TxFIFO Space Available
           </description>
         </field>
       </register>
       <register name="DIEP1_CTL" address="0x40100940" access="RW" resetvalue="0x00000000">
-        <description>Device Control IN Endpoint 1 Control Register</description>
+        <description>Device IN Endpoint x+1 Control Register</description>
         <field name="MPS" bitoffset="0" bitlength="11">
           <description>
         Maximum Packet Size
@@ -2272,8 +2086,8 @@
         <field name="USBACTEP" bitoffset="15" bitlength="1">
           <description>USB Active Endpoint</description>
         </field>
-        <field name="DPID" bitoffset="16" bitlength="1">
-          <description>Endpoint Data PID</description>
+        <field name="DPIDEOF" bitoffset="16" bitlength="1">
+          <description>Endpoint Data PID / Even or Odd Frame</description>
         </field>
         <field name="NAKSTS" bitoffset="17" bitlength="1">
           <description>NAK Status</description>
@@ -2332,25 +2146,16 @@
           <description>AHB Error</description>
         </field>
         <field name="TIMEOUT" bitoffset="3" bitlength="1">
-          <description>Condition</description>
+          <description>Timeout Condition</description>
         </field>
         <field name="INTKNTXFEMP" bitoffset="4" bitlength="1">
           <description>IN Token Received When TxFIFO is Empty</description>
-        </field>
-        <field name="INTKNEPMIS" bitoffset="5" bitlength="1">
-          <description>IN Token Received with EP Mismatch</description>
         </field>
         <field name="INEPNAKEFF" bitoffset="6" bitlength="1">
           <description>IN Endpoint NAK Effective</description>
         </field>
         <field name="TXFEMP" bitoffset="7" bitlength="1">
           <description>Transmit FIFO Empty</description>
-        </field>
-        <field name="TXFIFOUNDRN" bitoffset="8" bitlength="1">
-          <description>Fifo Underrun</description>
-        </field>
-        <field name="BNAINTR" bitoffset="9" bitlength="1">
-          <description>BNA (Buffer Not Available) Interrupt</description>
         </field>
         <field name="PKTDRPSTS" bitoffset="11" bitlength="1">
           <description>Packet Drop Status</description>
@@ -2359,10 +2164,7 @@
           <description>NAK Interrupt</description>
         </field>
         <field name="NAKINTRPT" bitoffset="13" bitlength="1">
-          <description/>
-        </field>
-        <field name="NYETINTRPT" bitoffset="14" bitlength="1">
-          <description>NYET Interrupt</description>
+          <description>NAK Interrupt</description>
         </field>
       </register>
       <register name="DIEP1_TSIZ" address="0x40100950" access="RW" resetvalue="0x00000000">
@@ -2379,8 +2181,7 @@
         </field>
         <field name="MC" bitoffset="29" bitlength="2">
           <description>
- -
- Value, Description
+        Multi Count
           </description>
         </field>
       </register>
@@ -2388,21 +2189,20 @@
         <description>Device IN Endpoint x+1 DMA Address Register</description>
         <field name="DMAADDR" bitoffset="0" bitlength="32">
           <description>
- -
- Value, Description
+        DMA Address
           </description>
         </field>
       </register>
-      <register name="DIEP1_DTXFSTS" address="0x40100958" access="RO" resetvalue="0x00000200">
-        <description>Device IN Endpoint Transmit FIFO Status Register 1</description>
-        <field name="INEPTXFSPCAVAIL" bitoffset="0" bitlength="16">
+      <register name="DIEP1_TXFSTS" address="0x40100958" access="RO" resetvalue="0x00000200">
+        <description>Device IN Endpoint x+1 Transmit FIFO Status Register</description>
+        <field name="SPCAVAIL" bitoffset="0" bitlength="16">
           <description>
-        IN Endpoint TxFIFO Space Avail
+        TxFIFO Space Available
           </description>
         </field>
       </register>
       <register name="DIEP2_CTL" address="0x40100960" access="RW" resetvalue="0x00000000">
-        <description>Device Control IN Endpoint 1 Control Register</description>
+        <description>Device IN Endpoint x+1 Control Register</description>
         <field name="MPS" bitoffset="0" bitlength="11">
           <description>
         Maximum Packet Size
@@ -2411,8 +2211,8 @@
         <field name="USBACTEP" bitoffset="15" bitlength="1">
           <description>USB Active Endpoint</description>
         </field>
-        <field name="DPID" bitoffset="16" bitlength="1">
-          <description>Endpoint Data PID</description>
+        <field name="DPIDEOF" bitoffset="16" bitlength="1">
+          <description>Endpoint Data PID / Even or Odd Frame</description>
         </field>
         <field name="NAKSTS" bitoffset="17" bitlength="1">
           <description>NAK Status</description>
@@ -2471,25 +2271,16 @@
           <description>AHB Error</description>
         </field>
         <field name="TIMEOUT" bitoffset="3" bitlength="1">
-          <description>Condition</description>
+          <description>Timeout Condition</description>
         </field>
         <field name="INTKNTXFEMP" bitoffset="4" bitlength="1">
           <description>IN Token Received When TxFIFO is Empty</description>
-        </field>
-        <field name="INTKNEPMIS" bitoffset="5" bitlength="1">
-          <description>IN Token Received with EP Mismatch</description>
         </field>
         <field name="INEPNAKEFF" bitoffset="6" bitlength="1">
           <description>IN Endpoint NAK Effective</description>
         </field>
         <field name="TXFEMP" bitoffset="7" bitlength="1">
           <description>Transmit FIFO Empty</description>
-        </field>
-        <field name="TXFIFOUNDRN" bitoffset="8" bitlength="1">
-          <description>Fifo Underrun</description>
-        </field>
-        <field name="BNAINTR" bitoffset="9" bitlength="1">
-          <description>BNA (Buffer Not Available) Interrupt</description>
         </field>
         <field name="PKTDRPSTS" bitoffset="11" bitlength="1">
           <description>Packet Drop Status</description>
@@ -2498,10 +2289,7 @@
           <description>NAK Interrupt</description>
         </field>
         <field name="NAKINTRPT" bitoffset="13" bitlength="1">
-          <description/>
-        </field>
-        <field name="NYETINTRPT" bitoffset="14" bitlength="1">
-          <description>NYET Interrupt</description>
+          <description>NAK Interrupt</description>
         </field>
       </register>
       <register name="DIEP2_TSIZ" address="0x40100970" access="RW" resetvalue="0x00000000">
@@ -2518,8 +2306,7 @@
         </field>
         <field name="MC" bitoffset="29" bitlength="2">
           <description>
- -
- Value, Description
+        Multi Count
           </description>
         </field>
       </register>
@@ -2527,21 +2314,20 @@
         <description>Device IN Endpoint x+1 DMA Address Register</description>
         <field name="DMAADDR" bitoffset="0" bitlength="32">
           <description>
- -
- Value, Description
+        DMA Address
           </description>
         </field>
       </register>
-      <register name="DIEP2_DTXFSTS" address="0x40100978" access="RO" resetvalue="0x00000200">
-        <description>Device IN Endpoint Transmit FIFO Status Register 1</description>
-        <field name="INEPTXFSPCAVAIL" bitoffset="0" bitlength="16">
+      <register name="DIEP2_TXFSTS" address="0x40100978" access="RO" resetvalue="0x00000200">
+        <description>Device IN Endpoint x+1 Transmit FIFO Status Register</description>
+        <field name="SPCAVAIL" bitoffset="0" bitlength="16">
           <description>
-        IN Endpoint TxFIFO Space Avail
+        TxFIFO Space Available
           </description>
         </field>
       </register>
       <register name="DOEP0CTL" address="0x40100b00" access="RW" resetvalue="0x00008000">
-        <description>Device Control OUT Endpoint 0 Control Register</description>
+        <description>Device OUT Endpoint 0 Control Register</description>
         <field name="MPS" bitoffset="0" bitlength="2">
           <description>
  Maximum Packet Size
@@ -2599,7 +2385,7 @@
           <description>AHB Error</description>
         </field>
         <field name="SETUP" bitoffset="3" bitlength="1">
-          <description>Phase Done</description>
+          <description>Setup Phase Done</description>
         </field>
         <field name="OUTTKNEPDIS" bitoffset="4" bitlength="1">
           <description>OUT Token Received When Endpoint Disabled</description>
@@ -2610,12 +2396,6 @@
         <field name="BACK2BACKSETUP" bitoffset="6" bitlength="1">
           <description>Back-to-Back SETUP Packets Received</description>
         </field>
-        <field name="OUTPKTERR" bitoffset="8" bitlength="1">
-          <description>OUT Packet Error</description>
-        </field>
-        <field name="BNAINTR" bitoffset="9" bitlength="1">
-          <description>BNA (Buffer Not Available) Interrupt</description>
-        </field>
         <field name="PKTDRPSTS" bitoffset="11" bitlength="1">
           <description>Packet Drop Status</description>
         </field>
@@ -2623,13 +2403,10 @@
           <description>NAK Interrupt</description>
         </field>
         <field name="NAKINTRPT" bitoffset="13" bitlength="1">
-          <description/>
-        </field>
-        <field name="NYETINTRPT" bitoffset="14" bitlength="1">
-          <description>NYET Interrupt</description>
+          <description>NAK Interrupt</description>
         </field>
         <field name="STUPPKTRCVD" bitoffset="15" bitlength="1">
-          <description/>
+          <description>Setup Packet Received</description>
         </field>
       </register>
       <register name="DOEP0TSIZ" address="0x40100b10" access="RW" resetvalue="0x00000000">
@@ -2650,15 +2427,14 @@
       </register>
       <register name="DOEP0DMAADDR" address="0x40100b14" access="RW" resetvalue="0x00000000">
         <description>Device OUT Endpoint 0 DMA Address Register</description>
-        <field name="DMAADDR" bitoffset="0" bitlength="32">
+        <field name="DOEP0DMAADDR" bitoffset="0" bitlength="32">
           <description>
- -
- Value, Description
+        DMA Address
           </description>
         </field>
       </register>
       <register name="DOEP0_CTL" address="0x40100b20" access="RW" resetvalue="0x00000000">
-        <description>Device Control OUT Endpoint x+1 Control Register</description>
+        <description>Device OUT Endpoint x+1 Control Register</description>
         <field name="MPS" bitoffset="0" bitlength="11">
           <description>
         Maximum Packet Size
@@ -2667,8 +2443,8 @@
         <field name="USBACTEP" bitoffset="15" bitlength="1">
           <description>USB Active Endpoint</description>
         </field>
-        <field name="DPID" bitoffset="16" bitlength="1">
-          <description>Endpoint Data PID</description>
+        <field name="DPIDEOF" bitoffset="16" bitlength="1">
+          <description>Endpoint Data PID / Even-odd Frame</description>
         </field>
         <field name="NAKSTS" bitoffset="17" bitlength="1">
           <description>NAK Status</description>
@@ -2678,10 +2454,10 @@
  Endpoint Type
  -
  Value, Description
- 0x00, CONTROL - Control endpoint.
- 0x01, ISO - Isochronous endpoint.
- 0x02, BULK - Bulk endpoint.
- 0x03, INT - Interrupt endpoint.
+ 0x00, CONTROL - Control Endpoint.
+ 0x01, ISO - Isochronous Endpoint.
+ 0x02, BULK - Bulk Endpoint.
+ 0x03, INT - Interrupt Endpoint.
           </description>
           <interpretation key="0x00000000" text="CONTROL"/>
           <interpretation key="0x00000001" text="ISO"/>
@@ -2692,7 +2468,7 @@
           <description>Snoop Mode</description>
         </field>
         <field name="STALL" bitoffset="21" bitlength="1">
-          <description>Handshake</description>
+          <description>STALL Handshake</description>
         </field>
         <field name="CNAK" bitoffset="26" bitlength="1">
           <description>Clear NAK</description>
@@ -2700,11 +2476,11 @@
         <field name="SNAK" bitoffset="27" bitlength="1">
           <description>Set NAK</description>
         </field>
-        <field name="SETD0PID" bitoffset="28" bitlength="1">
-          <description>Set DATA0 PID</description>
+        <field name="SETD0PIDEF" bitoffset="28" bitlength="1">
+          <description>Set DATA0 PID / Even Frame</description>
         </field>
-        <field name="SETD1PID" bitoffset="29" bitlength="1">
-          <description>Set DATA1 PID</description>
+        <field name="SETD1PIDOF" bitoffset="29" bitlength="1">
+          <description>Set DATA1 PID / Odd Frame</description>
         </field>
         <field name="EPDIS" bitoffset="30" bitlength="1">
           <description>Endpoint Disable</description>
@@ -2725,7 +2501,7 @@
           <description>AHB Error</description>
         </field>
         <field name="SETUP" bitoffset="3" bitlength="1">
-          <description>Phase Done</description>
+          <description>Setup Phase Done</description>
         </field>
         <field name="OUTTKNEPDIS" bitoffset="4" bitlength="1">
           <description>OUT Token Received When Endpoint Disabled</description>
@@ -2736,26 +2512,17 @@
         <field name="BACK2BACKSETUP" bitoffset="6" bitlength="1">
           <description>Back-to-Back SETUP Packets Received</description>
         </field>
-        <field name="OUTPKTERR" bitoffset="8" bitlength="1">
-          <description>OUT Packet Error</description>
-        </field>
-        <field name="BNAINTR" bitoffset="9" bitlength="1">
-          <description>BNA (Buffer Not Available) Interrupt</description>
-        </field>
         <field name="PKTDRPSTS" bitoffset="11" bitlength="1">
           <description>Packet Drop Status</description>
         </field>
         <field name="BBLEERR" bitoffset="12" bitlength="1">
-          <description>NAK Interrupt</description>
+          <description>Babble Error</description>
         </field>
         <field name="NAKINTRPT" bitoffset="13" bitlength="1">
-          <description/>
-        </field>
-        <field name="NYETINTRPT" bitoffset="14" bitlength="1">
-          <description>NYET Interrupt</description>
+          <description>NAK Interrupt</description>
         </field>
         <field name="STUPPKTRCVD" bitoffset="15" bitlength="1">
-          <description/>
+          <description>Setup Packet Received</description>
         </field>
       </register>
       <register name="DOEP0_TSIZ" address="0x40100b30" access="RW" resetvalue="0x00000000">
@@ -2790,13 +2557,12 @@
         <description>Device OUT Endpoint x+1 DMA Address Register</description>
         <field name="DMAADDR" bitoffset="0" bitlength="32">
           <description>
- -
- Value, Description
+        DMA Address
           </description>
         </field>
       </register>
       <register name="DOEP1_CTL" address="0x40100b40" access="RW" resetvalue="0x00000000">
-        <description>Device Control OUT Endpoint x+1 Control Register</description>
+        <description>Device OUT Endpoint x+1 Control Register</description>
         <field name="MPS" bitoffset="0" bitlength="11">
           <description>
         Maximum Packet Size
@@ -2805,8 +2571,8 @@
         <field name="USBACTEP" bitoffset="15" bitlength="1">
           <description>USB Active Endpoint</description>
         </field>
-        <field name="DPID" bitoffset="16" bitlength="1">
-          <description>Endpoint Data PID</description>
+        <field name="DPIDEOF" bitoffset="16" bitlength="1">
+          <description>Endpoint Data PID / Even-odd Frame</description>
         </field>
         <field name="NAKSTS" bitoffset="17" bitlength="1">
           <description>NAK Status</description>
@@ -2816,10 +2582,10 @@
  Endpoint Type
  -
  Value, Description
- 0x00, CONTROL - Control endpoint.
- 0x01, ISO - Isochronous endpoint.
- 0x02, BULK - Bulk endpoint.
- 0x03, INT - Interrupt endpoint.
+ 0x00, CONTROL - Control Endpoint.
+ 0x01, ISO - Isochronous Endpoint.
+ 0x02, BULK - Bulk Endpoint.
+ 0x03, INT - Interrupt Endpoint.
           </description>
           <interpretation key="0x00000000" text="CONTROL"/>
           <interpretation key="0x00000001" text="ISO"/>
@@ -2830,7 +2596,7 @@
           <description>Snoop Mode</description>
         </field>
         <field name="STALL" bitoffset="21" bitlength="1">
-          <description>Handshake</description>
+          <description>STALL Handshake</description>
         </field>
         <field name="CNAK" bitoffset="26" bitlength="1">
           <description>Clear NAK</description>
@@ -2838,11 +2604,11 @@
         <field name="SNAK" bitoffset="27" bitlength="1">
           <description>Set NAK</description>
         </field>
-        <field name="SETD0PID" bitoffset="28" bitlength="1">
-          <description>Set DATA0 PID</description>
+        <field name="SETD0PIDEF" bitoffset="28" bitlength="1">
+          <description>Set DATA0 PID / Even Frame</description>
         </field>
-        <field name="SETD1PID" bitoffset="29" bitlength="1">
-          <description>Set DATA1 PID</description>
+        <field name="SETD1PIDOF" bitoffset="29" bitlength="1">
+          <description>Set DATA1 PID / Odd Frame</description>
         </field>
         <field name="EPDIS" bitoffset="30" bitlength="1">
           <description>Endpoint Disable</description>
@@ -2863,7 +2629,7 @@
           <description>AHB Error</description>
         </field>
         <field name="SETUP" bitoffset="3" bitlength="1">
-          <description>Phase Done</description>
+          <description>Setup Phase Done</description>
         </field>
         <field name="OUTTKNEPDIS" bitoffset="4" bitlength="1">
           <description>OUT Token Received When Endpoint Disabled</description>
@@ -2874,26 +2640,17 @@
         <field name="BACK2BACKSETUP" bitoffset="6" bitlength="1">
           <description>Back-to-Back SETUP Packets Received</description>
         </field>
-        <field name="OUTPKTERR" bitoffset="8" bitlength="1">
-          <description>OUT Packet Error</description>
-        </field>
-        <field name="BNAINTR" bitoffset="9" bitlength="1">
-          <description>BNA (Buffer Not Available) Interrupt</description>
-        </field>
         <field name="PKTDRPSTS" bitoffset="11" bitlength="1">
           <description>Packet Drop Status</description>
         </field>
         <field name="BBLEERR" bitoffset="12" bitlength="1">
-          <description>NAK Interrupt</description>
+          <description>Babble Error</description>
         </field>
         <field name="NAKINTRPT" bitoffset="13" bitlength="1">
-          <description/>
-        </field>
-        <field name="NYETINTRPT" bitoffset="14" bitlength="1">
-          <description>NYET Interrupt</description>
+          <description>NAK Interrupt</description>
         </field>
         <field name="STUPPKTRCVD" bitoffset="15" bitlength="1">
-          <description/>
+          <description>Setup Packet Received</description>
         </field>
       </register>
       <register name="DOEP1_TSIZ" address="0x40100b50" access="RW" resetvalue="0x00000000">
@@ -2928,13 +2685,12 @@
         <description>Device OUT Endpoint x+1 DMA Address Register</description>
         <field name="DMAADDR" bitoffset="0" bitlength="32">
           <description>
- -
- Value, Description
+        DMA Address
           </description>
         </field>
       </register>
       <register name="DOEP2_CTL" address="0x40100b60" access="RW" resetvalue="0x00000000">
-        <description>Device Control OUT Endpoint x+1 Control Register</description>
+        <description>Device OUT Endpoint x+1 Control Register</description>
         <field name="MPS" bitoffset="0" bitlength="11">
           <description>
         Maximum Packet Size
@@ -2943,8 +2699,8 @@
         <field name="USBACTEP" bitoffset="15" bitlength="1">
           <description>USB Active Endpoint</description>
         </field>
-        <field name="DPID" bitoffset="16" bitlength="1">
-          <description>Endpoint Data PID</description>
+        <field name="DPIDEOF" bitoffset="16" bitlength="1">
+          <description>Endpoint Data PID / Even-odd Frame</description>
         </field>
         <field name="NAKSTS" bitoffset="17" bitlength="1">
           <description>NAK Status</description>
@@ -2954,10 +2710,10 @@
  Endpoint Type
  -
  Value, Description
- 0x00, CONTROL - Control endpoint.
- 0x01, ISO - Isochronous endpoint.
- 0x02, BULK - Bulk endpoint.
- 0x03, INT - Interrupt endpoint.
+ 0x00, CONTROL - Control Endpoint.
+ 0x01, ISO - Isochronous Endpoint.
+ 0x02, BULK - Bulk Endpoint.
+ 0x03, INT - Interrupt Endpoint.
           </description>
           <interpretation key="0x00000000" text="CONTROL"/>
           <interpretation key="0x00000001" text="ISO"/>
@@ -2968,7 +2724,7 @@
           <description>Snoop Mode</description>
         </field>
         <field name="STALL" bitoffset="21" bitlength="1">
-          <description>Handshake</description>
+          <description>STALL Handshake</description>
         </field>
         <field name="CNAK" bitoffset="26" bitlength="1">
           <description>Clear NAK</description>
@@ -2976,11 +2732,11 @@
         <field name="SNAK" bitoffset="27" bitlength="1">
           <description>Set NAK</description>
         </field>
-        <field name="SETD0PID" bitoffset="28" bitlength="1">
-          <description>Set DATA0 PID</description>
+        <field name="SETD0PIDEF" bitoffset="28" bitlength="1">
+          <description>Set DATA0 PID / Even Frame</description>
         </field>
-        <field name="SETD1PID" bitoffset="29" bitlength="1">
-          <description>Set DATA1 PID</description>
+        <field name="SETD1PIDOF" bitoffset="29" bitlength="1">
+          <description>Set DATA1 PID / Odd Frame</description>
         </field>
         <field name="EPDIS" bitoffset="30" bitlength="1">
           <description>Endpoint Disable</description>
@@ -3001,7 +2757,7 @@
           <description>AHB Error</description>
         </field>
         <field name="SETUP" bitoffset="3" bitlength="1">
-          <description>Phase Done</description>
+          <description>Setup Phase Done</description>
         </field>
         <field name="OUTTKNEPDIS" bitoffset="4" bitlength="1">
           <description>OUT Token Received When Endpoint Disabled</description>
@@ -3012,26 +2768,17 @@
         <field name="BACK2BACKSETUP" bitoffset="6" bitlength="1">
           <description>Back-to-Back SETUP Packets Received</description>
         </field>
-        <field name="OUTPKTERR" bitoffset="8" bitlength="1">
-          <description>OUT Packet Error</description>
-        </field>
-        <field name="BNAINTR" bitoffset="9" bitlength="1">
-          <description>BNA (Buffer Not Available) Interrupt</description>
-        </field>
         <field name="PKTDRPSTS" bitoffset="11" bitlength="1">
           <description>Packet Drop Status</description>
         </field>
         <field name="BBLEERR" bitoffset="12" bitlength="1">
-          <description>NAK Interrupt</description>
+          <description>Babble Error</description>
         </field>
         <field name="NAKINTRPT" bitoffset="13" bitlength="1">
-          <description/>
-        </field>
-        <field name="NYETINTRPT" bitoffset="14" bitlength="1">
-          <description>NYET Interrupt</description>
+          <description>NAK Interrupt</description>
         </field>
         <field name="STUPPKTRCVD" bitoffset="15" bitlength="1">
-          <description/>
+          <description>Setup Packet Received</description>
         </field>
       </register>
       <register name="DOEP2_TSIZ" address="0x40100b70" access="RW" resetvalue="0x00000000">
@@ -3066,18 +2813,17 @@
         <description>Device OUT Endpoint x+1 DMA Address Register</description>
         <field name="DMAADDR" bitoffset="0" bitlength="32">
           <description>
- -
- Value, Description
+        DMA Address
           </description>
         </field>
       </register>
       <register name="PCGCCTL" address="0x40100e00" access="RW" resetvalue="0x00000000">
         <description>Power and Clock Gating Control Register</description>
         <field name="STOPPCLK" bitoffset="0" bitlength="1">
-          <description>Stop Pclk</description>
+          <description>Stop PHY clock</description>
         </field>
         <field name="GATEHCLK" bitoffset="1" bitlength="1">
-          <description>Gate Hclk</description>
+          <description>Gate HCLK</description>
         </field>
         <field name="PWRCLMP" bitoffset="2" bitlength="1">
           <description>Power Clamp</description>
@@ -3086,10 +2832,7 @@
           <description>Reset Power-Down Modules</description>
         </field>
         <field name="PHYSLEEP" bitoffset="6" bitlength="1">
-          <description/>
-        </field>
-        <field name="L1SUSPENDED" bitoffset="7" bitlength="1">
-          <description/>
+          <description>PHY In Sleep</description>
         </field>
       </register>
     </registergroup>
@@ -3442,7 +3185,7 @@
   </group>
   <group name="CMU" description="">
     <registergroup name="CMU" description="">
-      <register name="CTRL" address="0x400c8000" access="RW" resetvalue="0x000C062C">
+      <register name="CTRL" address="0x400c8000" access="RW" resetvalue="0x000C262C">
         <description>CMU Control Register</description>
         <field name="HFXOMODE" bitoffset="0" bitlength="2">
           <description>
@@ -3564,14 +3307,13 @@
  Value, Description
  0x00, LFRCO - LFRCO (directly from oscillator).
  0x01, LFXO - LFXO (directly from oscillator).
- 0x02, HFCLK - HFCLK.
+ 0x02, HFCLK - HFCLK (undivided).
  0x03, LFXOQ - LFXO (qualified).
  0x04, HFXOQ - HFXO (qualified).
  0x05, LFRCOQ - LFRCO (qualified).
  0x06, HFRCOQ - HFRCO (qualified).
  0x07, AUXHFRCOQ - AUXHFRCO (qualified).
  0x08, USHFRCO - USHFRCO
- 0x09, HFXOX2 - HFXOX2
           </description>
           <interpretation key="0x00000000" text="LFRCO"/>
           <interpretation key="0x00000001" text="LFXO"/>
@@ -3582,7 +3324,6 @@
           <interpretation key="0x00000006" text="HFRCOQ"/>
           <interpretation key="0x00000007" text="AUXHFRCOQ"/>
           <interpretation key="0x00000008" text="USHFRCO"/>
-          <interpretation key="0x00000009" text="HFXOX2"/>
         </field>
       </register>
       <register name="HFCORECLKDIV" address="0x400c8004" access="RW" resetvalue="0x00000000">
@@ -3668,22 +3409,17 @@
  0x02, 11MHZ - 11 MHz band. NOTE: Also set the TUNING value (bits 7:0) when changing band.
  0x03, 14MHZ - 14 MHz band. NOTE: Also set the TUNING value (bits 7:0) when changing band.
  0x04, 21MHZ - 21 MHz band. NOTE: Also set the TUNING value (bits 7:0) when changing band.
- 0x05, 28MHZ - 28 MHz band. NOTE: Also set the TUNING value (bits 7:0) when changing band.
           </description>
           <interpretation key="0x00000000" text="1MHZ"/>
           <interpretation key="0x00000001" text="7MHZ"/>
           <interpretation key="0x00000002" text="11MHZ"/>
           <interpretation key="0x00000003" text="14MHZ"/>
           <interpretation key="0x00000004" text="21MHZ"/>
-          <interpretation key="0x00000005" text="28MHZ"/>
         </field>
         <field name="SUDELAY" bitoffset="12" bitlength="5">
           <description>
         HFRCO Start-up Delay
           </description>
-        </field>
-        <field name="UNLOCK28MHZ" bitoffset="20" bitlength="1">
-          <description>HFRCO 28 Mhz band unlock</description>
         </field>
       </register>
       <register name="LFRCOCTRL" address="0x400c8010" access="RW" resetvalue="0x00000040">
@@ -3845,12 +3581,10 @@
  0x02, LFXO - Select LFXO as HFCORECLKUSBC.
  0x03, LFRCO - Select LFRCO as HFCORECLKUSBC.
  0x04, USHFRCO - Select USHFRCO as HFCORECLKUSBC.
- 0x05, HFXOX2 - Select HFXOX2 as HFCORECLKUSBC.
           </description>
           <interpretation key="0x00000002" text="LFXO"/>
           <interpretation key="0x00000003" text="LFRCO"/>
           <interpretation key="0x00000004" text="USHFRCO"/>
-          <interpretation key="0x00000005" text="HFXOX2"/>
         </field>
       </register>
       <register name="LFCLKSEL" address="0x400c8028" access="RW" resetvalue="0x00000015">
@@ -3960,9 +3694,6 @@
         </field>
         <field name="USBCUSHFRCOSEL" bitoffset="18" bitlength="1">
           <description>USBC USHFRCO Selected</description>
-        </field>
-        <field name="USBCHFXOX2SEL" bitoffset="19" bitlength="1">
-          <description>USBC HFXOX2 Selected</description>
         </field>
         <field name="USBCHFCLKSYNC" bitoffset="20" bitlength="1">
           <description>USBC is synchronous to HFCLK</description>
@@ -4317,7 +4048,7 @@
         </field>
       </register>
       <register name="USHFRCOCTRL" address="0x400c80d4" access="RW" resetvalue="0x000FF040">
-        <description>USB Oscillator Control</description>
+        <description>USHFRCO Control</description>
         <field name="TUNING" bitoffset="0" bitlength="7">
           <description>
         USHFRCO frequency adjust
@@ -4336,11 +4067,28 @@
         </field>
       </register>
       <register name="USHFRCOTUNE" address="0x400c80d8" access="RW" resetvalue="0x00000020">
-        <description>USHFRCO frequency tune</description>
+        <description>USHFRCO Frequency Tune</description>
         <field name="FINETUNING" bitoffset="0" bitlength="6">
           <description>
         Oscillator fine frequency adjust
           </description>
+        </field>
+      </register>
+      <register name="USHFRCOCONF" address="0x400c80dc" access="RW" resetvalue="0x00000001">
+        <description>USHFRCO Configuration</description>
+        <field name="BAND" bitoffset="0" bitlength="3">
+          <description>
+ USHFRCO Band Select
+ -
+ Value, Description
+ 0x01, 48MHZ - 48 MHz band. NOTE: Also set the TUNING and FINETUNING value when changing band.
+ 0x03, 24MHZ - 24 MHz band. NOTE: Also set the TUNING and FINETUNING value when changing band.
+          </description>
+          <interpretation key="0x00000001" text="48MHZ"/>
+          <interpretation key="0x00000003" text="24MHZ"/>
+        </field>
+        <field name="USHFRCODIV2DIS" bitoffset="4" bitlength="1">
+          <description>USHFRCO divider for HFCLK disable</description>
         </field>
       </register>
     </registergroup>
@@ -4458,7 +4206,7 @@
           <description>Always Track Inputs</description>
         </field>
         <field name="RSSCOIST" bitoffset="29" bitlength="1">
-          <description>Reload-Start Sets Compare Ouptut initial State</description>
+          <description>Reload-Start Sets Compare Output initial State</description>
         </field>
       </register>
       <register name="CMD" address="0x40010004" access="WO" resetvalue="0x00000000">
@@ -5473,7 +5221,7 @@
           <description>Always Track Inputs</description>
         </field>
         <field name="RSSCOIST" bitoffset="29" bitlength="1">
-          <description>Reload-Start Sets Compare Ouptut initial State</description>
+          <description>Reload-Start Sets Compare Output initial State</description>
         </field>
       </register>
       <register name="CMD" address="0x40010404" access="WO" resetvalue="0x00000000">
@@ -6488,7 +6236,7 @@
           <description>Always Track Inputs</description>
         </field>
         <field name="RSSCOIST" bitoffset="29" bitlength="1">
-          <description>Reload-Start Sets Compare Ouptut initial State</description>
+          <description>Reload-Start Sets Compare Output initial State</description>
         </field>
       </register>
       <register name="CMD" address="0x40010804" access="WO" resetvalue="0x00000000">
@@ -7394,7 +7142,7 @@
   </group>
   <group name="ACMP" description="">
     <registergroup name="ACMP0" description="">
-      <register name="CTRL" address="0x40001000" access="RW" resetvalue="0x571C0000">
+      <register name="CTRL" address="0x40001000" access="RW" resetvalue="0x47000000">
         <description>Control Register</description>
         <field name="EN" bitoffset="0" bitlength="1">
           <description>Analog Comparator Enable</description>
@@ -7454,50 +7202,16 @@
           <interpretation key="0x00000006" text="256CYCLES"/>
           <interpretation key="0x00000007" text="512CYCLES"/>
         </field>
-        <field name="ALTHYSTSEL" bitoffset="12" bitlength="3">
-          <description>
- Alternate Hysteresis Select
- -
- Value, Description
- 0x00, HYST0 - No hysteresis.
- 0x01, HYST1 - ~15 mV hysteresis.
- 0x02, HYST2 - ~22 mV hysteresis.
- 0x03, HYST3 - ~29 mV hysteresis.
- 0x04, HYST4 - ~36 mV hysteresis.
- 0x05, HYST5 - ~43 mV hysteresis.
- 0x06, HYST6 - ~50 mV hysteresis.
- 0x07, HYST7 - ~57 mV hysteresis.
-          </description>
-          <interpretation key="0x00000000" text="HYST0"/>
-          <interpretation key="0x00000001" text="HYST1"/>
-          <interpretation key="0x00000002" text="HYST2"/>
-          <interpretation key="0x00000003" text="HYST3"/>
-          <interpretation key="0x00000004" text="HYST4"/>
-          <interpretation key="0x00000005" text="HYST5"/>
-          <interpretation key="0x00000006" text="HYST6"/>
-          <interpretation key="0x00000007" text="HYST7"/>
-        </field>
         <field name="IRISE" bitoffset="16" bitlength="1">
           <description>Rising Edge Interrupt Sense</description>
         </field>
         <field name="IFALL" bitoffset="17" bitlength="1">
           <description>Falling Edge Interrupt Sense</description>
         </field>
-        <field name="ALTBIASPROG" bitoffset="18" bitlength="4">
-          <description>
-        Alternate Bias Configuration
-          </description>
-        </field>
         <field name="BIASPROG" bitoffset="24" bitlength="4">
           <description>
         Bias Configuration
           </description>
-        </field>
-        <field name="ALTHALFBIAS" bitoffset="28" bitlength="1">
-          <description>Alternate Half Bias Current</description>
-        </field>
-        <field name="ALTFULLBIAS" bitoffset="29" bitlength="1">
-          <description>Alternate Full Bias Current</description>
         </field>
         <field name="HALFBIAS" bitoffset="30" bitlength="1">
           <description>Half Bias Current</description>
@@ -10408,9 +10122,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -11104,9 +10818,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -11800,9 +11514,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -12496,9 +12210,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -13192,9 +12906,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -13888,9 +13602,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -15387,8 +15101,8 @@
  0x01, 2V5 - Internal 2.5 V reference
  0x02, VDD - Buffered VDD
  0x03, 5VDIFF - Internal differential 5 V reference
- 0x04, EXTSINGLE - Single ended external reference from pin 6
- 0x05, 2XEXTDIFF - Differential external reference, 2x(pin 6 - pin 7)
+ 0x04, EXTSINGLE - Single ended external reference from ADCn_CH6
+ 0x05, 2XEXTDIFF - Differential external reference, 2x(ADCn_CH6 - ADCn_CH7)
  0x06, 2XVDD - Unbuffered 2xVDD
           </description>
           <interpretation key="0x00000000" text="1V25"/>
@@ -15513,8 +15227,8 @@
  0x01, 2V5 - Internal 2.5 V reference
  0x02, VDD - VDD
  0x03, 5VDIFF - Internal differential 5 V reference
- 0x04, EXTSINGLE - Single ended external reference from pin 6
- 0x05, 2XEXTDIFF - Differential external reference, 2x(pin 6 - pin 7)
+ 0x04, EXTSINGLE - Single ended external reference from ADCn_CH6
+ 0x05, 2XEXTDIFF - Differential external reference, 2x(ADCn_CH6 - ADCn_CH7)
  0x06, 2XVDD - Unbuffered 2xVDD
           </description>
           <interpretation key="0x00000000" text="1V25"/>
