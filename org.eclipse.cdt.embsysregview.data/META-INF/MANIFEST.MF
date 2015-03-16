@@ -2,4 +2,4 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Data
 Bundle-SymbolicName: org.eclipse.cdt.embsysregview.data
-Bundle-Version: 0.2.4.r168
+Bundle-Version: 0.2.5.r180
