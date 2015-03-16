@@ -61,7 +61,7 @@
   • Pre-Programmed Serial Bootloader
   • Temperature range -40 to 85 ºC
   • Single power supply 1.8 to 3.8 V
-(C) Copyright Silicon Laboratories, Inc. 2014. All rights reserved.
+(C) Copyright Silicon Laboratories, Inc. 2015. All rights reserved.
   </chip_description>
   <group name="AES" description="">
     <registergroup name="AES" description="">
@@ -17404,8 +17404,8 @@
  0x01, 2V5 - Internal 2.5 V reference
  0x02, VDD - Buffered VDD
  0x03, 5VDIFF - Internal differential 5 V reference
- 0x04, EXTSINGLE - Single ended external reference from pin 6
- 0x05, 2XEXTDIFF - Differential external reference, 2x(pin 6 - pin 7)
+ 0x04, EXTSINGLE - Single ended external reference from ADCn_CH6
+ 0x05, 2XEXTDIFF - Differential external reference, 2x(ADCn_CH6 - ADCn_CH7)
  0x06, 2XVDD - Unbuffered 2xVDD
           </description>
           <interpretation key="0x00000000" text="1V25"/>
@@ -17534,8 +17534,8 @@
  0x01, 2V5 - Internal 2.5 V reference
  0x02, VDD - VDD
  0x03, 5VDIFF - Internal differential 5 V reference
- 0x04, EXTSINGLE - Single ended external reference from pin 6
- 0x05, 2XEXTDIFF - Differential external reference, 2x(pin 6 - pin 7)
+ 0x04, EXTSINGLE - Single ended external reference from ADCn_CH6
+ 0x05, 2XEXTDIFF - Differential external reference, 2x(ADCn_CH6 - ADCn_CH7)
  0x06, 2XVDD - Unbuffered 2xVDD
           </description>
           <interpretation key="0x00000000" text="1V25"/>

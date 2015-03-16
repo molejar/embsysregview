@@ -61,7 +61,7 @@
   • Pre-Programmed Serial Bootloader
   • Temperature range -40 to 85 ºC
   • Single power supply 1.8 to 3.8 V
-(C) Copyright Silicon Laboratories, Inc. 2014. All rights reserved.
+(C) Copyright Silicon Laboratories, Inc. 2015. All rights reserved.
   </chip_description>
   <group name="DMA" description="">
     <registergroup name="DMA" description="">
@@ -1398,7 +1398,7 @@
   </group>
   <group name="CMU" description="">
     <registergroup name="CMU" description="">
-      <register name="CTRL" address="0x400c8000" access="RW" resetvalue="0x000C062C">
+      <register name="CTRL" address="0x400c8000" access="RW" resetvalue="0x000C262C">
         <description>CMU Control Register</description>
         <field name="HFXOMODE" bitoffset="0" bitlength="2">
           <description>
@@ -1520,14 +1520,13 @@
  Value, Description
  0x00, LFRCO - LFRCO (directly from oscillator).
  0x01, LFXO - LFXO (directly from oscillator).
- 0x02, HFCLK - HFCLK.
+ 0x02, HFCLK - HFCLK (undivided).
  0x03, LFXOQ - LFXO (qualified).
  0x04, HFXOQ - HFXO (qualified).
  0x05, LFRCOQ - LFRCO (qualified).
  0x06, HFRCOQ - HFRCO (qualified).
  0x07, AUXHFRCOQ - AUXHFRCO (qualified).
  0x08, USHFRCO - USHFRCO
- 0x09, HFXOX2 - HFXOX2
           </description>
           <interpretation key="0x00000000" text="LFRCO"/>
           <interpretation key="0x00000001" text="LFXO"/>
@@ -1538,7 +1537,6 @@
           <interpretation key="0x00000006" text="HFRCOQ"/>
           <interpretation key="0x00000007" text="AUXHFRCOQ"/>
           <interpretation key="0x00000008" text="USHFRCO"/>
-          <interpretation key="0x00000009" text="HFXOX2"/>
         </field>
       </register>
       <register name="HFCORECLKDIV" address="0x400c8004" access="RW" resetvalue="0x00000000">
@@ -1624,22 +1622,17 @@
  0x02, 11MHZ - 11 MHz band. NOTE: Also set the TUNING value (bits 7:0) when changing band.
  0x03, 14MHZ - 14 MHz band. NOTE: Also set the TUNING value (bits 7:0) when changing band.
  0x04, 21MHZ - 21 MHz band. NOTE: Also set the TUNING value (bits 7:0) when changing band.
- 0x05, 28MHZ - 28 MHz band. NOTE: Also set the TUNING value (bits 7:0) when changing band.
           </description>
           <interpretation key="0x00000000" text="1MHZ"/>
           <interpretation key="0x00000001" text="7MHZ"/>
           <interpretation key="0x00000002" text="11MHZ"/>
           <interpretation key="0x00000003" text="14MHZ"/>
           <interpretation key="0x00000004" text="21MHZ"/>
-          <interpretation key="0x00000005" text="28MHZ"/>
         </field>
         <field name="SUDELAY" bitoffset="12" bitlength="5">
           <description>
         HFRCO Start-up Delay
           </description>
-        </field>
-        <field name="UNLOCK28MHZ" bitoffset="20" bitlength="1">
-          <description>HFRCO 28 Mhz band unlock</description>
         </field>
       </register>
       <register name="LFRCOCTRL" address="0x400c8010" access="RW" resetvalue="0x00000040">
@@ -2207,7 +2200,7 @@
         </field>
       </register>
       <register name="USHFRCOCTRL" address="0x400c80d4" access="RW" resetvalue="0x000FF040">
-        <description>USB Oscillator Control</description>
+        <description>USHFRCO Control</description>
         <field name="TUNING" bitoffset="0" bitlength="7">
           <description>
         USHFRCO frequency adjust
@@ -2226,11 +2219,28 @@
         </field>
       </register>
       <register name="USHFRCOTUNE" address="0x400c80d8" access="RW" resetvalue="0x00000020">
-        <description>USHFRCO frequency tune</description>
+        <description>USHFRCO Frequency Tune</description>
         <field name="FINETUNING" bitoffset="0" bitlength="6">
           <description>
         Oscillator fine frequency adjust
           </description>
+        </field>
+      </register>
+      <register name="USHFRCOCONF" address="0x400c80dc" access="RW" resetvalue="0x00000001">
+        <description>USHFRCO Configuration</description>
+        <field name="BAND" bitoffset="0" bitlength="3">
+          <description>
+ USHFRCO Band Select
+ -
+ Value, Description
+ 0x01, 48MHZ - 48 MHz band. NOTE: Also set the TUNING and FINETUNING value when changing band.
+ 0x03, 24MHZ - 24 MHz band. NOTE: Also set the TUNING and FINETUNING value when changing band.
+          </description>
+          <interpretation key="0x00000001" text="48MHZ"/>
+          <interpretation key="0x00000003" text="24MHZ"/>
+        </field>
+        <field name="USHFRCODIV2DIS" bitoffset="4" bitlength="1">
+          <description>USHFRCO divider for HFCLK disable</description>
         </field>
       </register>
     </registergroup>
@@ -2348,7 +2358,7 @@
           <description>Always Track Inputs</description>
         </field>
         <field name="RSSCOIST" bitoffset="29" bitlength="1">
-          <description>Reload-Start Sets Compare Ouptut initial State</description>
+          <description>Reload-Start Sets Compare Output initial State</description>
         </field>
       </register>
       <register name="CMD" address="0x40010004" access="WO" resetvalue="0x00000000">
@@ -3363,7 +3373,7 @@
           <description>Always Track Inputs</description>
         </field>
         <field name="RSSCOIST" bitoffset="29" bitlength="1">
-          <description>Reload-Start Sets Compare Ouptut initial State</description>
+          <description>Reload-Start Sets Compare Output initial State</description>
         </field>
       </register>
       <register name="CMD" address="0x40010404" access="WO" resetvalue="0x00000000">
@@ -4378,7 +4388,7 @@
           <description>Always Track Inputs</description>
         </field>
         <field name="RSSCOIST" bitoffset="29" bitlength="1">
-          <description>Reload-Start Sets Compare Ouptut initial State</description>
+          <description>Reload-Start Sets Compare Output initial State</description>
         </field>
       </register>
       <register name="CMD" address="0x40010804" access="WO" resetvalue="0x00000000">
@@ -5284,7 +5294,7 @@
   </group>
   <group name="ACMP" description="">
     <registergroup name="ACMP0" description="">
-      <register name="CTRL" address="0x40001000" access="RW" resetvalue="0x571C0000">
+      <register name="CTRL" address="0x40001000" access="RW" resetvalue="0x47000000">
         <description>Control Register</description>
         <field name="EN" bitoffset="0" bitlength="1">
           <description>Analog Comparator Enable</description>
@@ -5344,50 +5354,16 @@
           <interpretation key="0x00000006" text="256CYCLES"/>
           <interpretation key="0x00000007" text="512CYCLES"/>
         </field>
-        <field name="ALTHYSTSEL" bitoffset="12" bitlength="3">
-          <description>
- Alternate Hysteresis Select
- -
- Value, Description
- 0x00, HYST0 - No hysteresis.
- 0x01, HYST1 - ~15 mV hysteresis.
- 0x02, HYST2 - ~22 mV hysteresis.
- 0x03, HYST3 - ~29 mV hysteresis.
- 0x04, HYST4 - ~36 mV hysteresis.
- 0x05, HYST5 - ~43 mV hysteresis.
- 0x06, HYST6 - ~50 mV hysteresis.
- 0x07, HYST7 - ~57 mV hysteresis.
-          </description>
-          <interpretation key="0x00000000" text="HYST0"/>
-          <interpretation key="0x00000001" text="HYST1"/>
-          <interpretation key="0x00000002" text="HYST2"/>
-          <interpretation key="0x00000003" text="HYST3"/>
-          <interpretation key="0x00000004" text="HYST4"/>
-          <interpretation key="0x00000005" text="HYST5"/>
-          <interpretation key="0x00000006" text="HYST6"/>
-          <interpretation key="0x00000007" text="HYST7"/>
-        </field>
         <field name="IRISE" bitoffset="16" bitlength="1">
           <description>Rising Edge Interrupt Sense</description>
         </field>
         <field name="IFALL" bitoffset="17" bitlength="1">
           <description>Falling Edge Interrupt Sense</description>
         </field>
-        <field name="ALTBIASPROG" bitoffset="18" bitlength="4">
-          <description>
-        Alternate Bias Configuration
-          </description>
-        </field>
         <field name="BIASPROG" bitoffset="24" bitlength="4">
           <description>
         Bias Configuration
           </description>
-        </field>
-        <field name="ALTHALFBIAS" bitoffset="28" bitlength="1">
-          <description>Alternate Half Bias Current</description>
-        </field>
-        <field name="ALTFULLBIAS" bitoffset="29" bitlength="1">
-          <description>Alternate Full Bias Current</description>
         </field>
         <field name="HALFBIAS" bitoffset="30" bitlength="1">
           <description>Half Bias Current</description>
@@ -8142,9 +8118,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -8838,9 +8814,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -9534,9 +9510,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -10230,9 +10206,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -10926,9 +10902,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
@@ -11622,9 +11598,9 @@
  -
  Value, Description
  0x00, STANDARD - 6 mA drive current
- 0x01, LOWEST - 0.5 mA drive current
+ 0x01, LOWEST - 0.1 mA drive current
  0x02, HIGH - 20 mA drive current
- 0x03, LOW - 2 mA drive current
+ 0x03, LOW - 1 mA drive current
           </description>
           <interpretation key="0x00000000" text="STANDARD"/>
           <interpretation key="0x00000001" text="LOWEST"/>
