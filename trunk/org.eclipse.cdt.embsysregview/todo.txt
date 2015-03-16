@@ -12,6 +12,7 @@ bugfixing:
 
 enhancements:
 =============
+*) High DPI support
 *) Project specific settings vs. Workspace settings
    * on a project basis would mean the view has to switch 
      to the other chip on the fly if you select the other project 
