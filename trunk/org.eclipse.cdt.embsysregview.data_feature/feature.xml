@@ -2,28 +2,19 @@
 <feature
       id="org.eclipse.cdt.embsysregview.data_feature"
       label="EmbSysRegView Data"
-      version="0.2.4.r168">
+      version="0.2.5.r180">
 
    <description url="http://embsysregview.sourceforge.net/">
-      This Plugin provides a Embedded Systems Peripherals Register
+      This Plugin provides the XML data files for the Embedded Systems Peripherals Register
 View
    </description>
 
-   <copyright url="http://www.example.com/copyright">
-      [Enter Copyright Description here.]
-   </copyright>
-
-   <license url="http://www.gnu.org/licenses/gpl-3.0.html">
-      EmbSysRegView is free software: you can redistribute it and/or
-modify it under the terms of the GNU General Public License as
-published by the Free Software Foundation, either version 3 of
-the License, or (at your option) any later version.
-EmbSysRegView is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with EmbSysRegView.  If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+   <license url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2015 EmbSysRegView
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
    </license>
 
    <plugin
