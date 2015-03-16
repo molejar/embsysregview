@@ -5,14 +5,14 @@
 
       Here you can test new features, please leave comments (https://sourceforge.net/projects/embsysregview/forums/forum/1947616) and report bugs.
    </description>
-   <feature url="features/org.eclipse.cdt.embsysregview_feature_0.2.4.jar" id="org.eclipse.cdt.embsysregview_feature" version="0.2.4">
+   <feature url="features/org.eclipse.cdt.embsysregview_feature_0.2.5.jar" id="org.eclipse.cdt.embsysregview_feature" version="0.2.5">
       <category name="embsysregview"/>
    </feature>
-   <feature url="features/org.eclipse.cdt.embsysregview.data_feature_0.2.4.r168.jar" id="org.eclipse.cdt.embsysregview.data_feature" version="0.2.4.r168">
+   <feature url="features/org.eclipse.cdt.embsysregview.data_feature_0.2.5.r180.jar" id="org.eclipse.cdt.embsysregview.data_feature" version="0.2.5.r180">
       <category name="embsysregview"/>
    </feature>
-   <archive path="plugins/org.eclipse.cdt.embsysregview_0.2.3.90.jar" url="http://downloads.sourceforge.net/embsysregview/org.eclipse.cdt.embsysregview_0.2.3.90.jar"/>
-   <archive path="plugins/org.eclipse.cdt.embsysregview.data_0.2.3.r117.jar" url="http://downloads.sourceforge.net/embsysregview/org.eclipse.cdt.embsysregview.data_0.2.3.r117.jar"/>
+   <archive path="plugins/org.eclipse.cdt.embsysregview_0.2.5.jar" url="http://downloads.sourceforge.net/embsysregview/org.eclipse.cdt.embsysregview_0.2.5.jar"/>
+   <archive path="plugins/org.eclipse.cdt.embsysregview.data_0.2.5.r180.jar" url="http://downloads.sourceforge.net/embsysregview/org.eclipse.cdt.embsysregview.data_0.2.5.r180.jar"/>
    <category-def name="embsysregview" label="embsysregview">
       <description>
          Embedded System Peripherals Register View
