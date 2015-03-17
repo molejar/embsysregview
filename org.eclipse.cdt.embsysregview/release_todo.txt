@@ -17,6 +17,7 @@ Things to do for a new FULL release:
 * update site.xml on sf webspace with new version numbers
 * upload website to sf
 * post news article on sf
+* update version on Eclipse Marketplace
 
 
 Things to do for a new DATA release:
