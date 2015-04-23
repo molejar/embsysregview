@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<device schemaVersion="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_0.xsd">
+<device schemaVersion="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_1.xsd">
+  <vendor>Freescale Semiconductor, Inc.</vendor>
+  <vendorID>Freescale</vendorID>
+  <series>Kinetis_L</series>
   <name>MKL05Z4</name>
   <version>1.6</version>
   <description>MKL05Z4 Freescale Microcontroller</description>
+  <licenseText>Redistribution and use in source and binary forms, with or without modification,\nare permitted provided that the following conditions are met:\n o Redistributions of source code must retain the above copyright notice, this list\n   of conditions and the following disclaimer.\n o Redistributions in binary form must reproduce the above copyright notice, this\n   list of conditions and the following disclaimer in the documentation and/or\n   other materials provided with the distribution.\n o Neither the name of Freescale Semiconductor, Inc. nor the names of its\n   contributors may be used to endorse or promote products derived from this\n   software without specific prior written permission.\n THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND\n ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\n WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR\n ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON\n ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\n SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</licenseText>
+  <cpu>
+    <name>CM0PLUS</name>
+    <revision>r0p0</revision>
+    <endian>little</endian>
+    <mpuPresent>false</mpuPresent>
+    <fpuPresent>false</fpuPresent>
+    <mpuPresent>false</mpuPresent>
+    <vtorPresent>true</vtorPresent>
+    <nvicPrioBits>2</nvicPrioBits>
+    <vendorSystickConfig>false</vendorSystickConfig>
+  </cpu>
   <addressUnitBits>8</addressUnitBits>
   <width>32</width>
   <peripherals>
@@ -248,6 +263,18 @@
               <bitOffset>0</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>10</name>
+                  <description>MCU security status is unsecure</description>
+                  <value>#10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>11</name>
+                  <description>MCU security status is secure</description>
+                  <value>#11</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>FSLACC</name>
@@ -255,6 +282,18 @@
               <bitOffset>2</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>10</name>
+                  <description>Freescale factory access denied</description>
+                  <value>#10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>11</name>
+                  <description>Freescale factory access granted</description>
+                  <value>#11</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>MEEN</name>
@@ -262,6 +301,18 @@
               <bitOffset>4</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>10</name>
+                  <description>Mass erase is disabled</description>
+                  <value>#10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>11</name>
+                  <description>Mass erase is enabled</description>
+                  <value>#11</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>KEYEN</name>
@@ -269,6 +320,18 @@
               <bitOffset>6</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>10</name>
+                  <description>Backdoor key access enabled</description>
+                  <value>#10</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>11</name>
+                  <description>Backdoor key access disabled</description>
+                  <value>#11</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -287,13 +350,18 @@
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>00</name>
+                  <description>Core and system clock divider (OUTDIV1) is 0x7 (divide by 8) when LPBOOT1=0 or 0x1 (divide by 2) when LPBOOT1=1.</description>
+                  <value>#00</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>01</name>
+                  <description>Core and system clock divider (OUTDIV1) is 0x3 (divide by 4) when LPBOOT1=0 or 0x0 (divide by 1) when LPBOOT1=1.</description>
+                  <value>#01</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>NMI_DIS</name>
@@ -301,6 +369,18 @@
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>00</name>
+                  <description>NMI interrupts are always blocked</description>
+                  <value>#00</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>01</name>
+                  <description>NMI_b pin/interrupts reset default to enabled</description>
+                  <value>#01</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>RESET_PIN_CFG</name>
@@ -308,6 +388,18 @@
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>00</name>
+                  <description>RESET pin is disabled following a POR and cannot be enabled as reset function</description>
+                  <value>#00</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>01</name>
+                  <description>RESET_b pin is dedicated</description>
+                  <value>#01</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>LPBOOT1</name>
@@ -315,6 +407,18 @@
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>00</name>
+                  <description>Core and system clock divider (OUTDIV1) is 0x7 (divide by 8) when LPBOOT0=0 or 0x3 (divide by 4) when LPBOOT0=1.</description>
+                  <value>#00</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>01</name>
+                  <description>Core and system clock divider (OUTDIV1) is 0x1 (divide by 2) when LPBOOT0=0 or 0x0 (divide by 1) when LPBOOT0=1.</description>
+                  <value>#01</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>FAST_INIT</name>
@@ -322,20 +426,18 @@
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>00</name>
+                  <description>Slower initialization</description>
+                  <value>#00</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>01</name>
+                  <description>Fast Initialization</description>
+                  <value>#01</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -352,19 +454,19 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_DMA0</name>
+        <name>DMA0</name>
         <value>0</value>
       </interrupt>
       <interrupt>
-        <name>INT_DMA1</name>
+        <name>DMA1</name>
         <value>1</value>
       </interrupt>
       <interrupt>
-        <name>INT_DMA2</name>
+        <name>DMA2</name>
         <value>2</value>
       </interrupt>
       <interrupt>
-        <name>INT_DMA3</name>
+        <name>DMA3</name>
         <value>3</value>
       </interrupt>
       <registers>
@@ -487,13 +589,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>27</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>BED</name>
               <description>Bus error on destination</description>
               <bitOffset>28</bitOffset>
@@ -550,13 +645,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>31</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -567,136 +655,6 @@
           <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0xFF</resetMask>
-          <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>Transactions done.</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA transfer is not yet complete.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>DMA transfer completed.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Busy.</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA channel is inactive.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>BSY is set the first time the channel is enabled after a transfer is initiated.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Request.</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No request is pending or the channel is currently active.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel has a transfer remaining and the channel is not selected.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Bus error on destination.</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No bus error occurred.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel terminated with a bus error during the write portion of a transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Bus error on source.</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No bus error occurred.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel terminated with a bus error during the read portion of a transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Configuration error.</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No configuration error exists.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>A configuration error has occurred.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-          </fields>
         </register>
         <register>
           <dim>4</dim>
@@ -796,13 +754,6 @@
                   <value>#11</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>D_REQ</name>
@@ -1136,20 +1087,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>AA</name>
               <description>Auto-align</description>
               <bitOffset>28</bitOffset>
@@ -1235,136 +1172,6 @@
           <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0xFF</resetMask>
-          <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>Transactions done.</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA transfer is not yet complete.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>DMA transfer completed.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Busy.</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA channel is inactive.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>BSY is set the first time the channel is enabled after a transfer is initiated.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Request.</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No request is pending or the channel is currently active.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel has a transfer remaining and the channel is not selected.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Bus error on destination.</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No bus error occurred.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel terminated with a bus error during the write portion of a transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Bus error on source.</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No bus error occurred.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel terminated with a bus error during the read portion of a transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Configuration error.</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No configuration error exists.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>A configuration error has occurred.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-          </fields>
         </register>
         <register>
           <name>DSR2</name>
@@ -1374,136 +1181,6 @@
           <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0xFF</resetMask>
-          <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>Transactions done.</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA transfer is not yet complete.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>DMA transfer completed.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Busy.</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA channel is inactive.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>BSY is set the first time the channel is enabled after a transfer is initiated.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Request.</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No request is pending or the channel is currently active.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel has a transfer remaining and the channel is not selected.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Bus error on destination.</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No bus error occurred.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel terminated with a bus error during the write portion of a transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Bus error on source.</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No bus error occurred.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel terminated with a bus error during the read portion of a transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Configuration error.</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No configuration error exists.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>A configuration error has occurred.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-          </fields>
         </register>
         <register>
           <name>DSR3</name>
@@ -1513,136 +1190,6 @@
           <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0xFF</resetMask>
-          <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>Transactions done.</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA transfer is not yet complete.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>DMA transfer completed.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Busy.</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA channel is inactive.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>BSY is set the first time the channel is enabled after a transfer is initiated.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Request.</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No request is pending or the channel is currently active.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel has a transfer remaining and the channel is not selected.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Bus error on destination.</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No bus error occurred.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel terminated with a bus error during the write portion of a transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Bus error on source.</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No bus error occurred.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel terminated with a bus error during the read portion of a transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Configuration error.</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No configuration error exists.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>A configuration error has occurred.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-          </fields>
         </register>
       </registers>
     </peripheral>
@@ -1657,7 +1204,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_FTFA</name>
+        <name>FTFA</name>
         <value>5</value>
       </interrupt>
       <registers>
@@ -1675,13 +1222,6 @@
               <description>Memory Controller Command Completion Status Flag</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>3</bitWidth>
               <access>read-only</access>
             </field>
             <field>
@@ -1771,20 +1311,6 @@
           <resetValue>0</resetValue>
           <resetMask>0xFF</resetMask>
           <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
             <field>
               <name>ERSSUSP</name>
               <description>Erase Suspend</description>
@@ -2147,7 +1673,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_PIT</name>
+        <name>PIT</name>
         <value>22</value>
       </interrupt>
       <registers>
@@ -2197,20 +1723,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>29</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -2361,13 +1873,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>29</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -2401,13 +1906,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>31</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
       </registers>
@@ -2424,7 +1922,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_TPM0</name>
+        <name>TPM0</name>
         <value>17</value>
       </interrupt>
       <registers>
@@ -2508,11 +2006,6 @@
                   <description>LPTPM counter increments on rising edge of LPTPM_EXTCLK synchronized to the LPTPM counter clock</description>
                   <value>#10</value>
                 </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved</description>
-                  <value>#11</value>
-                </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
@@ -2591,13 +2084,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>23</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -2616,13 +2102,6 @@
               <bitWidth>16</bitWidth>
               <access>read-write</access>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -2640,13 +2119,6 @@
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -2680,13 +2152,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>ELSA</name>
@@ -2754,13 +2219,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -2781,13 +2239,6 @@
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -2915,13 +2366,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>TOF</name>
               <description>Timer Overflow Flag</description>
               <bitOffset>8</bitOffset>
@@ -2940,13 +2384,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>23</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -2958,13 +2395,6 @@
           <resetValue>0</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-only</access>
-            </field>
             <field>
               <name>DOZEEN</name>
               <description>Doze Enable</description>
@@ -3004,13 +2434,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>GTBEEN</name>
               <description>Global time base enable</description>
               <bitOffset>9</bitOffset>
@@ -3028,13 +2451,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>6</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>CSOT</name>
@@ -3094,25 +2510,11 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>TRGSEL</name>
               <description>Trigger Select</description>
               <bitOffset>24</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>28</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -3130,7 +2532,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_TPM1</name>
+        <name>TPM1</name>
         <value>18</value>
       </interrupt>
       <registers>
@@ -3214,11 +2616,6 @@
                   <description>LPTPM counter increments on rising edge of LPTPM_EXTCLK synchronized to the LPTPM counter clock</description>
                   <value>#10</value>
                 </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved</description>
-                  <value>#11</value>
-                </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
@@ -3297,13 +2694,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>23</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -3322,13 +2712,6 @@
               <bitWidth>16</bitWidth>
               <access>read-write</access>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -3346,13 +2729,6 @@
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -3386,13 +2762,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>ELSA</name>
@@ -3460,13 +2829,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -3487,13 +2849,6 @@
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -3621,13 +2976,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>TOF</name>
               <description>Timer Overflow Flag</description>
               <bitOffset>8</bitOffset>
@@ -3646,13 +2994,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>23</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -3664,13 +3005,6 @@
           <resetValue>0</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-only</access>
-            </field>
             <field>
               <name>DOZEEN</name>
               <description>Doze Enable</description>
@@ -3710,13 +3044,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>GTBEEN</name>
               <description>Global time base enable</description>
               <bitOffset>9</bitOffset>
@@ -3734,13 +3061,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>6</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>CSOT</name>
@@ -3800,25 +3120,11 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>TRGSEL</name>
               <description>Trigger Select</description>
               <bitOffset>24</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>28</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -3835,7 +3141,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_ADC0</name>
+        <name>ADC0</name>
         <value>15</value>
       </interrupt>
       <registers>
@@ -3979,16 +3285,6 @@
                   <value>#10111</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>11000</name>
-                  <description>Reserved.</description>
-                  <value>#11000</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11001</name>
-                  <description>Reserved.</description>
-                  <value>#11001</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>11010</name>
                   <description>Temp Sensor (single-ended) is selected as input.</description>
                   <value>#11010</value>
@@ -3997,11 +3293,6 @@
                   <name>11011</name>
                   <description>Bandgap (single-ended) is selected as input.</description>
                   <value>#11011</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11100</name>
-                  <description>Reserved.</description>
-                  <value>#11100</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>11101</name>
@@ -4019,13 +3310,6 @@
                   <value>#11111</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>AIEN</name>
@@ -4064,13 +3348,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -4208,13 +3485,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -4312,20 +3582,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -4344,13 +3600,6 @@
               <name>D</name>
               <description>Data result</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
               <bitWidth>16</bitWidth>
               <access>read-only</access>
             </field>
@@ -4374,13 +3623,6 @@
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -4409,16 +3651,6 @@
                   <name>01</name>
                   <description>Alternate reference pair, that is, VALTH and VALTL . This pair may be additional external pins or internal sources depending on the MCU configuration. See the chip configuration information for details specific to this MCU</description>
                   <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>Reserved</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved</description>
-                  <value>#11</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -4536,13 +3768,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -4622,18 +3847,11 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>CALF</name>
               <description>Calibration Failed Flag</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-only</access>
+              <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0</name>
@@ -4654,13 +3872,6 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -4678,13 +3889,6 @@
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -4704,13 +3908,6 @@
               <bitWidth>16</bitWidth>
               <access>read-write</access>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -4728,13 +3925,6 @@
               <bitOffset>0</bitOffset>
               <bitWidth>6</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>26</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -4754,13 +3944,6 @@
               <bitWidth>6</bitWidth>
               <access>read-write</access>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>26</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -4778,13 +3961,6 @@
               <bitOffset>0</bitOffset>
               <bitWidth>10</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>22</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -4804,13 +3980,6 @@
               <bitWidth>9</bitWidth>
               <access>read-write</access>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>23</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -4828,13 +3997,6 @@
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -4854,13 +4016,6 @@
               <bitWidth>7</bitWidth>
               <access>read-write</access>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>25</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -4879,13 +4034,6 @@
               <bitWidth>6</bitWidth>
               <access>read-write</access>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>26</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
       </registers>
@@ -4901,11 +4049,11 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_RTC</name>
+        <name>RTC</name>
         <value>20</value>
       </interrupt>
       <interrupt>
-        <name>INT_RTC_Seconds</name>
+        <name>RTC_Seconds</name>
         <value>21</value>
       </interrupt>
       <registers>
@@ -4942,13 +4090,6 @@
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -5122,13 +4263,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>OSCE</name>
               <description>Oscillator Enable</description>
               <bitOffset>8</bitOffset>
@@ -5242,20 +4376,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>14</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>15</bitOffset>
-              <bitWidth>17</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -5325,13 +4445,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>TCE</name>
               <description>Time Counter Enable</description>
               <bitOffset>4</bitOffset>
@@ -5350,13 +4463,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>27</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -5368,13 +4474,6 @@
           <resetValue>0xFF</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
-            </field>
             <field>
               <name>TCL</name>
               <description>Time Compensation Lock</description>
@@ -5451,20 +4550,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -5534,13 +4619,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
               <name>TSIE</name>
               <description>Time Seconds Interrupt Enable</description>
               <bitOffset>4</bitOffset>
@@ -5558,13 +4636,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
             </field>
             <field>
               <name>WPON</name>
@@ -5585,13 +4656,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
       </registers>
@@ -5607,7 +4671,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_DAC0</name>
+        <name>DAC0</name>
         <value>25</value>
       </interrupt>
       <registers>
@@ -5650,13 +4714,6 @@
               <bitOffset>0</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -5707,13 +4764,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>6</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -5762,13 +4812,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>LPEN</name>
@@ -5896,13 +4939,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>DACBFMD</name>
               <description>DAC Buffer Work Mode Select</description>
               <bitOffset>2</bitOffset>
@@ -5920,13 +4956,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>DMAEN</name>
@@ -5966,25 +4995,11 @@
               <access>read-write</access>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>DACBFRP</name>
               <description>DAC Buffer Read Pointer</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -6001,7 +5016,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_LPTimer</name>
+        <name>LPTMR0</name>
         <value>28</value>
       </interrupt>
       <registers>
@@ -6157,13 +5172,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -6312,13 +5320,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>25</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -6337,13 +5338,6 @@
               <bitWidth>16</bitWidth>
               <access>read-write</access>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -6351,7 +5345,7 @@
           <description>Low Power Timer Counter Register</description>
           <addressOffset>0xC</addressOffset>
           <size>32</size>
-          <access>read-only</access>
+          <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
@@ -6360,14 +5354,7 @@
               <description>Counter Value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
+              <access>read-write</access>
             </field>
           </fields>
         </register>
@@ -6384,7 +5371,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_TSI0</name>
+        <name>TSI0</name>
         <value>26</value>
       </interrupt>
       <registers>
@@ -6397,13 +5384,6 @@
           <resetValue>0</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
             <field>
               <name>CURSW</name>
               <description>CURSW</description>
@@ -6769,37 +5749,37 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>001</name>
-                  <description>1 μA.</description>
+                  <description>1 uA.</description>
                   <value>#001</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>010</name>
-                  <description>2 μA.</description>
+                  <description>2 uA.</description>
                   <value>#010</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>011</name>
-                  <description>4 μA.</description>
+                  <description>4 uA.</description>
                   <value>#011</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>100</name>
-                  <description>8 μA.</description>
+                  <description>8 uA.</description>
                   <value>#100</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>101</name>
-                  <description>16 μA.</description>
+                  <description>16 uA.</description>
                   <value>#101</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>110</name>
-                  <description>32 μA.</description>
+                  <description>32 uA.</description>
                   <value>#110</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>111</name>
-                  <description>64 μA.</description>
+                  <description>64 uA.</description>
                   <value>#111</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -6847,37 +5827,37 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>001</name>
-                  <description>1 μA.</description>
+                  <description>1 uA.</description>
                   <value>#001</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>010</name>
-                  <description>2 μA.</description>
+                  <description>2 uA.</description>
                   <value>#010</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>011</name>
-                  <description>4 μA.</description>
+                  <description>4 uA.</description>
                   <value>#011</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>100</name>
-                  <description>8 μA.</description>
+                  <description>8 uA.</description>
                   <value>#100</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>101</name>
-                  <description>16 μA.</description>
+                  <description>16 uA.</description>
                   <value>#101</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>110</name>
-                  <description>32 μA.</description>
+                  <description>32 uA.</description>
                   <value>#110</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>111</name>
-                  <description>64 μA.</description>
+                  <description>64 uA.</description>
                   <value>#111</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -6931,13 +5911,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>29</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>OUTRGF</name>
               <description>Out of Range Flag.</description>
               <bitOffset>31</bitOffset>
@@ -6960,13 +5933,6 @@
               <description>TSI Conversion Counter Value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>16</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>6</bitWidth>
               <access>read-only</access>
             </field>
             <field>
@@ -7006,13 +5972,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>TSICH</name>
@@ -7153,13 +6112,6 @@
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>18</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>OSC32KSEL</name>
               <description>32K oscillator clock select</description>
               <bitOffset>18</bitOffset>
@@ -7170,11 +6122,6 @@
                   <name>00</name>
                   <description>System oscillator (OSC32KCLK)</description>
                   <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>Reserved</description>
-                  <value>#01</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>10</name>
@@ -7188,13 +6135,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>12</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -7205,22 +6145,6 @@
           <access>read-only</access>
           <resetValue>0</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-only</access>
-            </field>
-          </fields>
         </register>
         <register>
           <name>SOPT2</name>
@@ -7231,13 +6155,6 @@
           <resetValue>0</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
             <field>
               <name>RTCCLKOUTSEL</name>
               <description>RTC clock out select</description>
@@ -7265,16 +6182,6 @@
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>000</name>
-                  <description>Reserved</description>
-                  <value>#000</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>001</name>
-                  <description>Reserved</description>
-                  <value>#001</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>010</name>
                   <description>Bus clock</description>
                   <value>#010</value>
@@ -7290,35 +6197,11 @@
                   <value>#100</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>101</name>
-                  <description>Reserved</description>
-                  <value>#101</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>110</name>
                   <description>OSCERCLK</description>
                   <value>#110</value>
                 </enumeratedValue>
-                <enumeratedValue>
-                  <name>111</name>
-                  <description>Reserved</description>
-                  <value>#111</value>
-                </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>TPMSRC</name>
@@ -7378,13 +6261,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>28</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -7396,13 +6272,6 @@
           <resetValue>0</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>18</bitWidth>
-              <access>read-only</access>
-            </field>
             <field>
               <name>TPM1CH0SRC</name>
               <description>TPM1 channel 0 input capture source select</description>
@@ -7421,27 +6290,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>21</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>TPM0CLKSEL</name>
@@ -7481,20 +6329,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>26</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>27</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -7526,13 +6360,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>UART0RXSRC</name>
               <description>UART0 receive data source select</description>
               <bitOffset>2</bitOffset>
@@ -7552,27 +6379,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>9</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>UART0ODE</name>
               <description>UART0 Open Drain Enable</description>
               <bitOffset>16</bitOffset>
@@ -7590,34 +6396,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>18</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>12</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -7648,16 +6426,6 @@
                   <value>#0001</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>0010</name>
-                  <description>Reserved</description>
-                  <value>#0010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0011</name>
-                  <description>Reserved</description>
-                  <value>#0011</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>0100</name>
                   <description>PIT trigger 0</description>
                   <value>#0100</value>
@@ -7668,16 +6436,6 @@
                   <value>#0101</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>0110</name>
-                  <description>Reserved</description>
-                  <value>#0110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0111</name>
-                  <description>Reserved</description>
-                  <value>#0111</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>1000</name>
                   <description>TPM0 overflow</description>
                   <value>#1000</value>
@@ -7686,16 +6444,6 @@
                   <name>1001</name>
                   <description>TPM1 overflow</description>
                   <value>#1001</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1010</name>
-                  <description>Reserved</description>
-                  <value>#1010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1011</name>
-                  <description>Reserved</description>
-                  <value>#1011</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>1100</name>
@@ -7711,11 +6459,6 @@
                   <name>1110</name>
                   <description>LPTMR0 trigger</description>
                   <value>#1110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1111</name>
-                  <description>Reserved</description>
-                  <value>#1111</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -7739,13 +6482,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>ADC0ALTTRGEN</name>
               <description>ADC0 alternate trigger enable</description>
               <bitOffset>7</bitOffset>
@@ -7763,13 +6499,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -7805,11 +6534,6 @@
                   <value>#0010</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>0011</name>
-                  <description>Reserved</description>
-                  <value>#0011</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>0100</name>
                   <description>48-pin</description>
                   <value>#0100</value>
@@ -7825,58 +6549,11 @@
                   <value>#0110</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>0111</name>
-                  <description>Reserved</description>
-                  <value>#0111</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>1000</name>
                   <description>100-pin</description>
                   <value>#1000</value>
                 </enumeratedValue>
-                <enumeratedValue>
-                  <name>1001</name>
-                  <description>Reserved</description>
-                  <value>#1001</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1010</name>
-                  <description>Reserved</description>
-                  <value>#1010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1011</name>
-                  <description>Reserved</description>
-                  <value>#1011</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1100</name>
-                  <description>Reserved</description>
-                  <value>#1100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1101</name>
-                  <description>Reserved</description>
-                  <value>#1101</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1110</name>
-                  <description>Reserved</description>
-                  <value>#1110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1111</name>
-                  <description>Reserved</description>
-                  <value>#1111</value>
-                </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>DIEID</name>
@@ -8030,20 +6707,6 @@
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>I2C0</name>
               <description>I2C0 Clock Gate Control</description>
               <bitOffset>6</bitOffset>
@@ -8061,20 +6724,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>UART0</name>
@@ -8096,41 +6745,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>11</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>13</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>14</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>18</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>CMP</name>
               <description>Comparator Clock Gate Control</description>
               <bitOffset>19</bitOffset>
@@ -8150,13 +6764,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>SPI0</name>
               <description>SPI0 Clock Gate Control</description>
               <bitOffset>22</bitOffset>
@@ -8174,27 +6781,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>23</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>28</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -8227,20 +6813,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>TSI</name>
               <description>TSI Access Control</description>
               <bitOffset>5</bitOffset>
@@ -8258,20 +6830,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>PORTA</name>
@@ -8310,34 +6868,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>11</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>14</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>12</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -8387,27 +6917,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>13</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>15</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>PIT</name>
@@ -8467,13 +6976,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>26</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>ADC0</name>
               <description>ADC0 Clock Gate Control</description>
               <bitOffset>27</bitOffset>
@@ -8493,13 +6995,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>28</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>RTC</name>
               <description>RTC Access Control</description>
               <bitOffset>29</bitOffset>
@@ -8517,13 +7012,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>30</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>DAC0</name>
@@ -8556,13 +7044,6 @@
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>DMA</name>
               <description>DMA Clock Gate Control</description>
               <bitOffset>8</bitOffset>
@@ -8581,13 +7062,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>23</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -8599,13 +7073,6 @@
           <resetValue>0x10000</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
-            </field>
             <field>
               <name>OUTDIV4</name>
               <description>Clock 4 output divider value</description>
@@ -8654,13 +7121,6 @@
                   <value>#111</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>9</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>OUTDIV1</name>
@@ -8801,13 +7261,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>22</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>PFSIZE</name>
               <description>Program flash size</description>
               <bitOffset>24</bitOffset>
@@ -8851,13 +7304,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>28</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -8870,38 +7316,10 @@
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>23</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>MAXADDR0</name>
               <description>Max address block</description>
               <bitOffset>24</bitOffset>
               <bitWidth>7</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>31</bitOffset>
-              <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
           </fields>
@@ -8919,13 +7337,6 @@
               <name>UID</name>
               <description>Unique Identification</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>16</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
               <bitWidth>16</bitWidth>
               <access>read-only</access>
             </field>
@@ -9043,13 +7454,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>28</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -9068,13 +7472,6 @@
               <bitWidth>8</bitWidth>
               <access>write-only</access>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>write-only</access>
-            </field>
           </fields>
         </register>
       </registers>
@@ -9090,6 +7487,10 @@
         <size>0xA4</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>PORTA</name>
+        <value>30</value>
+      </interrupt>
       <registers>
         <register>
           <dim>32</dim>
@@ -9100,8 +7501,8 @@
           <addressOffset>0</addressOffset>
           <size>32</size>
           <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFF8A8</resetMask>
+          <resetValue>0x6</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
           <fields>
             <field>
               <name>PS</name>
@@ -9161,13 +7562,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>PFE</name>
               <description>Passive Filter Enable</description>
               <bitOffset>4</bitOffset>
@@ -9187,13 +7581,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>DSE</name>
               <description>Drive Strength Enable</description>
               <bitOffset>6</bitOffset>
@@ -9211,13 +7598,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>MUX</name>
@@ -9267,13 +7647,6 @@
                   <value>#111</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>11</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>IRQC</name>
@@ -9330,13 +7703,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>ISF</name>
               <description>Interrupt Status Flag</description>
               <bitOffset>24</bitOffset>
@@ -9354,13 +7720,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -9481,6 +7840,10 @@
         <size>0xA4</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>PORTB</name>
+        <value>31</value>
+      </interrupt>
       <registers>
         <register>
           <dim>32</dim>
@@ -9491,8 +7854,8 @@
           <addressOffset>0</addressOffset>
           <size>32</size>
           <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFF8A8</resetMask>
+          <resetValue>0x1</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
           <fields>
             <field>
               <name>PS</name>
@@ -9552,13 +7915,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>PFE</name>
               <description>Passive Filter Enable</description>
               <bitOffset>4</bitOffset>
@@ -9578,13 +7934,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>DSE</name>
               <description>Drive Strength Enable</description>
               <bitOffset>6</bitOffset>
@@ -9602,13 +7951,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>MUX</name>
@@ -9658,13 +8000,6 @@
                   <value>#111</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>11</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>IRQC</name>
@@ -9721,13 +8056,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>ISF</name>
               <description>Interrupt Status Flag</description>
               <bitOffset>24</bitOffset>
@@ -9745,13 +8073,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -9871,6 +8192,10 @@
         <size>0xC</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>MCG</name>
+        <value>27</value>
+      </interrupt>
       <registers>
         <register>
           <name>C1</name>
@@ -10123,13 +8448,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>LOCRE0</name>
               <description>Loss of Clock Reset Enable</description>
               <bitOffset>7</bitOffset>
@@ -10249,15 +8567,6 @@
           <access>read-only</access>
           <resetValue>0</resetValue>
           <resetMask>0xFF</resetMask>
-          <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>Reserved</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-only</access>
-            </field>
-          </fields>
         </register>
         <register>
           <name>C6</name>
@@ -10268,13 +8577,6 @@
           <resetValue>0</resetValue>
           <resetMask>0xFF</resetMask>
           <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>Reserved</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-only</access>
-            </field>
             <field>
               <name>CME</name>
               <description>Clock Monitor Enable</description>
@@ -10293,13 +8595,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Reserved</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -10360,11 +8655,6 @@
                   <description>Encoding 2 - External reference clock is selected.</description>
                   <value>#10</value>
                 </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved.</description>
-                  <value>#11</value>
-                </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
@@ -10386,13 +8676,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>Reserved</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -10409,7 +8692,7 @@
               <description>OSC0 Loss of Clock Status</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-only</access>
+              <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0</name>
@@ -10496,7 +8779,7 @@
               <description>Automatic Trim Machine Fail Flag</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-only</access>
+              <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0</name>
@@ -10685,13 +8968,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>EREFSTEN</name>
               <description>External Reference Stop Enable</description>
               <bitOffset>5</bitOffset>
@@ -10709,13 +8985,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>ERCLKEN</name>
@@ -10751,7 +9020,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_I2C0</name>
+        <name>I2C0</name>
         <value>8</value>
       </interrupt>
       <registers>
@@ -10764,13 +9033,6 @@
           <resetValue>0</resetValue>
           <resetMask>0xFF</resetMask>
           <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
             <field>
               <name>AD</name>
               <description>Address</description>
@@ -10817,11 +9079,6 @@
                   <name>10</name>
                   <description>mul = 4</description>
                   <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved</description>
-                  <value>#11</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -11285,7 +9542,7 @@
               <name>FLT</name>
               <description>I2C Programmable Filter Factor</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>5</bitWidth>
+              <bitWidth>4</bitWidth>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
@@ -11296,20 +9553,39 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>STOPIE</name>
-              <description>I2C Bus Stop Interrupt Enable</description>
+              <name>STARTF</name>
+              <description>I2C Bus Start Detect Flag</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>0</name>
+                  <description>No start happens on I2C bus</description>
+                  <value>#0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>1</name>
+                  <description>Start detected on I2C bus</description>
+                  <value>#1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>SSIE</name>
+              <description>I2C Bus Stop or Start Interrupt Enable</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0</name>
-                  <description>Stop detection interrupt is disabled</description>
+                  <description>Stop or start detection interrupt is disabled</description>
                   <value>#0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>1</name>
-                  <description>Stop detection interrupt is enabled</description>
+                  <description>Stop or start detection interrupt is enabled</description>
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -11363,13 +9639,6 @@
           <resetValue>0</resetValue>
           <resetMask>0xFF</resetMask>
           <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
             <field>
               <name>RAD</name>
               <description>Range Slave Address</description>
@@ -11552,13 +9821,6 @@
           <resetMask>0xFF</resetMask>
           <fields>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>SAD</name>
               <description>SMBus Address</description>
               <bitOffset>1</bitOffset>
@@ -11616,7 +9878,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_UART0</name>
+        <name>UART0</name>
         <value>12</value>
       </interrupt>
       <registers>
@@ -12730,13 +10992,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>RDMAE</name>
               <description>Receiver Full DMA Enable</description>
               <bitOffset>5</bitOffset>
@@ -12754,13 +11009,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>TDMAE</name>
@@ -12796,7 +11044,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_CMP0</name>
+        <name>CMP0</name>
         <value>16</value>
       </interrupt>
       <registers>
@@ -12837,20 +11085,6 @@
                   <value>#11</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>FILTER_CNT</name>
@@ -12900,13 +11134,6 @@
                   <value>#111</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -13184,13 +11411,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>DMAEN</name>
               <description>DMA Enable Control</description>
               <bitOffset>6</bitOffset>
@@ -13208,13 +11428,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -13382,13 +11595,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>PSTM</name>
               <description>Pass Through Mode Enable</description>
               <bitOffset>7</bitOffset>
@@ -13422,7 +11628,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_SPI0</name>
+        <name>SPI0</name>
         <value>10</value>
       </interrupt>
       <registers>
@@ -13713,13 +11919,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>SPMIE</name>
               <description>SPI match interrupt enable</description>
               <bitOffset>7</bitOffset>
@@ -13852,13 +12051,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -13870,13 +12062,6 @@
           <resetValue>0x20</resetValue>
           <resetMask>0xFF</resetMask>
           <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
             <field>
               <name>MODF</name>
               <description>Master mode fault flag</description>
@@ -14004,7 +12189,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_LLW</name>
+        <name>LLW</name>
         <value>7</value>
       </interrupt>
       <registers>
@@ -14780,13 +12965,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>FILTE</name>
               <description>Digital Filter On External Pin</description>
               <bitOffset>5</bitOffset>
@@ -14865,13 +13043,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>FILTE</name>
               <description>Digital Filter On External Pin</description>
               <bitOffset>5</bitOffset>
@@ -14934,7 +13105,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_LVD_LVW</name>
+        <name>LVD_LVW</name>
         <value>6</value>
       </interrupt>
       <registers>
@@ -14964,24 +13135,7 @@
                   <description>High trip point selected (V LVD = V LVDH )</description>
                   <value>#01</value>
                 </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>Reserved</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved</description>
-                  <value>#11</value>
-                </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>LVDRE</name>
@@ -15088,13 +13242,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>LVWIE</name>
               <description>Low-Voltage Warning Interrupt Enable</description>
               <bitOffset>5</bitOffset>
@@ -15170,13 +13317,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>1</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
               <name>REGONS</name>
               <description>Regulator In Run Regulation Status</description>
               <bitOffset>2</bitOffset>
@@ -15233,20 +13373,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
       </registers>
@@ -15272,13 +13398,6 @@
           <resetMask>0xFF</resetMask>
           <fields>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>AVLLS</name>
               <description>Allow Very-Low-Leakage Stop Mode</description>
               <bitOffset>1</bitOffset>
@@ -15296,13 +13415,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>ALLS</name>
@@ -15324,13 +13436,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>AVLP</name>
               <description>Allow Very-Low-Power Modes</description>
               <bitOffset>5</bitOffset>
@@ -15348,13 +13453,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -15380,11 +13478,6 @@
                   <value>#000</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>001</name>
-                  <description>Reserved</description>
-                  <value>#001</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>010</name>
                   <description>Very-Low-Power Stop (VLPS)</description>
                   <value>#010</value>
@@ -15400,19 +13493,9 @@
                   <value>#100</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>101</name>
-                  <description>Reserved</description>
-                  <value>#101</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>110</name>
                   <description>Reseved</description>
                   <value>#110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>111</name>
-                  <description>Reserved</description>
-                  <value>#111</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -15436,13 +13519,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>RUNM</name>
               <description>Run Mode Control</description>
               <bitOffset>5</bitOffset>
@@ -15455,28 +13531,11 @@
                   <value>#00</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>01</name>
-                  <description>Reserved</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>10</name>
                   <description>Very-Low-Power Run mode (VLPR)</description>
                   <value>#10</value>
                 </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved</description>
-                  <value>#11</value>
-                </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -15507,50 +13566,11 @@
                   <value>#001</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>010</name>
-                  <description>Reserved</description>
-                  <value>#010</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>011</name>
                   <description>VLLS3</description>
                   <value>#011</value>
                 </enumeratedValue>
-                <enumeratedValue>
-                  <name>100</name>
-                  <description>Reserved</description>
-                  <value>#100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>101</name>
-                  <description>Reserved</description>
-                  <value>#101</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>110</name>
-                  <description>Reserved</description>
-                  <value>#110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>111</name>
-                  <description>Reserved</description>
-                  <value>#111</value>
-                </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>PORPO</name>
@@ -15593,11 +13613,6 @@
                   <description>PSTOP2 - Partial Stop with system clock disabled and bus clock enabled</description>
                   <value>#10</value>
                 </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved</description>
-                  <value>#11</value>
-                </enumeratedValue>
               </enumeratedValues>
             </field>
           </fields>
@@ -15616,13 +13631,6 @@
               <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>7</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
           </fields>
@@ -15707,13 +13715,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>WDOG</name>
               <description>Watchdog</description>
               <bitOffset>5</bitOffset>
@@ -15782,13 +13783,6 @@
           <resetMask>0xFF</resetMask>
           <fields>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>LOCKUP</name>
               <description>Core Lockup</description>
               <bitOffset>1</bitOffset>
@@ -15846,13 +13840,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>SACKERR</name>
               <description>Stop Mode Acknowledge Error Reset</description>
               <bitOffset>5</bitOffset>
@@ -15870,20 +13857,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>6</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -15918,11 +13891,6 @@
                   <description>LPO clock filter enabled for normal operation</description>
                   <value>#10</value>
                 </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved</description>
-                  <value>#11</value>
-                </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
@@ -15943,13 +13911,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>5</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -16131,19 +14092,12 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>3</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
       </registers>
     </peripheral>
     <peripheral>
-      <name>PTA</name>
+      <name>GPIOA</name>
       <description>General Purpose Input/Output</description>
       <groupName>GPIO</groupName>
       <prependToName>GPIOA_</prependToName>
@@ -16154,7 +14108,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_PORTA</name>
+        <name>PORTA</name>
         <value>30</value>
       </interrupt>
       <registers>
@@ -16341,7 +14295,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>PTB</name>
+      <name>GPIOB</name>
       <description>General Purpose Input/Output</description>
       <groupName>GPIO</groupName>
       <prependToName>GPIOB_</prependToName>
@@ -16352,7 +14306,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>INT_PORTB</name>
+        <name>PORTB</name>
         <value>31</value>
       </interrupt>
       <registers>
@@ -16559,13 +14513,6 @@
           <resetMask>0x3</resetMask>
           <fields>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>WRAP</name>
               <description>no description available</description>
               <bitOffset>2</bitOffset>
@@ -16633,13 +14580,6 @@
               <access>read-write</access>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>21</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>EN</name>
               <description>Main trace enable bit</description>
               <bitOffset>31</bitOffset>
@@ -16670,13 +14610,6 @@
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>WATERMARK</name>
@@ -16830,13 +14763,6 @@
               <description>no description available</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>28</bitWidth>
               <access>read-only</access>
             </field>
           </fields>
@@ -17015,13 +14941,6 @@
               <bitWidth>5</bitWidth>
               <access>read-write</access>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>5</bitOffset>
-              <bitWidth>27</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -17068,13 +14987,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>DATAVMATCH</name>
               <description>Data Value Match</description>
               <bitOffset>8</bitOffset>
@@ -17092,13 +15004,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>9</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>DATAVSIZE</name>
@@ -17137,20 +15042,6 @@
               <access>read-write</access>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>MATCHED</name>
               <description>Comparator match</description>
               <bitOffset>24</bitOffset>
@@ -17168,13 +15059,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -17222,13 +15106,6 @@
               </enumeratedValues>
             </field>
             <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>20</bitWidth>
-              <access>read-only</access>
-            </field>
-            <field>
               <name>MATCHED</name>
               <description>Comparator match</description>
               <bitOffset>24</bitOffset>
@@ -17246,13 +15123,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>7</bitWidth>
-              <access>read-only</access>
             </field>
           </fields>
         </register>
@@ -17302,13 +15172,6 @@
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
-            </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>26</bitWidth>
-              <access>read-only</access>
             </field>
             <field>
               <name>NUMCOMP</name>
@@ -17550,13 +15413,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -17587,13 +15443,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>8</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -17605,13 +15454,6 @@
           <resetValue>0</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>9</bitWidth>
-              <access>read-only</access>
-            </field>
             <field>
               <name>ARB</name>
               <description>Arbitration select</description>
@@ -17752,13 +15594,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>15</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
@@ -17827,19 +15662,12 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>RESERVED</name>
-              <description>no description available</description>
-              <bitOffset>3</bitOffset>
-              <bitWidth>29</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
       </registers>
     </peripheral>
     <peripheral>
-      <name>FPTA</name>
+      <name>FGPIOA</name>
       <description>General Purpose Input/Output</description>
       <groupName>FGPIO</groupName>
       <prependToName>FGPIOA_</prependToName>
@@ -18033,7 +15861,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>FPTB</name>
+      <name>FGPIOB</name>
       <description>General Purpose Input/Output</description>
       <groupName>FGPIO</groupName>
       <prependToName>FGPIOB_</prependToName>
